@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+d982a21f06760be72f9176ea70856efe hercules/proto/hercules_service.pb.h
+384b6a5bf153b1e82025cb26dcdd7024 hercules/proto/model_config.pb.h

@@ -1,0 +1,33 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=~/miniconda3/envs/hercules-dev -G "CodeBlocks - Unix Makefiles" /Users/liyinbin/github/flare-rpc/hercules
+bash: /Users/liyinbin/github/flare-rpc/hercules/tools/get_project_version.sh: No such file or directory
+-- [32m[carbin] /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug[m
+-- [32m[carbin] /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug;/Users/liyinbin/github/flare-rpc/hercules[m
+-----------------------------------
+[33mCreate Library[m:                [36mhercules::proto[m
+-----------------------------------
+-----------------------------------
+[33mCreate Library[m:                [36mhercules::core[m
+-----------------------------------
+--------------- summary ---------------------
+[33mNameSpace[m:                     [36mhercules[m
+[33mVersion[m:                       [36m0.1.0[m
+[33mInstall dir[m:                   [36m/usr/local[m
+[33mPlatform[m:                      [36m[m
+[33mPackage File[m:                  [36m[m
+[33mPckage Type[m:
+[33mCMAKE_MODULE_PATH[m:
+ - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake[m
+ - [36m/Users/liyinbin/github/flare-rpc/hercules/copts[m
+ - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake/modules[m
+ - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes[m
+ - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes[m
+[33mCMAKE_PREFIX_PATH[m:
+ - [36m~/miniconda3/envs/hercules-dev[m
+ - [36m/Users/liyinbin/miniconda3/envs/flare-dev[m
+[33mCARBIN_INCLUDE_DIRS[m:
+ - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug[m
+ - [36m/Users/liyinbin/github/flare-rpc/hercules[m
+-------------------------
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug

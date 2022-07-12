@@ -1,0 +1,7 @@
+name:  hercules-dev
+channels:
+  - conda-forge
+  - defaults
+  - flare-rpc
+dependencies:
+  - tensorflow_cc
