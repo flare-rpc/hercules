@@ -32,3 +32,6 @@
 *.app
 
 *.pb.h
+build
+.idea
+cmake-build-debug
