@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 // A log message.
 class LogMessage {
@@ -74,30 +74,30 @@ class Logger {
 extern Logger gLogger_;
 
 #define LOG_ENABLE_INFO(E)             \
-  triton::common::gLogger_.SetEnabled( \
-      triton::common::LogMessage::Level::kINFO, (E))
+  hercules::common::gLogger_.SetEnabled( \
+      hercules::common::LogMessage::Level::kINFO, (E))
 #define LOG_ENABLE_WARNING(E)          \
-  triton::common::gLogger_.SetEnabled( \
-      triton::common::LogMessage::Level::kWARNING, (E))
+  hercules::common::gLogger_.SetEnabled( \
+      hercules::common::LogMessage::Level::kWARNING, (E))
 #define LOG_ENABLE_ERROR(E)            \
-  triton::common::gLogger_.SetEnabled( \
-      triton::common::LogMessage::Level::kERROR, (E))
+  hercules::common::gLogger_.SetEnabled( \
+      hercules::common::LogMessage::Level::kERROR, (E))
 #define LOG_SET_VERBOSE(L)                  \
-  triton::common::gLogger_.SetVerboseLevel( \
+  hercules::common::gLogger_.SetVerboseLevel( \
       static_cast<uint32_t>(std::max(0, (L))))
 #define LOG_SET_FORMAT(F) \
-  triton::common::gLogger_.SetLogFormat((F))
+  hercules::common::gLogger_.SetLogFormat((F))
 
 #ifdef TRITON_ENABLE_LOGGING
 
 #define LOG_INFO_IS_ON \
-  triton::common::gLogger_.IsEnabled(triton::common::LogMessage::Level::kINFO)
+  hercules::common::gLogger_.IsEnabled(hercules::common::LogMessage::Level::kINFO)
 #define LOG_WARNING_IS_ON             \
-  triton::common::gLogger_.IsEnabled( \
-      triton::common::LogMessage::Level::kWARNING)
+  hercules::common::gLogger_.IsEnabled( \
+      hercules::common::LogMessage::Level::kWARNING)
 #define LOG_ERROR_IS_ON \
-  triton::common::gLogger_.IsEnabled(triton::common::LogMessage::Level::kERROR)
-#define LOG_VERBOSE_IS_ON(L) (triton::common::gLogger_.VerboseLevel() >= (L))
+  hercules::common::gLogger_.IsEnabled(hercules::common::LogMessage::Level::kERROR)
+#define LOG_VERBOSE_IS_ON(L) (hercules::common::gLogger_.VerboseLevel() >= (L))
 
 #else
 
@@ -112,23 +112,23 @@ extern Logger gLogger_;
 // Macros that use explicitly given filename and line number.
 #define LOG_INFO_FL(FN, LN)                                      \
   if (LOG_INFO_IS_ON)                                            \
-  triton::common::LogMessage(                                    \
-      (char*)(FN), LN, triton::common::LogMessage::Level::kINFO) \
+  hercules::common::LogMessage(                                    \
+      (char*)(FN), LN, hercules::common::LogMessage::Level::kINFO) \
       .stream()
 #define LOG_WARNING_FL(FN, LN)                                      \
   if (LOG_WARNING_IS_ON)                                            \
-  triton::common::LogMessage(                                       \
-      (char*)(FN), LN, triton::common::LogMessage::Level::kWARNING) \
+  hercules::common::LogMessage(                                       \
+      (char*)(FN), LN, hercules::common::LogMessage::Level::kWARNING) \
       .stream()
 #define LOG_ERROR_FL(FN, LN)                                      \
   if (LOG_ERROR_IS_ON)                                            \
-  triton::common::LogMessage(                                     \
-      (char*)(FN), LN, triton::common::LogMessage::Level::kERROR) \
+  hercules::common::LogMessage(                                     \
+      (char*)(FN), LN, hercules::common::LogMessage::Level::kERROR) \
       .stream()
 #define LOG_VERBOSE_FL(L, FN, LN)                                \
   if (LOG_VERBOSE_IS_ON(L))                                      \
-  triton::common::LogMessage(                                    \
-      (char*)(FN), LN, triton::common::LogMessage::Level::kINFO) \
+  hercules::common::LogMessage(                                    \
+      (char*)(FN), LN, hercules::common::LogMessage::Level::kINFO) \
       .stream()
 
 // Macros that use current filename and line number.
@@ -156,6 +156,6 @@ extern Logger gLogger_;
     }                                                                   \
   } while (false)
 
-#define LOG_FLUSH triton::common::gLogger_.Flush()
+#define LOG_FLUSH hercules::common::gLogger_.Flush()
 
-}}  // namespace triton::common
+}  // namespace hercules::common

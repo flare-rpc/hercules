@@ -47,7 +47,7 @@ class SharedLibrary {
       void* handle, const std::string& name, const bool optional, void** befn);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(SharedLibrary);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(SharedLibrary);
   explicit SharedLibrary() = default;
 };
 

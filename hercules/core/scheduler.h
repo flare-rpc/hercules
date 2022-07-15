@@ -61,13 +61,13 @@ class Scheduler {
   // releasing the requests.
   using StandardRunFunc = std::function<void(
       uint32_t runner_idx,
-      std::vector<std::unique_ptr<InferenceRequest>>&& requests)>;
+      std::vector<std::unique_ptr<inference_request>>&& requests)>;
 
   // Enqueue a request with the scheduler. If Status::Success is returned
   // then the backend has taken ownership of the request object and so
   // 'request' will be nullptr. If non-success is returned then the
   // caller still retains ownership of 'request'.
-  virtual Status Enqueue(std::unique_ptr<InferenceRequest>& request) = 0;
+  virtual Status Enqueue(std::unique_ptr<inference_request>& request) = 0;
 
   // Return the number of in-flight inferences tracked by the scheduler.
   virtual size_t InflightInferenceCount() = 0;

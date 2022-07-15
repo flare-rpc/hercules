@@ -19,15 +19,15 @@ namespace hercules::core {
 //
 // Interface for a metric reporter for a given version of a model.
 //
-class MetricModelReporter {
+class metric_model_reporter {
  public:
 #ifdef TRITON_ENABLE_METRICS
   static Status Create(
       const std::string& model_name, const int64_t model_version,
-      const int device, const triton::common::MetricTagsMap& model_tags,
-      std::shared_ptr<MetricModelReporter>* metric_model_reporter);
+      const int device, const hercules::common::MetricTagsMap& model_tags,
+      std::shared_ptr<metric_model_reporter>* metric_model_reporter);
 
-  ~MetricModelReporter();
+  ~metric_model_reporter();
 
   // Get a metric for the given model, version and GPU index.
   prometheus::Counter& MetricInferenceSuccess() const
@@ -88,14 +88,14 @@ class MetricModelReporter {
   }
 
  private:
-  MetricModelReporter(
+  metric_model_reporter(
       const std::string& model_name, const int64_t model_version,
-      const int device, const triton::common::MetricTagsMap& model_tags);
+      const int device, const hercules::common::MetricTagsMap& model_tags);
 
   static void GetMetricLabels(
       std::map<std::string, std::string>* labels, const std::string& model_name,
       const int64_t model_version, const int device,
-      const triton::common::MetricTagsMap& model_tags);
+      const hercules::common::MetricTagsMap& model_tags);
   prometheus::Counter* CreateCounterMetric(
       prometheus::Family<prometheus::Counter>& family,
       const std::map<std::string, std::string>& labels);

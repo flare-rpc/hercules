@@ -31,18 +31,18 @@ using IterationCount = size_t;
 class RequestTracker {
  public:
   explicit RequestTracker(
-      std::unique_ptr<InferenceRequest>&& request, uint64_t compute_start_ns,
-      MetricModelReporter* metric_reporter,
-      InferenceStatsAggregator* stats_aggregator)
+      std::unique_ptr<inference_request>&& request, uint64_t compute_start_ns,
+      metric_model_reporter* metric_reporter,
+      inference_stats_aggregator* stats_aggregator)
       : inflight_request_counter_(1), request_(std::move(request)),
         compute_start_ns_(compute_start_ns), metric_reporter_(metric_reporter),
         stats_aggregator_(stats_aggregator), status_(Status::Success)
   {
   }
 
-  std::unique_ptr<InferenceRequest>& Request() { return request_; }
+  std::unique_ptr<inference_request>& Request() { return request_; }
 
-  InferenceStatsAggregator& ContextStatsAggregator()
+  inference_stats_aggregator& ContextStatsAggregator()
   {
     return context_stats_aggregator_;
   }
@@ -58,7 +58,7 @@ class RequestTracker {
     std::lock_guard<std::mutex> lk(mtx_);
     inflight_request_counter_--;
     if (inflight_request_counter_ == 0) {
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
       const auto& infer_stats = context_stats_aggregator_.ImmutableInferStats();
       request_->ReportStatisticsWithDuration(
           metric_reporter_, status_.IsOk(), compute_start_ns_,
@@ -73,7 +73,7 @@ class RequestTracker {
             infer_stats.compute_output_duration_ns_);
       }
 #endif
-      InferenceRequest::Release(
+      inference_request::Release(
           std::move(request_), TRITONSERVER_REQUEST_RELEASE_ALL);
     }
     return (inflight_request_counter_ == 0);
@@ -88,11 +88,11 @@ class RequestTracker {
  private:
   std::mutex mtx_;
   uint32_t inflight_request_counter_;
-  std::unique_ptr<InferenceRequest> request_;
+  std::unique_ptr<inference_request> request_;
   uint64_t compute_start_ns_;
-  MetricModelReporter* metric_reporter_;
-  InferenceStatsAggregator* stats_aggregator_;
-  InferenceStatsAggregator context_stats_aggregator_;
+  metric_model_reporter* metric_reporter_;
+  inference_stats_aggregator* stats_aggregator_;
+  inference_stats_aggregator context_stats_aggregator_;
   Status status_;
 };
 
@@ -102,7 +102,7 @@ class RequestTracker {
 // internal infer request
 struct Step {
   Step(
-      size_t step_idx, const InferenceRequest::SequenceId& correlation_id,
+      size_t step_idx, const inference_request::SequenceId& correlation_id,
       uint32_t flags)
       : correlation_id_(correlation_id), flags_(flags), response_flags_(0),
         infer_status_(nullptr), step_idx_(step_idx)
@@ -110,8 +110,8 @@ struct Step {
   }
 
   std::shared_ptr<EnsembleContext> ctx_;
-  std::unique_ptr<InferenceRequest> request_;
-  InferenceRequest::SequenceId correlation_id_;
+  std::unique_ptr<inference_request> request_;
+  inference_request::SequenceId correlation_id_;
   uint32_t flags_;
 
   std::mutex output_mtx_;
@@ -132,23 +132,23 @@ struct TensorData {
   struct Metadata {
     Metadata() = default;
     Metadata(
-        std::unique_ptr<InferenceRequest::Input>&& data, size_t reference_count)
+        std::unique_ptr<inference_request::Input>&& data, size_t reference_count)
         : data_(std::move(data)), remaining_reference_count_(reference_count),
           parameter_override_(false)
     {
     }
     Metadata(
-        std::unique_ptr<InferenceRequest::Input>&& data, size_t reference_count,
-        const InferenceRequest::SequenceId& correlation_id, uint32_t flags)
+        std::unique_ptr<inference_request::Input>&& data, size_t reference_count,
+        const inference_request::SequenceId& correlation_id, uint32_t flags)
         : data_(std::move(data)), remaining_reference_count_(reference_count),
           parameter_override_(true), correlation_id_(correlation_id),
           flags_(flags)
     {
     }
-    std::unique_ptr<InferenceRequest::Input> data_;
+    std::unique_ptr<inference_request::Input> data_;
     size_t remaining_reference_count_;
     bool parameter_override_;
-    InferenceRequest::SequenceId correlation_id_;
+    inference_request::SequenceId correlation_id_;
     uint32_t flags_;
   };
   TensorData() = default;
@@ -158,7 +158,7 @@ struct TensorData {
   {
   }
 
-  IterationCount AddTensor(std::unique_ptr<InferenceRequest::Input>&& tensor)
+  IterationCount AddTensor(std::unique_ptr<inference_request::Input>&& tensor)
   {
     tensor_.emplace(
         current_iteration_, Metadata(std::move(tensor), outgoing_steps_count_));
@@ -166,8 +166,8 @@ struct TensorData {
   }
 
   IterationCount AddTensor(
-      std::unique_ptr<InferenceRequest::Input>&& tensor,
-      const InferenceRequest::SequenceId& correlation_id, uint32_t flags)
+      std::unique_ptr<inference_request::Input>&& tensor,
+      const inference_request::SequenceId& correlation_id, uint32_t flags)
   {
     tensor_.emplace(
         current_iteration_,
@@ -203,9 +203,9 @@ struct TensorData {
 class EnsembleContext {
  public:
   EnsembleContext(
-      MetricModelReporter* metric_reporter,
-      InferenceStatsAggregator* stats_aggregator, InferenceServer* is,
-      EnsembleInfo* info, std::unique_ptr<InferenceRequest>& request,
+      metric_model_reporter* metric_reporter,
+      inference_stats_aggregator* stats_aggregator, inference_server* is,
+      EnsembleInfo* info, std::unique_ptr<inference_request>& request,
       cudaStream_t stream);
 
   // Perform transition on 'context' state given the information of
@@ -244,7 +244,7 @@ class EnsembleContext {
   // Note that 'dims' will be in full shape as opposed to 'config_dims'.
   // Return the dims after reshape.
   std::vector<int64_t> ReshapeTensorDims(
-      const triton::common::DimsList& config_dims,
+      const hercules::common::DimsList& config_dims,
       const bool config_allow_batching, const size_t tensor_batch_size,
       const std::vector<int64_t>& dims);
 
@@ -287,7 +287,7 @@ class EnsembleContext {
       const std::set<std::pair<std::string, IterationCount>>& updated_tensors,
       std::unique_ptr<InferenceResponse>* response);
 
-  InferenceServer* is_;
+  inference_server* is_;
 
   EnsembleInfo* info_;
 
@@ -315,7 +315,7 @@ class EnsembleContext {
   // should be applied to all internal requests
   uint32_t flags_;
   std::string request_id_;
-  InferenceRequest::SequenceId correlation_id_;
+  inference_request::SequenceId correlation_id_;
   uint32_t priority_;
   uint64_t timeout_;
 
@@ -332,9 +332,9 @@ class EnsembleContext {
 };
 
 EnsembleContext::EnsembleContext(
-    MetricModelReporter* metric_reporter,
-    InferenceStatsAggregator* stats_aggregator, InferenceServer* is,
-    EnsembleInfo* info, std::unique_ptr<InferenceRequest>& request,
+    metric_model_reporter* metric_reporter,
+    inference_stats_aggregator* stats_aggregator, inference_server* is,
+    EnsembleInfo* info, std::unique_ptr<inference_request>& request,
     cudaStream_t stream)
     : is_(is), info_(info), stream_(stream), inflight_step_counter_(0),
       allocator_(nullptr, TRITONSERVER_ResponseAllocatorDelete)
@@ -431,21 +431,21 @@ EnsembleContext::EnsembleContext(
     timeout_ = lrequest->TimeoutMicroseconds();
 
     for (const auto& pr : lrequest->ImmutableInputs()) {
-      const InferenceRequest::Input* input = pr.second;
+      const inference_request::Input* input = pr.second;
       auto it = tensor_data_.find(input->Name());
       if (it != tensor_data_.end()) {
         auto& tensor_data = it->second;
         // Shape() represents reshaped value without batch dimension,
         // thus need to fill it if necessary.
-        std::unique_ptr<InferenceRequest::Input> tensor;
+        std::unique_ptr<inference_request::Input> tensor;
         if (lrequest->BatchSize() != 0) {
           std::vector<int64_t> shape{lrequest->BatchSize()};
           shape.insert(
               shape.end(), input->Shape().begin(), input->Shape().end());
-          tensor.reset(new InferenceRequest::Input(
+          tensor.reset(new inference_request::Input(
               input->Name(), input->DType(), shape));
         } else {
-          tensor.reset(new InferenceRequest::Input(
+          tensor.reset(new inference_request::Input(
               input->Name(), input->DType(), input->Shape()));
         }
         tensor->SetData(input->Data());
@@ -578,7 +578,7 @@ EnsembleContext::ResponseComplete(
     auto err = TRITONSERVER_InferenceResponseError(response);
     uint32_t count;
     bool parameter_override = false;
-    InferenceRequest::SequenceId correlation_id{0};
+    inference_request::SequenceId correlation_id{0};
     uint32_t flags = 0;
     if (err == nullptr) {
       err = TRITONSERVER_InferenceResponseParameterCount(response, &count);
@@ -593,12 +593,12 @@ EnsembleContext::ResponseComplete(
             if (!strcmp(name, "sequence_id")) {
               switch (type) {
                 case TRITONSERVER_PARAMETER_INT:
-                  correlation_id = InferenceRequest::SequenceId(
+                  correlation_id = inference_request::SequenceId(
                       *reinterpret_cast<const uint64_t*>(vvalue));
                   parameter_override = true;
                   break;
                 case TRITONSERVER_PARAMETER_STRING:
-                  correlation_id = InferenceRequest::SequenceId(std::string(
+                  correlation_id = inference_request::SequenceId(std::string(
                       *reinterpret_cast<const char* const*>(vvalue)));
                   parameter_override = true;
                   break;
@@ -661,8 +661,8 @@ EnsembleContext::ResponseComplete(
           if (err == nullptr) {
             auto it = output_to_tensor.find(name);
             if (it != output_to_tensor.end()) {
-              std::unique_ptr<InferenceRequest::Input> tensor(
-                  new InferenceRequest::Input(
+              std::unique_ptr<inference_request::Input> tensor(
+                  new inference_request::Input(
                       it->second, TritonToDataType(datatype), shape,
                       dim_count));
 
@@ -847,8 +847,8 @@ EnsembleContext::InitStep(
 
   const bool allow_batching = (model->Config().max_batch_size() > 0);
 
-  auto irequest = std::unique_ptr<InferenceRequest>(
-      new InferenceRequest(model, istep.model_version_));
+  auto irequest = std::unique_ptr<inference_request>(
+      new inference_request(model, istep.model_version_));
 
   // Store the pointers to tensors used so that we can prune them afterward.
   // Can't prune the tensor in the input loop below as it may be used by
@@ -877,7 +877,7 @@ EnsembleContext::InitStep(
           input_config->dims(), allow_batching, tensor_data.batch_size_,
           tensor.data_->OriginalShape());
 
-      InferenceRequest::Input* input;
+      inference_request::Input* input;
       RETURN_IF_ERROR(irequest->AddOriginalInput(
           pair.first, tensor.data_->DType(), shape, &input));
       RETURN_IF_ERROR(input->SetData(tensor.data_->Data()));
@@ -923,7 +923,7 @@ EnsembleContext::InitStep(
   irequest->SetFlags(flags);
   irequest->SetPriority(priority_);
   irequest->SetTimeoutMicroseconds(timeout_);
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   irequest->SetSecondaryStatsAggregator(
       &request_tracker_->ContextStatsAggregator());
 #endif
@@ -934,7 +934,7 @@ EnsembleContext::InitStep(
 
   RETURN_IF_ERROR(irequest->PrepareForInference());
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   auto& parent_trace = request_tracker_->Request()->Trace();
   if (parent_trace != nullptr) {
     irequest->SetTrace(parent_trace->SpawnChildTrace());
@@ -957,7 +957,7 @@ EnsembleContext::InitStep(
 
 std::vector<int64_t>
 EnsembleContext::ReshapeTensorDims(
-    const triton::common::DimsList& config_dims,
+    const hercules::common::DimsList& config_dims,
     const bool config_allow_batching, const size_t tensor_batch_size,
     const std::vector<int64_t>& dims)
 {
@@ -971,7 +971,7 @@ EnsembleContext::ReshapeTensorDims(
   if (config_allow_batching != (tensor_batch_size != 0)) {
     // expect batching but the tensor is generated from nobatching model
     if (config_allow_batching) {
-      if (triton::common::CompareDimsWithWildcard(config_dims, dims)) {
+      if (hercules::common::CompareDimsWithWildcard(config_dims, dims)) {
         // If 'dims' already matches 'config_dims', prepend with batch size 1
         res.push_back(1);
         res.insert(res.end(), dims.begin(), dims.end());
@@ -983,7 +983,7 @@ EnsembleContext::ReshapeTensorDims(
       // Check if the batched tensor can be sent to the non-batching
       // model as one tensor. If not, strip the batch dimension if
       // it is batch size 1
-      if (!triton::common::CompareDimsWithWildcard(config_dims, dims) &&
+      if (!hercules::common::CompareDimsWithWildcard(config_dims, dims) &&
           (tensor_batch_size == 1)) {
         res.assign(dims.begin() + 1, dims.end());
         reshaped = true;
@@ -1032,7 +1032,7 @@ EnsembleContext::FinishEnsemble(std::unique_ptr<InferenceResponse>&& response)
           std::move(response), TRITONSERVER_RESPONSE_COMPLETE_FINAL,
           ensemble_status_);
     } else {
-      InferenceRequest::RespondIfError(
+      inference_request::RespondIfError(
           request_tracker_->Request(), ensemble_status_);
     }
   }
@@ -1156,11 +1156,11 @@ EnsembleContext::CheckAndSetEnsembleOutput(
 
     if (tensor.parameter_override_) {
       switch (lrequest->CorrelationId().Type()) {
-        case InferenceRequest::SequenceId::DataType::STRING:
+        case inference_request::SequenceId::DataType::STRING:
           (*response)->AddParameter(
               "sequence_id", tensor.correlation_id_.StringValue().c_str());
           break;
-        case InferenceRequest::SequenceId::DataType::UINT64:
+        case inference_request::SequenceId::DataType::UINT64:
           (*response)->AddParameter(
               "sequence_id",
               (int64_t)tensor.correlation_id_.UnsignedIntValue());
@@ -1181,13 +1181,13 @@ EnsembleContext::CheckAndSetEnsembleOutput(
   }
 
   if (cuda_async_copy) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     cudaStreamSynchronize(stream_);
 #else
     return Status(
         Status::Code::INTERNAL,
         "unexpected CUDA copy flag set while GPU is not supported");
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   }
 
   // Prune the tensor if it is not needed by other steps
@@ -1227,7 +1227,7 @@ EnsembleContext::ScheduleSteps(
       // transferred and managed by Triton core. In the case of cache hit, the
       // request hasn't been transferred and can cause double-free, so moving
       // the request ownership out of step here to avoid that
-      std::unique_ptr<InferenceRequest> request = std::move(step->request_);
+      std::unique_ptr<inference_request> request = std::move(step->request_);
       auto step_status = context->is_->InferAsync(request);
       if (!step_status.IsOk()) {
         std::lock_guard<std::mutex> lock(context->mutex_);
@@ -1247,8 +1247,8 @@ EnsembleContext::ScheduleSteps(
 
 Status
 EnsembleScheduler::Create(
-    InferenceStatsAggregator* const stats_aggregator,
-    InferenceServer* const server, const hercules::proto::ModelConfig& config,
+    inference_stats_aggregator* const stats_aggregator,
+    inference_server* const server, const hercules::proto::ModelConfig& config,
     std::unique_ptr<Scheduler>* scheduler)
 {
   scheduler->reset(new EnsembleScheduler(stats_aggregator, server, config));
@@ -1256,7 +1256,7 @@ EnsembleScheduler::Create(
 }
 
 Status
-EnsembleScheduler::Enqueue(std::unique_ptr<InferenceRequest>& request)
+EnsembleScheduler::Enqueue(std::unique_ptr<inference_request>& request)
 {
   // Queue timer starts at the beginning of the queueing and
   // scheduling process
@@ -1264,10 +1264,10 @@ EnsembleScheduler::Enqueue(std::unique_ptr<InferenceRequest>& request)
   INFER_TRACE_ACTIVITY(
       request->Trace(), TRITONSERVER_TRACE_QUEUE_START,
       request->QueueStartNs());
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   request->TraceInputTensors(
       TRITONSERVER_TRACE_TENSOR_QUEUE_INPUT, "EnsembleScheduler Enqueue");
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // Add additional callback to keep track of in-flight count
   ++inflight_count_;
@@ -1280,12 +1280,12 @@ EnsembleScheduler::Enqueue(std::unique_ptr<InferenceRequest>& request)
 }
 
 EnsembleScheduler::EnsembleScheduler(
-    InferenceStatsAggregator* const stats_aggregator,
-    InferenceServer* const server, const hercules::proto::ModelConfig& config)
+    inference_stats_aggregator* const stats_aggregator,
+    inference_server* const server, const hercules::proto::ModelConfig& config)
     : stats_aggregator_(stats_aggregator), is_(server), stream_(nullptr),
       inflight_count_(0)
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   // create CUDA stream
   auto cuerr = cudaStreamCreate(&stream_);
   if (cuerr != cudaSuccess) {
@@ -1293,11 +1293,11 @@ EnsembleScheduler::EnsembleScheduler(
     LOG_ERROR << "unable to create stream for " << config.name() << ": "
               << cudaGetErrorString(cuerr);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 #ifdef TRITON_ENABLE_METRICS
   if (Metrics::Enabled()) {
-    MetricModelReporter::Create(
+    metric_model_reporter::Create(
         config.name(), 1, METRIC_REPORTER_ID_CPU, config.metric_tags(),
         &metric_reporter_);
   }
@@ -1357,14 +1357,14 @@ EnsembleScheduler::EnsembleScheduler(
 
 EnsembleScheduler::~EnsembleScheduler()
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (stream_ != nullptr) {
     cudaError_t err = cudaStreamDestroy(stream_);
     if (err != cudaSuccess) {
       LOG_ERROR << "Failed to destroy cuda stream: " << cudaGetErrorString(err);
     }
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 }
 
 }  // namespace hercules::core

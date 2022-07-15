@@ -9,7 +9,7 @@
 
 #include <string>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 //
 // Error
@@ -57,4 +57,4 @@ class Error {
   std::string msg_;
 };
 
-}}  // namespace triton::common
+}  // namespace hercules::common

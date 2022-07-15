@@ -34,7 +34,7 @@
 #include "triton/backend/backend_common.h"
 #include "triton/core/tritonserver.h"
 
-namespace triton { namespace backend { namespace onnxruntime {
+namespace hercules::backend { namespace onnxruntime {
 
 extern const OrtApi* ort_api;
 
@@ -149,4 +149,4 @@ TRITONSERVER_Error* CompareDimsSupported(
     const std::vector<int64_t>& model_shape, const std::vector<int64_t>& dims,
     const int max_batch_size, const bool compare_exact);
 
-}}}  // namespace triton::backend::onnxruntime
+}}}  // namespace hercules::backend::onnxruntime

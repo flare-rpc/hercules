@@ -181,9 +181,9 @@ class HTTPAPIServer : public HTTPServer {
 
     uint32_t IncrementResponseCount();
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     std::shared_ptr<TraceManager::Trace> trace_;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     AllocPayload alloc_payload_;
 
@@ -239,7 +239,7 @@ class HTTPAPIServer : public HTTPServer {
       TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id);
   static TRITONSERVER_Error* OutputBufferAttributes(
       TRITONSERVER_ResponseAllocator* allocator, const char* tensor_name,
-      TRITONSERVER_BufferAttributes* buffer_attributes, void* userp,
+      TRITONSERVER_BufferAttributes* attr, void* userp,
       void* buffer_userp);
   static TRITONSERVER_Error* InferResponseFree(
       TRITONSERVER_ResponseAllocator* allocator, void* buffer,

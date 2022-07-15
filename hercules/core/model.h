@@ -15,126 +15,122 @@
 
 namespace hercules::core {
 
-class InferenceRequest;
+    class inference_request;
 
-//
-// Interface for models that handle inference requests.
-//
-class Model {
- public:
-  explicit Model(
-      const double min_compute_capability, const std::string& model_dir,
-      const int64_t version, const hercules::proto::ModelConfig& config)
-      : config_(config), min_compute_capability_(min_compute_capability),
-        version_(version), required_input_count_(0), model_dir_(model_dir)
-  {
-  }
-  virtual ~Model() {}
+    //
+    // Interface for models that handle inference requests.
+    //
+    class Model {
+    public:
+        explicit Model(
+                const double min_compute_capability, const std::string &model_dir,
+                const int64_t version, const hercules::proto::ModelConfig &config)
+                : config_(config), min_compute_capability_(min_compute_capability),
+                  version_(version), required_input_count_(0), model_dir_(model_dir) {
+        }
 
-  // Get the name of model being served.
-  const std::string& Name() const { return config_.name(); }
+        virtual ~Model() {}
 
-  // Get the version of model being served.
-  int64_t Version() const { return version_; }
+        // Get the name of model being served.
+        const std::string &Name() const { return config_.name(); }
 
-  // Get the configuration of model being served.
-  const hercules::proto::ModelConfig& Config() const { return config_; }
+        // Get the version of model being served.
+        int64_t Version() const { return version_; }
 
-  // Get the number of required inputs
-  size_t RequiredInputCount() const { return required_input_count_; }
+        // Get the configuration of model being served.
+        const hercules::proto::ModelConfig &Config() const { return config_; }
 
-  // Get the stats collector for the model being served.
-  InferenceStatsAggregator* MutableStatsAggregator()
-  {
-    return &stats_aggregator_;
-  }
-  const InferenceStatsAggregator& StatsAggregator() const
-  {
-    return stats_aggregator_;
-  }
+        // Get the number of required inputs
+        size_t RequiredInputCount() const { return required_input_count_; }
 
-  // Get the model configuration for a named input.
-  Status GetInput(
-      const std::string& name, const hercules::proto::ModelInput** input) const;
+        // Get the stats collector for the model being served.
+        inference_stats_aggregator *MutableStatsAggregator() {
+            return &stats_aggregator_;
+        }
 
-  // Get the model configuration for a named output.
-  Status GetOutput(
-      const std::string& name, const hercules::proto::ModelOutput** output) const;
+        const inference_stats_aggregator &StatsAggregator() const {
+            return stats_aggregator_;
+        }
 
-  // Get a label provider for the model.
-  const std::shared_ptr<LabelProvider>& GetLabelProvider() const
-  {
-    return label_provider_;
-  }
+        // Get the model configuration for a named input.
+        Status GetInput(
+                const std::string &name, const hercules::proto::ModelInput **input) const;
 
-  // Initialize the instance for Triton core usage
-  Status Init();
+        // Get the model configuration for a named output.
+        Status GetOutput(
+                const std::string &name, const hercules::proto::ModelOutput **output) const;
 
-  // Enqueue a request for execution. If Status::Success is returned
-  // then the model has taken ownership of the request object and so
-  // 'request' will be nullptr. If non-success is returned then the
-  // caller still retains ownership of 'request'.
-  Status Enqueue(std::unique_ptr<InferenceRequest>& request)
-  {
-    return scheduler_->Enqueue(request);
-  }
+        // Get a label provider for the model.
+        const std::shared_ptr<LabelProvider> &GetLabelProvider() const {
+            return label_provider_;
+        }
 
-  // Return the number of in-flight inferences.
-  size_t InflightInferenceCount()
-  {
-    return scheduler_->InflightInferenceCount();
-  }
+        // Initialize the instance for Triton core usage
+        Status Init();
 
-  // Stop processing future requests unless they are considered as in-flight.
-  void Stop() { scheduler_->Stop(); }
+        // Enqueue a request for execution. If Status::Success is returned
+        // then the model has taken ownership of the request object and so
+        // 'request' will be nullptr. If non-success is returned then the
+        // caller still retains ownership of 'request'.
+        Status Enqueue(std::unique_ptr<inference_request> &request) {
+            return scheduler_->Enqueue(request);
+        }
 
-  uint32_t DefaultPriorityLevel() const { return default_priority_level_; }
+        // Return the number of in-flight inferences.
+        size_t InflightInferenceCount() {
+            return scheduler_->InflightInferenceCount();
+        }
 
-  uint32_t MaxPriorityLevel() const { return max_priority_level_; }
+        // Stop processing future requests unless they are considered as in-flight.
+        void Stop() { scheduler_->Stop(); }
 
- protected:
-  // Set the configuration of the model being served.
-  Status SetModelConfig(const hercules::proto::ModelConfig& config);
+        uint32_t DefaultPriorityLevel() const { return default_priority_level_; }
 
-  // Explicitly set the scheduler to use for inference requests to the
-  // model. The scheduler can only be set once for a model.
-  Status SetScheduler(std::unique_ptr<Scheduler> scheduler);
+        uint32_t MaxPriorityLevel() const { return max_priority_level_; }
 
-  // The scheduler to use for this model.
-  std::unique_ptr<Scheduler> scheduler_;
+    protected:
+        // Set the configuration of the model being served.
+        Status SetModelConfig(const hercules::proto::ModelConfig &config);
 
-  // Configuration of the model.
-  hercules::proto::ModelConfig config_;
+        // Explicitly set the scheduler to use for inference requests to the
+        // model. The scheduler can only be set once for a model.
+        Status SetScheduler(std::unique_ptr<Scheduler> scheduler);
 
- private:
-  // The minimum supported CUDA compute capability.
-  const double min_compute_capability_;
+        // The scheduler to use for this model.
+        std::unique_ptr<Scheduler> scheduler_;
 
-  // Version of the model.
-  int64_t version_;
+        // Configuration of the model.
+        hercules::proto::ModelConfig config_;
 
-  // The stats collector for the model.
-  InferenceStatsAggregator stats_aggregator_;
+    private:
+        // The minimum supported CUDA compute capability.
+        const double min_compute_capability_;
 
-  // Label provider for this model.
-  std::shared_ptr<LabelProvider> label_provider_;
+        // Version of the model.
+        int64_t version_;
 
-  size_t required_input_count_;
+        // The stats collector for the model.
+        inference_stats_aggregator stats_aggregator_;
 
-  // Map from input name to the model configuration for that input.
-  std::unordered_map<std::string, hercules::proto::ModelInput> input_map_;
+        // Label provider for this model.
+        std::shared_ptr<LabelProvider> label_provider_;
 
-  // Map from output name to the model configuration for that output.
-  std::unordered_map<std::string, hercules::proto::ModelOutput> output_map_;
+        size_t required_input_count_;
 
-  // Path to model
-  std::string model_dir_;
+        // Map from input name to the model configuration for that input.
+        std::unordered_map<std::string, hercules::proto::ModelInput> input_map_;
 
-  // The default priority level for the model.
-  uint32_t default_priority_level_;
+        // Map from output name to the model configuration for that output.
+        std::unordered_map<std::string, hercules::proto::ModelOutput> output_map_;
 
-  // The largest priority value for the model.
-  uint32_t max_priority_level_;
-};
+        // Path to model
+        std::string model_dir_;
+
+        // The default priority level for the model.
+        uint32_t default_priority_level_;
+
+        // The largest priority value for the model.
+        uint32_t max_priority_level_;
+    };
 
 }  // namespace hercules::core

@@ -27,7 +27,7 @@
 #include "hercules/common/thread_pool.h"
 #include <stdexcept>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 ThreadPool::ThreadPool(size_t thread_count)
 {
@@ -93,4 +93,4 @@ ThreadPool::Enqueue(Task&& task)
   cv_.notify_one();
 }
 
-}}  // namespace triton::common
+}  // namespace hercules::common

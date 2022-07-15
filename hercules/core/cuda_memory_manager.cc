@@ -5,7 +5,7 @@
  * Author by liyinbin (jeff.li) lijippy@163.com
  *****************************************************************/
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include "cuda_memory_manager.h"
 
 #include <cnmem.h>
@@ -38,10 +38,10 @@ PointerToString(void* ptr)
 
 namespace hercules::core {
 
-std::unique_ptr<CudaMemoryManager> CudaMemoryManager::instance_;
-std::mutex CudaMemoryManager::instance_mu_;
+std::unique_ptr<cuda_memory_manager> cuda_memory_manager::instance_;
+std::mutex cuda_memory_manager::instance_mu_;
 
-CudaMemoryManager::~CudaMemoryManager()
+cuda_memory_manager::~cuda_memory_manager()
 {
   if (has_allocation_) {
     auto status = cnmemFinalize();
@@ -53,14 +53,14 @@ CudaMemoryManager::~CudaMemoryManager()
 }
 
 void
-CudaMemoryManager::Reset()
+cuda_memory_manager::Reset()
 {
   std::lock_guard<std::mutex> lock(instance_mu_);
   instance_.reset();
 }
 
 Status
-CudaMemoryManager::Create(const CudaMemoryManager::Options& options)
+cuda_memory_manager::Create(const cuda_memory_manager::Options& options)
 {
   // Ensure thread-safe creation of CUDA memory pool
   std::lock_guard<std::mutex> lock(instance_mu_);
@@ -98,7 +98,7 @@ CudaMemoryManager::Create(const CudaMemoryManager::Options& options)
     }
 
     // Use to finalize CNMeM properly when out of scope
-    instance_.reset(new CudaMemoryManager(!devices.empty()));
+    instance_.reset(new cuda_memory_manager(!devices.empty()));
   } else {
     return Status(
         Status::Code::INTERNAL,
@@ -109,15 +109,15 @@ CudaMemoryManager::Create(const CudaMemoryManager::Options& options)
 }
 
 Status
-CudaMemoryManager::Alloc(void** ptr, uint64_t size, int64_t device_id)
+cuda_memory_manager::Alloc(void** ptr, uint64_t size, int64_t device_id)
 {
   if (instance_ == nullptr) {
     return Status(
-        Status::Code::UNAVAILABLE, "CudaMemoryManager has not been created");
+        Status::Code::UNAVAILABLE, "cuda_memory_manager has not been created");
   } else if (!instance_->has_allocation_) {
     return Status(
         Status::Code::UNAVAILABLE,
-        "CudaMemoryManager has no preallocated CUDA memory");
+        "cuda_memory_manager has no preallocated CUDA memory");
   }
 
   int current_device;
@@ -143,15 +143,15 @@ CudaMemoryManager::Alloc(void** ptr, uint64_t size, int64_t device_id)
 }
 
 Status
-CudaMemoryManager::Free(void* ptr, int64_t device_id)
+cuda_memory_manager::Free(void* ptr, int64_t device_id)
 {
   if (instance_ == nullptr) {
     return Status(
-        Status::Code::UNAVAILABLE, "CudaMemoryManager has not been created");
+        Status::Code::UNAVAILABLE, "cuda_memory_manager has not been created");
   } else if (!instance_->has_allocation_) {
     return Status(
         Status::Code::UNAVAILABLE,
-        "CudaMemoryManager has no preallocated CUDA memory");
+        "cuda_memory_manager has no preallocated CUDA memory");
   }
 
   int current_device;
@@ -178,4 +178,4 @@ CudaMemoryManager::Free(void* ptr, int64_t device_id)
 
 }  // namespace hercules::core
 
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU

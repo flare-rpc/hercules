@@ -15,11 +15,11 @@
 
 namespace hercules::core {
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
 
 void
-InferenceStatsAggregator::UpdateFailure(
-    MetricModelReporter* metric_reporter, const uint64_t request_start_ns,
+inference_stats_aggregator::UpdateFailure(
+    metric_model_reporter* metric_reporter, const uint64_t request_start_ns,
     const uint64_t request_end_ns)
 {
   std::lock_guard<std::mutex> lock(mu_);
@@ -35,8 +35,8 @@ InferenceStatsAggregator::UpdateFailure(
 }
 
 void
-InferenceStatsAggregator::UpdateSuccess(
-    MetricModelReporter* metric_reporter, const size_t batch_size,
+inference_stats_aggregator::UpdateSuccess(
+    metric_model_reporter* metric_reporter, const size_t batch_size,
     const uint64_t request_start_ns, const uint64_t queue_start_ns,
     const uint64_t compute_start_ns, const uint64_t compute_input_end_ns,
     const uint64_t compute_output_start_ns, const uint64_t compute_end_ns,
@@ -55,8 +55,8 @@ InferenceStatsAggregator::UpdateSuccess(
 }
 
 void
-InferenceStatsAggregator::UpdateSuccessWithDuration(
-    MetricModelReporter* metric_reporter, const size_t batch_size,
+inference_stats_aggregator::UpdateSuccessWithDuration(
+    metric_model_reporter* metric_reporter, const size_t batch_size,
     const uint64_t request_start_ns, const uint64_t queue_start_ns,
     const uint64_t compute_start_ns, const uint64_t request_end_ns,
     const uint64_t compute_input_duration_ns,
@@ -99,8 +99,8 @@ InferenceStatsAggregator::UpdateSuccessWithDuration(
 // are typically updated, so this method allows us to update relevant metrics
 // from a metric reporter rather than going through the backend.
 void
-InferenceStatsAggregator::UpdateSuccessCacheHit(
-    MetricModelReporter* metric_reporter, const size_t batch_size,
+inference_stats_aggregator::UpdateSuccessCacheHit(
+    metric_model_reporter* metric_reporter, const size_t batch_size,
     const uint64_t request_start_ns, const uint64_t queue_start_ns,
     const uint64_t cache_lookup_start_ns, const uint64_t request_end_ns,
     const uint64_t cache_hit_lookup_duration_ns)
@@ -135,8 +135,8 @@ InferenceStatsAggregator::UpdateSuccessCacheHit(
 // So we use this method to update cache miss stats and adjust the request
 // duration to include cache insertion time.
 void
-InferenceStatsAggregator::UpdateSuccessCacheMiss(
-    MetricModelReporter* metric_reporter,
+inference_stats_aggregator::UpdateSuccessCacheMiss(
+    metric_model_reporter* metric_reporter,
     const uint64_t cache_miss_lookup_duration_ns,
     const uint64_t cache_miss_insertion_duration_ns)
 {
@@ -168,8 +168,8 @@ InferenceStatsAggregator::UpdateSuccessCacheMiss(
 }
 
 void
-InferenceStatsAggregator::UpdateInferBatchStats(
-    MetricModelReporter* metric_reporter, const size_t batch_size,
+inference_stats_aggregator::UpdateInferBatchStats(
+    metric_model_reporter* metric_reporter, const size_t batch_size,
     const uint64_t compute_start_ns, const uint64_t compute_input_end_ns,
     const uint64_t compute_output_start_ns, const uint64_t compute_end_ns)
 {
@@ -183,8 +183,8 @@ InferenceStatsAggregator::UpdateInferBatchStats(
 }
 
 void
-InferenceStatsAggregator::UpdateInferBatchStatsWithDuration(
-    MetricModelReporter* metric_reporter, size_t batch_size,
+inference_stats_aggregator::UpdateInferBatchStatsWithDuration(
+    metric_model_reporter* metric_reporter, size_t batch_size,
     const uint64_t compute_input_duration_ns,
     const uint64_t compute_infer_duration_ns,
     const uint64_t compute_output_duration_ns)
@@ -218,6 +218,6 @@ InferenceStatsAggregator::UpdateInferBatchStatsWithDuration(
 #endif  // TRITON_ENABLE_METRICS
 }
 
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
 }  // namespace hercules::core

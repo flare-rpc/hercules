@@ -11,7 +11,7 @@
 #include <stdint.h>
 #include "hercules/proto/model_config.pb.h"
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 /// The type for a repeated dims field (used for shape).
 using DimsList = ::google::protobuf::RepeatedField<::google::protobuf::int64>;
@@ -223,4 +223,4 @@ hercules::proto::DataType ProtocolStringToDataType(const std::string& dtype);
 /// \return The data type.
 hercules::proto::DataType ProtocolStringToDataType(const char* dtype, size_t len);
 
-}}  // namespace triton::common
+}  // namespace hercules::common

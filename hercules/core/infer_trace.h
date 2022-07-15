@@ -16,7 +16,7 @@
 
 namespace hercules::core {
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 
 //
 // InferenceTrace
@@ -108,7 +108,7 @@ class InferenceTrace {
 //
 // InferenceTraceProxy
 //
-// Object attached as shared_ptr to InferenceRequest and
+// Object attached as shared_ptr to inference_request and
 // InferenceResponse(s) being traced as part of a single inference
 // request.
 //
@@ -151,12 +151,12 @@ class InferenceTraceProxy {
   InferenceTrace* trace_;
 };
 
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 //
 // Macros to generate trace activity
 //
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 #define INFER_TRACE_ACTIVITY(T, A, TS_NS) \
   {                                       \
     const auto& trace = (T);              \
@@ -183,5 +183,5 @@ class InferenceTraceProxy {
 #define INFER_TRACE_ACTIVITY(T, A, TS_NS)
 #define INFER_TRACE_ACTIVITY_NOW(T, A)
 #define INFER_TRACE_TENSOR_ACTIVITY(T, A, N, D, BA, BY, S, DI, MT, MTI)
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 }  // namespace hercules::core

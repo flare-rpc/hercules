@@ -23,7 +23,7 @@
 namespace hercules::core {
 
 class TritonModel;
-class InferenceRequest;
+class inference_request;
 
 //
 // Represents a model instance.
@@ -32,7 +32,7 @@ class TritonModelInstance {
  public:
   static Status CreateInstances(
       TritonModel* model,
-      const triton::common::HostPolicyCmdlineConfigMap& host_policy_map,
+      const hercules::common::HostPolicyCmdlineConfigMap& host_policy_map,
       const hercules::proto::ModelConfig& model_config, const bool device_blocking);
   ~TritonModelInstance();
 
@@ -40,7 +40,7 @@ class TritonModelInstance {
   size_t Index() const { return index_; }
   TRITONSERVER_InstanceGroupKind Kind() const { return kind_; }
   int32_t DeviceId() const { return device_id_; }
-  const triton::common::HostPolicyCmdlineConfig& HostPolicy() const
+  const hercules::common::HostPolicyCmdlineConfig& HostPolicy() const
   {
     return host_policy_;
   }
@@ -67,23 +67,23 @@ class TritonModelInstance {
   Status Initialize();
   Status WarmUp();
   void Schedule(
-      std::vector<std::unique_ptr<InferenceRequest>>&& requests,
+      std::vector<std::unique_ptr<inference_request>>&& requests,
       const std::function<void()>& OnCompletion);
 
   TritonModel* Model() const { return model_; }
   void* State() { return state_; }
   void SetState(void* state) { state_ = state; }
 
-  MetricModelReporter* MetricReporter() const { return reporter_.get(); }
+  metric_model_reporter* MetricReporter() const { return reporter_.get(); }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(TritonModelInstance);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(TritonModelInstance);
   class TritonBackendThread;
   TritonModelInstance(
       TritonModel* model, const std::string& name, const size_t index,
       const TRITONSERVER_InstanceGroupKind kind, const int32_t device_id,
       const std::vector<std::string>& profile_names, const bool passive,
-      const triton::common::HostPolicyCmdlineConfig& host_policy,
+      const hercules::common::HostPolicyCmdlineConfig& host_policy,
       const TritonServerMessage& host_policy_message,
       const std::vector<SecondaryDevice>& secondary_devices);
   static Status CreateInstance(
@@ -91,7 +91,7 @@ class TritonModelInstance {
       const TRITONSERVER_InstanceGroupKind kind, const int32_t device_id,
       const std::vector<std::string>& profile_names, const bool passive,
       const std::string& host_policy_name,
-      const triton::common::HostPolicyCmdlineConfig& host_policy,
+      const hercules::common::HostPolicyCmdlineConfig& host_policy,
       const hercules::proto::ModelRateLimiter& rate_limiter_config,
       const bool device_blocking,
       std::map<uint32_t, std::shared_ptr<TritonBackendThread>>*
@@ -142,7 +142,7 @@ class TritonModelInstance {
     // Using a batch of requests to satisfy batch size, this provides better
     // alignment on the batch expected by the model, especially for sequence
     // model.
-    std::vector<std::unique_ptr<InferenceRequest>> requests_;
+    std::vector<std::unique_ptr<inference_request>> requests_;
 
     // Placeholder for input data
     std::unique_ptr<AllocatedMemory> zero_data_;
@@ -164,7 +164,7 @@ class TritonModelInstance {
   // GPU device to be used by the instance.
   TRITONSERVER_InstanceGroupKind kind_;
   int32_t device_id_;
-  const triton::common::HostPolicyCmdlineConfig host_policy_;
+  const hercules::common::HostPolicyCmdlineConfig host_policy_;
   TritonServerMessage host_policy_message_;
   std::vector<std::string> profile_names_;
   bool passive_;
@@ -172,7 +172,7 @@ class TritonModelInstance {
   std::vector<SecondaryDevice> secondary_devices_;
 
   // Reporter for metrics, or nullptr if no metrics should be reported
-  std::shared_ptr<MetricModelReporter> reporter_;
+  std::shared_ptr<metric_model_reporter> reporter_;
 
   // Opaque state associated with this model instance.
   void* state_;

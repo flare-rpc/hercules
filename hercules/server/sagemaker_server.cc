@@ -27,11 +27,11 @@ EVBufferAddErrorJson(evbuffer* buffer, TRITONSERVER_Error* err)
 {
   const char* message = TRITONSERVER_ErrorMessage(err);
 
-  triton::common::TritonJson::Value response(
-      triton::common::TritonJson::ValueType::OBJECT);
+  hercules::common::TritonJson::Value response(
+      hercules::common::TritonJson::ValueType::OBJECT);
   response.AddStringRef("error", message, strlen(message));
 
-  triton::common::TritonJson::WriteBuffer buffer_json;
+  hercules::common::TritonJson::WriteBuffer buffer_json;
   response.Write(&buffer_json);
 
   evbuffer_add(buffer, buffer_json.Base(), buffer_json.Size());
@@ -39,7 +39,7 @@ EVBufferAddErrorJson(evbuffer* buffer, TRITONSERVER_Error* err)
 
 TRITONSERVER_Error*
 EVBufferToJson(
-    triton::common::TritonJson::Value* document, evbuffer_iovec* v, int* v_idx,
+    hercules::common::TritonJson::Value* document, evbuffer_iovec* v, int* v_idx,
     const size_t length, int n)
 {
   size_t offset = 0, remaining_length = length;
@@ -290,12 +290,12 @@ SagemakerAPIServer::ParseSageMakerRequest(
 
   size_t buffer_len = evbuffer_get_length(req->buffer_in);
   if (buffer_len > 0) {
-    triton::common::TritonJson::Value request;
+    hercules::common::TritonJson::Value request;
     HTTP_RESPOND_IF_ERR(
         req, EVBufferToJson(&request, v, &v_idx, buffer_len, n));
 
-    triton::common::TritonJson::Value url;
-    triton::common::TritonJson::Value model_name;
+    hercules::common::TritonJson::Value url;
+    hercules::common::TritonJson::Value model_name;
 
     if (request.Find("model_name", &model_name)) {
       HTTP_RESPOND_IF_ERR(req, model_name.AsString(&model_name_string));
@@ -354,12 +354,12 @@ SagemakerAPIServer::SagemakeInferRequestClass::InferResponseComplete(
     err = infer_request->FinalizeResponse(response);
   }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   if (infer_request->trace_ != nullptr) {
     infer_request->trace_->CaptureTimestamp(
         "INFER_RESPONSE_COMPLETE", TraceManager::CaptureTimestamp());
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   if (err == nullptr) {
     evthr_defer(infer_request->thread_, OKReplyCallback, infer_request);
@@ -389,14 +389,14 @@ SagemakerAPIServer::BADReplyCallback507(evthr_t* thr, void* arg, void* shared)
 
   evhtp_request_resume(request);
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   if (infer_request->trace_ != nullptr) {
     infer_request->trace_->CaptureTimestamp(
         "HTTP_SEND_START", request->send_start_ns);
     infer_request->trace_->CaptureTimestamp(
         "HTTP_SEND_END", request->send_end_ns);
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   delete infer_request;
 }
@@ -432,7 +432,7 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
 
   // If tracing is enabled see if this request should be traced.
   TRITONSERVER_InferenceTrace* triton_trace = nullptr;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   std::shared_ptr<TraceManager::Trace> trace;
   if (err == nullptr) {
     trace = std::move(trace_manager_->SampleTrace(model_name));
@@ -446,7 +446,7 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
       trace->CaptureTimestamp("HTTP_RECV_END", req->recv_end_ns);
     }
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // Create the inference request object which provides all information needed
   // for an inference.
@@ -518,9 +518,9 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
     connection_paused = true;
 
     auto infer_request = CreateInferRequest(req);
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     infer_request->trace_ = trace;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     if (err == nullptr) {
       if (header_length != 0) {
@@ -554,11 +554,11 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
       if (err == nullptr) {
         err = TRITONSERVER_ServerInferAsync(
             server_.get(), irequest, triton_trace);
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
         if (trace != nullptr) {
           trace->trace_ = nullptr;
         }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
       }
       if (err == nullptr) {
         infer_request.release();
@@ -578,12 +578,12 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
       evhtp_request_resume(req);
     }
     TRITONSERVER_ErrorDelete(err);
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     // If HTTP server still owns Triton trace
     if ((trace != nullptr) && (trace->trace_ != nullptr)) {
       TraceManager::TraceRelease(trace->trace_, trace->trace_userp_);
     }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     LOG_TRITONSERVER_ERROR(
         TRITONSERVER_InferenceRequestDelete(irequest),
@@ -633,8 +633,8 @@ SagemakerAPIServer::SageMakerMMEGetModel(
     return;
   }
 
-  triton::common::TritonJson::Value sagemaker_get_json(
-      triton::common::TritonJson::ValueType::OBJECT);
+  hercules::common::TritonJson::Value sagemaker_get_json(
+      hercules::common::TritonJson::ValueType::OBJECT);
 
   sagemaker_get_json.AddString("modelName", model_name);
   sagemaker_get_json.AddString(
@@ -643,7 +643,7 @@ SagemakerAPIServer::SageMakerMMEGetModel(
   const char* buffer;
   size_t byte_size;
 
-  triton::common::TritonJson::WriteBuffer json_buffer_;
+  hercules::common::TritonJson::WriteBuffer json_buffer_;
   json_buffer_.Clear();
   sagemaker_get_json.Write(&json_buffer_);
 
@@ -657,16 +657,16 @@ SagemakerAPIServer::SageMakerMMEGetModel(
 void
 SagemakerAPIServer::SageMakerMMEListModel(evhtp_request_t* req)
 {
-  triton::common::TritonJson::Value sagemaker_list_json(
-      triton::common::TritonJson::ValueType::OBJECT);
+  hercules::common::TritonJson::Value sagemaker_list_json(
+      hercules::common::TritonJson::ValueType::OBJECT);
 
-  triton::common::TritonJson::Value models_array(
-      sagemaker_list_json, triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value models_array(
+      sagemaker_list_json, hercules::common::TritonJson::ValueType::ARRAY);
 
   for (auto it = sagemaker_models_list_.begin();
        it != sagemaker_models_list_.end(); it++) {
-    triton::common::TritonJson::Value model_url_pair(
-        models_array, triton::common::TritonJson::ValueType::OBJECT);
+    hercules::common::TritonJson::Value model_url_pair(
+        models_array, hercules::common::TritonJson::ValueType::OBJECT);
 
     bool ready = false;
     TRITONSERVER_ServerModelIsReady(
@@ -686,7 +686,7 @@ SagemakerAPIServer::SageMakerMMEListModel(evhtp_request_t* req)
   const char* buffer;
   size_t byte_size;
 
-  triton::common::TritonJson::WriteBuffer json_buffer_;
+  hercules::common::TritonJson::WriteBuffer json_buffer_;
   json_buffer_.Clear();
   sagemaker_list_json.Write(&json_buffer_);
 

@@ -28,15 +28,15 @@
 #include <string>
 #include "hercules/core/tritonbackend.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
-#ifndef TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
 using cudaStream_t = void*;
-#endif  // !TRITON_ENABLE_GPU
+#endif  // !HERCULES_ENABLE_GPU
 
 class BackendModel;
 
@@ -111,8 +111,8 @@ struct BackendModelInstanceException {
   do {                                                                 \
     TRITONSERVER_Error* tie_err__ = (X);                               \
     if (tie_err__ != nullptr) {                                        \
-      throw triton::backend::BackendModelInstanceException(tie_err__); \
+      throw hercules::backend::BackendModelInstanceException(tie_err__); \
     }                                                                  \
   } while (false)
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

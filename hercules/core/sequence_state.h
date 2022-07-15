@@ -67,7 +67,7 @@ class SequenceState {
   Status Update() { return state_update_cb_(); }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(SequenceState);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(SequenceState);
   std::string name_;
   hercules::proto::DataType datatype_;
   std::vector<int64_t> shape_;

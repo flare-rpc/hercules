@@ -103,6 +103,6 @@ add_subdirectory(dyna_sequence dyna_sequence)
 add_subdirectory(implicit_state implicit_state)
 add_subdirectory(query_backend query_backend)
 
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   add_subdirectory(sequence sequence)
 endif()

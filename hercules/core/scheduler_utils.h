@@ -13,19 +13,19 @@
 
 namespace hercules::core {
 
-// A collection of inputs in the request, an nullptr for InferenceRequest::Input
+// A collection of inputs in the request, an nullptr for inference_request::Input
 // indicates that the inputs doesn't require equality check
 using RequiredEqualInputs = std::unordered_map<
     std::string,
-    std::pair<const InferenceRequest::Input*, bool /* compare contents */>>;
+    std::pair<const inference_request::Input*, bool /* compare contents */>>;
 
 Status InitRequiredEqualInputs(
-    const std::unique_ptr<InferenceRequest>& request,
+    const std::unique_ptr<inference_request>& request,
     const std::unordered_map<std::string, bool>& enforce_equal_shape_tensors,
     const bool has_optional_input, RequiredEqualInputs* required_equal_inputs);
 
 bool CompareWithRequiredEqualInputs(
-    const std::unique_ptr<InferenceRequest>& request,
+    const std::unique_ptr<inference_request>& request,
     const bool has_optional_input,
     const RequiredEqualInputs& required_equal_inputs);
 
@@ -54,15 +54,15 @@ class PriorityQueue {
   // non-success is returned then the caller still retains ownership
   // of 'request'.
   Status Enqueue(
-      uint32_t priority_level, std::unique_ptr<InferenceRequest>& request);
+      uint32_t priority_level, std::unique_ptr<inference_request>& request);
 
   // Dequeue the request at the front of the queue.
-  Status Dequeue(std::unique_ptr<InferenceRequest>* request);
+  Status Dequeue(std::unique_ptr<inference_request>* request);
 
   // Retrieve the requests that are rejected based on the queue policies.
   void ReleaseRejectedRequests(
       std::shared_ptr<
-          std::vector<std::deque<std::unique_ptr<InferenceRequest>>>>*
+          std::vector<std::deque<std::unique_ptr<inference_request>>>>*
           requests);
 
   // Return the number of requests in the queue, rejected requests are
@@ -89,7 +89,7 @@ class PriorityQueue {
   size_t ApplyPolicyAtCursor();
 
   // Return the request at the cursor.
-  const std::unique_ptr<InferenceRequest>& RequestAtCursor()
+  const std::unique_ptr<inference_request>& RequestAtCursor()
   {
     return pending_cursor_.curr_it_->second.At(pending_cursor_.queue_idx_);
   }
@@ -149,10 +149,10 @@ class PriorityQueue {
     // of the request object and so 'request' will be nullptr. If
     // non-success is returned then the caller still retains ownership
     // of 'request'.
-    Status Enqueue(std::unique_ptr<InferenceRequest>& request);
+    Status Enqueue(std::unique_ptr<inference_request>& request);
 
     // Dequeue the request at the front of the queue.
-    Status Dequeue(std::unique_ptr<InferenceRequest>* request);
+    Status Dequeue(std::unique_ptr<inference_request>* request);
 
     // Apply the queue policy to the request at 'idx'.
     // 'rejected_count' will be incremented by the number of the newly rejected
@@ -166,10 +166,10 @@ class PriorityQueue {
 
     // Return the rejected requests held by the queue.
     void ReleaseRejectedQueue(
-        std::deque<std::unique_ptr<InferenceRequest>>* requests);
+        std::deque<std::unique_ptr<inference_request>>* requests);
 
     // Return the request at 'idx'.
-    const std::unique_ptr<InferenceRequest>& At(size_t idx) const;
+    const std::unique_ptr<inference_request>& At(size_t idx) const;
 
     // Return the timeout timestamp of the request at 'idx', in ns. A value of 0
     // indicates that the request doesn't specify a timeout.
@@ -193,9 +193,9 @@ class PriorityQueue {
     const uint32_t max_queue_size_;
 
     std::deque<uint64_t> timeout_timestamp_ns_;
-    std::deque<std::unique_ptr<InferenceRequest>> queue_;
-    std::deque<std::unique_ptr<InferenceRequest>> delayed_queue_;
-    std::deque<std::unique_ptr<InferenceRequest>> rejected_queue_;
+    std::deque<std::unique_ptr<inference_request>> queue_;
+    std::deque<std::unique_ptr<inference_request>> delayed_queue_;
+    std::deque<std::unique_ptr<inference_request>> rejected_queue_;
   };
   using PriorityQueues = std::map<uint32_t, PolicyQueue>;
 

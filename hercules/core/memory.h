@@ -8,7 +8,7 @@
 #pragma once
 
 #include <vector>
-#include "buffer_attributes.h"
+#include "hercules/core/buffer_attributes.h"
 #include "constants.h"
 #include "status.h"
 
@@ -34,7 +34,7 @@ class Memory {
 
   // Similar to the above BufferAt but with BufferAttributes.
   virtual const char* BufferAt(
-      size_t idx, BufferAttributes** buffer_attributes) = 0;
+      size_t idx, BufferAttributes** attr) = 0;
 
   // Get the number of contiguous buffers composing the memory.
   size_t BufferCount() const { return buffer_count_; }
@@ -62,7 +62,7 @@ class MemoryReference : public Memory {
       int64_t* memory_type_id) const override;
 
   const char* BufferAt(
-      size_t idx, BufferAttributes** buffer_attributes) override;
+      size_t idx, BufferAttributes** attr) override;
 
   // Add a 'buffer' with 'byte_size' as part of this data buffer
   // Return the index of the buffer
@@ -70,7 +70,7 @@ class MemoryReference : public Memory {
       const char* buffer, size_t byte_size, TRITONSERVER_MemoryType memory_type,
       int64_t memory_type_id);
 
-  size_t AddBuffer(const char* buffer, BufferAttributes* buffer_attributes);
+  size_t AddBuffer(const char* buffer, BufferAttributes* attr);
 
   // Add a 'buffer' with 'byte_size' as part of this data buffer in the front
   // Return the index of the buffer
@@ -88,8 +88,8 @@ class MemoryReference : public Memory {
     {
     }
 
-    Block(const char* buffer, BufferAttributes* buffer_attributes)
-        : buffer_(buffer), buffer_attributes_(*buffer_attributes)
+    Block(const char* buffer, BufferAttributes* attr)
+        : buffer_(buffer), buffer_attributes_(*attr)
     {
     }
     const char* buffer_;
@@ -117,7 +117,7 @@ class MutableMemory : public Memory {
 
   //\see Memory::BufferAt()
   const char* BufferAt(
-      size_t idx, BufferAttributes** buffer_attributes) override;
+      size_t idx, BufferAttributes** attr) override;
 
   // Return a pointer to the base address of the mutable buffer. If
   // non-null 'memory_type' returns the memory type of the chunk of
@@ -127,7 +127,7 @@ class MutableMemory : public Memory {
       TRITONSERVER_MemoryType* memory_type = nullptr,
       int64_t* memory_type_id = nullptr);
 
-  DISALLOW_COPY_AND_ASSIGN(MutableMemory);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(MutableMemory);
 
  protected:
   MutableMemory() : Memory() {}

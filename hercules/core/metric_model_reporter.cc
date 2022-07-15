@@ -16,13 +16,13 @@
 namespace hercules::core {
 
 Status
-MetricModelReporter::Create(
+metric_model_reporter::Create(
     const std::string& model_name, const int64_t model_version,
-    const int device, const triton::common::MetricTagsMap& model_tags,
-    std::shared_ptr<MetricModelReporter>* metric_model_reporter)
+    const int device, const hercules::common::MetricTagsMap& model_tags,
+    std::shared_ptr<metric_model_reporter>* metric_model_reporter)
 {
   static std::mutex mtx;
-  static std::unordered_map<size_t, std::weak_ptr<MetricModelReporter>>
+  static std::unordered_map<size_t, std::weak_ptr<metric_model_reporter>>
       reporter_map;
 
   std::map<std::string, std::string> labels;
@@ -46,14 +46,14 @@ MetricModelReporter::Create(
   }
 
   metric_model_reporter->reset(
-      new MetricModelReporter(model_name, model_version, device, model_tags));
+      new metric_model_reporter(model_name, model_version, device, model_tags));
   reporter_map.insert({hash_labels, *metric_model_reporter});
   return Status::Success;
 }
 
-MetricModelReporter::MetricModelReporter(
+metric_model_reporter::metric_model_reporter(
     const std::string& model_name, const int64_t model_version,
-    const int device, const triton::common::MetricTagsMap& model_tags)
+    const int device, const hercules::common::MetricTagsMap& model_tags)
 {
   std::map<std::string, std::string> labels;
   GetMetricLabels(&labels, model_name, model_version, device, model_tags);
@@ -88,7 +88,7 @@ MetricModelReporter::MetricModelReporter(
       CreateCounterMetric(Metrics::FamilyCacheMissInsertionDuration(), labels);
 }
 
-MetricModelReporter::~MetricModelReporter()
+metric_model_reporter::~metric_model_reporter()
 {
   Metrics::FamilyInferenceSuccess().Remove(metric_inf_success_);
   Metrics::FamilyInferenceFailure().Remove(metric_inf_failure_);
@@ -112,10 +112,10 @@ MetricModelReporter::~MetricModelReporter()
 }
 
 void
-MetricModelReporter::GetMetricLabels(
+metric_model_reporter::GetMetricLabels(
     std::map<std::string, std::string>* labels, const std::string& model_name,
     const int64_t model_version, const int device,
-    const triton::common::MetricTagsMap& model_tags)
+    const hercules::common::MetricTagsMap& model_tags)
 {
   labels->insert(std::map<std::string, std::string>::value_type(
       std::string(kMetricsLabelModelName), model_name));
@@ -138,7 +138,7 @@ MetricModelReporter::GetMetricLabels(
 }
 
 prometheus::Counter*
-MetricModelReporter::CreateCounterMetric(
+metric_model_reporter::CreateCounterMetric(
     prometheus::Family<prometheus::Counter>& family,
     const std::map<std::string, std::string>& labels)
 {

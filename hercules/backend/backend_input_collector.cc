@@ -10,11 +10,11 @@
 
 #include <atomic>
 #include "hercules/backend/backend_common.h"
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include "kernel.h"
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
 //
 // BackendInputCollector::InputIterator
@@ -230,11 +230,11 @@ BackendInputCollector::ProcessTensor(
       FlushPendingPinned(buffer, buffer_byte_size, memory_type, memory_type_id);
   need_sync_ |= FlushPendingCopyKernel(
       buffer, buffer_byte_size, memory_type, memory_type_id);
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (need_sync_ && (event_ != nullptr)) {
     cudaEventRecord(event_, stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 }
 
 TRITONSERVER_Error*
@@ -337,7 +337,7 @@ BackendInputCollector::ProcessTensor(
 bool
 BackendInputCollector::Finalize()
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if ((!deferred_pinned_.empty()) && need_sync_) {
     if (event_ != nullptr) {
       cudaEventSynchronize(event_);
@@ -346,16 +346,16 @@ BackendInputCollector::Finalize()
     }
     need_sync_ = false;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   // After the above sync all the GPU->pinned copies are complete. Any
   // deferred copies of pinned->CPU can now be done.
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (buffer_ready_event_ != nullptr) {
     cudaEventSynchronize(buffer_ready_event_);
     buffer_ready_event_ = nullptr;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   for (auto& def : deferred_pinned_) {
     if (!def.finalized_) {
       need_sync_ |= def.Finalize(stream_);
@@ -365,12 +365,12 @@ BackendInputCollector::Finalize()
     need_sync_ |= completion_queue_.Get();
   }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   // Record the new event location if deferred copies occur
   if ((!deferred_pinned_.empty()) && need_sync_ && (event_ != nullptr)) {
     cudaEventRecord(event_, stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   return need_sync_;
 }
@@ -487,12 +487,12 @@ BackendInputCollector::SetInputTensor(
     }
   }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (wait_buffer && (buffer_ready_event_ != nullptr)) {
     cudaEventSynchronize(buffer_ready_event_);
     buffer_ready_event_ = nullptr;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   // Direct copy without intermediate pinned memory.
   bool cuda_used = false;
@@ -587,12 +587,12 @@ BackendInputCollector::FlushPendingPinned(
       // request inputs so that we can do the pinned->CPU copies in
       // finalize after we have waited for all async copies to complete.
       if (!cuda_used) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         if (buffer_ready_event_ != nullptr) {
           cudaEventSynchronize(buffer_ready_event_);
           buffer_ready_event_ = nullptr;
         }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
         auto err = CopyBuffer(
             "pinned input buffer H2D", TRITONSERVER_MEMORY_CPU_PINNED,
             0 /* memory_type_id */, tensor_memory_type, tensor_memory_type_id,
@@ -637,11 +637,11 @@ BackendInputCollector::FlushPendingPinned(
       deferred_pinned_.back().finalized_ = true;
       auto incomplete_count = new std::atomic<size_t>(std::min(
           deferred_pinned_.back().requests_.size(),
-          triton::common::AsyncWorkQueue::WorkerCount()));
+          hercules::common::AsyncWorkQueue::WorkerCount()));
       auto pending_pinned_byte_size = pending_pinned_byte_size_;
       size_t stride = (deferred_pinned_.back().requests_.size() +
-                       triton::common::AsyncWorkQueue::WorkerCount() - 1) /
-                      triton::common::AsyncWorkQueue::WorkerCount();
+                       hercules::common::AsyncWorkQueue::WorkerCount() - 1) /
+                      hercules::common::AsyncWorkQueue::WorkerCount();
       auto pending_it = deferred_pinned_.back().requests_.begin();
       while (pending_it != deferred_pinned_.back().requests_.end()) {
         auto end_it = pending_it;
@@ -655,7 +655,7 @@ BackendInputCollector::FlushPendingPinned(
         }
 
         auto err =
-            CommonErrorToTritonError(triton::common::AsyncWorkQueue::AddTask(
+            CommonErrorToTritonError(hercules::common::AsyncWorkQueue::AddTask(
                 [this, offset, pinned_memory, pinned_memory_type,
                  pending_pinned_byte_size, pinned_memory_type_id, pending_it,
                  end_it, incomplete_count, &deferred_pinned]() mutable {
@@ -670,12 +670,12 @@ BackendInputCollector::FlushPendingPinned(
                   // The last segmented task will start the next phase of
                   // the internal pinned buffer copy
                   if (incomplete_count->fetch_sub(1) == 1) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
                     if (buffer_ready_event_ != nullptr) {
                       cudaEventSynchronize(buffer_ready_event_);
                       buffer_ready_event_ = nullptr;
                     }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
                     completion_queue_.Put(deferred_pinned.Finalize(stream_));
                     delete incomplete_count;
                   }
@@ -803,12 +803,12 @@ BackendInputCollector::ProcessBatchInput(
     const char** dst_buffer, size_t* dst_buffer_byte_size,
     TRITONSERVER_MemoryType* dst_memory_type, int64_t* dst_memory_type_id)
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (buffer_ready_event_ != nullptr) {
     cudaEventSynchronize(buffer_ready_event_);
     buffer_ready_event_ = nullptr;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   if (buffer == nullptr) {
     if (allowed_input_types.size() == 0) {
       return TRITONSERVER_ErrorNew(
@@ -1136,7 +1136,7 @@ BackendInputCollector::LaunchCopyKernel(
     const TRITONSERVER_MemoryType tensor_memory_type,
     const int64_t tensor_memory_type_id)
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   input_ptr_buffer_host_.emplace_back(new std::vector<int8_t*>());
   byte_size_buffer_host_.emplace_back(new std::vector<size_t>());
   byte_size_offset_buffer_host_.emplace_back(new std::vector<size_t>());
@@ -1285,8 +1285,8 @@ BackendInputCollector::LaunchCopyKernel(
 #else
   return TRITONSERVER_ErrorNew(
       TRITONSERVER_ERROR_UNSUPPORTED,
-      "Copy kernel can not be launched with TRITON_ENABLE_GPU=OFF");
-#endif  // TRITON_ENABLE_GPU
+      "Copy kernel can not be launched with HERCULES_ENABLE_GPU=OFF");
+#endif  // HERCULES_ENABLE_GPU
 }
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

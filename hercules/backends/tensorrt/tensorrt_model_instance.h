@@ -12,7 +12,7 @@
 
 #include <set>
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 class TensorRTModelInstance : public BackendModelInstance {
  public:
@@ -32,4 +32,4 @@ class TensorRTModelInstance : public BackendModelInstance {
   int64_t dla_core_id_;
 };
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

@@ -25,9 +25,9 @@ InferenceResponseFactory::CreateResponse(
   response->reset(new InferenceResponse(
       model_, id_, allocator_, alloc_userp_, response_fn_, response_userp_,
       response_delegator_));
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   (*response)->SetTrace(trace_);
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
   return Status::Success;
 }
 
@@ -184,10 +184,10 @@ Status
 InferenceResponse::Send(
     std::unique_ptr<InferenceResponse>&& response, const uint32_t flags)
 {
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   response->TraceOutputTensors(
       TRITONSERVER_TRACE_TENSOR_BACKEND_OUTPUT, "InferenceResponse Send");
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   if (response->response_delegator_ != nullptr) {
     auto ldelegator = std::move(response->response_delegator_);
@@ -215,7 +215,7 @@ InferenceResponse::SendWithStatus(
   return InferenceResponse::Send(std::move(response), flags);
 }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 Status
 InferenceResponse::TraceOutputTensors(
     TRITONSERVER_InferenceTraceActivity activity, const std::string& msg)
@@ -255,7 +255,7 @@ InferenceResponse::TraceOutputTensors(
 
   return Status::Success;
 }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 //
 // InferenceResponse::Output
@@ -405,8 +405,8 @@ std::ostream&
 operator<<(std::ostream& out, const InferenceResponse::Output& output)
 {
   out << "output: " << output.Name()
-      << ", type: " << triton::common::DataTypeToProtocolString(output.DType())
-      << ", shape: " << triton::common::DimsListToString(output.Shape());
+      << ", type: " << hercules::common::DataTypeToProtocolString(output.DType())
+      << ", shape: " << hercules::common::DimsListToString(output.Shape());
   return out;
 }
 

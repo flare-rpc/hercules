@@ -120,13 +120,13 @@ SequenceStates::Initialize(
     } else {
       size_t state_size;
       if (state.second.data_type() == hercules::proto::DataType::TYPE_STRING) {
-        auto element_count = triton::common::GetElementCount(dims);
+        auto element_count = hercules::common::GetElementCount(dims);
         // Total number of bytes required is equal to the element count
         // multiplied by 4.
         state_size = 4 * element_count;
       } else {
         state_size =
-            triton::common::GetByteSize(state.second.data_type(), dims);
+            hercules::common::GetByteSize(state.second.data_type(), dims);
       }
       data = std::make_shared<AllocatedMemory>(
           state_size, TRITONSERVER_MEMORY_CPU, 0);
@@ -290,7 +290,7 @@ SequenceStates::CopyAsNull(const std::shared_ptr<SequenceStates>& from)
           hercules::proto::DataType::TYPE_STRING) {
         // Use all-zero input states for null requests.
         auto element_count =
-            triton::common::GetElementCount(from_input_state_tensor->Shape());
+            hercules::common::GetElementCount(from_input_state_tensor->Shape());
         auto state_size = 4 * element_count;
         data = std::make_shared<AllocatedMemory>(
             state_size, TRITONSERVER_MEMORY_CPU, 0);

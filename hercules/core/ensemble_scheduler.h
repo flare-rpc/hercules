@@ -16,17 +16,17 @@
 #include "scheduler.h"
 #include "status.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace hercules::core {
 
-#ifndef TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
 using cudaStream_t = void*;
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-class InferenceServer;
+class inference_server;
 
 struct EnsembleInfo {
   struct StepInfo {
@@ -46,7 +46,7 @@ struct EnsembleInfo {
   bool is_decoupled_;
 
   // the ensemble output (re)shape expected by the ensemble
-  std::unordered_map<std::string, triton::common::DimsList>
+  std::unordered_map<std::string, hercules::common::DimsList>
       ensemble_output_shape_;
 
   // Inputs that is marked optional for the ensemble
@@ -67,14 +67,14 @@ class EnsembleScheduler : public Scheduler {
   // Create a scheduler to process ensemble requests and
   // to dispatch requests to models in ensemble internally.
   static Status Create(
-      InferenceStatsAggregator* const stats_aggregator,
-      InferenceServer* const server, const hercules::proto::ModelConfig& config,
+      inference_stats_aggregator* const stats_aggregator,
+      inference_server* const server, const hercules::proto::ModelConfig& config,
       std::unique_ptr<Scheduler>* scheduler);
 
   ~EnsembleScheduler();
 
   // \see Scheduler::Enqueue()
-  Status Enqueue(std::unique_ptr<InferenceRequest>& request) override;
+  Status Enqueue(std::unique_ptr<inference_request>& request) override;
 
   // \see Scheduler::InflightInferenceCount()
   size_t InflightInferenceCount() override { return inflight_count_; }
@@ -84,12 +84,12 @@ class EnsembleScheduler : public Scheduler {
 
  private:
   EnsembleScheduler(
-      InferenceStatsAggregator* const stats_aggregator,
-      InferenceServer* const server, const hercules::proto::ModelConfig& config);
+      inference_stats_aggregator* const stats_aggregator,
+      inference_server* const server, const hercules::proto::ModelConfig& config);
 
-  std::shared_ptr<MetricModelReporter> metric_reporter_;
-  InferenceStatsAggregator* const stats_aggregator_;
-  InferenceServer* const is_;
+  std::shared_ptr<metric_model_reporter> metric_reporter_;
+  inference_stats_aggregator* const stats_aggregator_;
+  inference_server* const is_;
 
   // Ensemble information that is built from model config
   std::unique_ptr<EnsembleInfo> info_;

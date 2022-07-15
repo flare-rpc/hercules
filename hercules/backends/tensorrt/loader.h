@@ -13,7 +13,7 @@
 #include <vector>
 #include "triton/core/tritonserver.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 /// Load a TensorRT plan from a serialized plan file and return the
 /// corresponding runtime and engine. It is the caller's
@@ -33,4 +33,4 @@ TRITONSERVER_Error* LoadPlan(
     std::shared_ptr<nvinfer1::IRuntime>* runtime,
     std::shared_ptr<nvinfer1::ICudaEngine>* engine);
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

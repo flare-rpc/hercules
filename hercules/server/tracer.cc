@@ -12,9 +12,9 @@
 #include <unordered_map>
 #include "common.h"
 #include "triton/common/logging.h"
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace triton { namespace server {
 
@@ -383,7 +383,7 @@ TraceManager::TraceTensorActivity(
 
   void* buffer_base = const_cast<void*>(base);
   if (memory_type == TRITONSERVER_MEMORY_GPU) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     buffer_base = malloc(byte_size);
     if (buffer_base == nullptr) {
       LOG_ERROR << "Failed to malloc CPU buffer";
@@ -395,7 +395,7 @@ TraceManager::TraceTensorActivity(
 #else
     LOG_ERROR << "GPU buffer is unsupported";
     return;
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   }
 
   uint64_t id;
@@ -580,11 +580,11 @@ TraceManager::TraceTensorActivity(
   *ss << "}";
 
   if (memory_type == TRITONSERVER_MEMORY_GPU) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     if (buffer_base != nullptr) {
       free(buffer_base);
     }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   }
 }
 

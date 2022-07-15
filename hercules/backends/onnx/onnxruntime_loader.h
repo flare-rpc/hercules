@@ -13,7 +13,7 @@
 #include "triton/backend/backend_common.h"
 #include "triton/core/tritonbackend.h"
 
-namespace triton { namespace backend { namespace onnxruntime {
+namespace hercules::backend { namespace onnxruntime {
 
 /// A singleton to load Onnx model because loading models requires
 /// Onnx Runtime environment which is unique per process
@@ -72,4 +72,4 @@ class OnnxLoader {
   bool closing_;
 };
 
-}}}  // namespace triton::backend::onnxruntime
+}}}  // namespace hercules::backend::onnxruntime

@@ -225,9 +225,9 @@ SequenceBatchScheduler::GenerateInitialStateData(
   auto& initial_state_data = initial_state_pair.first->second;
 
   // Calculate total memory byte size
-  auto element_count = triton::common::GetElementCount(initial_state.dims());
+  auto element_count = hercules::common::GetElementCount(initial_state.dims());
   size_t dtype_byte_size =
-      triton::common::GetDataTypeByteSize(initial_state.data_type());
+      hercules::common::GetDataTypeByteSize(initial_state.data_type());
   size_t total_byte_size = element_count * dtype_byte_size;
 
   // Custom handling for TYPE_BYTES
@@ -319,8 +319,8 @@ GetBooleanOverrideInputs(
     const float fp32_true_value, const int32_t int32_false_value,
     const int32_t int32_true_value, const bool bool_false_value,
     const bool bool_true_value,
-    std::shared_ptr<InferenceRequest::Input>* true_override,
-    std::shared_ptr<InferenceRequest::Input>* false_override)
+    std::shared_ptr<inference_request::Input>* true_override,
+    std::shared_ptr<inference_request::Input>* false_override)
 {
   TRITONSERVER_MemoryType memory_type;
   int64_t memory_type_id;
@@ -330,7 +330,7 @@ GetBooleanOverrideInputs(
   if (support_batching) {
     tensor_shape_with_batch_dim.push_back(1);
   }
-  const size_t size_p = triton::common::GetDataTypeByteSize(tensor_datatype);
+  const size_t size_p = hercules::common::GetDataTypeByteSize(tensor_datatype);
 
   auto true_p =
       std::make_shared<AllocatedMemory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
@@ -367,13 +367,13 @@ GetBooleanOverrideInputs(
     *(reinterpret_cast<bool*>(false_p_ptr)) = bool_false_value;
   }
 
-  auto ltrue_override = std::make_shared<InferenceRequest::Input>(
+  auto ltrue_override = std::make_shared<inference_request::Input>(
       tensor_name, tensor_datatype, tensor_shape);
   *ltrue_override->MutableShape() = ltrue_override->OriginalShape();
   *ltrue_override->MutableShapeWithBatchDim() = tensor_shape_with_batch_dim;
   RETURN_IF_ERROR(ltrue_override->SetData(true_p));
 
-  auto lfalse_override = std::make_shared<InferenceRequest::Input>(
+  auto lfalse_override = std::make_shared<inference_request::Input>(
       tensor_name, tensor_datatype, tensor_shape);
   *lfalse_override->MutableShape() = lfalse_override->OriginalShape();
   *lfalse_override->MutableShapeWithBatchDim() = tensor_shape_with_batch_dim;
@@ -419,8 +419,8 @@ SequenceBatchScheduler::CreateBooleanControlTensors(
         &fp32_true_value, &int32_false_value, &int32_true_value,
         &bool_false_value, &bool_true_value));
     if (!tensor_name.empty()) {
-      std::shared_ptr<InferenceRequest::Input> true_override;
-      std::shared_ptr<InferenceRequest::Input> false_override;
+      std::shared_ptr<inference_request::Input> true_override;
+      std::shared_ptr<inference_request::Input> false_override;
 
       RETURN_IF_ERROR(GetBooleanOverrideInputs(
           tensor_name, config.max_batch_size() != 0, tensor_datatype,
@@ -445,8 +445,8 @@ SequenceBatchScheduler::CreateBooleanControlTensors(
         &fp32_true_value, &int32_false_value, &int32_true_value,
         &bool_false_value, &bool_true_value));
     if (!tensor_name.empty()) {
-      std::shared_ptr<InferenceRequest::Input> true_override;
-      std::shared_ptr<InferenceRequest::Input> false_override;
+      std::shared_ptr<inference_request::Input> true_override;
+      std::shared_ptr<inference_request::Input> false_override;
 
       RETURN_IF_ERROR(GetBooleanOverrideInputs(
           tensor_name, config.max_batch_size() != 0, tensor_datatype,
@@ -471,8 +471,8 @@ SequenceBatchScheduler::CreateBooleanControlTensors(
         &fp32_true_value, &int32_false_value, &int32_true_value,
         &bool_false_value, &bool_true_value));
     if (!tensor_name.empty()) {
-      std::shared_ptr<InferenceRequest::Input> true_override;
-      std::shared_ptr<InferenceRequest::Input> false_override;
+      std::shared_ptr<inference_request::Input> true_override;
+      std::shared_ptr<inference_request::Input> false_override;
 
       RETURN_IF_ERROR(GetBooleanOverrideInputs(
           tensor_name, config.max_batch_size() != 0, tensor_datatype,
@@ -492,7 +492,7 @@ SequenceBatchScheduler::CreateBooleanControlTensors(
 }
 
 Status
-SequenceBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& irequest)
+SequenceBatchScheduler::Enqueue(std::unique_ptr<inference_request>& irequest)
 {
   // Queue timer starts at the beginning of the queueing and
   // scheduling process
@@ -518,7 +518,7 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& irequest)
   // A request must have a correlation ID to be processed correctly by
   // this scheduler. A value of 0 (zero) or "" (empty) indicates that the
   // request doesn't have a correlation ID.
-  const InferenceRequest::SequenceId& correlation_id =
+  const inference_request::SequenceId& correlation_id =
       irequest->CorrelationId();
   if (!correlation_id.InSequence()) {
     return Status(
@@ -557,11 +557,11 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& irequest)
       (bl_itr == sequence_to_backlog_map_.end())) {
     std::string correlation_id_str{""};
     if (correlation_id.Type() ==
-        InferenceRequest::SequenceId::DataType::STRING) {
+        inference_request::SequenceId::DataType::STRING) {
       correlation_id_str = correlation_id.StringValue();
     } else if (
         correlation_id.Type() ==
-        InferenceRequest::SequenceId::DataType::UINT64) {
+        inference_request::SequenceId::DataType::UINT64) {
       correlation_id_str = std::to_string(correlation_id.UnsignedIntValue());
     }
     return Status(
@@ -635,7 +635,7 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& irequest)
                    << " into new backlog: " << irequest->ModelName();
 
     auto backlog =
-        std::make_shared<std::deque<std::unique_ptr<InferenceRequest>>>();
+        std::make_shared<std::deque<std::unique_ptr<inference_request>>>();
     backlog_queues_.push_back(backlog);
     backlog->emplace_back(std::move(irequest));
     if (!seq_end) {
@@ -669,10 +669,10 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& irequest)
   return Status::Success;
 }
 
-InferenceRequest::SequenceId
+inference_request::SequenceId
 SequenceBatchScheduler::ReleaseSequenceSlot(
     const BatcherSequenceSlot& batcher_seq_slot,
-    std::deque<std::unique_ptr<InferenceRequest>>* requests)
+    std::deque<std::unique_ptr<inference_request>>* requests)
 {
   std::unique_lock<std::mutex> lock(mu_);
 
@@ -684,7 +684,7 @@ SequenceBatchScheduler::ReleaseSequenceSlot(
     backlog_queues_.pop_front();
     if (!requests->empty()) {  // should never be empty...
       const auto& irequest = requests->back();
-      const InferenceRequest::SequenceId& correlation_id =
+      const inference_request::SequenceId& correlation_id =
           irequest->CorrelationId();
 
       // If the last queue entry is not an END request then the entire
@@ -723,7 +723,7 @@ SequenceBatchScheduler::ReleaseSequenceSlot(
                  << ", slot " << batcher_seq_slot.seq_slot_;
 
   ready_batcher_seq_slots_.push(batcher_seq_slot);
-  return InferenceRequest::SequenceId();
+  return inference_request::SequenceId();
 }
 
 bool
@@ -797,7 +797,7 @@ SequenceBatchScheduler::ReaperThread(const int nice)
           continue;
         }
 
-        const InferenceRequest::SequenceId& idle_correlation_id =
+        const inference_request::SequenceId& idle_correlation_id =
             cid_itr->first;
         LOG_VERBOSE(1) << "Reaper: CORRID " << idle_correlation_id
                        << ": max sequence idle exceeded";
@@ -836,7 +836,7 @@ SequenceBatchScheduler::ReaperThread(const int nice)
 
     // Enqueue force-ends outside of the lock.
     for (const auto& pr : force_end_sequences) {
-      const InferenceRequest::SequenceId& idle_correlation_id = pr.first;
+      const inference_request::SequenceId& idle_correlation_id = pr.first;
       const size_t batcher_idx = pr.second.batcher_idx_;
       const uint32_t seq_slot = pr.second.seq_slot_;
 
@@ -847,7 +847,7 @@ SequenceBatchScheduler::ReaperThread(const int nice)
       // null request. The scheduler thread will interpret the null
       // request as meaning it should release the sequence slot but
       // otherwise do nothing with the request.
-      std::unique_ptr<InferenceRequest> null_request;
+      std::unique_ptr<inference_request> null_request;
       batchers_[batcher_idx]->Enqueue(
           seq_slot, idle_correlation_id, null_request);
     }
@@ -932,7 +932,7 @@ SequenceBatch::CreateCorrelationIDControl(const hercules::proto::ModelConfig& co
       tensor_shape_with_batch_dim.push_back(1);
     }
 
-    auto override = std::make_shared<InferenceRequest::Input>(
+    auto override = std::make_shared<inference_request::Input>(
         correlation_id_tensor_name, correlation_id_datatype, tensor_shape);
     *override->MutableShape() = override->OriginalShape();
     *override->MutableShapeWithBatchDim() = tensor_shape_with_batch_dim;
@@ -945,8 +945,8 @@ SequenceBatch::CreateCorrelationIDControl(const hercules::proto::ModelConfig& co
 
 void
 SequenceBatch::SetControlTensors(
-    std::unique_ptr<InferenceRequest>& irequest, const int32_t seq_slot,
-    const InferenceRequest::SequenceId& corrid, const bool not_ready)
+    std::unique_ptr<inference_request>& irequest, const int32_t seq_slot,
+    const inference_request::SequenceId& corrid, const bool not_ready)
 {
   const SequenceBatchScheduler::ControlInputs* controls;
 
@@ -976,7 +976,7 @@ SequenceBatch::SetControlTensors(
   // Set correlation ID control tensor if requested by the model.
   if (seq_slot_corrid_override_ != nullptr) {
     auto& seq_corr_id = seq_slot_corrid_override_;
-    size_t size_p = triton::common::GetDataTypeByteSize(seq_corr_id->DType());
+    size_t size_p = hercules::common::GetDataTypeByteSize(seq_corr_id->DType());
     if (seq_corr_id->DType() == hercules::proto::DataType::TYPE_STRING) {
       // 4 bytes for length of string plus pre-defined max string correlation id
       // length in bytes
@@ -997,7 +997,7 @@ SequenceBatch::SetControlTensors(
       return;
     }
 
-    auto override = std::make_shared<InferenceRequest::Input>(
+    auto override = std::make_shared<inference_request::Input>(
         seq_corr_id->Name(), seq_corr_id->DType(), seq_corr_id->Shape());
     *override->MutableShape() = override->OriginalShape();
     *override->MutableShapeWithBatchDim() = seq_corr_id->ShapeWithBatchDim();
@@ -1009,7 +1009,7 @@ SequenceBatch::SetControlTensors(
       return;
     }
 
-    if (corrid.Type() == InferenceRequest::SequenceId::DataType::STRING) {
+    if (corrid.Type() == inference_request::SequenceId::DataType::STRING) {
       std::string correlation_id = corrid.StringValue();
       uint32_t correlation_id_length = correlation_id.length();
       memcpy(corrid_p_ptr, &correlation_id_length, sizeof(uint32_t));
@@ -1017,7 +1017,7 @@ SequenceBatch::SetControlTensors(
           corrid_p_ptr + sizeof(uint32_t), correlation_id.c_str(),
           correlation_id_length);
     } else if (
-        corrid.Type() == InferenceRequest::SequenceId::DataType::UINT64) {
+        corrid.Type() == inference_request::SequenceId::DataType::UINT64) {
       uint64_t correlation_id = corrid.UnsignedIntValue();
       const char* corrid_ptr = reinterpret_cast<const char*>(&correlation_id);
       memcpy(corrid_p_ptr, corrid_ptr, size_p);
@@ -1028,7 +1028,7 @@ SequenceBatch::SetControlTensors(
 
 void
 SequenceBatch::UpdateImplicitState(
-    std::unique_ptr<InferenceRequest>& irequest, const int32_t seq_slot)
+    std::unique_ptr<inference_request>& irequest, const int32_t seq_slot)
 {
   // This should be executed only if the model has a states section.
   if (!base_->StateOutputConfigMap().empty()) {
@@ -1124,8 +1124,8 @@ DirectSequenceBatch::~DirectSequenceBatch()
 
 void
 DirectSequenceBatch::Enqueue(
-    const uint32_t seq_slot, const InferenceRequest::SequenceId& correlation_id,
-    std::unique_ptr<InferenceRequest>& request)
+    const uint32_t seq_slot, const inference_request::SequenceId& correlation_id,
+    std::unique_ptr<inference_request>& request)
 {
   bool wake_runner = false;
 
@@ -1224,7 +1224,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
                        << " queued requests, current total = " << total_size;
       } else {
         RequiredEqualInputs required_equal_inputs;
-        InferenceRequest* null_irequest = nullptr;
+        inference_request* null_irequest = nullptr;
 
         // Make one pass through the active slots to:
         //
@@ -1245,7 +1245,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
         size_t ready_cnt = 0;
         for (int32_t seq_slot = 0; seq_slot <= max_active_seq_slot_;
              ++seq_slot) {
-          std::deque<std::unique_ptr<InferenceRequest>>& queue =
+          std::deque<std::unique_ptr<inference_request>>& queue =
               queues_[seq_slot];
           if (!queue.empty()) {
             // If the request is nullptr then the sequence in the slot
@@ -1264,7 +1264,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
           // Need to check queue again for contents since if released
           // above it may now be empty...
           if (!queue.empty()) {
-            // For NULL requests need an InferenceRequest that can be
+            // For NULL requests need an inference_request that can be
             // batched but has controls set to "not ready". Any
             // request can serve this purpose so grab a copy of the
             // first one. This first request is also used to
@@ -1344,7 +1344,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
         for (int32_t seq_slot = 0; seq_slot <= max_seq_slot; ++seq_slot) {
           bool end_of_sequence = false;
           bool use_null_request = false;
-          std::deque<std::unique_ptr<InferenceRequest>>& queue =
+          std::deque<std::unique_ptr<inference_request>>& queue =
               queues_[seq_slot];
 
           // If 'seq_slot' doesn't have any requests then change the
@@ -1368,8 +1368,8 @@ DirectSequenceBatch::BatcherThread(const int nice)
           // Use null-request if necessary otherwise use the next
           // request in the queue...
           if (use_null_request) {
-            std::unique_ptr<InferenceRequest> ni(
-                InferenceRequest::CopyAsNull(*null_irequest));
+            std::unique_ptr<inference_request> ni(
+                inference_request::CopyAsNull(*null_irequest));
             // Note that when the not-ready control input of the
             // request is "true" the model can't assume that any
             // other inputs are meaningful, including CORRID. So we
@@ -1394,7 +1394,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
 
             curr_payload_->AddRequest(std::move(ni));
           } else {
-            std::unique_ptr<InferenceRequest>& irequest = queue.front();
+            std::unique_ptr<inference_request>& irequest = queue.front();
 
             // Set the control tensor values in the request.
             SetControlTensors(irequest, seq_slot, irequest->CorrelationId());
@@ -1527,7 +1527,7 @@ OldestSequenceBatch::OldestSequenceBatch(
   // is enabled for sequence models.
   Status status = DynamicBatchScheduler::Create(
       model_instance->Model(), model_instance,
-      triton::common::GetCpuNiceLevel(config),
+      hercules::common::GetCpuNiceLevel(config),
       true /* dynamic_batching_enabled */, config.max_batch_size(),
       enforce_equal_shape_tensors_, true /* preserve_ordering */,
       false /* response_cache_enable */, preferred_batch_sizes,
@@ -1557,7 +1557,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
   // being force-ended) then we try to fill the now-free sequence slot
   // from the backlog and then send the first inference from that
   // sequence to the dynamic batcher...
-  std::deque<std::unique_ptr<InferenceRequest>>& queue = queues_[seq_slot];
+  std::deque<std::unique_ptr<inference_request>>& queue = queues_[seq_slot];
   bool retry = true;
   while (retry) {
     retry = false;
@@ -1580,7 +1580,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
                        << ", slot " << seq_slot;
         release_seq_slot = true;
       } else {
-        const InferenceRequest::SequenceId& correlation_id =
+        const inference_request::SequenceId& correlation_id =
             irequest->CorrelationId();
 
         // After handling the last inference in a sequence we must
@@ -1628,7 +1628,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
 
       SequenceBatchScheduler::BatcherSequenceSlot batcher_seq_slot(
           batcher_idx_, seq_slot);
-      const InferenceRequest::SequenceId& released_cid =
+      const inference_request::SequenceId& released_cid =
           base_->ReleaseSequenceSlot(batcher_seq_slot, &queue);
 
       if (released_cid.InSequence()) {
@@ -1650,8 +1650,8 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
 
 void
 OldestSequenceBatch::Enqueue(
-    const uint32_t seq_slot, const InferenceRequest::SequenceId& correlation_id,
-    std::unique_ptr<InferenceRequest>& request)
+    const uint32_t seq_slot, const inference_request::SequenceId& correlation_id,
+    std::unique_ptr<inference_request>& request)
 {
   // Queue the new request... if there isn't already a request in
   // flight for this sequence then send one to the dynamic batcher
@@ -1660,7 +1660,7 @@ OldestSequenceBatch::Enqueue(
   {
     std::lock_guard<std::mutex> lock(mu_);
 
-    std::deque<std::unique_ptr<InferenceRequest>>& queue = queues_[seq_slot];
+    std::deque<std::unique_ptr<inference_request>>& queue = queues_[seq_slot];
     queue.emplace_back(std::move(request));
     in_flight = in_flight_[seq_slot];
   }

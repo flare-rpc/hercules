@@ -37,9 +37,9 @@
 #define TRITONJSON_STATUSSUCCESS nullptr
 #include "triton/common/triton_json.h"
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 #include "tracer.h"
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 #define REGISTER_GRPC_INFER_THREAD_COUNT 2
 
@@ -558,7 +558,7 @@ CommonHandler::SetUpAllRequests()
         GOTO_IF_ERR(err, earlyexit);
 
         {
-          triton::common::TritonJson::Value server_metadata_json;
+          hercules::common::TritonJson::Value server_metadata_json;
           err = server_metadata_json.Parse(buffer, byte_size);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -577,7 +577,7 @@ CommonHandler::SetUpAllRequests()
           response->set_version(std::string(version, versionlen));
 
           if (server_metadata_json.Find("extensions")) {
-            triton::common::TritonJson::Value extensions_json;
+            hercules::common::TritonJson::Value extensions_json;
             err = server_metadata_json.MemberAsArray(
                 "extensions", &extensions_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -639,7 +639,7 @@ CommonHandler::SetUpAllRequests()
           model_metadata_message, &buffer, &byte_size);
       GOTO_IF_ERR(err, earlyexit);
 
-      triton::common::TritonJson::Value model_metadata_json;
+      hercules::common::TritonJson::Value model_metadata_json;
       err = model_metadata_json.Parse(buffer, byte_size);
       GOTO_IF_ERR(err, earlyexit);
 
@@ -651,7 +651,7 @@ CommonHandler::SetUpAllRequests()
       response->set_name(std::string(name, namelen));
 
       if (model_metadata_json.Find("versions")) {
-        triton::common::TritonJson::Value versions_json;
+        hercules::common::TritonJson::Value versions_json;
         err = model_metadata_json.MemberAsArray("versions", &versions_json);
         GOTO_IF_ERR(err, earlyexit);
 
@@ -672,12 +672,12 @@ CommonHandler::SetUpAllRequests()
       response->set_platform(std::string(platform, platformlen));
 
       if (model_metadata_json.Find("inputs")) {
-        triton::common::TritonJson::Value inputs_json;
+        hercules::common::TritonJson::Value inputs_json;
         err = model_metadata_json.MemberAsArray("inputs", &inputs_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < inputs_json.ArraySize(); ++idx) {
-          triton::common::TritonJson::Value io_json;
+          hercules::common::TritonJson::Value io_json;
           err = inputs_json.IndexAsObject(idx, &io_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -698,7 +698,7 @@ CommonHandler::SetUpAllRequests()
           io->set_datatype(std::string(datatype, datatypelen));
 
           if (io_json.Find("shape")) {
-            triton::common::TritonJson::Value shape_json;
+            hercules::common::TritonJson::Value shape_json;
             err = io_json.MemberAsArray("shape", &shape_json);
             GOTO_IF_ERR(err, earlyexit);
 
@@ -714,12 +714,12 @@ CommonHandler::SetUpAllRequests()
       }
 
       if (model_metadata_json.Find("outputs")) {
-        triton::common::TritonJson::Value outputs_json;
+        hercules::common::TritonJson::Value outputs_json;
         err = model_metadata_json.MemberAsArray("outputs", &outputs_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < outputs_json.ArraySize(); ++idx) {
-          triton::common::TritonJson::Value io_json;
+          hercules::common::TritonJson::Value io_json;
           err = outputs_json.IndexAsObject(idx, &io_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -740,7 +740,7 @@ CommonHandler::SetUpAllRequests()
           io->set_datatype(std::string(datatype, datatypelen));
 
           if (io_json.Find("shape")) {
-            triton::common::TritonJson::Value shape_json;
+            hercules::common::TritonJson::Value shape_json;
             err = io_json.MemberAsArray("shape", &shape_json);
             GOTO_IF_ERR(err, earlyexit);
 
@@ -836,8 +836,8 @@ CommonHandler::SetUpAllRequests()
                                       hercules::proto::ModelStatisticsResponse*
                                           response,
                                       grpc::Status* status) {
-#ifdef TRITON_ENABLE_STATS
-    triton::common::TritonJson::Value model_stats_json;
+#ifdef HERCULES_ENABLE_STATS
+    hercules::common::TritonJson::Value model_stats_json;
 
     int64_t requested_model_version;
     auto err =
@@ -864,12 +864,12 @@ CommonHandler::SetUpAllRequests()
     }
 
     if (model_stats_json.Find("model_stats")) {
-      triton::common::TritonJson::Value stats_json;
+      hercules::common::TritonJson::Value stats_json;
       err = model_stats_json.MemberAsArray("model_stats", &stats_json);
       GOTO_IF_ERR(err, earlyexit);
 
       for (size_t idx = 0; idx < stats_json.ArraySize(); ++idx) {
-        triton::common::TritonJson::Value model_stat;
+        hercules::common::TritonJson::Value model_stat;
         err = stats_json.IndexAsObject(idx, &model_stat);
         GOTO_IF_ERR(err, earlyexit);
 
@@ -901,12 +901,12 @@ CommonHandler::SetUpAllRequests()
         GOTO_IF_ERR(err, earlyexit);
         statistics->set_execution_count(ucnt);
 
-        triton::common::TritonJson::Value infer_stats_json;
+        hercules::common::TritonJson::Value infer_stats_json;
         err = model_stat.MemberAsObject("inference_stats", &infer_stats_json);
         GOTO_IF_ERR(err, earlyexit);
 
         {
-          triton::common::TritonJson::Value success_json;
+          hercules::common::TritonJson::Value success_json;
           err = infer_stats_json.MemberAsObject("success", &success_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -921,7 +921,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value fail_json;
+          hercules::common::TritonJson::Value fail_json;
           err = infer_stats_json.MemberAsObject("fail", &fail_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -935,7 +935,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value queue_json;
+          hercules::common::TritonJson::Value queue_json;
           err = infer_stats_json.MemberAsObject("queue", &queue_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -949,7 +949,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value compute_input_json;
+          hercules::common::TritonJson::Value compute_input_json;
           err = infer_stats_json.MemberAsObject(
               "compute_input", &compute_input_json);
           GOTO_IF_ERR(err, earlyexit);
@@ -967,7 +967,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value compute_infer_json;
+          hercules::common::TritonJson::Value compute_infer_json;
           err = infer_stats_json.MemberAsObject(
               "compute_infer", &compute_infer_json);
           GOTO_IF_ERR(err, earlyexit);
@@ -985,7 +985,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value compute_output_json;
+          hercules::common::TritonJson::Value compute_output_json;
           err = infer_stats_json.MemberAsObject(
               "compute_output", &compute_output_json);
           GOTO_IF_ERR(err, earlyexit);
@@ -1003,7 +1003,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value cache_hit_json;
+          hercules::common::TritonJson::Value cache_hit_json;
           err = infer_stats_json.MemberAsObject("cache_hit", &cache_hit_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1018,7 +1018,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          triton::common::TritonJson::Value cache_miss_json;
+          hercules::common::TritonJson::Value cache_miss_json;
           err = infer_stats_json.MemberAsObject("cache_miss", &cache_miss_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1034,12 +1034,12 @@ CommonHandler::SetUpAllRequests()
         }
 
 
-        triton::common::TritonJson::Value batches_json;
+        hercules::common::TritonJson::Value batches_json;
         err = model_stat.MemberAsArray("batch_stats", &batches_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < batches_json.ArraySize(); ++idx) {
-          triton::common::TritonJson::Value batch_stat;
+          hercules::common::TritonJson::Value batch_stat;
           err = batches_json.IndexAsObject(idx, &batch_stat);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1051,7 +1051,7 @@ CommonHandler::SetUpAllRequests()
           batch_statistics->set_batch_size(ucnt);
 
           {
-            triton::common::TritonJson::Value compute_input_json;
+            hercules::common::TritonJson::Value compute_input_json;
             err =
                 batch_stat.MemberAsObject("compute_input", &compute_input_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -1065,7 +1065,7 @@ CommonHandler::SetUpAllRequests()
           }
 
           {
-            triton::common::TritonJson::Value compute_infer_json;
+            hercules::common::TritonJson::Value compute_infer_json;
             err =
                 batch_stat.MemberAsObject("compute_infer", &compute_infer_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -1079,7 +1079,7 @@ CommonHandler::SetUpAllRequests()
           }
 
           {
-            triton::common::TritonJson::Value compute_output_json;
+            hercules::common::TritonJson::Value compute_output_json;
             err = batch_stat.MemberAsObject(
                 "compute_output", &compute_output_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -1130,7 +1130,7 @@ CommonHandler::SetUpAllRequests()
                             hercules::proto::TraceSettingRequest& request,
                             hercules::proto::TraceSettingResponse* response,
                             grpc::Status* status) {
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     TRITONSERVER_Error* err = nullptr;
     TRITONSERVER_InferenceTraceLevel level = TRITONSERVER_TRACE_LEVEL_DISABLED;
     uint32_t rate;
@@ -1342,14 +1342,14 @@ CommonHandler::SetUpAllRequests()
           hercules::proto::SystemSharedMemoryStatusRequest& request,
           hercules::proto::SystemSharedMemoryStatusResponse* response,
           grpc::Status* status) {
-        triton::common::TritonJson::Value shm_status_json(
-            triton::common::TritonJson::ValueType::ARRAY);
+        hercules::common::TritonJson::Value shm_status_json(
+            hercules::common::TritonJson::ValueType::ARRAY);
         TRITONSERVER_Error* err = shm_manager_->GetStatus(
             request.name(), TRITONSERVER_MEMORY_CPU, &shm_status_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < shm_status_json.ArraySize(); ++idx) {
-          triton::common::TritonJson::Value shm_region_json;
+          hercules::common::TritonJson::Value shm_region_json;
           err = shm_status_json.IndexAsObject(idx, &shm_region_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1489,14 +1489,14 @@ CommonHandler::SetUpAllRequests()
           hercules::proto::CudaSharedMemoryStatusRequest& request,
           hercules::proto::CudaSharedMemoryStatusResponse* response,
           grpc::Status* status) {
-        triton::common::TritonJson::Value shm_status_json(
-            triton::common::TritonJson::ValueType::ARRAY);
+        hercules::common::TritonJson::Value shm_status_json(
+            hercules::common::TritonJson::ValueType::ARRAY);
         TRITONSERVER_Error* err = shm_manager_->GetStatus(
             request.name(), TRITONSERVER_MEMORY_GPU, &shm_status_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < shm_status_json.ArraySize(); ++idx) {
-          triton::common::TritonJson::Value shm_region_json;
+          hercules::common::TritonJson::Value shm_region_json;
           err = shm_status_json.IndexAsObject(idx, &shm_region_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1554,7 +1554,7 @@ CommonHandler::SetUpAllRequests()
           hercules::proto::CudaSharedMemoryRegisterResponse* response,
           grpc::Status* status) {
         TRITONSERVER_Error* err = nullptr;
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         err = shm_manager_->RegisterCUDASharedMemory(
             request.name(),
             reinterpret_cast<const cudaIpcMemHandle_t*>(
@@ -1567,7 +1567,7 @@ CommonHandler::SetUpAllRequests()
                 "failed to register CUDA shared memory region: '" +
                 request.name() + "', GPUs not supported")
                 .c_str());
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
         GrpcStatusUtil::Create(status, err);
         TRITONSERVER_ErrorDelete(err);
@@ -1655,16 +1655,16 @@ CommonHandler::SetUpAllRequests()
               model_index_message, &buffer, &byte_size);
           GOTO_IF_ERR(err, earlyexit);
 
-          triton::common::TritonJson::Value model_index_json;
+          hercules::common::TritonJson::Value model_index_json;
           err = model_index_json.Parse(buffer, byte_size);
           GOTO_IF_ERR(err, earlyexit);
 
           err = model_index_json.AssertType(
-              triton::common::TritonJson::ValueType::ARRAY);
+              hercules::common::TritonJson::ValueType::ARRAY);
           GOTO_IF_ERR(err, earlyexit);
 
           for (size_t idx = 0; idx < model_index_json.ArraySize(); ++idx) {
-            triton::common::TritonJson::Value index_json;
+            hercules::common::TritonJson::Value index_json;
             err = model_index_json.IndexAsObject(idx, &index_json);
             GOTO_IF_ERR(err, earlyexit);
 
@@ -2131,10 +2131,10 @@ class InferHandlerState {
     // Write the response to the stream directly.
     void DecoupledWriteResponse(InferHandlerStateType* state)
     {
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_timestamps_.emplace_back(
           std::make_pair("GRPC_SEND_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
       state->step_ = Steps::WRITTEN;
       ResponseType* response = state->response_queue_->GetCurrentResponse();
       responder_->Write(*response, state);
@@ -2182,10 +2182,10 @@ class InferHandlerState {
         return nullptr;
       }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_timestamps_.emplace_back(
           std::make_pair("GRPC_SEND_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       state->step_ = Steps::WRITTEN;
       state->context_->ongoing_write_ = true;
@@ -2295,7 +2295,7 @@ class InferHandlerState {
 
   void ClearTraceTimestamps()
   {
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     if (trace_ != nullptr) {
       for (const auto& timestamp : trace_timestamps_) {
         trace_->CaptureTimestamp(timestamp.first, timestamp.second);
@@ -2303,7 +2303,7 @@ class InferHandlerState {
       trace_.reset();
     }
     trace_timestamps_.clear();
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
   }
 
   // Returns whether all the responses from the state
@@ -2322,11 +2322,11 @@ class InferHandlerState {
   Steps step_;
   std::mutex step_mtx_;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   std::shared_ptr<TraceManager::Trace> trace_;
   // Additional timestamps that are captured before a trace stream is acquired
   std::deque<std::pair<std::string, uint64_t>> trace_timestamps_;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   bool is_decoupled_;
   std::atomic<uint32_t> cb_count_;
@@ -2582,7 +2582,7 @@ TRITONSERVER_Error*
 OutputBufferAttributesHelper(
     TRITONSERVER_ResponseAllocator* allocator, const char* tensor_name,
     const TensorShmMap& shm_map,
-    TRITONSERVER_BufferAttributes* buffer_attributes)
+    TRITONSERVER_BufferAttributes* attr)
 {
   // We only need to set the cuda ipc handle here. The rest of the buffer
   // attributes have been properly populated by triton core.
@@ -2592,7 +2592,7 @@ OutputBufferAttributesHelper(
     if (pr != shm_map.end()) {
       if (pr->second.memory_type_ == TRITONSERVER_MEMORY_GPU) {
         RETURN_IF_ERR(TRITONSERVER_BufferAttributesSetCudaIpcHandle(
-            buffer_attributes, pr->second.cuda_ipc_handle_));
+            attr, pr->second.cuda_ipc_handle_));
       }
     }
   }
@@ -2674,14 +2674,14 @@ OutputBufferQuery(
 TRITONSERVER_Error*
 OutputBufferAttributes(
     TRITONSERVER_ResponseAllocator* allocator, const char* tensor_name,
-    TRITONSERVER_BufferAttributes* buffer_attributes, void* userp,
+    TRITONSERVER_BufferAttributes* attr, void* userp,
     void* buffer_userp)
 {
   AllocPayload<hercules::proto::ModelInferResponse>* payload =
       reinterpret_cast<AllocPayload<hercules::proto::ModelInferResponse>*>(userp);
 
   return OutputBufferAttributesHelper(
-      allocator, tensor_name, payload->shm_map_, buffer_attributes);
+      allocator, tensor_name, payload->shm_map_, attr);
   return nullptr;  // Success
 }
 
@@ -2882,7 +2882,7 @@ InferAllocatorPayload(
           region_name, offset, &base, &memory_type, &memory_type_id));
 
       if (memory_type == TRITONSERVER_MEMORY_GPU) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         char* cuda_handle;
         RETURN_IF_ERR(shm_manager->GetCUDAHandle(
             region_name, reinterpret_cast<cudaIpcMemHandle_t**>(&cuda_handle)));
@@ -2959,15 +2959,15 @@ InferGRPCToInput(
         ParseSharedMemoryParams<hercules::proto::ModelInferRequest::InferInputTensor>(
             io, &has_shared_memory, &region_name, &offset, &byte_size));
 
-    TRITONSERVER_BufferAttributes* buffer_attributes;
-    RETURN_IF_ERR(TRITONSERVER_BufferAttributesNew(&buffer_attributes));
+    TRITONSERVER_BufferAttributes* attr;
+    RETURN_IF_ERR(TRITONSERVER_BufferAttributesNew(&attr));
     auto buffer_attributes_del =
-        [](TRITONSERVER_BufferAttributes* buffer_attributes) {
-          TRITONSERVER_BufferAttributesDelete(buffer_attributes);
+        [](TRITONSERVER_BufferAttributes* attr) {
+          TRITONSERVER_BufferAttributesDelete(attr);
         };
     std::unique_ptr<
         TRITONSERVER_BufferAttributes, decltype(buffer_attributes_del)>
-        buffer_attrsl(buffer_attributes, buffer_attributes_del);
+        buffer_attrsl(attr, buffer_attributes_del);
     char* cuda_ipc_handle = nullptr;
 
     if (has_shared_memory) {
@@ -2986,7 +2986,7 @@ InferGRPCToInput(
           region_name, offset, &tmp, &memory_type, &memory_type_id));
       base = tmp;
       if (memory_type == TRITONSERVER_MEMORY_GPU) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         RETURN_IF_ERR(shm_manager->GetCUDAHandle(
             region_name,
             reinterpret_cast<cudaIpcMemHandle_t**>(&cuda_ipc_handle)));
@@ -3173,18 +3173,18 @@ InferGRPCToInput(
 
     if (cuda_ipc_handle != nullptr) {
       RETURN_IF_ERR(TRITONSERVER_BufferAttributesSetCudaIpcHandle(
-          buffer_attributes, reinterpret_cast<void*>(cuda_ipc_handle)));
+          attr, reinterpret_cast<void*>(cuda_ipc_handle)));
     }
 
     RETURN_IF_ERR(TRITONSERVER_BufferAttributesSetMemoryType(
-        buffer_attributes, memory_type));
+        attr, memory_type));
     RETURN_IF_ERR(TRITONSERVER_BufferAttributesSetMemoryTypeId(
-        buffer_attributes, memory_type_id));
+        attr, memory_type_id));
     RETURN_IF_ERR(
-        TRITONSERVER_BufferAttributesSetByteSize(buffer_attributes, byte_size));
+        TRITONSERVER_BufferAttributesSetByteSize(attr, byte_size));
     RETURN_IF_ERR(
         TRITONSERVER_InferenceRequestAppendInputDataWithBufferAttributes(
-            inference_request, io.name().c_str(), base, buffer_attributes));
+            inference_request, io.name().c_str(), base, attr));
   }
 
   return nullptr;  // success
@@ -3553,12 +3553,12 @@ ModelInferHandler::StartNewRequest()
   context->SetCompressionLevel(compression_level_);
   State* state = StateNew(tritonserver_.get(), context);
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // Can't create trace as we don't know the model to be requested,
   // track timestamps in 'state'
   state->trace_timestamps_.emplace_back(
       std::make_pair("GRPC_WAITREAD_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   service_->RequestModelInfer(
       state->context_->ctx_.get(), &state->request_,
@@ -3594,12 +3594,12 @@ ModelInferHandler::Process(InferHandler::State* state, bool rpc_ok)
 
   if (state->step_ == Steps::START) {
     TRITONSERVER_Error* err = nullptr;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     // Can't create trace as we don't know the model to be requested,
     // track timestamps in 'state'
     state->trace_timestamps_.emplace_back(
         std::make_pair("GRPC_WAITREAD_END", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     // Start a new request to replace this one...
     if (!shutdown) {
@@ -3671,13 +3671,13 @@ ModelInferHandler::Process(InferHandler::State* state, bool rpc_ok)
     }
     if (err == nullptr) {
       TRITONSERVER_InferenceTrace* triton_trace = nullptr;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_ =
           std::move(trace_manager_->SampleTrace(request.model_name()));
       if (state->trace_ != nullptr) {
         triton_trace = state->trace_->trace_;
       }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       state->step_ = ISSUED;
       err = TRITONSERVER_ServerInferAsync(
@@ -3701,19 +3701,19 @@ ModelInferHandler::Process(InferHandler::State* state, bool rpc_ok)
 
       hercules::proto::ModelInferResponse error_response;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_timestamps_.emplace_back(
           std::make_pair("GRPC_SEND_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       state->step_ = COMPLETE;
       state->context_->responder_->Finish(error_response, status, state);
     }
   } else if (state->step_ == Steps::COMPLETE) {
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     state->trace_timestamps_.emplace_back(
         std::make_pair("GRPC_SEND_END", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     state->step_ = Steps::FINISH;
     finished = true;
@@ -3741,10 +3741,10 @@ ModelInferHandler::InferResponseComplete(
     return;
   }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   state->trace_timestamps_.emplace_back(std::make_pair(
       "INFER_RESPONSE_COMPLETE", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   TRITONSERVER_Error* err = nullptr;
   // This callback is expected to be called exactly once for each request.
@@ -3788,10 +3788,10 @@ ModelInferHandler::InferResponseComplete(
       TRITONSERVER_InferenceResponseDelete(iresponse),
       "deleting GRPC inference response");
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   state->trace_timestamps_.emplace_back(
       std::make_pair("GRPC_SEND_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   state->step_ = COMPLETE;
   state->context_->responder_->Finish(*response, status, state);
@@ -3864,7 +3864,7 @@ StreamOutputBufferQuery(
 TRITONSERVER_Error*
 StreamOutputBufferAttributes(
     TRITONSERVER_ResponseAllocator* allocator, const char* tensor_name,
-    TRITONSERVER_BufferAttributes* buffer_attributes, void* userp,
+    TRITONSERVER_BufferAttributes* attr, void* userp,
     void* buffer_userp)
 {
   AllocPayload<hercules::proto::ModelStreamInferResponse>* payload =
@@ -3872,7 +3872,7 @@ StreamOutputBufferAttributes(
           userp);
 
   return OutputBufferAttributesHelper(
-      allocator, tensor_name, payload->shm_map_, buffer_attributes);
+      allocator, tensor_name, payload->shm_map_, attr);
 }
 
 //
@@ -3946,12 +3946,12 @@ ModelStreamInferHandler::StartNewRequest()
   context->SetCompressionLevel(compression_level_);
   State* state = StateNew(tritonserver_.get(), context);
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // Can't create trace as we don't know the model to be requested,
   // track timestamps in 'state'
   state->trace_timestamps_.emplace_back(
       std::make_pair("GRPC_WAITREAD_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   service_->RequestModelStreamInfer(
       state->context_->ctx_.get(), state->context_->responder_.get(), cq_, cq_,
@@ -3993,10 +3993,10 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
   } else if (state->step_ == Steps::READ) {
     TRITONSERVER_Error* err = nullptr;
     const hercules::proto::ModelInferRequest& request = state->request_;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     state->trace_timestamps_.emplace_back(
         std::make_pair("GRPC_WAITREAD_END", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     // If done reading and no in-flight requests then can finish the
     // entire stream. Otherwise just finish this state.
@@ -4099,13 +4099,13 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
     }
     if (err == nullptr) {
       TRITONSERVER_InferenceTrace* triton_trace = nullptr;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_ =
           std::move(trace_manager_->SampleTrace(request.model_name()));
       if (state->trace_ != nullptr) {
         triton_trace = state->trace_->trace_;
       }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       state->step_ = ISSUED;
       err = TRITONSERVER_ServerInferAsync(
@@ -4156,14 +4156,14 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
     State* next_read_state =
         StateNew(tritonserver_.get(), context, Steps::READ);
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     // Capture a timestamp for the time when we start waiting for this
     // next request to read.
     // Can't create trace as we don't know the model to be requested,
     // track timestamps in 'state'
     next_read_state->trace_timestamps_.emplace_back(std::make_pair(
         "GRPC_WAITREAD_START", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
     next_read_state->context_->responder_->Read(
         &next_read_state->request_, next_read_state);
@@ -4186,10 +4186,10 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
     //
     if (state->step_ == Steps::WRITTEN) {
       state->context_->ongoing_write_ = false;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_timestamps_.emplace_back(
           std::make_pair("GRPC_SEND_END", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       // If the write failed (for example, client closed the stream)
       // mark that the stream did not complete successfully but don't
@@ -4234,10 +4234,10 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
     //
     if (state->step_ == Steps::WRITTEN) {
       state->context_->ongoing_write_ = false;
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       state->trace_timestamps_.emplace_back(
           std::make_pair("GRPC_SEND_END", TraceManager::CaptureTimestamp()));
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       // If the write failed (for example, client closed the stream)
       // mark that the stream did not complete successfully but don't
@@ -4341,12 +4341,12 @@ ModelStreamInferHandler::StreamInferResponseComplete(
                  << " step " << state->step_ << ", callback index "
                  << state->cb_count_ << ", flags " << flags;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   if (state->cb_count_ == 1) {
     state->trace_timestamps_.emplace_back(std::make_pair(
         "INFER_RESPONSE_COMPLETE", TraceManager::CaptureTimestamp()));
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // Log appropriate errors
   if (!state->is_decoupled_) {

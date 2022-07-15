@@ -12,7 +12,7 @@ namespace hercules::core {
 
 
 const void*
-InferenceParameter::ValuePointer() const
+inference_parameter::ValuePointer() const
 {
   switch (type_) {
     case TRITONSERVER_PARAMETER_STRING:
@@ -31,7 +31,7 @@ InferenceParameter::ValuePointer() const
 }
 
 std::ostream&
-operator<<(std::ostream& out, const InferenceParameter& parameter)
+operator<<(std::ostream& out, const inference_parameter& parameter)
 {
   out << "[0x" << std::addressof(parameter) << "] "
       << "name: " << parameter.Name()

@@ -41,6 +41,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/metric_model_reporter.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/metric_model_reporter.cc.o"
   "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/metrics.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/metrics.cc.o"
   "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/model.cc.o"
+  "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_cuda.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.o"
   "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_utils.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/model_config_utils.cc.o"
   "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_repository_manager.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.o"
   "/Users/liyinbin/github/flare-rpc/hercules/hercules/core/numa_utils.cc" "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/CMakeFiles/core.dir/core/numa_utils.cc.o"

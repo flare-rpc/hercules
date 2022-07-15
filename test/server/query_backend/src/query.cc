@@ -29,7 +29,7 @@
 #include "triton/backend/backend_model.h"
 #include "triton/backend/backend_model_instance.h"
 
-namespace triton { namespace backend { namespace query {
+namespace hercules::backend { namespace query {
 
 
 // Query backend that is solely used with unit-testing query functionality
@@ -180,4 +180,4 @@ TRITONBACKEND_ModelInstanceExecute(
 
 }  // extern "C"
 
-}}}  // namespace triton::backend::query
+}}}  // namespace hercules::backend::query

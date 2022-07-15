@@ -9,7 +9,7 @@
 #include <condition_variable>
 #include <mutex>
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 class Semaphore {
  public:
@@ -36,4 +36,4 @@ class Semaphore {
   std::condition_variable cv_;
 };
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

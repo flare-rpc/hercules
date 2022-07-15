@@ -11,7 +11,7 @@
 #include <functional>
 #include <string>
 #include <vector>
-#include "buffer_attributes.h"
+#include "hercules/core/buffer_attributes.h"
 #include "constants.h"
 #include "infer_parameter.h"
 #include "infer_trace.h"
@@ -62,14 +62,14 @@ class InferenceResponseFactory {
   // Send a "null" response with 'flags'.
   Status SendFlags(const uint32_t flags) const;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   const std::shared_ptr<InferenceTraceProxy>& Trace() const { return trace_; }
   void SetTrace(const std::shared_ptr<InferenceTraceProxy>& trace)
   {
     trace_ = trace;
   }
   void ReleaseTrace() { trace_ = nullptr; }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
  private:
   // The model associated with this factory. For normal
@@ -100,10 +100,10 @@ class InferenceResponseFactory {
   std::function<void(std::unique_ptr<InferenceResponse>&&, const uint32_t)>
       response_delegator_;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // Inference trace associated with this response.
   std::shared_ptr<InferenceTraceProxy> trace_;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 };
 
 //
@@ -181,7 +181,7 @@ class InferenceResponse {
     Status ReleaseDataBuffer();
 
    private:
-    DISALLOW_COPY_AND_ASSIGN(Output);
+    FLARE_DISALLOW_COPY_AND_ASSIGN(Output);
     friend std::ostream& operator<<(
         std::ostream& out, const InferenceResponse::Output& output);
 
@@ -224,7 +224,7 @@ class InferenceResponse {
   const Status& ResponseStatus() const { return status_; }
 
   // The response parameters.
-  const std::deque<InferenceParameter>& Parameters() const
+  const std::deque<inference_parameter>& Parameters() const
   {
     return parameters_;
   }
@@ -265,24 +265,24 @@ class InferenceResponse {
       std::unique_ptr<InferenceResponse>&& response, const uint32_t flags,
       const Status& status);
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   const std::shared_ptr<InferenceTraceProxy>& Trace() const { return trace_; }
   void SetTrace(const std::shared_ptr<InferenceTraceProxy>& trace)
   {
     trace_ = trace;
   }
   void ReleaseTrace() { trace_ = nullptr; }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(InferenceResponse);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(InferenceResponse);
   friend std::ostream& operator<<(
       std::ostream& out, const InferenceResponse& response);
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   Status TraceOutputTensors(
       TRITONSERVER_InferenceTraceActivity activity, const std::string& msg);
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // The model associated with this factory. For normal
   // requests/responses this will always be defined and acts to keep
@@ -301,7 +301,7 @@ class InferenceResponse {
 
   // The parameters of the response. Use a deque so that there is no
   // reallocation.
-  std::deque<InferenceParameter> parameters_;
+  std::deque<inference_parameter> parameters_;
 
   // The result tensors. Use a deque so that there is no reallocation.
   std::deque<Output> outputs_;
@@ -320,10 +320,10 @@ class InferenceResponse {
 
   bool null_response_;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // Inference trace associated with this response.
   std::shared_ptr<InferenceTraceProxy> trace_;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 };
 
 std::ostream& operator<<(std::ostream& out, const InferenceResponse& response);

@@ -20,9 +20,9 @@
 #include "common.h"
 #include "triton/core/tritonserver.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace ni = triton::server;
 
@@ -31,7 +31,7 @@ namespace {
 bool enforce_memory_type = false;
 TRITONSERVER_MemoryType requested_memory_type;
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 static auto cuda_data_deleter = [](void* data) {
   if (data != nullptr) {
     cudaPointerAttributes attr;
@@ -51,7 +51,7 @@ static auto cuda_data_deleter = [](void* data) {
     }
   }
 };
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 void
 Usage(char** argv, const std::string& msg = std::string())
@@ -98,7 +98,7 @@ ResponseAlloc(
     }
 
     switch (*actual_memory_type) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
       case TRITONSERVER_MEMORY_CPU_PINNED: {
         auto err = cudaSetDevice(*actual_memory_type_id);
         if ((err != cudaSuccess) && (err != cudaErrorNoDevice) &&
@@ -145,7 +145,7 @@ ResponseAlloc(
         }
         break;
       }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
       // Use CPU memory if the requested memory type is unknown
       // (default case).
@@ -191,7 +191,7 @@ ResponseRelease(
     case TRITONSERVER_MEMORY_CPU:
       free(buffer);
       break;
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     case TRITONSERVER_MEMORY_CPU_PINNED: {
       auto err = cudaSetDevice(memory_type_id);
       if (err == cudaSuccess) {
@@ -214,7 +214,7 @@ ResponseRelease(
       }
       break;
     }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
     default:
       std::cerr << "error: unexpected buffer allocated in CUDA managed memory"
                 << std::endl;
@@ -411,7 +411,7 @@ Check(
         break;
       }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
       case TRITONSERVER_MEMORY_GPU: {
         std::cout << name << " is stored in GPU memory" << std::endl;
         odata.reserve(byte_size);
@@ -481,11 +481,11 @@ main(int argc, char** argv)
   if (model_repository_path.empty()) {
     Usage(argv, "-r must be used to specify model repository path");
   }
-#ifndef TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
   if (enforce_memory_type && requested_memory_type != TRITONSERVER_MEMORY_CPU) {
     Usage(argv, "-m can only be set to \"system\" without enabling GPU");
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   // Check API version. This compares the API version of the
   // triton-server library linked into this application against the
@@ -525,11 +525,11 @@ main(int argc, char** argv)
   FAIL_IF_ERR(
       TRITONSERVER_ServerOptionsSetStrictModelConfig(server_options, true),
       "setting strict model configuration");
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   double min_compute_capability = TRITON_MIN_COMPUTE_CAPABILITY;
 #else
   double min_compute_capability = 0;
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   FAIL_IF_ERR(
       TRITONSERVER_ServerOptionsSetMinSupportedComputeCapability(
           server_options, min_compute_capability),
@@ -757,7 +757,7 @@ main(int argc, char** argv)
 
   const void* input0_base = &input0_data[0];
   const void* input1_base = &input1_data[0];
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   std::unique_ptr<void, decltype(cuda_data_deleter)> input0_gpu(
       nullptr, cuda_data_deleter);
   std::unique_ptr<void, decltype(cuda_data_deleter)> input1_gpu(
@@ -804,7 +804,7 @@ main(int argc, char** argv)
 
   input0_base = use_cuda_memory ? input0_gpu.get() : &input0_data[0];
   input1_base = use_cuda_memory ? input1_gpu.get() : &input1_data[0];
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   FAIL_IF_ERR(
       TRITONSERVER_InferenceRequestAppendInputData(

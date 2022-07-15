@@ -12,7 +12,7 @@
 #include "triton/backend/backend_model.h"
 #include "triton/backend/backend_model_instance.h"
 
-namespace triton { namespace backend { namespace implicit {
+namespace hercules::backend { namespace implicit {
 
 // Implicit state backend that is solely used with testing implicit state
 // management functionality in the backend API.
@@ -106,7 +106,7 @@ ModelState::ValidateModelConfig()
   // The model configuration must specify the sequence batcher and
   // must use the START, END, READ and CORRID input to indicate
   // control values.
-  triton::common::TritonJson::Value sequence_batching;
+  hercules::common::TritonJson::Value sequence_batching;
   RETURN_IF_ERROR(
       model_config_.MemberAsObject("sequence_batching", &sequence_batching));
   common::TritonJson::Value control_inputs;
@@ -865,11 +865,11 @@ TRITONBACKEND_ModelInstanceExecute(
           continue;
         }
 
-        TRITONSERVER_BufferAttributes* buffer_attributes;
+        TRITONSERVER_BufferAttributes* attr;
         GUARDED_RESPOND_IF_ERROR(
             responses, r, request,
             TRITONBACKEND_StateBufferAttributes(
-                response_state, &buffer_attributes));
+                response_state, &attr));
 
         // Testing for the StateBuffer attributes
         TRITONSERVER_MemoryType ba_memory_type;
@@ -879,17 +879,17 @@ TRITONBACKEND_ModelInstanceExecute(
         GUARDED_RESPOND_IF_ERROR(
             responses, r, request,
             TRITONSERVER_BufferAttributesMemoryType(
-                buffer_attributes, &ba_memory_type));
+                attr, &ba_memory_type));
 
         GUARDED_RESPOND_IF_ERROR(
             responses, r, request,
             TRITONSERVER_BufferAttributesMemoryTypeId(
-                buffer_attributes, &ba_memory_type_id));
+                attr, &ba_memory_type_id));
 
         GUARDED_RESPOND_IF_ERROR(
             responses, r, request,
             TRITONSERVER_BufferAttributesByteSize(
-                buffer_attributes, &ba_byte_size));
+                attr, &ba_byte_size));
 
         if (!((actual_memory_type == ba_memory_type) &&
               (sizeof(int32_t) == ba_byte_size) &&
@@ -997,4 +997,4 @@ TRITONBACKEND_ModelInstanceExecute(
   return nullptr;  // success
 }
 }  // extern "C"
-}}}  // namespace triton::backend::implicit
+}}}  // namespace hercules::backend::implicit

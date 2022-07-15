@@ -63,10 +63,10 @@ FetchContent_MakeAvailable(repo-common repo-core repo-backend)
 
 # CUDA
 #
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   find_package(CUDAToolkit REQUIRED)
   message(STATUS "Using CUDA ${CUDA_VERSION}")
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 # GRPC
 #
@@ -151,21 +151,21 @@ target_link_libraries(
     triton-core-serverstub          # from repo-core
 )
 
-if(${TRITON_ENABLE_ASAN})
+if(${HERCULES_ENABLE_ASAN})
   set(CMAKE_BUILD_TYPE Debug)
   target_compile_definitions(
     main
-    PRIVATE TRITON_ENABLE_ASAN=1
+    PRIVATE HERCULES_ENABLE_ASAN=1
   )
   set(_ASAN_FLAGS "-static-libstdc++ -static-libasan -fno-omit-frame-pointer -fsanitize=address")
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${_ASAN_FLAGS}")
   set(CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} ${_ASAN_FLAGS}")
-endif() # TRITON_ENABLE_ASAN
+endif() # HERCULES_ENABLE_ASAN
 
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   target_compile_definitions(
     main
-    PRIVATE TRITON_ENABLE_GPU=1
+    PRIVATE HERCULES_ENABLE_GPU=1
     PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
   )
 
@@ -174,7 +174,7 @@ if(${TRITON_ENABLE_GPU})
     PRIVATE
       CUDA::cudart
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 if(${TRITON_ENABLE_HTTP} OR ${TRITON_ENABLE_METRICS} OR
     ${TRITON_ENABLE_SAGEMAKER} OR ${TRITON_ENABLE_VERTEX_AI})
@@ -233,19 +233,19 @@ if(${TRITON_ENABLE_METRICS})
   )
 endif() # TRITON_ENABLE_METRICS
 
-if(${TRITON_ENABLE_STATS})
+if(${HERCULES_ENABLE_STATS})
   target_compile_definitions(
     main
-    PRIVATE TRITON_ENABLE_STATS=1
+    PRIVATE HERCULES_ENABLE_STATS=1
   )
-endif() # TRITON_ENABLE_STATS
+endif() # HERCULES_ENABLE_STATS
 
-if(${TRITON_ENABLE_TRACING})
+if(${HERCULES_ENABLE_TRACING})
   target_compile_definitions(
     main
-    PRIVATE TRITON_ENABLE_TRACING=1
+    PRIVATE HERCULES_ENABLE_TRACING=1
   )
-endif() # TRITON_ENABLE_TRACING
+endif() # HERCULES_ENABLE_TRACING
 
 if(${TRITON_ENABLE_NVTX})
   target_compile_definitions(
@@ -333,10 +333,10 @@ if(${TRITON_ENABLE_GRPC})
     PRIVATE TRITON_ENABLE_GRPC=1
   )
 
-  if(${TRITON_ENABLE_GPU})
+  if(${HERCULES_ENABLE_GPU})
     target_compile_definitions(
       grpc-endpoint-library
-      PRIVATE TRITON_ENABLE_GPU=1
+      PRIVATE HERCULES_ENABLE_GPU=1
       PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
     )
 
@@ -345,7 +345,7 @@ if(${TRITON_ENABLE_GRPC})
       PUBLIC
         CUDA::cudart
     )
-  endif() # TRITON_ENABLE_GPU
+  endif() # HERCULES_ENABLE_GPU
 
   if(${TRITON_ENABLE_METRICS})
     target_compile_definitions(
@@ -361,19 +361,19 @@ if(${TRITON_ENABLE_GRPC})
     )
   endif() # TRITON_ENABLE_LOGGING
 
-  if(${TRITON_ENABLE_STATS})
+  if(${HERCULES_ENABLE_STATS})
     target_compile_definitions(
       grpc-endpoint-library
-      PRIVATE TRITON_ENABLE_STATS=1
+      PRIVATE HERCULES_ENABLE_STATS=1
     )
-  endif() # TRITON_ENABLE_STATS
+  endif() # HERCULES_ENABLE_STATS
 
-  if(${TRITON_ENABLE_TRACING})
+  if(${HERCULES_ENABLE_TRACING})
     target_compile_definitions(
       grpc-endpoint-library
-      PRIVATE TRITON_ENABLE_TRACING=1
+      PRIVATE HERCULES_ENABLE_TRACING=1
     )
-  endif() # TRITON_ENABLE_TRACING
+  endif() # HERCULES_ENABLE_TRACING
 
   if(${TRITON_ENABLE_NVTX})
     target_compile_definitions(
@@ -473,10 +473,10 @@ if(${TRITON_ENABLE_HTTP}
     PRIVATE $<TARGET_PROPERTY:libevhtp::evhtp,INTERFACE_INCLUDE_DIRECTORIES>
   )
 
-  if(${TRITON_ENABLE_GPU})
+  if(${HERCULES_ENABLE_GPU})
     target_compile_definitions(
       http-endpoint-library
-      PRIVATE TRITON_ENABLE_GPU=1
+      PRIVATE HERCULES_ENABLE_GPU=1
       PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
     )
 
@@ -485,7 +485,7 @@ if(${TRITON_ENABLE_HTTP}
       PUBLIC
         CUDA::cudart
     )
-  endif() # TRITON_ENABLE_GPU
+  endif() # HERCULES_ENABLE_GPU
 
   if(${TRITON_ENABLE_HTTP})
     target_compile_definitions(
@@ -522,19 +522,19 @@ if(${TRITON_ENABLE_HTTP}
     )
   endif() # TRITON_ENABLE_LOGGING
 
-  if(${TRITON_ENABLE_STATS})
+  if(${HERCULES_ENABLE_STATS})
     target_compile_definitions(
       http-endpoint-library
-      PRIVATE TRITON_ENABLE_STATS=1
+      PRIVATE HERCULES_ENABLE_STATS=1
     )
-  endif() # TRITON_ENABLE_STATS
+  endif() # HERCULES_ENABLE_STATS
 
-  if(${TRITON_ENABLE_TRACING})
+  if(${HERCULES_ENABLE_TRACING})
     target_compile_definitions(
       http-endpoint-library
-      PRIVATE TRITON_ENABLE_TRACING=1
+      PRIVATE HERCULES_ENABLE_TRACING=1
     )
-  endif() # TRITON_ENABLE_TRACING
+  endif() # HERCULES_ENABLE_TRACING
 
   if(${TRITON_ENABLE_NVTX})
     target_compile_definitions(
@@ -571,7 +571,7 @@ endif() # TRITON_ENABLE_HTTP || TRITON_ENABLE_METRICS ||
 
 # tracing
 #
-if(${TRITON_ENABLE_TRACING})
+if(${HERCULES_ENABLE_TRACING})
   message(STATUS "Using tracing ${TRITON_TRACE_INSTALL_PATH}")
 
   add_library(
@@ -589,13 +589,13 @@ if(${TRITON_ENABLE_TRACING})
 
   target_compile_definitions(
     tracing-library
-    PRIVATE TRITON_ENABLE_TRACING=1
+    PRIVATE HERCULES_ENABLE_TRACING=1
   )
 
-  if(${TRITON_ENABLE_GPU})
+  if(${HERCULES_ENABLE_GPU})
     target_compile_definitions(
       tracing-library
-      PRIVATE TRITON_ENABLE_GPU=1
+      PRIVATE HERCULES_ENABLE_GPU=1
       PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
     )
 
@@ -604,7 +604,7 @@ if(${TRITON_ENABLE_TRACING})
       PUBLIC
         CUDA::cudart
     )
-  endif() # TRITON_ENABLE_GPU
+  endif() # HERCULES_ENABLE_GPU
 
   if(${TRITON_ENABLE_METRICS})
     target_compile_definitions(
@@ -620,12 +620,12 @@ if(${TRITON_ENABLE_TRACING})
     )
   endif() # TRITON_ENABLE_LOGGING
 
-  if(${TRITON_ENABLE_STATS})
+  if(${HERCULES_ENABLE_STATS})
     target_compile_definitions(
       tracing-library
-      PRIVATE TRITON_ENABLE_STATS=1
+      PRIVATE HERCULES_ENABLE_STATS=1
     )
-  endif() # TRITON_ENABLE_STATS
+  endif() # HERCULES_ENABLE_STATS
 
   if(${TRITON_ENABLE_NVTX})
     target_compile_definitions(
@@ -639,7 +639,7 @@ if(${TRITON_ENABLE_TRACING})
     PRIVATE
       tracing-library
   )
-endif() # TRITON_ENABLE_TRACING
+endif() # HERCULES_ENABLE_TRACING
 
 if (NOT WIN32)
   #
@@ -687,10 +687,10 @@ if (NOT WIN32)
       triton-core-serverstub          # from repo-core
     )
 
-  if(${TRITON_ENABLE_GPU})
+  if(${HERCULES_ENABLE_GPU})
     target_compile_definitions(
       simple
-      PRIVATE TRITON_ENABLE_GPU=1
+      PRIVATE HERCULES_ENABLE_GPU=1
       PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
     )
 
@@ -699,7 +699,7 @@ if (NOT WIN32)
       PRIVATE
         CUDA::cudart
     )
-  endif() # TRITON_ENABLE_GPU
+  endif() # HERCULES_ENABLE_GPU
 
   install(
     TARGETS simple
@@ -751,10 +751,10 @@ if (NOT WIN32)
       triton-core-serverstub          # from repo-core
     )
 
-  if(${TRITON_ENABLE_GPU})
+  if(${HERCULES_ENABLE_GPU})
     target_compile_definitions(
       multi_server
-      PRIVATE TRITON_ENABLE_GPU=1
+      PRIVATE HERCULES_ENABLE_GPU=1
       PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
     )
 
@@ -763,14 +763,14 @@ if (NOT WIN32)
       PRIVATE
         CUDA::cudart
     )
-  endif() # TRITON_ENABLE_GPU
+  endif() # HERCULES_ENABLE_GPU
 
   install(
     TARGETS multi_server
     RUNTIME DESTINATION bin
   )
 
-  if(${TRITON_ENABLE_GPU})
+  if(${HERCULES_ENABLE_GPU})
     #
     # memory_alloc example
     #
@@ -809,7 +809,7 @@ if (NOT WIN32)
 
     target_compile_definitions(
       memory_alloc
-      PRIVATE TRITON_ENABLE_GPU=1
+      PRIVATE HERCULES_ENABLE_GPU=1
       PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
     )
 
@@ -827,7 +827,7 @@ if (NOT WIN32)
       TARGETS memory_alloc
       RUNTIME DESTINATION bin
     )
-  endif() # TRITON_ENABLE_GPU
+  endif() # HERCULES_ENABLE_GPU
 endif() # NOT WIN32
 
 # Currently unit tests do not build for windows...

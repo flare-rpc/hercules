@@ -31,11 +31,11 @@
 //
 // TensorRT Backend that implements the TRITONBACKEND API.
 //
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 namespace {
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
 #define FAIL_ALL_AND_RETURN_IF_ERROR(                                          \
     REQUESTS, REQUEST_COUNT, RESPONSES, S, LOG_MSG)                            \
   do {                                                                         \
@@ -98,7 +98,7 @@ TimestampCaptureCallback(void* data)
     }                                                                 \
   } while (false)
 
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
 // Number of CUDA event set for each instance.
 static constexpr int EVENT_SET_COUNT = 2;
@@ -240,14 +240,14 @@ class ModelState : public TensorRTModel {
   TRITONSERVER_Error* InstanceHasKindGPU(bool* has_instance_kind_gpu);
   TRITONSERVER_Error* GetRefIO(
       const bool is_input, nvinfer1::ICudaEngine* engine,
-      triton::common::TritonJson::Value* ref_io);
+      hercules::common::TritonJson::Value* ref_io);
   TRITONSERVER_Error* InitIODims(
       nvinfer1::ICudaEngine* engine, nvinfer1::Dims& dims,
-      bool is_shape_binding, triton::common::TritonJson::Value* io);
+      bool is_shape_binding, hercules::common::TritonJson::Value* io);
   TRITONSERVER_Error* FixIO(
       nvinfer1::ICudaEngine* engine,
-      triton::common::TritonJson::Value& reference_ios,
-      triton::common::TritonJson::Value* mutable_ios);
+      hercules::common::TritonJson::Value& reference_ios,
+      hercules::common::TritonJson::Value* mutable_ios);
 
 
   // Validate that model configuration is supported by this backend.
@@ -419,7 +419,7 @@ TRITONSERVER_Error*
 ModelState::ValidateModelConfig()
 {
   // We have the json DOM for the model configuration...
-  triton::common::TritonJson::WriteBuffer buffer;
+  hercules::common::TritonJson::WriteBuffer buffer;
   RETURN_IF_ERROR(ModelConfig().PrettyWrite(&buffer));
   LOG_MESSAGE(
       TRITONSERVER_LOG_VERBOSE,
@@ -449,11 +449,11 @@ ModelState::AutoCompleteConfig()
   }
 
   int64_t device_id;
-  triton::common::TritonJson::Value groups;
+  hercules::common::TritonJson::Value groups;
   RETURN_IF_ERROR(ModelConfig().MemberAsArray("instance_group", &groups));
-  triton::common::TritonJson::Value group;
+  hercules::common::TritonJson::Value group;
   RETURN_IF_ERROR(groups.IndexAsObject(0, &group));
-  triton::common::TritonJson::Value gpus;
+  hercules::common::TritonJson::Value gpus;
   RETURN_IF_ERROR(group.MemberAsArray("gpus", &gpus));
   RETURN_IF_ERROR(gpus.IndexAsInt(0, &device_id));
 
@@ -526,7 +526,7 @@ ModelState::AutoCompleteConfig()
   }
 
   if (TRITONSERVER_LogIsEnabled(TRITONSERVER_LOG_VERBOSE)) {
-    triton::common::TritonJson::WriteBuffer buffer;
+    hercules::common::TritonJson::WriteBuffer buffer;
     RETURN_IF_ERROR(ModelConfig().PrettyWrite(&buffer));
     LOG_MESSAGE(
         TRITONSERVER_LOG_INFO,
@@ -559,17 +559,17 @@ ModelState::AutoCompleteConfigHelper(const std::string& model_path)
   size_t input_cnt = 0;
   size_t output_cnt = 0;
   {
-    triton::common::TritonJson::Value inputs;
+    hercules::common::TritonJson::Value inputs;
     if (ModelConfig().Find("input", &inputs)) {
       input_cnt = inputs.ArraySize();
     }
 
-    triton::common::TritonJson::Value config_batch_inputs;
+    hercules::common::TritonJson::Value config_batch_inputs;
     if (ModelConfig().Find("batch_input", &config_batch_inputs)) {
       input_cnt += config_batch_inputs.ArraySize();
     }
 
-    triton::common::TritonJson::Value outputs;
+    hercules::common::TritonJson::Value outputs;
     if (ModelConfig().Find("output", &outputs)) {
       output_cnt = outputs.ArraySize();
     }
@@ -607,11 +607,11 @@ ModelState::AutoCompleteConfigHelper(const std::string& model_path)
 
     bool io_allow_ragged_batch = false;
     for (const auto& io_type : io_types) {
-      triton::common::TritonJson::Value config_io;
+      hercules::common::TritonJson::Value config_io;
       RETURN_IF_ERROR(ModelConfig().MemberAsArray(io_type.c_str(), &config_io));
       for (size_t i = 0;
            ((i < config_io.ArraySize()) && (!io_allow_ragged_batch)); i++) {
-        triton::common::TritonJson::Value io;
+        hercules::common::TritonJson::Value io;
         RETURN_IF_ERROR(config_io.IndexAsObject(i, &io));
         io.MemberAsBool("allow_ragged_batch", &io_allow_ragged_batch);
         if (io_allow_ragged_batch) {
@@ -680,7 +680,7 @@ ModelState::AutoCompleteConfigHelper(const std::string& model_path)
   }
 
   if (MaxBatchSize() == 0) {
-    triton::common::TritonJson::Value mbs_value;
+    hercules::common::TritonJson::Value mbs_value;
     ModelConfig().Find("max_batch_size", &mbs_value);
     mbs_value.SetInt(max_batch_size);
     SetMaxBatchSize(max_batch_size);
@@ -698,34 +698,34 @@ ModelState::AutoCompleteConfigHelper(const std::string& model_path)
   // Turn on dynamic batch scheduler if batch size is greater
   // than 1 and there is no scheduler defined in the configuration.
   if (max_batch_size > 1) {
-    triton::common::TritonJson::Value value;
+    hercules::common::TritonJson::Value value;
     bool found_sequence_batching =
         ModelConfig().Find("sequence_batching", &value);
     bool found_dynamic_batching =
         ModelConfig().Find("dynamic_batching", &value);
     if (!found_sequence_batching && !found_dynamic_batching) {
-      triton::common::TritonJson::Value dynamic_batching(
-          ModelConfig(), triton::common::TritonJson::ValueType::OBJECT);
+      hercules::common::TritonJson::Value dynamic_batching(
+          ModelConfig(), hercules::common::TritonJson::ValueType::OBJECT);
       ModelConfig().Add("dynamic_batching", std::move(dynamic_batching));
     }
   }
 
-  triton::common::TritonJson::Value ref_inputs(
-      ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value ref_inputs(
+      ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
   RETURN_IF_ERROR(GetRefIO(true /*is_input*/, engine.get(), &ref_inputs));
-  triton::common::TritonJson::Value mutable_inputs(
-      ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value mutable_inputs(
+      ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
   bool found_inputs = ModelConfig().Find("input", &mutable_inputs);
   RETURN_IF_ERROR(FixIO(engine.get(), ref_inputs, &mutable_inputs));
   if (!found_inputs) {
     ModelConfig().Add("input", std::move(mutable_inputs));
   }
 
-  triton::common::TritonJson::Value ref_outputs(
-      ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value ref_outputs(
+      ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
   RETURN_IF_ERROR(GetRefIO(false /*is_input*/, engine.get(), &ref_outputs));
-  triton::common::TritonJson::Value mutable_outputs(
-      ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value mutable_outputs(
+      ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
   bool found_outputs = ModelConfig().Find("output", &mutable_outputs);
   RETURN_IF_ERROR(FixIO(engine.get(), ref_outputs, &mutable_outputs));
   if (!found_outputs) {
@@ -879,17 +879,17 @@ TRITONSERVER_Error*
 ModelState::InstanceHasKindGPU(bool* has_instance_kind_gpu)
 {
   *has_instance_kind_gpu = false;
-  triton::common::TritonJson::Value instance_groups(
-      ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value instance_groups(
+      ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
   ModelConfig().Find("instance_group", &instance_groups);
 
   if (instance_groups.ArraySize() > 0) {
     // TensorRT backend does not support KIND_CPU at all
     // so only check the first instance group kind.
-    triton::common::TritonJson::Value group;
+    hercules::common::TritonJson::Value group;
     RETURN_IF_ERROR(instance_groups.IndexAsObject(0, &group));
 
-    triton::common::TritonJson::Value kind;
+    hercules::common::TritonJson::Value kind;
     group.Find("kind", &kind);
     std::string kind_str;
     RETURN_IF_ERROR(kind.AsString(&kind_str));
@@ -905,7 +905,7 @@ ModelState::InstanceHasKindGPU(bool* has_instance_kind_gpu)
 TRITONSERVER_Error*
 ModelState::GetRefIO(
     const bool is_input, nvinfer1::ICudaEngine* engine,
-    triton::common::TritonJson::Value* ref_io)
+    hercules::common::TritonJson::Value* ref_io)
 {
   int num_profiles = engine->getNbOptimizationProfiles();
   int num_profile_bindings = engine->getNbBindings() / num_profiles;
@@ -917,8 +917,8 @@ ModelState::GetRefIO(
         ((!is_input) && (engine->bindingIsInput(i)))) {
       continue;
     }
-    triton::common::TritonJson::Value io(
-        ModelConfig(), triton::common::TritonJson::ValueType::OBJECT);
+    hercules::common::TritonJson::Value io(
+        ModelConfig(), hercules::common::TritonJson::ValueType::OBJECT);
     std::string input_name{engine->getBindingName(i)};
     RETURN_IF_ERROR(
         io.AddString("name", input_name.substr(0, input_name.find(" "))));
@@ -937,12 +937,12 @@ ModelState::GetRefIO(
 TRITONSERVER_Error*
 ModelState::InitIODims(
     nvinfer1::ICudaEngine* engine, nvinfer1::Dims& dims, bool is_shape_binding,
-    triton::common::TritonJson::Value* io)
+    hercules::common::TritonJson::Value* io)
 {
   bool skip_first =
       (MaxBatchSize() != 0) && (!engine->hasImplicitBatchDimension());
-  triton::common::TritonJson::Value config_dims(
-      ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value config_dims(
+      ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
   if (!is_shape_binding) {
     for (int didx = (skip_first ? 1 : 0); didx < dims.nbDims; ++didx) {
       RETURN_IF_ERROR(config_dims.AppendInt(dims.d[didx]));
@@ -951,10 +951,10 @@ ModelState::InitIODims(
     // tensor, since 'dims' is not allowed to be empty.
     if (config_dims.ArraySize() == 0) {
       RETURN_IF_ERROR(config_dims.AppendInt(1));
-      triton::common::TritonJson::Value reshape(
-          ModelConfig(), triton::common::TritonJson::ValueType::OBJECT);
-      triton::common::TritonJson::Value reshape_dims(
-          ModelConfig(), triton::common::TritonJson::ValueType::ARRAY);
+      hercules::common::TritonJson::Value reshape(
+          ModelConfig(), hercules::common::TritonJson::ValueType::OBJECT);
+      hercules::common::TritonJson::Value reshape_dims(
+          ModelConfig(), hercules::common::TritonJson::ValueType::ARRAY);
       RETURN_IF_ERROR(reshape.Add("shape", std::move(reshape_dims)));
       RETURN_IF_ERROR(io->Add("reshape", std::move(reshape)));
     }
@@ -975,19 +975,19 @@ ModelState::InitIODims(
 TRITONSERVER_Error*
 ModelState::FixIO(
     nvinfer1::ICudaEngine* engine,
-    triton::common::TritonJson::Value& reference_ios,
-    triton::common::TritonJson::Value* mutable_ios)
+    hercules::common::TritonJson::Value& reference_ios,
+    hercules::common::TritonJson::Value* mutable_ios)
 {
   if (mutable_ios->ArraySize() == 0) {
     RETURN_IF_ERROR(mutable_ios->Swap(reference_ios));
   } else {
     for (size_t i = 0; i < mutable_ios->ArraySize(); i++) {
-      triton::common::TritonJson::Value mutable_io;
+      hercules::common::TritonJson::Value mutable_io;
       RETURN_IF_ERROR(mutable_ios->IndexAsObject(i, &mutable_io));
       std::string io_name;
       RETURN_IF_ERROR(mutable_io.MemberAsString("name", &io_name));
       for (size_t j = 0; j < reference_ios.ArraySize(); j++) {
-        triton::common::TritonJson::Value io_ref;
+        hercules::common::TritonJson::Value io_ref;
         RETURN_IF_ERROR(reference_ios.IndexAsObject(j, &io_ref));
         std::string ref_name;
         RETURN_IF_ERROR(io_ref.MemberAsString("name", &ref_name));
@@ -1362,7 +1362,7 @@ class ModelInstanceState : public TensorRTModelInstance {
     uint64_t compute_input_end_ns_;
     uint64_t compute_output_start_ns_;
 
-    // All the composing InferenceRequest objects
+    // All the composing inference_request objects
     std::vector<TRITONBACKEND_Request*> requests_list_;
     TRITONBACKEND_Request** requests_;
     uint32_t request_count_;
@@ -1385,7 +1385,7 @@ class ModelInstanceState : public TensorRTModelInstance {
 
   // Assume that the lifetime of composing completion data to extend
   // till the responses are returned.
-  triton::common::SyncQueue<std::unique_ptr<Payload>> completion_queue_;
+  hercules::common::SyncQueue<std::unique_ptr<Payload>> completion_queue_;
 
   // The maximum possible size of the TensorRT tensor and the
   // corresponding allocated GPU buffer across all optimization
@@ -1561,7 +1561,7 @@ ModelInstanceState::ModelInstanceState(
   }
 
   if (Kind() != TRITONSERVER_INSTANCEGROUPKIND_GPU) {
-    throw triton::backend::BackendModelInstanceException(TRITONSERVER_ErrorNew(
+    throw hercules::backend::BackendModelInstanceException(TRITONSERVER_ErrorNew(
         TRITONSERVER_ERROR_INVALID_ARG,
         (std::string("unable to load model '") + model_state_->Name() +
          "', TensorRT backend supports only GPU device")
@@ -2161,12 +2161,12 @@ ModelInstanceState::Run(
   }
   payload_->collector_->Finalize();
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   cudaStreamWaitEvent(signal_stream_, events_[next_set_].input_ready_, 0);
   cudaLaunchHostFunc(
       signal_stream_, TimestampCaptureCallback,
       reinterpret_cast<void*>(&payload_->compute_input_end_ns_));
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
   const TensorRTContext::CudaGraph* cuda_graph = nullptr;
   bool found_exact = false;
@@ -2346,13 +2346,13 @@ ModelInstanceState::Run(
 
   cudaEventRecord(events_[next_set_].ready_for_output_, stream_);
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   cudaStreamWaitEvent(signal_stream_, events_[next_set_].ready_for_output_, 0);
   cudaLaunchHostFunc(
       signal_stream_, TimestampCaptureCallback,
       reinterpret_cast<void*>(&payload_->compute_output_start_ns_));
   cudaEventRecord(events_[next_set_].timestamp_signal_, signal_stream_);
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
   // Collect the names of requested outputs. Do not include outputs
   // for requests that have already responded with an error.
@@ -2711,10 +2711,10 @@ ModelInstanceState::ProcessResponse()
 
     // Compute ends when the output data copy is completed
     uint64_t compute_end_ns = 0;
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
     cudaEventSynchronize(event_set.timestamp_signal_);
     SET_TIMESTAMP(compute_end_ns);
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
     // Send all the responses that haven't already been sent because
     // of an earlier error. Note that the responses are not set to
@@ -3058,10 +3058,10 @@ ModelInstanceState::InitStreamsAndEvents()
           CreateCudaStream(DeviceId(), cuda_stream_priority_, &stream_));
     }
   }
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   RETURN_IF_ERROR(
       CreateCudaStream(DeviceId(), cuda_stream_priority_, &signal_stream_));
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
   RETURN_IF_ERROR(
       CreateCudaStream(DeviceId(), cuda_stream_priority_, &input_copy_stream_));
   if (model_state_->SeparateOutputStream()) {
@@ -3094,11 +3094,11 @@ ModelInstanceState::InitEventSet(bool busy_wait_events)
     RETURN_IF_ERROR(CreateCudaEvent(
         "Set " + std::to_string(idx) + " output ready", event_flags,
         &events_[idx].output_ready_));
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
     RETURN_IF_ERROR(CreateCudaEvent(
         "Set " + std::to_string(idx) + " timestamp signal", event_flags,
         &events_[idx].timestamp_signal_));
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
   }
   return nullptr;
 }
@@ -3303,7 +3303,7 @@ ModelInstanceState::ValidateIO()
     }
   }
 
-  triton::common::TritonJson::Value config_inputs;
+  hercules::common::TritonJson::Value config_inputs;
   RETURN_IF_ERROR(
       model_state_->ModelConfig().MemberAsArray("input", &config_inputs));
   if (allowed_inputs.size() < config_inputs.ArraySize()) {
@@ -3319,16 +3319,16 @@ ModelInstanceState::ValidateIO()
   }
 
   for (size_t i = 0; i < config_inputs.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_inputs.IndexAsObject(i, &io));
     RETURN_IF_ERROR(CheckAllowedModelInput(io, allowed_inputs));
   }
 
-  triton::common::TritonJson::Value config_outputs;
+  hercules::common::TritonJson::Value config_outputs;
   RETURN_IF_ERROR(
       model_state_->ModelConfig().MemberAsArray("output", &config_outputs));
   for (size_t i = 0; i < config_outputs.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_outputs.IndexAsObject(i, &io));
     RETURN_IF_ERROR(CheckAllowedModelOutput(io, allowed_outputs));
   }
@@ -3348,7 +3348,7 @@ ModelInstanceState::ValidateIOHelper(
 {
   std::string type = is_input ? "input" : "output";
   for (size_t i = 0; i < ios.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
     std::string io_name;
@@ -3399,10 +3399,10 @@ ModelInstanceState::ValidateIOHelper(
 TRITONSERVER_Error*
 ModelInstanceState::InitIOBindingBuffers()
 {
-  triton::common::TritonJson::Value config_inputs;
+  hercules::common::TritonJson::Value config_inputs;
   RETURN_IF_ERROR(
       model_state_->ModelConfig().MemberAsArray("input", &config_inputs));
-  triton::common::TritonJson::Value config_outputs;
+  hercules::common::TritonJson::Value config_outputs;
   RETURN_IF_ERROR(
       model_state_->ModelConfig().MemberAsArray("output", &config_outputs));
 
@@ -3493,7 +3493,7 @@ ModelInstanceState::InitializeConfigShapeInputBindings(
     common::TritonJson::Value& config_inputs)
 {
   for (size_t i = 0; i < config_inputs.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_inputs.IndexAsObject(i, &io));
     std::string io_name;
     io.MemberAsString("name", &io_name);
@@ -3520,7 +3520,7 @@ ModelInstanceState::InitializeConfigExecuteInputBindings(
     common::TritonJson::Value& config_inputs)
 {
   for (size_t i = 0; i < config_inputs.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_inputs.IndexAsObject(i, &io));
     std::string io_name;
     io.MemberAsString("name", &io_name);
@@ -3566,7 +3566,7 @@ ModelInstanceState::InitializeSequenceControlInputBindings(
       if (!tensor_name.empty()) {
         // Control tensors must have shape [1].
         common::TritonJson::Value dims{
-            triton::common::TritonJson::ValueType::ARRAY};
+            hercules::common::TritonJson::ValueType::ARRAY};
         dims.AppendInt(1);
 
         RETURN_IF_ERROR(InitializeExecuteInputBinding(
@@ -3587,7 +3587,7 @@ ModelInstanceState::InitializeSequenceControlInputBindings(
       if (!tensor_name.empty()) {
         // Control tensors must have shape [1].
         common::TritonJson::Value dims{
-            triton::common::TritonJson::ValueType::ARRAY};
+            hercules::common::TritonJson::ValueType::ARRAY};
         dims.AppendInt(1);
 
         RETURN_IF_ERROR(InitializeExecuteInputBinding(
@@ -3605,10 +3605,10 @@ ModelInstanceState::InitializeSequenceStateInputBindings(
   common::TritonJson::Value sequence_batching;
   if (model_state_->ModelConfig().Find(
           "sequence_batching", &sequence_batching)) {
-    triton::common::TritonJson::Value states;
+    hercules::common::TritonJson::Value states;
     if (sequence_batching.Find("state", &states)) {
       for (size_t i = 0; i < states.ArraySize(); i++) {
-        triton::common::TritonJson::Value io;
+        hercules::common::TritonJson::Value io;
         RETURN_IF_ERROR(states.IndexAsObject(i, &io));
         std::string input_name;
         RETURN_IF_ERROR(io.MemberAsString("input_name", &input_name));
@@ -3635,11 +3635,11 @@ ModelInstanceState::InitializeSequenceStateOutputBindings(
   common::TritonJson::Value sequence_batching;
   if (model_state_->ModelConfig().Find(
           "sequence_batching", &sequence_batching)) {
-    triton::common::TritonJson::Value states;
+    hercules::common::TritonJson::Value states;
     if (sequence_batching.Find("state", &states)) {
       for (size_t i = 0; i < states.ArraySize(); i++) {
         uses_implicit_state_ = true;
-        triton::common::TritonJson::Value io;
+        hercules::common::TritonJson::Value io;
         RETURN_IF_ERROR(states.IndexAsObject(i, &io));
         std::string output_name;
         RETURN_IF_ERROR(io.MemberAsString("output_name", &output_name));
@@ -3668,7 +3668,7 @@ ModelInstanceState::InitializeBatchInputBindings(
     for (const auto& tensor_name : batch_input.TargetNames()) {
       TRITONSERVER_DataType tensor_datatype = batch_input.DataType();
       common::TritonJson::Value dims{
-          triton::common::TritonJson::ValueType::ARRAY};
+          hercules::common::TritonJson::ValueType::ARRAY};
       // [WIP] fix batch input shape generation
       // Different batch input expects different shape, note that
       // we are setting config input shape here so the batch dimension
@@ -3698,10 +3698,10 @@ ModelInstanceState::InitializeBatchInputBindings(
                 BatchInput::Kind::BATCH_ITEM_SHAPE) {
               dims.AppendInt(1);
             }
-            triton::common::TritonJson::Value inputs;
+            hercules::common::TritonJson::Value inputs;
             RETURN_IF_ERROR(config.MemberAsArray("input", &inputs));
             for (size_t i = 0; i < inputs.ArraySize(); ++i) {
-              triton::common::TritonJson::Value input;
+              hercules::common::TritonJson::Value input;
               RETURN_IF_ERROR(inputs.IndexAsObject(i, &input));
               std::string input_name;
               RETURN_IF_ERROR(input.MemberAsString("name", &input_name));
@@ -3742,10 +3742,10 @@ ModelInstanceState::InitializeBatchInputBindings(
           case BatchInput::Kind::BATCH_ITEM_SHAPE_FLATTEN:
             break;
           case BatchInput::Kind::BATCH_ITEM_SHAPE: {
-            triton::common::TritonJson::Value inputs;
+            hercules::common::TritonJson::Value inputs;
             RETURN_IF_ERROR(config.MemberAsArray("input", &inputs));
             for (size_t i = 0; i < inputs.ArraySize(); ++i) {
-              triton::common::TritonJson::Value input;
+              hercules::common::TritonJson::Value input;
               RETURN_IF_ERROR(inputs.IndexAsObject(i, &input));
               std::string input_name;
               RETURN_IF_ERROR(input.MemberAsString("name", &input_name));
@@ -3856,7 +3856,7 @@ ModelInstanceState::InitializeConfigShapeOutputBindings(
     common::TritonJson::Value& config_output)
 {
   for (size_t i = 0; i < config_output.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_output.IndexAsObject(i, &io));
 
     // the maximum byte sizes across all profiles
@@ -4033,7 +4033,7 @@ ModelInstanceState::InitializeConfigExecuteOutputBindings(
     common::TritonJson::Value& config_output)
 {
   for (size_t i = 0; i < config_output.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_output.IndexAsObject(i, &io));
 
     std::string io_name;
@@ -5469,15 +5469,15 @@ TRITONBACKEND_Initialize(TRITONBACKEND_Backend* backend)
       TRITONSERVER_LOG_INFO,
       (std::string("backend configuration:\n") + buffer).c_str());
 
-  triton::common::TritonJson::Value backend_config;
+  hercules::common::TritonJson::Value backend_config;
   if (byte_size != 0) {
     RETURN_IF_ERROR(backend_config.Parse(buffer, byte_size));
   }
 
   std::unique_ptr<BackendConfiguration> lconfig(new BackendConfiguration());
-  triton::common::TritonJson::Value cmdline;
+  hercules::common::TritonJson::Value cmdline;
   if (backend_config.Find("cmdline", &cmdline)) {
-    triton::common::TritonJson::Value value;
+    hercules::common::TritonJson::Value value;
     std::string value_str;
     if (cmdline.Find("coalesce-request-input", &value)) {
       RETURN_IF_ERROR(value.AsString(&value_str));
@@ -5655,4 +5655,4 @@ TRITONBACKEND_ModelInstanceExecute(
 }
 
 }  // extern "C"
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

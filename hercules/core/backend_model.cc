@@ -39,9 +39,9 @@ namespace hercules::core {
 
 Status
 TritonModel::Create(
-    InferenceServer* server, const std::string& model_path,
-    const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
-    const triton::common::HostPolicyCmdlineConfigMap& host_policy_map,
+    inference_server* server, const std::string& model_path,
+    const hercules::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+    const hercules::common::HostPolicyCmdlineConfigMap& host_policy_map,
     const std::string& model_name, const int64_t version,
     const hercules::proto::ModelConfig& model_config,
     std::unique_ptr<TritonModel>* model)
@@ -117,13 +117,13 @@ TritonModel::Create(
 
   // Resolve the global backend configuration with the specific backend
   // configuration
-  triton::common::BackendCmdlineConfig config;
+  hercules::common::BackendCmdlineConfig config;
   RETURN_IF_ERROR(ResolveBackendConfigs(
       backend_cmdline_config_map, model_config.backend(), config));
 
   RETURN_IF_ERROR(SetBackendConfigDefaults(config));
 
-  std::shared_ptr<TritonBackend> backend;
+  std::shared_ptr<hercules_backend> backend;
   RETURN_IF_ERROR(server->BackendManager()->CreateBackend(
       model_config.backend(), backend_libdir, backend_libpath, config,
       &backend));
@@ -178,9 +178,9 @@ TritonModel::Create(
 
 Status
 TritonModel::ResolveBackendConfigs(
-    const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+    const hercules::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
     const std::string& backend_name,
-    triton::common::BackendCmdlineConfig& config)
+    hercules::common::BackendCmdlineConfig& config)
 {
   const auto& global_itr = backend_cmdline_config_map.find(std::string());
   const auto& specific_itr = backend_cmdline_config_map.find(backend_name);
@@ -198,9 +198,9 @@ TritonModel::ResolveBackendConfigs(
   } else if (
       specific_itr != backend_cmdline_config_map.end() &&
       global_itr != backend_cmdline_config_map.end()) {
-    triton::common::BackendCmdlineConfig global_backend_config =
+    hercules::common::BackendCmdlineConfig global_backend_config =
         global_itr->second;
-    triton::common::BackendCmdlineConfig specific_backend_config =
+    hercules::common::BackendCmdlineConfig specific_backend_config =
         specific_itr->second;
 
     std::sort(global_backend_config.begin(), global_backend_config.end());
@@ -253,7 +253,7 @@ const std::unordered_map<std::string, std::string> backend_config_defaults(
 
 Status
 TritonModel::SetBackendConfigDefaults(
-    triton::common::BackendCmdlineConfig& config)
+    hercules::common::BackendCmdlineConfig& config)
 {
   auto backend_config_defaults_copy = backend_config_defaults;
 
@@ -327,7 +327,7 @@ TritonModel::UpdateModelConfig(
       config.scheduling_choice_case() !=
       updated_config.scheduling_choice_case()) {
     return Status(
-        triton::common::Error::Code::INTERNAL,
+        hercules::common::Error::Code::INTERNAL,
         (std::string("Cannot update scheduling choice from ") +
          std::to_string(config.scheduling_choice_case()) + std::string(" to ") +
          std::to_string(config.scheduling_choice_case()) +
@@ -360,7 +360,7 @@ TritonModel::SetConfiguredScheduler()
       enforce_equal_shape_tensors.insert({input.name(), true});
     } else if (
         !input.allow_ragged_batch() &&
-        (triton::common::GetElementCount(input) == -1)) {
+        (hercules::common::GetElementCount(input) == -1)) {
       enforce_equal_shape_tensors.insert({input.name(), false});
     }
   }
@@ -417,9 +417,9 @@ TritonModel::WarmUp()
 }
 
 TritonModel::TritonModel(
-    InferenceServer* server,
+    inference_server* server,
     const std::shared_ptr<LocalizedDirectory>& localized_model_dir,
-    const std::shared_ptr<TritonBackend>& backend,
+    const std::shared_ptr<hercules_backend>& backend,
     const double min_compute_capability, const int64_t version,
     const hercules::proto::ModelConfig& config, const bool auto_complete_config)
     : Model(
@@ -569,7 +569,7 @@ TRITONBACKEND_ModelSetState(TRITONBACKEND_Model* model, void* state)
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestId(TRITONBACKEND_Request* request, const char** id)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   *id = tr->Id().c_str();
   return nullptr;  // success
 }
@@ -577,9 +577,9 @@ TRITONBACKEND_RequestId(TRITONBACKEND_Request* request, const char** id)
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestCorrelationId(TRITONBACKEND_Request* request, uint64_t* id)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
-  const InferenceRequest::SequenceId& correlation_id = tr->CorrelationId();
-  if (correlation_id.Type() != InferenceRequest::SequenceId::DataType::UINT64) {
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
+  const inference_request::SequenceId& correlation_id = tr->CorrelationId();
+  if (correlation_id.Type() != inference_request::SequenceId::DataType::UINT64) {
     return TRITONSERVER_ErrorNew(
         TRITONSERVER_ERROR_INVALID_ARG,
         (tr->LogRequest() + "correlation ID in request is not an unsigned int")
@@ -592,7 +592,7 @@ TRITONBACKEND_RequestCorrelationId(TRITONBACKEND_Request* request, uint64_t* id)
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestFlags(TRITONBACKEND_Request* request, uint32_t* flags)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   *flags = tr->Flags();
   return nullptr;  // success
 }
@@ -601,9 +601,9 @@ TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestCorrelationIdString(
     TRITONBACKEND_Request* request, const char** id)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
-  const InferenceRequest::SequenceId& correlation_id = tr->CorrelationId();
-  if (correlation_id.Type() != InferenceRequest::SequenceId::DataType::STRING) {
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
+  const inference_request::SequenceId& correlation_id = tr->CorrelationId();
+  if (correlation_id.Type() != inference_request::SequenceId::DataType::STRING) {
     return TRITONSERVER_ErrorNew(
         TRITONSERVER_ERROR_INVALID_ARG,
         (tr->LogRequest() + "correlation ID in request is not a string")
@@ -616,7 +616,7 @@ TRITONBACKEND_RequestCorrelationIdString(
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestInputCount(TRITONBACKEND_Request* request, uint32_t* count)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   *count = tr->ImmutableInputs().size();
   return nullptr;  // success
 }
@@ -628,7 +628,7 @@ TRITONBACKEND_RequestInputName(
 {
   *input_name = nullptr;
 
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   const auto& inputs = tr->ImmutableInputs();
   if (index >= inputs.size()) {
     return TRITONSERVER_ErrorNew(
@@ -647,7 +647,7 @@ TRITONBACKEND_RequestInputName(
   uint32_t cnt = 0;
   for (const auto& pr : inputs) {
     if (cnt++ == index) {
-      InferenceRequest::Input* in = pr.second;
+      inference_request::Input* in = pr.second;
       *input_name = in->Name().c_str();
       break;
     }
@@ -661,7 +661,7 @@ TRITONBACKEND_RequestInput(
     TRITONBACKEND_Request* request, const char* name,
     TRITONBACKEND_Input** input)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   const auto& inputs = tr->ImmutableInputs();
   const auto& itr = inputs.find(name);
   if (itr == inputs.end()) {
@@ -671,7 +671,7 @@ TRITONBACKEND_RequestInput(
         (tr->LogRequest() + "unknown request input name " + name).c_str());
   }
 
-  InferenceRequest::Input* in = itr->second;
+  inference_request::Input* in = itr->second;
   *input = reinterpret_cast<TRITONBACKEND_Input*>(in);
 
   return nullptr;  // success
@@ -682,7 +682,7 @@ TRITONBACKEND_RequestInputByIndex(
     TRITONBACKEND_Request* request, const uint32_t index,
     TRITONBACKEND_Input** input)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   const auto& inputs = tr->ImmutableInputs();
   if (index >= inputs.size()) {
     return TRITONSERVER_ErrorNew(
@@ -701,7 +701,7 @@ TRITONBACKEND_RequestInputByIndex(
   uint32_t cnt = 0;
   for (const auto& pr : inputs) {
     if (cnt++ == index) {
-      InferenceRequest::Input* in = pr.second;
+      inference_request::Input* in = pr.second;
       *input = reinterpret_cast<TRITONBACKEND_Input*>(in);
       break;
     }
@@ -714,7 +714,7 @@ TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestOutputCount(
     TRITONBACKEND_Request* request, uint32_t* count)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   *count = tr->ImmutableRequestedOutputs().size();
   return nullptr;  // success
 }
@@ -726,7 +726,7 @@ TRITONBACKEND_RequestOutputName(
 {
   *output_name = nullptr;
 
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   const auto& routputs = tr->ImmutableRequestedOutputs();
   if (index >= routputs.size()) {
     return TRITONSERVER_ErrorNew(
@@ -758,7 +758,7 @@ TRITONBACKEND_RequestOutputBufferProperties(
     TRITONBACKEND_Request* request, const char* name, size_t* byte_size,
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   auto status =
       tr->OutputBufferProperties(name, byte_size, memory_type, memory_type_id);
   if (!status.IsOk()) {
@@ -772,9 +772,9 @@ TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_RequestRelease(
     TRITONBACKEND_Request* request, uint32_t release_flags)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
-  std::unique_ptr<InferenceRequest> ur(tr);
-  InferenceRequest::Release(std::move(ur), release_flags);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
+  std::unique_ptr<inference_request> ur(tr);
+  inference_request::Release(std::move(ur), release_flags);
   return nullptr;  // success
 }
 
@@ -802,7 +802,7 @@ TRITONBACKEND_StateNew(
     const char* name, const TRITONSERVER_DataType datatype,
     const int64_t* shape, const uint32_t dims_count)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   SequenceState* lstate;
   std::vector<int64_t> lshape(shape, shape + dims_count);
   auto& sequence_state = tr->GetSequenceStates();
@@ -879,11 +879,11 @@ TRITONBACKEND_StateBuffer(
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_StateBufferAttributes(
     TRITONBACKEND_State* state,
-    TRITONSERVER_BufferAttributes** buffer_attributes)
+    TRITONSERVER_BufferAttributes** attr)
 {
   SequenceState* to = reinterpret_cast<SequenceState*>(state);
   to->Data()->BufferAt(
-      0, reinterpret_cast<BufferAttributes**>(buffer_attributes));
+      0, reinterpret_cast<BufferAttributes**>(attr));
 
   return nullptr;  // success
 }
@@ -895,7 +895,7 @@ TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_ResponseFactoryNew(
     TRITONBACKEND_ResponseFactory** factory, TRITONBACKEND_Request* request)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
   InferenceResponseFactory* response_factory =
       new InferenceResponseFactory(tr->ResponseFactory());
   *factory = reinterpret_cast<TRITONBACKEND_ResponseFactory*>(response_factory);
@@ -932,7 +932,7 @@ TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_ResponseNew(
     TRITONBACKEND_Response** response, TRITONBACKEND_Request* request)
 {
-  InferenceRequest* tr = reinterpret_cast<InferenceRequest*>(request);
+  inference_request* tr = reinterpret_cast<inference_request*>(request);
 
   std::unique_ptr<InferenceResponse> tresp;
   Status status = tr->ResponseFactory().CreateResponse(&tresp);
@@ -1070,8 +1070,8 @@ TRITONBACKEND_InputProperties(
     TRITONSERVER_DataType* datatype, const int64_t** shape,
     uint32_t* dims_count, uint64_t* byte_size, uint32_t* buffer_count)
 {
-  InferenceRequest::Input* ti =
-      reinterpret_cast<InferenceRequest::Input*>(input);
+  inference_request::Input* ti =
+      reinterpret_cast<inference_request::Input*>(input);
   if (name != nullptr) {
     *name = ti->Name().c_str();
   }
@@ -1099,8 +1099,8 @@ TRITONBACKEND_InputPropertiesForHostPolicy(
     TRITONSERVER_DataType* datatype, const int64_t** shape,
     uint32_t* dims_count, uint64_t* byte_size, uint32_t* buffer_count)
 {
-  InferenceRequest::Input* ti =
-      reinterpret_cast<InferenceRequest::Input*>(input);
+  inference_request::Input* ti =
+      reinterpret_cast<inference_request::Input*>(input);
   if (name != nullptr) {
     *name = ti->Name().c_str();
   }
@@ -1138,8 +1138,8 @@ TRITONBACKEND_InputBuffer(
     size_t* buffer_byte_size, TRITONSERVER_MemoryType* memory_type,
     int64_t* memory_type_id)
 {
-  InferenceRequest::Input* ti =
-      reinterpret_cast<InferenceRequest::Input*>(input);
+  inference_request::Input* ti =
+      reinterpret_cast<inference_request::Input*>(input);
   Status status = ti->DataBuffer(
       index, buffer, buffer_byte_size, memory_type, memory_type_id);
   if (!status.IsOk()) {
@@ -1154,15 +1154,15 @@ TRITONBACKEND_InputBuffer(
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_InputBufferAttributes(
     TRITONBACKEND_Input* input, const uint32_t index, const void** buffer,
-    TRITONSERVER_BufferAttributes** buffer_attributes)
+    TRITONSERVER_BufferAttributes** attr)
 {
-  InferenceRequest::Input* ti =
-      reinterpret_cast<InferenceRequest::Input*>(input);
+  inference_request::Input* ti =
+      reinterpret_cast<inference_request::Input*>(input);
   Status status = ti->DataBufferAttributes(
-      index, buffer, reinterpret_cast<BufferAttributes**>(buffer_attributes));
+      index, buffer, reinterpret_cast<BufferAttributes**>(attr));
   if (!status.IsOk()) {
     *buffer = nullptr;
-    *buffer_attributes = nullptr;
+    *attr = nullptr;
     return TRITONSERVER_ErrorNew(
         StatusCodeToTritonCode(status.StatusCode()), status.Message().c_str());
   }
@@ -1175,8 +1175,8 @@ TRITONBACKEND_InputBufferForHostPolicy(
     const uint32_t index, const void** buffer, size_t* buffer_byte_size,
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id)
 {
-  InferenceRequest::Input* ti =
-      reinterpret_cast<InferenceRequest::Input*>(input);
+  inference_request::Input* ti =
+      reinterpret_cast<inference_request::Input*>(input);
 
   Status status =
       (host_policy_name == nullptr)
@@ -1218,12 +1218,12 @@ TRITONBACKEND_OutputBuffer(
 TRITONAPI_DECLSPEC TRITONSERVER_Error*
 TRITONBACKEND_OutputBufferAttributes(
     TRITONBACKEND_Output* output,
-    TRITONSERVER_BufferAttributes** buffer_attributes)
+    TRITONSERVER_BufferAttributes** attr)
 {
   InferenceResponse::Output* to =
       reinterpret_cast<InferenceResponse::Output*>(output);
 
-  *buffer_attributes = reinterpret_cast<TRITONSERVER_BufferAttributes*>(
+  *attr = reinterpret_cast<TRITONSERVER_BufferAttributes*>(
       to->GetBufferAttributes());
   return nullptr;  // success
 }

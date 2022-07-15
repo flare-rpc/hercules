@@ -29,7 +29,7 @@
 #include "triton/backend/backend_common.h"
 #include "triton/core/tritonserver.h"
 
-namespace triton { namespace backend { namespace tensorflow {
+namespace hercules::backend { namespace tensorflow {
 
 /// \return True if the provided model I/Os allow batching support; False
 /// otherwise.
@@ -88,13 +88,13 @@ TRITONTF_DataType ConvertDataType(const std::string& dtype);
 TRITONTF_DataType ConvertDataType(TRITONSERVER_DataType dtype);
 
 TRITONSERVER_Error* ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     bool* value);
 TRITONSERVER_Error* ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     int* value);
 TRITONSERVER_Error* ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     std::string* value);
 
 // If TRITONTF Error is non-OK, return the equivalent TRTIS status.
@@ -109,4 +109,4 @@ TRITONSERVER_Error* ParseParameter(
     }                                                                        \
   } while (false)
 
-}}}  // namespace triton::backend::tensorflow
+}}}  // namespace hercules::backend::tensorflow

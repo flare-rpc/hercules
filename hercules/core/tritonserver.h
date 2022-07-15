@@ -386,7 +386,7 @@ typedef TRITONSERVER_Error* (*TRITONSERVER_ResponseAllocatorAllocFn_t)(
 /// \param allocator The allocator that is provided in the call to
 /// TRITONSERVER_InferenceRequestSetResponseCallback.
 /// \param tensor_name The name of the output tensor to allocate for.
-/// \param buffer_attributes The buffer attributes associated with the buffer.
+/// \param attr The buffer attributes associated with the buffer.
 /// \param userp The user data pointer that is provided as
 /// 'response_allocator_userp' in the call to
 /// TRITONSERVER_InferenceRequestSetResponseCallback.
@@ -402,7 +402,7 @@ typedef TRITONSERVER_Error* (*TRITONSERVER_ResponseAllocatorAllocFn_t)(
 typedef TRITONSERVER_Error* (
     *TRITONSERVER_ResponseAllocatorBufferAttributesFn_t)(
     TRITONSERVER_ResponseAllocator* allocator, const char* tensor_name,
-    TRITONSERVER_BufferAttributes* buffer_attributes, void* userp,
+    TRITONSERVER_BufferAttributes* attr, void* userp,
     void* buffer_userp);
 
 /// Type for function that is called to query the allocator's preferred memory
@@ -1171,12 +1171,12 @@ TRITONSERVER_InferenceRequestAppendInputDataWithHostPolicy(
 /// \param inference_request The request object.
 /// \param name The name of the input.
 /// \param base The base address of the input data.
-/// \param buffer_attributes The buffer attrubutes of the input.
+/// \param attr The buffer attrubutes of the input.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_InferenceRequestAppendInputDataWithBufferAttributes(
     TRITONSERVER_InferenceRequest* inference_request, const char* name,
-    const void* base, TRITONSERVER_BufferAttributes* buffer_attributes);
+    const void* base, TRITONSERVER_BufferAttributes* attr);
 
 /// Clear all input data from an input, releasing ownership of the
 /// buffer(s) that were appended to the input with
@@ -1416,97 +1416,97 @@ TRITONSERVER_InferenceResponseOutputClassificationLabel(
 /// the TRITONSERVER_BufferAttributes object and must call
 /// TRITONSERVER_BufferAttributesDelete to release the object.
 ///
-/// \param buffer_attributes Returns the new buffer attributes object.
+/// \param attr Returns the new buffer attributes object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error* TRITONSERVER_BufferAttributesNew(
-    TRITONSERVER_BufferAttributes** buffer_attributes);
+    TRITONSERVER_BufferAttributes** attr);
 
 /// Delete a buffer attributes object.
 ///
-/// \param buffer_attributes The buffer_attributes object.
+/// \param attr The attr object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error* TRITONSERVER_BufferAttributesDelete(
-    TRITONSERVER_BufferAttributes* buffer_attributes);
+    TRITONSERVER_BufferAttributes* attr);
 
 /// Set the memory type id field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param memory_type_id Memory type id to assign to the buffer attributes
 /// object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesSetMemoryTypeId(
-    TRITONSERVER_BufferAttributes* buffer_attributes, int64_t memory_type_id);
+    TRITONSERVER_BufferAttributes* attr, int64_t memory_type_id);
 
 /// Set the memory type field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param memory_type Memory type to assign to the buffer attributes object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesSetMemoryType(
-    TRITONSERVER_BufferAttributes* buffer_attributes,
+    TRITONSERVER_BufferAttributes* attr,
     TRITONSERVER_MemoryType memory_type);
 
 /// Set the CudaIpcHandle field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param cuda_ipc_handle The CudaIpcHandle to assign to the buffer attributes
 /// object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesSetCudaIpcHandle(
-    TRITONSERVER_BufferAttributes* buffer_attributes, void* cuda_ipc_handle);
+    TRITONSERVER_BufferAttributes* attr, void* cuda_ipc_handle);
 
 /// Set the byte size field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param byte_size Byte size to assign to the buffer attributes object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesSetByteSize(
-    TRITONSERVER_BufferAttributes* buffer_attributes, size_t byte_size);
+    TRITONSERVER_BufferAttributes* attr, size_t byte_size);
 
 /// Get the memory type id field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param memory_type_id Returns the memory type id associated with the buffer
 /// attributes object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesMemoryTypeId(
-    TRITONSERVER_BufferAttributes* buffer_attributes, int64_t* memory_type_id);
+    TRITONSERVER_BufferAttributes* attr, int64_t* memory_type_id);
 
 /// Get the memory type field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param memory_type Returns the memory type associated with the buffer
 /// attributes object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesMemoryType(
-    TRITONSERVER_BufferAttributes* buffer_attributes,
+    TRITONSERVER_BufferAttributes* attr,
     TRITONSERVER_MemoryType* memory_type);
 
 /// Get the CudaIpcHandle field of the buffer attributes object.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param cuda_ipc_handle Returns the memory type associated with the buffer
 /// attributes object. If the cudaIpcHandle does not exist for the buffer,
 /// nullptr will be returned.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesCudaIpcHandle(
-    TRITONSERVER_BufferAttributes* buffer_attributes, void** cuda_ipc_handle);
+    TRITONSERVER_BufferAttributes* attr, void** cuda_ipc_handle);
 
 /// Get the byte size field of the buffer attributes.
 ///
-/// \param buffer_attributes The buffer attributes object.
+/// \param attr The buffer attributes object.
 /// \param byte_size Returns the byte size associated with the buffer attributes
 /// object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error* TRITONSERVER_BufferAttributesByteSize(
-    TRITONSERVER_BufferAttributes* buffer_attributes, size_t* byte_size);
+    TRITONSERVER_BufferAttributes* attr, size_t* byte_size);
 
 
 /// TRITONSERVER_ServerOptions

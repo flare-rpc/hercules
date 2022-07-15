@@ -14,9 +14,9 @@
 #include "model_config_utils.h"
 #include "server.h"
 #include "hercules/common/logging.h"
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 #include "cuda_utils.h"
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 namespace hercules::core {
 
@@ -75,19 +75,19 @@ NullRequestComplete(
 }  // namespace
 
 const std::string&
-InferenceRequest::ModelName() const
+inference_request::ModelName() const
 {
   return model_raw_->Name();
 }
 
 int64_t
-InferenceRequest::ActualModelVersion() const
+inference_request::ActualModelVersion() const
 {
   return model_raw_->Version();
 }
 
 void
-InferenceRequest::SetPriority(uint32_t p)
+inference_request::SetPriority(uint32_t p)
 {
   if ((p == 0) || (p > model_raw_->MaxPriorityLevel())) {
     priority_ = model_raw_->DefaultPriorityLevel();
@@ -96,9 +96,9 @@ InferenceRequest::SetPriority(uint32_t p)
   }
 }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 Status
-InferenceRequest::TraceInputTensors(
+inference_request::TraceInputTensors(
     TRITONSERVER_InferenceTraceActivity activity, const std::string& msg)
 {
   const auto& inputs = this->ImmutableInputs();
@@ -106,7 +106,7 @@ InferenceRequest::TraceInputTensors(
   int64_t dst_memory_type_id = 0;
 
   for (const auto& pr : inputs) {
-    InferenceRequest::Input* ti = pr.second;
+    inference_request::Input* ti = pr.second;
 
     // input data
     const std::string& name = ti->Name();
@@ -176,7 +176,7 @@ InferenceRequest::TraceInputTensors(
       }
 
       status = CopyBuffer(
-          "InferenceRequest TraceInputTensors", src_memory_type,
+          "inference_request TraceInputTensors", src_memory_type,
           src_memory_type_id, dst_memory_type, dst_memory_type_id, buffer_size,
           buffer, base + offset, nullptr, &cuda_used);
       if (!status.IsOk()) {
@@ -199,10 +199,10 @@ InferenceRequest::TraceInputTensors(
 
   return Status::Success;
 }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 Status
-InferenceRequest::OutputBufferProperties(
+inference_request::OutputBufferProperties(
     const char* name, size_t* byte_size, TRITONSERVER_MemoryType* memory_type,
     int64_t* memory_type_id)
 {
@@ -222,14 +222,14 @@ InferenceRequest::OutputBufferProperties(
 }
 
 Status
-InferenceRequest::Run(std::unique_ptr<InferenceRequest>& request)
+inference_request::Run(std::unique_ptr<inference_request>& request)
 {
   return request->model_raw_->Enqueue(request);
 }
 
 void
-InferenceRequest::RespondIfError(
-    std::unique_ptr<InferenceRequest>& request, const Status& status,
+inference_request::RespondIfError(
+    std::unique_ptr<inference_request>& request, const Status& status,
     const bool release_request)
 {
   if (status.IsOk()) {
@@ -253,14 +253,14 @@ InferenceRequest::RespondIfError(
   // gives ownership to the callback. So can't access 'request' after
   // this point.
   if (release_request) {
-    InferenceRequest::Release(
+    inference_request::Release(
         std::move(request), TRITONSERVER_REQUEST_RELEASE_ALL);
   }
 }
 
 void
-InferenceRequest::RespondIfError(
-    std::vector<std::unique_ptr<InferenceRequest>>& requests,
+inference_request::RespondIfError(
+    std::vector<std::unique_ptr<inference_request>>& requests,
     const Status& status, const bool release_requests)
 {
   if (status.IsOk()) {
@@ -273,8 +273,8 @@ InferenceRequest::RespondIfError(
 }
 
 void
-InferenceRequest::Release(
-    std::unique_ptr<InferenceRequest>&& request, const uint32_t release_flags)
+inference_request::Release(
+    std::unique_ptr<inference_request>&& request, const uint32_t release_flags)
 {
   // Invoke the release callbacks added internally before releasing the
   // request to user provided callback.
@@ -284,7 +284,7 @@ InferenceRequest::Release(
   }
   request->release_callbacks_.clear();
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // If tracing then record request end and release the trace.
   // This must be before the request callback to ensure the trace
   // is properly layered, as the request may be nested in an ensemble
@@ -293,7 +293,7 @@ InferenceRequest::Release(
     request->trace_->ReportNow(TRITONSERVER_TRACE_REQUEST_END);
     request->ReleaseTrace();
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   void* userp = request->release_userp_;
   auto& release_fn = request->release_fn_;
@@ -302,14 +302,14 @@ InferenceRequest::Release(
       release_flags, userp);
 }
 
-InferenceRequest*
-InferenceRequest::CopyAsNull(const InferenceRequest& from)
+inference_request*
+inference_request::CopyAsNull(const inference_request& from)
 {
   // Create a copy of 'from' request with artifical inputs and no requested
   // outputs. Maybe more efficient to share inputs and other metadata,
   // but that binds the Null request with 'from' request's lifecycle.
-  std::unique_ptr<InferenceRequest> lrequest(
-      new InferenceRequest(from.model_raw_, from.requested_model_version_));
+  std::unique_ptr<inference_request> lrequest(
+      new inference_request(from.model_raw_, from.requested_model_version_));
   lrequest->needs_normalization_ = false;
   lrequest->batch_size_ = from.batch_size_;
   lrequest->collect_stats_ = false;
@@ -374,7 +374,7 @@ InferenceRequest::CopyAsNull(const InferenceRequest& from)
 
     if (input.second.DType() == hercules::proto::DataType::TYPE_STRING) {
       int64_t element_count =
-          triton::common::GetElementCount(input.second.Shape());
+          hercules::common::GetElementCount(input.second.Shape());
 
       size_t str_byte_size = static_cast<size_t>(4 * element_count);
       max_str_byte_size = std::max(str_byte_size, max_str_byte_size);
@@ -427,7 +427,7 @@ InferenceRequest::CopyAsNull(const InferenceRequest& from)
       if (hercules::proto::DataType::TYPE_STRING == input.second.DType()) {
         new_input->AppendData(
             data_base,
-            triton::common::GetElementCount(input.second.Shape()) * 4, mem_type,
+            hercules::common::GetElementCount(input.second.Shape()) * 4, mem_type,
             mem_id);
       } else {
         new_input->AppendData(
@@ -451,8 +451,8 @@ InferenceRequest::CopyAsNull(const InferenceRequest& from)
 }
 
 Status
-InferenceRequest::MutableOriginalInput(
-    const std::string& name, InferenceRequest::Input** input)
+inference_request::MutableOriginalInput(
+    const std::string& name, inference_request::Input** input)
 {
   auto itr = original_inputs_.find(name);
   if (itr == original_inputs_.end()) {
@@ -467,8 +467,8 @@ InferenceRequest::MutableOriginalInput(
 }
 
 Status
-InferenceRequest::ImmutableInput(
-    const std::string& name, const InferenceRequest::Input** input) const
+inference_request::ImmutableInput(
+    const std::string& name, const inference_request::Input** input) const
 {
   auto itr = inputs_.find(name);
   if (itr == inputs_.end()) {
@@ -482,10 +482,10 @@ InferenceRequest::ImmutableInput(
 }
 
 Status
-InferenceRequest::AddOriginalInput(
+inference_request::AddOriginalInput(
     const std::string& name, const hercules::proto::DataType datatype,
     const int64_t* shape, const uint64_t dim_count,
-    InferenceRequest::Input** input)
+    inference_request::Input** input)
 {
   const auto& pr = original_inputs_.emplace(
       std::piecewise_construct, std::forward_as_tuple(name),
@@ -505,16 +505,16 @@ InferenceRequest::AddOriginalInput(
 }
 
 Status
-InferenceRequest::AddOriginalInput(
+inference_request::AddOriginalInput(
     const std::string& name, const hercules::proto::DataType datatype,
-    const std::vector<int64_t>& shape, InferenceRequest::Input** input)
+    const std::vector<int64_t>& shape, inference_request::Input** input)
 {
   return AddOriginalInput(name, datatype, &shape[0], shape.size(), input);
 }
 
 Status
-InferenceRequest::AddRawInput(
-    const std::string& name, InferenceRequest::Input** input)
+inference_request::AddRawInput(
+    const std::string& name, inference_request::Input** input)
 {
   if (original_inputs_.size() != 0) {
     return Status(
@@ -541,7 +541,7 @@ InferenceRequest::AddRawInput(
 }
 
 Status
-InferenceRequest::RemoveOriginalInput(const std::string& name)
+inference_request::RemoveOriginalInput(const std::string& name)
 {
   if (original_inputs_.erase(name) != 1) {
     return Status(
@@ -557,7 +557,7 @@ InferenceRequest::RemoveOriginalInput(const std::string& name)
 }
 
 Status
-InferenceRequest::RemoveAllOriginalInputs()
+inference_request::RemoveAllOriginalInputs()
 {
   original_inputs_.clear();
   raw_input_name_.clear();
@@ -566,10 +566,10 @@ InferenceRequest::RemoveAllOriginalInputs()
 }
 
 Status
-InferenceRequest::AddOverrideInput(
+inference_request::AddOverrideInput(
     const std::string& name, const hercules::proto::DataType datatype,
     const int64_t batch_size, const std::vector<int64_t>& shape,
-    std::shared_ptr<InferenceRequest::Input>* input)
+    std::shared_ptr<inference_request::Input>* input)
 {
   std::shared_ptr<Input> i = std::make_shared<Input>(name, datatype, shape);
   *(i->MutableShape()) = i->OriginalShape();
@@ -591,8 +591,8 @@ InferenceRequest::AddOverrideInput(
 }
 
 Status
-InferenceRequest::AddOverrideInput(
-    const std::shared_ptr<InferenceRequest::Input>& input)
+inference_request::AddOverrideInput(
+    const std::shared_ptr<inference_request::Input>& input)
 {
   LOG_VERBOSE(1) << LogRequest() << "adding input override for "
                  << input->Name() << ": " << *this;
@@ -616,7 +616,7 @@ InferenceRequest::AddOverrideInput(
 }
 
 Status
-InferenceRequest::AddOriginalRequestedOutput(const std::string& name)
+inference_request::AddOriginalRequestedOutput(const std::string& name)
 {
   original_requested_outputs_.insert(name);
   needs_normalization_ = true;
@@ -624,7 +624,7 @@ InferenceRequest::AddOriginalRequestedOutput(const std::string& name)
 }
 
 Status
-InferenceRequest::LoadInputStates()
+inference_request::LoadInputStates()
 {
   // Add the input states to the inference request.
   if (sequence_states_ != nullptr) {
@@ -634,8 +634,8 @@ InferenceRequest::LoadInputStates()
     }
     for (auto& input_state_pair : sequence_states_->InputStates()) {
       auto& input_state = input_state_pair.second;
-      std::shared_ptr<InferenceRequest::Input> input =
-          std::make_shared<InferenceRequest::Input>(
+      std::shared_ptr<inference_request::Input> input =
+          std::make_shared<inference_request::Input>(
               input_state->Name(), input_state->DType(), input_state->Shape());
       *input->MutableShapeWithBatchDim() = input_state->Shape();
       input->SetData(input_state->Data());
@@ -647,7 +647,7 @@ InferenceRequest::LoadInputStates()
 }
 
 Status
-InferenceRequest::RemoveOriginalRequestedOutput(const std::string& name)
+inference_request::RemoveOriginalRequestedOutput(const std::string& name)
 {
   original_requested_outputs_.erase(name);
   needs_normalization_ = true;
@@ -655,7 +655,7 @@ InferenceRequest::RemoveOriginalRequestedOutput(const std::string& name)
 }
 
 Status
-InferenceRequest::RemoveAllOriginalRequestedOutputs()
+inference_request::RemoveAllOriginalRequestedOutputs()
 {
   original_requested_outputs_.clear();
   needs_normalization_ = true;
@@ -663,7 +663,7 @@ InferenceRequest::RemoveAllOriginalRequestedOutputs()
 }
 
 Status
-InferenceRequest::PrepareForInference()
+inference_request::PrepareForInference()
 {
   // Remove override inputs as those are added during any previous
   // inference execution.
@@ -688,9 +688,9 @@ InferenceRequest::PrepareForInference()
   // Clear the timestamps
   queue_start_ns_ = 0;
   batcher_start_ns_ = 0;
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   request_start_ns_ = 0;
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
   LOG_VERBOSE(1) << LogRequest() << "prepared: " << *this;
 
@@ -698,7 +698,7 @@ InferenceRequest::PrepareForInference()
 }
 
 Status
-InferenceRequest::Normalize()
+inference_request::Normalize()
 {
   const hercules::proto::ModelConfig& model_config = model_raw_->Config();
 
@@ -731,7 +731,7 @@ InferenceRequest::Normalize()
     int64_t dynamic_axis = -1;
     size_t element_cnt = 1;
     for (const auto& dim : config_input.dims()) {
-      if (dim == triton::common::WILDCARD_DIM) {
+      if (dim == hercules::common::WILDCARD_DIM) {
         if (dynamic_axis != -1) {
           return Status(
               Status::Code::INVALID_ARG,
@@ -772,7 +772,7 @@ InferenceRequest::Normalize()
     } else if (dynamic_axis != -1) {
       shape[dynamic_axis] =
           raw_input.Data()->TotalByteSize() / element_cnt /
-          triton::common::GetDataTypeByteSize(config_input.data_type());
+          hercules::common::GetDataTypeByteSize(config_input.data_type());
     }
     raw_input.SetMetadata(config_input.name(), config_input.data_type(), shape);
   }
@@ -892,9 +892,9 @@ InferenceRequest::Normalize()
           Status::Code::INVALID_ARG,
           LogRequest() + "inference input data-type is '" +
               std::string(
-                  triton::common::DataTypeToProtocolString(input.DType())) +
+                  hercules::common::DataTypeToProtocolString(input.DType())) +
               "', model expects '" +
-              std::string(triton::common::DataTypeToProtocolString(
+              std::string(hercules::common::DataTypeToProtocolString(
                   input_config->data_type())) +
               "' for '" + ModelName() + "'");
     }
@@ -908,15 +908,15 @@ InferenceRequest::Normalize()
         match_config = false;
       } else {
         for (int i = 0; i < config_dims.size(); ++i) {
-          if (input_dims[i] == triton::common::WILDCARD_DIM) {
+          if (input_dims[i] == hercules::common::WILDCARD_DIM) {
             return Status(
                 Status::Code::INVALID_ARG,
                 LogRequest() +
                     "All input dimensions should be specified for input '" +
                     pr.first + "' for model '" + ModelName() + "', got " +
-                    triton::common::DimsListToString(input.OriginalShape()));
+                    hercules::common::DimsListToString(input.OriginalShape()));
           } else if (
-              (config_dims[i] != triton::common::WILDCARD_DIM) &&
+              (config_dims[i] != hercules::common::WILDCARD_DIM) &&
               (config_dims[i] != input_dims[i])) {
             match_config = false;
             break;
@@ -925,9 +925,9 @@ InferenceRequest::Normalize()
       }
 
       if (!match_config) {
-        triton::common::DimsList full_dims;
+        hercules::common::DimsList full_dims;
         if (model_config.max_batch_size() > 0) {
-          full_dims.Add(triton::common::WILDCARD_DIM);
+          full_dims.Add(hercules::common::WILDCARD_DIM);
         }
         for (int i = 0; i < input_config->dims_size(); ++i) {
           full_dims.Add(input_config->dims(i));
@@ -936,8 +936,8 @@ InferenceRequest::Normalize()
             Status::Code::INVALID_ARG,
             LogRequest() + "unexpected shape for input '" + pr.first +
                 "' for model '" + ModelName() + "'. Expected " +
-                triton::common::DimsListToString(full_dims) + ", got " +
-                triton::common::DimsListToString(input.OriginalShape()));
+                hercules::common::DimsListToString(full_dims) + ", got " +
+                hercules::common::DimsListToString(input.OriginalShape()));
       }
     }
 
@@ -980,10 +980,10 @@ InferenceRequest::Normalize()
   return Status::Success;
 }
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
 void
-InferenceRequest::ReportStatistics(
-    MetricModelReporter* metric_reporter, bool success,
+inference_request::ReportStatistics(
+    metric_model_reporter* metric_reporter, bool success,
     const uint64_t compute_start_ns, const uint64_t compute_input_end_ns,
     const uint64_t compute_output_start_ns, const uint64_t compute_end_ns)
 {
@@ -991,7 +991,7 @@ InferenceRequest::ReportStatistics(
     return;
   }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   if (trace_ != nullptr) {
     trace_->Report(TRITONSERVER_TRACE_COMPUTE_START, compute_start_ns);
     trace_->Report(TRITONSERVER_TRACE_COMPUTE_INPUT_END, compute_input_end_ns);
@@ -999,7 +999,7 @@ InferenceRequest::ReportStatistics(
         TRITONSERVER_TRACE_COMPUTE_OUTPUT_START, compute_output_start_ns);
     trace_->Report(TRITONSERVER_TRACE_COMPUTE_END, compute_end_ns);
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   INFER_STATS_DECL_TIMESTAMP(request_end_ns);
 
@@ -1026,8 +1026,8 @@ InferenceRequest::ReportStatistics(
 }
 
 void
-InferenceRequest::ReportStatisticsWithDuration(
-    MetricModelReporter* metric_reporter, bool success,
+inference_request::ReportStatisticsWithDuration(
+    metric_model_reporter* metric_reporter, bool success,
     const uint64_t compute_start_ns, const uint64_t compute_input_duration_ns,
     const uint64_t compute_infer_duration_ns,
     const uint64_t compute_output_duration_ns)
@@ -1062,7 +1062,7 @@ InferenceRequest::ReportStatisticsWithDuration(
 }
 
 void
-InferenceRequest::ReportStatisticsCacheHit(MetricModelReporter* metric_reporter)
+inference_request::ReportStatisticsCacheHit(metric_model_reporter* metric_reporter)
 {
   // Capture end of request time
   INFER_STATS_DECL_TIMESTAMP(request_end_ns);
@@ -1089,8 +1089,8 @@ InferenceRequest::ReportStatisticsCacheHit(MetricModelReporter* metric_reporter)
 }
 
 void
-InferenceRequest::ReportStatisticsCacheMiss(
-    MetricModelReporter* metric_reporter)
+inference_request::ReportStatisticsCacheMiss(
+    metric_model_reporter* metric_reporter)
 {
   if (cache_lookup_start_ns_ >= cache_lookup_end_ns_) {
     LOG_WARNING << LogRequest()
@@ -1117,18 +1117,18 @@ InferenceRequest::ReportStatisticsCacheMiss(
         cache_insertion_duration_ns);
   }
 }
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
 //
 // Input
 //
-InferenceRequest::Input::Input()
+inference_request::Input::Input()
     : is_shape_tensor_(false), data_(new MemoryReference),
       has_host_policy_specific_data_(false)
 {
 }
 
-InferenceRequest::Input::Input(
+inference_request::Input::Input(
     const std::string& name, const hercules::proto::DataType datatype,
     const int64_t* shape, const uint64_t dim_count)
     : name_(name), datatype_(datatype),
@@ -1137,7 +1137,7 @@ InferenceRequest::Input::Input(
 {
 }
 
-InferenceRequest::Input::Input(
+inference_request::Input::Input(
     const std::string& name, const hercules::proto::DataType datatype,
     const std::vector<int64_t>& shape)
     : name_(name), datatype_(datatype), original_shape_(shape),
@@ -1147,7 +1147,7 @@ InferenceRequest::Input::Input(
 }
 
 void
-InferenceRequest::Input::SetMetadata(
+inference_request::Input::SetMetadata(
     const std::string& name, const hercules::proto::DataType& dt,
     const std::vector<int64_t>& shape)
 {
@@ -1157,14 +1157,14 @@ InferenceRequest::Input::SetMetadata(
 }
 
 Status
-InferenceRequest::Input::SetIsShapeTensor(const bool is_shape_tensor)
+inference_request::Input::SetIsShapeTensor(const bool is_shape_tensor)
 {
   is_shape_tensor_ = is_shape_tensor;
   return Status::Success;
 }
 
 const std::shared_ptr<Memory>&
-InferenceRequest::Input::Data(const std::string& host_policy_name) const
+inference_request::Input::Data(const std::string& host_policy_name) const
 {
   auto device_data = host_policy_data_map_.find(host_policy_name);
   if (device_data == host_policy_data_map_.end()) {
@@ -1176,7 +1176,7 @@ InferenceRequest::Input::Data(const std::string& host_policy_name) const
 }
 
 Status
-InferenceRequest::Input::AppendData(
+inference_request::Input::AppendData(
     const void* base, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
@@ -1189,18 +1189,18 @@ InferenceRequest::Input::AppendData(
 }
 
 Status
-InferenceRequest::Input::AppendDataWithBufferAttributes(
-    const void* base, BufferAttributes* buffer_attributes)
+inference_request::Input::AppendDataWithBufferAttributes(
+    const void* base, BufferAttributes* attr)
 {
-  if (buffer_attributes->ByteSize() > 0) {
+  if (attr->ByteSize() > 0) {
     std::static_pointer_cast<MemoryReference>(data_)->AddBuffer(
-        static_cast<const char*>(base), buffer_attributes);
+        static_cast<const char*>(base), attr);
   }
   return Status::Success;
 }
 
 Status
-InferenceRequest::Input::AppendDataWithHostPolicy(
+inference_request::Input::AppendDataWithHostPolicy(
     const void* base, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id, const char* host_policy_name)
 {
@@ -1222,7 +1222,7 @@ InferenceRequest::Input::AppendDataWithHostPolicy(
 }
 
 Status
-InferenceRequest::Input::PrependData(
+inference_request::Input::PrependData(
     const void* base, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
@@ -1235,7 +1235,7 @@ InferenceRequest::Input::PrependData(
 }
 
 Status
-InferenceRequest::Input::SetData(const std::shared_ptr<Memory>& data)
+inference_request::Input::SetData(const std::shared_ptr<Memory>& data)
 {
   if (data_->TotalByteSize() != 0) {
     return Status(
@@ -1249,7 +1249,7 @@ InferenceRequest::Input::SetData(const std::shared_ptr<Memory>& data)
 }
 
 Status
-InferenceRequest::Input::SetData(
+inference_request::Input::SetData(
     const std::string& host_policy_name, const std::shared_ptr<Memory>& data)
 {
   if (host_policy_data_map_.find(host_policy_name) !=
@@ -1266,7 +1266,7 @@ InferenceRequest::Input::SetData(
 }
 
 Status
-InferenceRequest::Input::RemoveAllData()
+inference_request::Input::RemoveAllData()
 {
   data_ = std::make_shared<MemoryReference>();
   host_policy_data_map_.clear();
@@ -1275,7 +1275,7 @@ InferenceRequest::Input::RemoveAllData()
 }
 
 Status
-InferenceRequest::Input::DataBuffer(
+inference_request::Input::DataBuffer(
     const size_t idx, const void** base, size_t* byte_size,
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id) const
 {
@@ -1285,17 +1285,17 @@ InferenceRequest::Input::DataBuffer(
 }
 
 Status
-InferenceRequest::Input::DataBufferAttributes(
+inference_request::Input::DataBufferAttributes(
     const size_t idx, const void** base,
-    BufferAttributes** buffer_attributes) const
+    BufferAttributes** attr) const
 {
-  *base = data_->BufferAt(idx, buffer_attributes);
+  *base = data_->BufferAt(idx, attr);
 
   return Status::Success;
 }
 
 Status
-InferenceRequest::Input::DataBufferForHostPolicy(
+inference_request::Input::DataBufferForHostPolicy(
     const size_t idx, const void** base, size_t* byte_size,
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id,
     const std::string& host_policy_name) const
@@ -1313,7 +1313,7 @@ InferenceRequest::Input::DataBufferForHostPolicy(
 }
 
 size_t
-InferenceRequest::Input::DataBufferCountForHostPolicy(
+inference_request::Input::DataBufferCountForHostPolicy(
     const std::string& host_policy_name) const
 {
   auto policy_data = host_policy_data_map_.find(host_policy_name);
@@ -1323,44 +1323,44 @@ InferenceRequest::Input::DataBufferCountForHostPolicy(
   return data_->BufferCount();
 }
 
-InferenceRequest::SequenceId::SequenceId()
+inference_request::SequenceId::SequenceId()
     : sequence_label_(""), sequence_index_(0),
-      id_type_(InferenceRequest::SequenceId::DataType::UINT64)
+      id_type_(inference_request::SequenceId::DataType::UINT64)
 {
 }
 
-InferenceRequest::SequenceId::SequenceId(const std::string& sequence_label)
+inference_request::SequenceId::SequenceId(const std::string& sequence_label)
     : sequence_label_(sequence_label), sequence_index_(0),
-      id_type_(InferenceRequest::SequenceId::DataType::STRING)
+      id_type_(inference_request::SequenceId::DataType::STRING)
 {
 }
 
-InferenceRequest::SequenceId::SequenceId(uint64_t sequence_index)
+inference_request::SequenceId::SequenceId(uint64_t sequence_index)
     : sequence_label_(""), sequence_index_(sequence_index),
-      id_type_(InferenceRequest::SequenceId::DataType::UINT64)
+      id_type_(inference_request::SequenceId::DataType::UINT64)
 {
 }
 
-InferenceRequest::SequenceId&
-InferenceRequest::SequenceId::operator=(const std::string& rhs)
+inference_request::SequenceId&
+inference_request::SequenceId::operator=(const std::string& rhs)
 {
   sequence_label_ = rhs;
   sequence_index_ = 0;
-  id_type_ = InferenceRequest::SequenceId::DataType::STRING;
+  id_type_ = inference_request::SequenceId::DataType::STRING;
   return *this;
 }
 
-InferenceRequest::SequenceId&
-InferenceRequest::SequenceId::operator=(const uint64_t rhs)
+inference_request::SequenceId&
+inference_request::SequenceId::operator=(const uint64_t rhs)
 {
   sequence_label_ = "";
   sequence_index_ = rhs;
-  id_type_ = InferenceRequest::SequenceId::DataType::UINT64;
+  id_type_ = inference_request::SequenceId::DataType::UINT64;
   return *this;
 }
 
 std::ostream&
-operator<<(std::ostream& out, const InferenceRequest& request)
+operator<<(std::ostream& out, const inference_request& request)
 {
   out << "[0x" << std::addressof(request) << "] "
       << "request id: " << request.Id() << ", model: " << request.ModelName()
@@ -1402,15 +1402,15 @@ operator<<(std::ostream& out, const InferenceRequest& request)
 }
 
 std::ostream&
-operator<<(std::ostream& out, const InferenceRequest::Input& input)
+operator<<(std::ostream& out, const inference_request::Input& input)
 {
   out << "input: " << input.Name()
-      << ", type: " << triton::common::DataTypeToProtocolString(input.DType())
+      << ", type: " << hercules::common::DataTypeToProtocolString(input.DType())
       << ", original shape: "
-      << triton::common::DimsListToString(input.OriginalShape())
+      << hercules::common::DimsListToString(input.OriginalShape())
       << ", batch + shape: "
-      << triton::common::DimsListToString(input.ShapeWithBatchDim())
-      << ", shape: " << triton::common::DimsListToString(input.Shape());
+      << hercules::common::DimsListToString(input.ShapeWithBatchDim())
+      << ", shape: " << hercules::common::DimsListToString(input.Shape());
   if (input.IsShapeTensor()) {
     out << ", is_shape_tensor: True";
   }
@@ -1418,13 +1418,13 @@ operator<<(std::ostream& out, const InferenceRequest::Input& input)
 }
 
 std::ostream&
-operator<<(std::ostream& out, const InferenceRequest::SequenceId& sequence_id)
+operator<<(std::ostream& out, const inference_request::SequenceId& sequence_id)
 {
   switch (sequence_id.Type()) {
-    case InferenceRequest::SequenceId::DataType::STRING:
+    case inference_request::SequenceId::DataType::STRING:
       out << sequence_id.StringValue();
       break;
-    case InferenceRequest::SequenceId::DataType::UINT64:
+    case inference_request::SequenceId::DataType::UINT64:
       out << sequence_id.UnsignedIntValue();
       break;
     default:
@@ -1436,14 +1436,14 @@ operator<<(std::ostream& out, const InferenceRequest::SequenceId& sequence_id)
 
 bool
 operator==(
-    const InferenceRequest::SequenceId lhs,
-    const InferenceRequest::SequenceId rhs)
+    const inference_request::SequenceId lhs,
+    const inference_request::SequenceId rhs)
 {
   if (lhs.Type() == rhs.Type()) {
     switch (lhs.Type()) {
-      case InferenceRequest::SequenceId::DataType::STRING:
+      case inference_request::SequenceId::DataType::STRING:
         return lhs.StringValue() == rhs.StringValue();
-      case InferenceRequest::SequenceId::DataType::UINT64:
+      case inference_request::SequenceId::DataType::UINT64:
         return lhs.UnsignedIntValue() == rhs.UnsignedIntValue();
       default:
         return lhs.UnsignedIntValue() == rhs.UnsignedIntValue();
@@ -1455,8 +1455,8 @@ operator==(
 
 bool
 operator!=(
-    const InferenceRequest::SequenceId lhs,
-    const InferenceRequest::SequenceId rhs)
+    const inference_request::SequenceId lhs,
+    const inference_request::SequenceId rhs)
 {
   return !(lhs == rhs);
 }

@@ -10,7 +10,7 @@
 
 namespace hercules::core {
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 
 // Start the trace id at 1, because id 0 is reserved to indicate no
 // parent.
@@ -38,6 +38,6 @@ InferenceTraceProxy::SpawnChildTrace()
   return strace_proxy;
 }
 
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 }  // namespace hercules::core

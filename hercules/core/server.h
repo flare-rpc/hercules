@@ -27,7 +27,7 @@
 namespace hercules::core {
 
 class Model;
-class InferenceRequest;
+class inference_request;
 
 enum class ModelControlMode { MODE_NONE, MODE_POLL, MODE_EXPLICIT };
 
@@ -53,10 +53,10 @@ enum class ServerReadyState {
 };
 
 // Inference server information.
-class InferenceServer {
+class inference_server {
  public:
   // Construct an inference server.
-  InferenceServer();
+  inference_server();
 
   // Initialize the server. Return true on success, false otherwise.
   Status Init();
@@ -98,12 +98,12 @@ class InferenceServer {
   // taken ownership of the request object and so 'request' will be
   // nullptr. If non-success is returned then the caller still retains
   // ownership of 'request'.
-  Status InferAsync(std::unique_ptr<InferenceRequest>& request);
+  Status InferAsync(std::unique_ptr<inference_request>& request);
 
   // Load the corresponding model. Reload the model if it has been loaded.
   Status LoadModel(
       const std::unordered_map<
-          std::string, std::vector<const InferenceParameter*>>& models);
+          std::string, std::vector<const inference_parameter*>>& models);
 
   // Unload the corresponding model.
   Status UnloadModel(
@@ -222,13 +222,13 @@ class InferenceServer {
 
   // Set a backend command-line configuration
   void SetBackendCmdlineConfig(
-      const triton::common::BackendCmdlineConfigMap& bc)
+      const hercules::common::BackendCmdlineConfigMap& bc)
   {
     backend_cmdline_config_map_ = bc;
   }
 
   void SetHostPolicyCmdlineConfig(
-      const triton::common::HostPolicyCmdlineConfigMap& hp)
+      const hercules::common::HostPolicyCmdlineConfigMap& hp)
   {
     host_policy_map_ = hp;
   }
@@ -283,8 +283,8 @@ class InferenceServer {
   bool response_cache_enabled_;
   std::map<int, uint64_t> cuda_memory_pool_size_;
   double min_supported_compute_capability_;
-  triton::common::BackendCmdlineConfigMap backend_cmdline_config_map_;
-  triton::common::HostPolicyCmdlineConfigMap host_policy_map_;
+  hercules::common::BackendCmdlineConfigMap backend_cmdline_config_map_;
+  hercules::common::HostPolicyCmdlineConfigMap host_policy_map_;
   std::string repoagent_dir_;
   RateLimitMode rate_limit_mode_;
   RateLimiter::ResourceMap rate_limit_resource_map_;

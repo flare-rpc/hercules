@@ -22,7 +22,7 @@
 #include <iomanip>
 #include <iostream>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 Logger gLogger_;
 
@@ -120,4 +120,4 @@ LogMessage::~LogMessage()
   gLogger_.Log(stream_.str());
 }
 
-}}  // namespace triton::common
+}  // namespace hercules::common

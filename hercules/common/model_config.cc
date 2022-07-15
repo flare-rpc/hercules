@@ -8,7 +8,7 @@
 
 #include "hercules/common/model_config.h"
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 bool
 IsFixedSizeDataType(const hercules::proto::DataType dtype)
@@ -422,4 +422,4 @@ ProtocolStringToDataType(const char* dtype, size_t len)
   return hercules::proto::DataType::TYPE_INVALID;
 }
 
-}}  // namespace triton::common
+}  // namespace hercules::common

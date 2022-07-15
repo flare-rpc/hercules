@@ -11,10 +11,10 @@
 #include "pinned_memory_manager.h"
 #include "hercules/common/logging.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
 #include "cuda_memory_manager.h"
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace hercules::core {
 
@@ -41,14 +41,14 @@ MemoryReference::BufferAt(
 }
 
 const char*
-MemoryReference::BufferAt(size_t idx, BufferAttributes** buffer_attributes)
+MemoryReference::BufferAt(size_t idx, BufferAttributes** attr)
 {
   if (idx >= buffer_.size()) {
-    *buffer_attributes = nullptr;
+    *attr = nullptr;
     return nullptr;
   }
 
-  *buffer_attributes = &(buffer_[idx].buffer_attributes_);
+  *attr = &(buffer_[idx].buffer_attributes_);
   return buffer_[idx].buffer_;
 }
 
@@ -65,11 +65,11 @@ MemoryReference::AddBuffer(
 
 size_t
 MemoryReference::AddBuffer(
-    const char* buffer, BufferAttributes* buffer_attributes)
+    const char* buffer, BufferAttributes* attr)
 {
-  total_byte_size_ += buffer_attributes->ByteSize();
+  total_byte_size_ += attr->ByteSize();
   buffer_count_++;
-  buffer_.emplace_back(buffer, buffer_attributes);
+  buffer_.emplace_back(buffer, attr);
   return buffer_.size() - 1;
 }
 
@@ -117,14 +117,14 @@ MutableMemory::BufferAt(
 }
 
 const char*
-MutableMemory::BufferAt(size_t idx, BufferAttributes** buffer_attributes)
+MutableMemory::BufferAt(size_t idx, BufferAttributes** attr)
 {
   if (idx != 0) {
-    *buffer_attributes = nullptr;
+    *attr = nullptr;
     return nullptr;
   }
 
-  *buffer_attributes = &buffer_attributes_;
+  *attr = &buffer_attributes_;
   return buffer_;
 }
 
@@ -154,9 +154,9 @@ AllocatedMemory::AllocatedMemory(
     // Allocate memory with the following fallback policy:
     // CUDA memory -> pinned system memory -> non-pinned system memory
     switch (buffer_attributes_.MemoryType()) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
       case TRITONSERVER_MEMORY_GPU: {
-        auto status = CudaMemoryManager::Alloc(
+        auto status = cuda_memory_manager::Alloc(
             (void**)&buffer_, total_byte_size_,
             buffer_attributes_.MemoryTypeId());
         if (!status.IsOk()) {
@@ -172,7 +172,7 @@ AllocatedMemory::AllocatedMemory(
         break;
       }
       pinned_memory_allocation:
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
       default: {
         TRITONSERVER_MemoryType memory_type = buffer_attributes_.MemoryType();
         auto status = PinnedMemoryManager::Alloc(
@@ -194,13 +194,13 @@ AllocatedMemory::~AllocatedMemory()
   if (buffer_ != nullptr) {
     switch (buffer_attributes_.MemoryType()) {
       case TRITONSERVER_MEMORY_GPU: {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         auto status =
-            CudaMemoryManager::Free(buffer_, buffer_attributes_.MemoryTypeId());
+            cuda_memory_manager::Free(buffer_, buffer_attributes_.MemoryTypeId());
         if (!status.IsOk()) {
           LOG_ERROR << status.Message();
         }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
         break;
       }
 

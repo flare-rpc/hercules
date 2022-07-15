@@ -17,16 +17,16 @@
 #include "hercules/common/sync_queue.h"
 #include "hercules/core/tritonbackend.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
-#ifndef TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
 using cudaStream_t = void*;
 using cudaEvent_t = void*;
-#endif  // !TRITON_ENABLE_GPU
+#endif  // !HERCULES_ENABLE_GPU
 
 //
 // BackendInputCollector
@@ -48,7 +48,7 @@ class BackendInputCollector {
       : need_sync_(false), requests_(requests), request_count_(request_count),
         responses_(responses), memory_manager_(memory_manager),
         pinned_enabled_(pinned_enabled),
-        use_async_cpu_copy_(triton::common::AsyncWorkQueue::WorkerCount() > 1),
+        use_async_cpu_copy_(hercules::common::AsyncWorkQueue::WorkerCount() > 1),
         stream_(stream), event_(event), buffer_ready_event_(buffer_ready_event),
         kernel_buffer_threshold_(kernel_buffer_threshold),
         pending_pinned_byte_size_(0), pending_pinned_offset_(0),
@@ -272,7 +272,7 @@ class BackendInputCollector {
 
   std::list<DeferredPinned> deferred_pinned_;
   // FIXME use future to maintain an issue-order queue to drop task count
-  triton::common::SyncQueue<bool> completion_queue_;
+  hercules::common::SyncQueue<bool> completion_queue_;
   size_t async_task_count_;
 
   const char* host_policy_cstr_;
@@ -280,4 +280,4 @@ class BackendInputCollector {
   const bool coalesce_request_input_;
 };
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

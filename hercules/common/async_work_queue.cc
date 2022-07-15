@@ -8,7 +8,7 @@
 
 #include "hercules/common/async_work_queue.h"
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 AsyncWorkQueue::~AsyncWorkQueue()
 {
@@ -76,4 +76,4 @@ AsyncWorkQueue::Reset()
   new (GetSingleton()) AsyncWorkQueue();
 }
 
-}}  // namespace triton::common
+}  // namespace hercules::common

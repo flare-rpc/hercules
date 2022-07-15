@@ -406,6 +406,12 @@
 		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model.h">
 			<Option target="core"/>
 		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_cuda.cc">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_cuda.h">
+			<Option target="core"/>
+		</Unit>
 		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_utils.cc">
 			<Option target="core"/>
 		</Unit>

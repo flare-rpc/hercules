@@ -40,8 +40,8 @@ class Payload {
   size_t RequestCount() { return requests_.size(); }
   size_t BatchSize();
   void ReserveRequests(size_t size);
-  void AddRequest(std::unique_ptr<InferenceRequest> request);
-  std::vector<std::unique_ptr<InferenceRequest>>& Requests()
+  void AddRequest(std::unique_ptr<inference_request> request);
+  std::vector<std::unique_ptr<inference_request>>& Requests()
   {
     return requests_;
   }
@@ -64,7 +64,7 @@ class Payload {
 
  private:
   Operation op_type_;
-  std::vector<std::unique_ptr<InferenceRequest>> requests_;
+  std::vector<std::unique_ptr<inference_request>> requests_;
   std::function<void()> OnCallback_;
   std::vector<std::function<void()>> release_callbacks_;
   TritonModelInstance* instance_;

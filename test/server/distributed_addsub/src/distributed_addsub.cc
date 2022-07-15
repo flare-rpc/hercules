@@ -13,7 +13,7 @@
 #include "triton/backend/backend_model.h"
 #include "triton/backend/backend_model_instance.h"
 
-namespace triton { namespace backend { namespace distributed_addsub {
+namespace hercules::backend { namespace distributed_addsub {
 
 
 // Addsub backend that distributes partial computation to different model
@@ -773,4 +773,4 @@ TRITONBACKEND_ModelInstanceExecute(
 
 }  // extern "C"
 
-}}}  // namespace triton::backend::distributed_addsub
+}}}  // namespace hercules::backend::distributed_addsub

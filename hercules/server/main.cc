@@ -31,9 +31,9 @@
 #include <thread>
 #include "triton_signal.h"
 
-#ifdef TRITON_ENABLE_ASAN
+#ifdef HERCULES_ENABLE_ASAN
 #include <sanitizer/lsan_interface.h>
-#endif  // TRITON_ENABLE_ASAN
+#endif  // HERCULES_ENABLE_ASAN
 
 #include "common.h"
 #include "shared_memory_manager.h"
@@ -54,11 +54,11 @@
 #include "grpc_server.h"
 #endif  // TRITON_ENABLE_GRPC
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 static_assert(
     TRITON_MIN_COMPUTE_CAPABILITY >= 1.0,
     "Invalid TRITON_MIN_COMPUTE_CAPABILITY specified");
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace {
 
@@ -123,14 +123,14 @@ std::string http_address_ = "0.0.0.0";
 #endif  // NOT TRITON_ENABLE_HTTP
 #endif  // TRITON_ENABLE_METRICS
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 std::string trace_filepath_;
 TRITONSERVER_InferenceTraceLevel trace_level_ =
     TRITONSERVER_TRACE_LEVEL_DISABLED;
 int32_t trace_rate_ = 1000;
 int32_t trace_count_ = -1;
 int32_t trace_log_frequency_ = 0;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 #if defined(TRITON_ENABLE_GRPC)
 // The maximum number of inference request/response objects that
@@ -267,13 +267,13 @@ enum OptionId {
   OPTION_METRICS_PORT,
   OPTION_METRICS_INTERVAL_MS,
 #endif  // TRITON_ENABLE_METRICS
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   OPTION_TRACE_FILEPATH,
   OPTION_TRACE_LEVEL,
   OPTION_TRACE_RATE,
   OPTION_TRACE_COUNT,
   OPTION_TRACE_LOG_FREQUENCY,
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
   OPTION_MODEL_CONTROL_MODE,
   OPTION_POLL_REPO_SECS,
   OPTION_STARTUP_MODEL,
@@ -477,7 +477,7 @@ std::vector<Option> options_
        "Metrics will be collected once every <metrics-interval-ms> "
        "milliseconds. Default is 2000 milliseconds."},
 #endif  // TRITON_ENABLE_METRICS
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       {OPTION_TRACE_FILEPATH, "trace-file", Option::ArgStr,
        "Set the file where trace output will be saved. If --trace-log-frequency"
        " is also specified, this argument value will be the prefix of the files"
@@ -499,7 +499,7 @@ std::vector<Option> options_
        "when Triton collects the 100-th trace, it logs the traces to file "
        "<trace-file>.0, and when it collects the 200-th trace, it logs the "
        "101-th to the 200-th traces to file <trace-file>.1. Default is 0."},
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
       {OPTION_MODEL_CONTROL_MODE, "model-control-mode", Option::ArgStr,
        "Specify the mode for model management. Options are \"none\", \"poll\" "
        "and \"explicit\". The default is \"none\". "
@@ -957,7 +957,7 @@ StartTracing(triton::server::TraceManager** trace_manager)
 {
   *trace_manager = nullptr;
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   TRITONSERVER_Error* err = triton::server::TraceManager::Create(
       trace_manager, trace_level_, trace_rate_, trace_count_,
       trace_log_frequency_, trace_filepath_);
@@ -970,7 +970,7 @@ StartTracing(triton::server::TraceManager** trace_manager)
     *trace_manager = nullptr;
     return false;
   }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   return true;
 }
@@ -978,12 +978,12 @@ StartTracing(triton::server::TraceManager** trace_manager)
 bool
 StopTracing(triton::server::TraceManager** trace_manager)
 {
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // We assume that at this point Triton has been stopped gracefully,
   // so can delete the trace manager to finalize the output.
   delete (*trace_manager);
   *trace_manager = nullptr;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   return true;
 }
@@ -1108,7 +1108,7 @@ ParseIntBoolOption(std::string arg)
 }
 #endif  // TRITON_ENABLE_LOGGING
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
 TRITONSERVER_InferenceTraceLevel
 ParseTraceLevelOption(std::string arg)
 {
@@ -1131,7 +1131,7 @@ ParseTraceLevelOption(std::string arg)
   std::cerr << Usage() << std::endl;
   exit(1);
 }
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
 std::tuple<std::string, int, int>
 ParseRateLimiterResourceOption(const std::string arg)
@@ -1289,11 +1289,11 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
       backend_config_settings;
   std::vector<std::tuple<std::string, std::string, std::string>> host_policies;
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   double min_supported_compute_capability = TRITON_MIN_COMPUTE_CAPABILITY;
 #else
   double min_supported_compute_capability = 0;
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 #if defined(TRITON_ENABLE_HTTP)
   int32_t http_port = http_port_;
@@ -1348,14 +1348,14 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   float metrics_interval_ms = metrics_interval_ms_;
 #endif  // TRITON_ENABLE_METRICS
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   std::string trace_filepath = trace_filepath_;
   std::vector<TRITONSERVER_InferenceTraceLevel> trace_level_settings = {
       trace_level_};
   int32_t trace_rate = trace_rate_;
   int32_t trace_count = trace_count_;
   int32_t trace_log_frequency = trace_log_frequency_;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   TRITONSERVER_ModelControlMode control_mode = TRITONSERVER_MODEL_CONTROL_NONE;
   std::set<std::string> startup_models_;
@@ -1372,7 +1372,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   bool log_warn = true;
   bool log_error = true;
   int32_t log_verbose = 0;
-  auto log_format = triton::common::Logger::Format::kDEFAULT;
+  auto log_format = hercules::common::Logger::Format::kDEFAULT;
 #endif  // TRITON_ENABLE_LOGGING
 
   std::vector<struct option> long_options;
@@ -1404,9 +1404,9 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
       case OPTION_LOG_FORMAT: {
         std::string format_str(optarg);
         if (format_str == "default") {
-          log_format = triton::common::Logger::Format::kDEFAULT;
+          log_format = hercules::common::Logger::Format::kDEFAULT;
         } else if (format_str == "ISO8601") {
-          log_format = triton::common::Logger::Format::kISO8601;
+          log_format = hercules::common::Logger::Format::kISO8601;
         } else {
           std::cerr << "invalid argument for --log-format" << std::endl;
           std::cerr << Usage() << std::endl;
@@ -1570,7 +1570,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
         break;
 #endif  // TRITON_ENABLE_METRICS
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
       case OPTION_TRACE_FILEPATH:
         trace_filepath = optarg;
         break;
@@ -1586,7 +1586,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
       case OPTION_TRACE_LOG_FREQUENCY:
         trace_log_frequency = ParseIntOption(optarg);
         break;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
       case OPTION_POLL_REPO_SECS:
         repository_poll_secs = ParseIntOption(optarg);
@@ -1747,7 +1747,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   metrics_interval_ms_ = metrics_interval_ms;
 #endif  // TRITON_ENABLE_METRICS
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   trace_filepath_ = trace_filepath;
   for (auto& trace_level : trace_level_settings) {
     trace_level_ = static_cast<TRITONSERVER_InferenceTraceLevel>(
@@ -1756,7 +1756,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   trace_rate_ = trace_rate;
   trace_count_ = trace_count;
   trace_log_frequency_ = trace_log_frequency;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // Check if HTTP, GRPC and metrics port clash
   if (CheckPortCollision()) {
@@ -1848,13 +1848,13 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
       TRITONSERVER_ServerOptionsSetLogVerbose(loptions, log_verbose),
       "setting log verbose level");
   switch (log_format) {
-    case triton::common::Logger::Format::kDEFAULT:
+    case hercules::common::Logger::Format::kDEFAULT:
       FAIL_IF_ERR(
           TRITONSERVER_ServerOptionsSetLogFormat(
               loptions, TRITONSERVER_LOG_DEFAULT),
           "setting log format");
       break;
-    case triton::common::Logger::Format::kISO8601:
+    case hercules::common::Logger::Format::kISO8601:
       FAIL_IF_ERR(
           TRITONSERVER_ServerOptionsSetLogFormat(
               loptions, TRITONSERVER_LOG_ISO8601),
@@ -1980,11 +1980,11 @@ main(int argc, char** argv)
   StopEndpoints();
   StopTracing(&trace_manager);
 
-#ifdef TRITON_ENABLE_ASAN
+#ifdef HERCULES_ENABLE_ASAN
   // Can invoke ASAN before exit though this is typically not very
   // useful since there are many objects that are not yet destructed.
   //  __lsan_do_leak_check();
-#endif  // TRITON_ENABLE_ASAN
+#endif  // HERCULES_ENABLE_ASAN
 
   return 0;
 }

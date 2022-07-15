@@ -13,7 +13,7 @@
 
 namespace hercules::core {
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 void CUDART_CB
 MemcpyHost(void* args)
 {
@@ -21,12 +21,12 @@ MemcpyHost(void* args)
   memcpy(copy_params->dst_, copy_params->src_, copy_params->byte_size_);
   delete copy_params;
 }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 Status
 EnablePeerAccess(const double min_compute_capability)
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   // If we can't enable peer access for one device pair, the best we can
   // do is skipping it...
   std::set<int> supported_gpus;
@@ -58,7 +58,7 @@ EnablePeerAccess(const double min_compute_capability)
         Status::Code::UNSUPPORTED,
         "failed to enable peer access for some device pairs");
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   return Status::Success;
 }
 
@@ -79,7 +79,7 @@ CopyBuffer(
   // the src buffer is valid.
   if ((src_memory_type != TRITONSERVER_MEMORY_GPU) &&
       (dst_memory_type != TRITONSERVER_MEMORY_GPU)) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     if (copy_on_stream) {
       auto params = new CopyParams(dst, src, byte_size);
       cudaLaunchHostFunc(
@@ -90,9 +90,9 @@ CopyBuffer(
     }
 #else
     memcpy(dst, src, byte_size);
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   } else {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     RETURN_IF_CUDA_ERR(
         cudaMemcpyAsync(dst, src, byte_size, cudaMemcpyDefault, cuda_stream),
         msg + ": failed to perform CUDA copy");
@@ -102,7 +102,7 @@ CopyBuffer(
     return Status(
         Status::Code::INTERNAL,
         msg + ": try to use CUDA copy while GPU is not supported");
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   }
 
   return Status::Success;
@@ -115,7 +115,7 @@ CopyBufferHandler(
     const TRITONSERVER_MemoryType dst_memory_type,
     const int64_t dst_memory_type_id, const size_t byte_size, const void* src,
     void* dst, cudaStream_t cuda_stream, void* response_ptr,
-    triton::common::SyncQueue<std::tuple<Status, bool, void*>>*
+    hercules::common::SyncQueue<std::tuple<Status, bool, void*>>*
         completion_queue)
 {
   bool cuda_used = false;
@@ -125,7 +125,7 @@ CopyBufferHandler(
   completion_queue->Put(std::make_tuple(status, cuda_used, response_ptr));
 }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 Status
 CheckGPUCompatibility(const int gpu_id, const double min_compute_capability)
 {

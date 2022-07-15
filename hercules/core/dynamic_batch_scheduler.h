@@ -54,7 +54,7 @@ class DynamicBatchScheduler : public Scheduler {
   ~DynamicBatchScheduler();
 
   // \see Scheduler::Enqueue()
-  Status Enqueue(std::unique_ptr<InferenceRequest>& request) override;
+  Status Enqueue(std::unique_ptr<inference_request>& request) override;
 
   // \see Scheduler::InflightInferenceCount()
   size_t InflightInferenceCount() override
@@ -69,7 +69,7 @@ class DynamicBatchScheduler : public Scheduler {
   // \see Scheduler::Stop()
   void Stop() override { stop_ = true; }
 
-  MetricModelReporter* MetricReporter() const { return reporter_.get(); }
+  metric_model_reporter* MetricReporter() const { return reporter_.get(); }
 
  private:
   DynamicBatchScheduler(
@@ -86,9 +86,9 @@ class DynamicBatchScheduler : public Scheduler {
   void BatcherThread(const int nice);
   void NewPayload();
   uint64_t GetDynamicBatch();
-  void DelegateResponse(std::unique_ptr<InferenceRequest>& request);
+  void DelegateResponse(std::unique_ptr<inference_request>& request);
   void CacheLookUp(
-      std::unique_ptr<InferenceRequest>& request,
+      std::unique_ptr<inference_request>& request,
       std::unique_ptr<InferenceResponse>& cached_response);
   void FinalizeResponses();
 
@@ -153,7 +153,7 @@ class DynamicBatchScheduler : public Scheduler {
   std::mutex completion_queue_mtx_;
 
   // Reporter for metrics, or nullptr if no metrics should be reported
-  std::shared_ptr<MetricModelReporter> reporter_;
+  std::shared_ptr<metric_model_reporter> reporter_;
 };
 
 }  // namespace hercules::core

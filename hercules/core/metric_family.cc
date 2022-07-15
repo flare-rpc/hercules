@@ -121,7 +121,7 @@ MetricFamily::~MetricFamily()
 //
 Metric::Metric(
     TRITONSERVER_MetricFamily* family,
-    std::vector<const InferenceParameter*> labels)
+    std::vector<const inference_parameter*> labels)
 {
   family_ = reinterpret_cast<MetricFamily*>(family);
   kind_ = family_->Kind();

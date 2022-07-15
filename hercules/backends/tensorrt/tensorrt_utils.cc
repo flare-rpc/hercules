@@ -10,7 +10,7 @@
 
 #include "triton/backend/backend_common.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 TRITONSERVER_DataType
 ConvertTrtTypeToDataType(nvinfer1::DataType trt_type)
@@ -501,4 +501,4 @@ DimsJsonToString(common::TritonJson::Value& dims)
   return ShapeToString(dims_vec);
 }
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

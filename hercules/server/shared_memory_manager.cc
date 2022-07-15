@@ -24,7 +24,7 @@ SharedMemoryManager::RegisterSystemSharedMemory(
           .c_str());
 }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 TRITONSERVER_Error*
 SharedMemoryManager::RegisterCUDASharedMemory(
     const std::string& name, const cudaIpcMemHandle_t* cuda_shm_handle,
@@ -45,7 +45,7 @@ SharedMemoryManager::GetCUDAHandle(
       std::string("Shared memory feature is currently not supported on Windows")
           .c_str());
 }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 TRITONSERVER_Error*
 SharedMemoryManager::GetMemoryInfo(
@@ -61,7 +61,7 @@ SharedMemoryManager::GetMemoryInfo(
 TRITONSERVER_Error*
 SharedMemoryManager::GetStatus(
     const std::string& name, TRITONSERVER_MemoryType memory_type,
-    triton::common::TritonJson::Value* shm_status)
+    hercules::common::TritonJson::Value* shm_status)
 {
   return TRITONSERVER_ErrorNew(
       TRITONSERVER_ERROR_UNSUPPORTED,
@@ -176,7 +176,7 @@ UnmapSharedMemory(void* mapped_addr, size_t byte_size)
   return nullptr;
 }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 TRITONSERVER_Error*
 OpenCudaIPCRegion(
     const cudaIpcMemHandle_t* cuda_shm_handle, void** data_ptr, int device_id)
@@ -197,7 +197,7 @@ OpenCudaIPCRegion(
 
   return nullptr;
 }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 }  // namespace
 
@@ -269,7 +269,7 @@ SharedMemoryManager::RegisterSystemSharedMemory(
   return nullptr;  // success
 }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 TRITONSERVER_Error*
 SharedMemoryManager::RegisterCUDASharedMemory(
     const std::string& name, const cudaIpcMemHandle_t* cuda_shm_handle,
@@ -309,7 +309,7 @@ SharedMemoryManager::RegisterCUDASharedMemory(
 
   return nullptr;  // success
 }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 TRITONSERVER_Error*
 SharedMemoryManager::GetMemoryInfo(
@@ -339,7 +339,7 @@ SharedMemoryManager::GetMemoryInfo(
   return nullptr;
 }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 TRITONSERVER_Error*
 SharedMemoryManager::GetCUDAHandle(
     const std::string& name, cudaIpcMemHandle_t** cuda_mem_handle)
@@ -365,15 +365,15 @@ SharedMemoryManager::GetCUDAHandle(
 TRITONSERVER_Error*
 SharedMemoryManager::GetStatus(
     const std::string& name, TRITONSERVER_MemoryType memory_type,
-    triton::common::TritonJson::Value* shm_status)
+    hercules::common::TritonJson::Value* shm_status)
 {
   std::lock_guard<std::mutex> lock(mu_);
 
   if (name.empty()) {
     for (const auto& shm_info : shared_memory_map_) {
       if (shm_info.second->kind_ == memory_type) {
-        triton::common::TritonJson::Value shm_region(
-            *shm_status, triton::common::TritonJson::ValueType::OBJECT);
+        hercules::common::TritonJson::Value shm_region(
+            *shm_status, hercules::common::TritonJson::ValueType::OBJECT);
         RETURN_IF_ERR(shm_region.AddString(
             "name", shm_info.first.c_str(), shm_info.first.size()));
         if (memory_type == TRITONSERVER_MEMORY_CPU) {
@@ -420,8 +420,8 @@ SharedMemoryManager::GetStatus(
       }
     }
 
-    triton::common::TritonJson::Value shm_region(
-        *shm_status, triton::common::TritonJson::ValueType::OBJECT);
+    hercules::common::TritonJson::Value shm_region(
+        *shm_status, hercules::common::TritonJson::ValueType::OBJECT);
     RETURN_IF_ERR(shm_region.AddString(
         "name", it->second->name_.c_str(), it->second->name_.size()));
     if (memory_type == TRITONSERVER_MEMORY_CPU) {
@@ -505,7 +505,7 @@ SharedMemoryManager::UnregisterHelper(
       RETURN_IF_ERR(
           UnmapSharedMemory(it->second->mapped_addr_, it->second->byte_size_));
     } else {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
       cudaError_t err = cudaIpcCloseMemHandle(it->second->mapped_addr_);
       if (err != cudaSuccess) {
         return TRITONSERVER_ErrorNew(
@@ -522,7 +522,7 @@ SharedMemoryManager::UnregisterHelper(
               "failed to unregister CUDA shared memory region: '" + name +
               "', GPUs not supported")
               .c_str());
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
     }
 
     // Remove region information from shared_memory_map_

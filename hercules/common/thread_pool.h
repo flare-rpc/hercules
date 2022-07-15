@@ -30,7 +30,7 @@
 #include <queue>
 #include <thread>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 // Generic fixed-size Thread Pool to execute tasks asynchronously
 
@@ -58,4 +58,4 @@ class ThreadPool {
   bool stop_ = false;
 };
 
-}}  // namespace triton::common
+}  // namespace hercules::common

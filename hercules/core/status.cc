@@ -65,7 +65,7 @@ StatusCodeToTritonCode(Status::Code status_code)
 }
 
 Status
-CommonErrorToStatus(const triton::common::Error& error)
+CommonErrorToStatus(const hercules::common::Error& error)
 {
   return Status(error);
 }

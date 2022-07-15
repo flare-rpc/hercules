@@ -15,7 +15,7 @@
 #include "triton/backend/backend_common.h"
 #include "triton/core/tritonserver.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 bool UseTensorRTv2API(const std::shared_ptr<nvinfer1::ICudaEngine>& engine);
 
@@ -128,4 +128,4 @@ ValidateDimension(
   return nullptr;
 }
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

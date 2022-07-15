@@ -72,20 +72,20 @@ set(
 #
 set(
   MEMORY_SRCS
-  ../buffer_attributes.cc
+  ../attr.cc
   ../memory.cc
 )
 
 set(
   MEMORY_HDRS
-  ../buffer_attributes.h
+  ../attr.h
   ../memory.h
 )
 
 #
 # Unit test for RequestResponseCache
 #
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   add_executable(
     response_cache_test
     response_cache_test.cc
@@ -124,7 +124,7 @@ if(${TRITON_ENABLE_GPU})
     response_cache_test
     PRIVATE
       TRITON_ENABLE_LOGGING=1
-      TRITON_ENABLE_GPU=1
+      HERCULES_ENABLE_GPU=1
       TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
   )
 
@@ -156,7 +156,7 @@ if(${TRITON_ENABLE_GPU})
     TARGETS response_cache_test
     RUNTIME DESTINATION bin
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 #
 # Unit test for Query
@@ -200,7 +200,7 @@ install(
 #
 # Unit test for Memory
 #
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   add_executable(
     memory_test
     memory_test.cc
@@ -235,7 +235,7 @@ if(${TRITON_ENABLE_GPU})
     memory_test
     PRIVATE
       TRITON_ENABLE_LOGGING=1
-      TRITON_ENABLE_GPU=1
+      HERCULES_ENABLE_GPU=1
       TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
   )
 
@@ -267,12 +267,12 @@ if(${TRITON_ENABLE_GPU})
     TARGETS memory_test
     RUNTIME DESTINATION bin
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 #
 # Unit test for PinnedMemoryManager
 #
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   add_executable(
     pinned_memory_manager_test
     pinned_memory_manager_test.cc
@@ -302,7 +302,7 @@ if(${TRITON_ENABLE_GPU})
     pinned_memory_manager_test
     PRIVATE
       TRITON_ENABLE_LOGGING=1
-      TRITON_ENABLE_GPU=1
+      HERCULES_ENABLE_GPU=1
       TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
   )
 
@@ -334,7 +334,7 @@ if(${TRITON_ENABLE_GPU})
     TARGETS pinned_memory_manager_test
     RUNTIME DESTINATION bin
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 #
 # Unit test for AsycWorkQueue

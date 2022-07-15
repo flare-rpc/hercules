@@ -11,7 +11,7 @@
 #include <deque>
 #include <mutex>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 //
 // C++11 doesn't have a sync queue so we implement a simple one.
@@ -62,4 +62,4 @@ class SyncQueue {
   std::deque<Item> queue_;
 };
 
-}}  // namespace triton::common
+}  // namespace hercules::common

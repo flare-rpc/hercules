@@ -8,7 +8,7 @@
 
 #include "tensorrt_model_instance.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 TensorRTModelInstance::TensorRTModelInstance(
     TensorRTModel* tensorrt_model,
@@ -58,4 +58,4 @@ TensorRTModelInstance::TensorRTModelInstance(
   }
 }
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

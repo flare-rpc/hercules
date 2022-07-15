@@ -1189,6 +1189,33 @@ core/model.cc.s:
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/core/model.cc.s
 .PHONY : core/model.cc.s
 
+core/model_config_cuda.o: core/model_config_cuda.cc.o
+
+.PHONY : core/model_config_cuda.o
+
+# target to build an object file
+core/model_config_cuda.cc.o:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.o
+.PHONY : core/model_config_cuda.cc.o
+
+core/model_config_cuda.i: core/model_config_cuda.cc.i
+
+.PHONY : core/model_config_cuda.i
+
+# target to preprocess a source file
+core/model_config_cuda.cc.i:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.i
+.PHONY : core/model_config_cuda.cc.i
+
+core/model_config_cuda.s: core/model_config_cuda.cc.s
+
+.PHONY : core/model_config_cuda.s
+
+# target to generate assembly for a file
+core/model_config_cuda.cc.s:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.s
+.PHONY : core/model_config_cuda.cc.s
+
 core/model_config_utils.o: core/model_config_utils.cc.o
 
 .PHONY : core/model_config_utils.o
@@ -1718,6 +1745,9 @@ help:
 	@echo "... core/model.o"
 	@echo "... core/model.i"
 	@echo "... core/model.s"
+	@echo "... core/model_config_cuda.o"
+	@echo "... core/model_config_cuda.i"
+	@echo "... core/model_config_cuda.s"
 	@echo "... core/model_config_utils.o"
 	@echo "... core/model_config_utils.i"
 	@echo "... core/model_config_utils.s"

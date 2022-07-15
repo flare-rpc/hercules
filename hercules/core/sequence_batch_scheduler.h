@@ -33,7 +33,7 @@ class SequenceBatch;
 // inferences.
 class SequenceBatchScheduler : public Scheduler {
  public:
-  using ControlInputs = std::vector<std::shared_ptr<InferenceRequest::Input>>;
+  using ControlInputs = std::vector<std::shared_ptr<inference_request::Input>>;
 
   SequenceBatchScheduler() = default;
   ~SequenceBatchScheduler();
@@ -46,7 +46,7 @@ class SequenceBatchScheduler : public Scheduler {
       std::unique_ptr<Scheduler>* scheduler);
 
   // \see Scheduler::Enqueue()
-  Status Enqueue(std::unique_ptr<InferenceRequest>& request) override;
+  Status Enqueue(std::unique_ptr<inference_request>& request) override;
 
   // \see Scheduler::InflightInferenceCount()
   size_t InflightInferenceCount() override
@@ -70,9 +70,9 @@ class SequenceBatchScheduler : public Scheduler {
 
   // Fill a sequence slot with a sequence from the backlog or show
   // that the sequence slot is no longer being used.
-  InferenceRequest::SequenceId ReleaseSequenceSlot(
+  inference_request::SequenceId ReleaseSequenceSlot(
       const BatcherSequenceSlot& seq_slot,
-      std::deque<std::unique_ptr<InferenceRequest>>* requests);
+      std::deque<std::unique_ptr<inference_request>>* requests);
 
   // For debugging/testing, batcher reports how many waiting requests
   // and returns true if the batcher should continue waiting.
@@ -135,18 +135,18 @@ class SequenceBatchScheduler : public Scheduler {
   // Map from a request's correlation ID to the BatcherSequenceSlot
   // assigned to that correlation ID.
   using BatcherSequenceSlotMap =
-      std::unordered_map<InferenceRequest::SequenceId, BatcherSequenceSlot>;
+      std::unordered_map<inference_request::SequenceId, BatcherSequenceSlot>;
   BatcherSequenceSlotMap sequence_to_batcherseqslot_map_;
 
   // Map from a request's correlation ID to the backlog queue
   // collecting requests for that correlation ID.
   using BacklogMap = std::unordered_map<
-      InferenceRequest::SequenceId,
-      std::shared_ptr<std::deque<std::unique_ptr<InferenceRequest>>>>;
+      inference_request::SequenceId,
+      std::shared_ptr<std::deque<std::unique_ptr<inference_request>>>>;
   BacklogMap sequence_to_backlog_map_;
 
   // The ordered backlog of sequences waiting for a free sequenceslot.
-  std::deque<std::shared_ptr<std::deque<std::unique_ptr<InferenceRequest>>>>
+  std::deque<std::shared_ptr<std::deque<std::unique_ptr<inference_request>>>>
       backlog_queues_;
 
   // The batcher/sequence-slot locations ready to accept a new
@@ -160,7 +160,7 @@ class SequenceBatchScheduler : public Scheduler {
 
   // For each correlation ID the most recently seen timestamp, in
   // microseconds, for a request using that correlation ID.
-  std::unordered_map<InferenceRequest::SequenceId, uint64_t>
+  std::unordered_map<inference_request::SequenceId, uint64_t>
       correlation_id_timestamps_;
 
   // Used for debugging/testing.
@@ -203,19 +203,19 @@ class SequenceBatch {
   // request 'request' will be nullptr.
   virtual void Enqueue(
       const uint32_t seq_slot,
-      const InferenceRequest::SequenceId& correlation_id,
-      std::unique_ptr<InferenceRequest>& request) = 0;
+      const inference_request::SequenceId& correlation_id,
+      std::unique_ptr<inference_request>& request) = 0;
 
  protected:
   bool CreateCorrelationIDControl(const hercules::proto::ModelConfig& config);
   void SetControlTensors(
-      std::unique_ptr<InferenceRequest>& irequest, const int32_t seq_slot,
-      const InferenceRequest::SequenceId& corr_id,
+      std::unique_ptr<inference_request>& irequest, const int32_t seq_slot,
+      const inference_request::SequenceId& corr_id,
       const bool not_ready = false);
 
   // Update the implicit state and set the required input states.
   void UpdateImplicitState(
-      std::unique_ptr<InferenceRequest>& irequest, const int32_t seq_slot);
+      std::unique_ptr<inference_request>& irequest, const int32_t seq_slot);
 
   // The controlling scheduler.
   SequenceBatchScheduler* const base_;
@@ -252,7 +252,7 @@ class SequenceBatch {
 
   // The correlation ID override. Empty if model does not specify the
   // CONTROL_SEQUENCE_CORRID control.
-  std::shared_ptr<InferenceRequest::Input> seq_slot_corrid_override_;
+  std::shared_ptr<inference_request::Input> seq_slot_corrid_override_;
 
   // For each sequence slot store the optional state i/o tensors.
   std::vector<std::shared_ptr<SequenceStates>> sequence_states_;
@@ -282,8 +282,8 @@ class DirectSequenceBatch : public SequenceBatch {
 
   void Enqueue(
       const uint32_t seq_slot,
-      const InferenceRequest::SequenceId& correlation_id,
-      std::unique_ptr<InferenceRequest>& request) override;
+      const inference_request::SequenceId& correlation_id,
+      std::unique_ptr<inference_request>& request) override;
 
  private:
   void BatcherThread(const int nice);
@@ -311,14 +311,14 @@ class DirectSequenceBatch : public SequenceBatch {
   // Queues holding inference requests. There are 'seq_slot_cnt'
   // queues, one for each sequence slot where requests assigned to
   // that slot are enqueued to wait for inferencing.
-  std::vector<std::deque<std::unique_ptr<InferenceRequest>>> queues_;
+  std::vector<std::deque<std::unique_ptr<inference_request>>> queues_;
 
   // Is each sequence slot active or not? A zero or empty value indicates
   // inactive, a non-zero/non-empty value indicates active and is the
   // correlation ID of the sequence active in the slot. An empty
   // queue for a sequence slot does not mean it's inactive... it
   // could just not have any requests pending at the moment.
-  std::vector<InferenceRequest::SequenceId> seq_slot_correlation_ids_;
+  std::vector<inference_request::SequenceId> seq_slot_correlation_ids_;
 
   // The maximum active sequence slot. A value of -1 indicates that
   // no slots are active in the model.
@@ -353,8 +353,8 @@ class OldestSequenceBatch : public SequenceBatch {
 
   void Enqueue(
       const uint32_t seq_slot,
-      const InferenceRequest::SequenceId& correlation_id,
-      std::unique_ptr<InferenceRequest>& request) override;
+      const inference_request::SequenceId& correlation_id,
+      std::unique_ptr<inference_request>& request) override;
 
  private:
   void CompleteAndNext(const uint32_t seq_slot);
@@ -375,7 +375,7 @@ class OldestSequenceBatch : public SequenceBatch {
   // Queues holding inference requests. There are 'seq_slot_cnt'
   // queues, one for each sequence slot where requests assigned to
   // that slot are enqueued to wait for inferencing.
-  std::vector<std::deque<std::unique_ptr<InferenceRequest>>> queues_;
+  std::vector<std::deque<std::unique_ptr<inference_request>>> queues_;
 };
 
 }  // namespace hercules::core

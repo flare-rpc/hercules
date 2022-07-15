@@ -66,7 +66,7 @@ class TritonRepoAgent {
   }
 
  protected:
-  DISALLOW_COPY_AND_ASSIGN(TritonRepoAgent);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(TritonRepoAgent);
 
   TritonRepoAgent(const std::string& name)
       : name_(name), state_(nullptr), dlhandle_(nullptr), init_fn_(nullptr),
@@ -114,7 +114,7 @@ class TritonRepoAgentModel {
   const hercules::proto::ModelConfig Config() { return config_; }
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(TritonRepoAgentModel);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(TritonRepoAgentModel);
 
   TritonRepoAgentModel(
       const TRITONREPOAGENT_ArtifactType type, const std::string& location,
@@ -151,7 +151,7 @@ class TritonRepoAgentManager {
           agent_state);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(TritonRepoAgentManager);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(TritonRepoAgentManager);
 
   TritonRepoAgentManager()
       : global_search_path_("/opt/tritonserver/repoagents"){};

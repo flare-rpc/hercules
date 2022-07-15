@@ -28,7 +28,7 @@
 
 #include "triton/backend/backend_common.h"
 
-namespace triton { namespace backend { namespace tensorflow {
+namespace hercules::backend { namespace tensorflow {
 
 bool
 ModelSupportsBatch(std::vector<const TRITONTF_IOList*> model_ios)
@@ -329,7 +329,7 @@ ConvertDataType(TRITONSERVER_DataType dtype)
 
 TRITONSERVER_Error*
 ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     bool* value)
 {
   std::string value_str;
@@ -341,7 +341,7 @@ ParseParameter(
 
 TRITONSERVER_Error*
 ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     int* value)
 {
   std::string value_str;
@@ -353,11 +353,11 @@ ParseParameter(
 
 TRITONSERVER_Error*
 ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     std::string* value)
 {
   RETURN_IF_ERROR(GetParameterValue(params, mkey, value));
   return nullptr;
 }
 
-}}}  // namespace triton::backend::tensorflow
+}}}  // namespace hercules::backend::tensorflow

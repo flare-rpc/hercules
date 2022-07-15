@@ -33,10 +33,10 @@ namespace {
     }                                                                       \
   } while (false)
 
-// Wrapper of CudaMemoryManager class to expose Reset() for unit testing
-class TestingCudaMemoryManager : public tc::CudaMemoryManager {
+// Wrapper of cuda_memory_manager class to expose Reset() for unit testing
+class TestingCudaMemoryManager : public tc::cuda_memory_manager {
  public:
-  static void Reset() { CudaMemoryManager::Reset(); }
+  static void Reset() { cuda_memory_manager::Reset(); }
 };
 
 class CudaMemoryManagerTest : public ::testing::Test {
@@ -50,7 +50,7 @@ class CudaMemoryManagerTest : public ::testing::Test {
 
   void TearDown() override { TestingCudaMemoryManager::Reset(); }
 
-  tc::CudaMemoryManager::Options options_;
+  tc::cuda_memory_manager::Options options_;
 };
 
 TEST_F(CudaMemoryManagerTest, InitOOM)
@@ -58,8 +58,8 @@ TEST_F(CudaMemoryManagerTest, InitOOM)
   // Set to reserve too much memory
   double cc = 6.0;
   std::map<int, uint64_t> s{{0, uint64_t(1) << 40 /* 1024 GB */}};
-  const tc::CudaMemoryManager::Options options{cc, s};
-  auto status = tc::CudaMemoryManager::Create(options);
+  const tc::cuda_memory_manager::Options options{cc, s};
+  auto status = tc::cuda_memory_manager::Create(options);
   EXPECT_FALSE(status.IsOk()) << "Expect creation error";
 }
 
@@ -67,8 +67,8 @@ TEST_F(CudaMemoryManagerTest, InitSuccess)
 {
   double cc = 6.0;
   std::map<int, uint64_t> s{{0, 1 << 10 /* 1024 bytes */}};
-  const tc::CudaMemoryManager::Options options{cc, s};
-  auto status = tc::CudaMemoryManager::Create(options);
+  const tc::cuda_memory_manager::Options options{cc, s};
+  auto status = tc::cuda_memory_manager::Create(options);
   EXPECT_TRUE(status.IsOk()) << status.Message();
 }
 
@@ -76,12 +76,12 @@ TEST_F(CudaMemoryManagerTest, InitNoDeviceConfig)
 {
   double cc = 6.0;
   std::map<int, uint64_t> s;
-  const tc::CudaMemoryManager::Options options{cc, s};
-  auto status = tc::CudaMemoryManager::Create(options);
+  const tc::cuda_memory_manager::Options options{cc, s};
+  auto status = tc::cuda_memory_manager::Create(options);
   EXPECT_TRUE(status.IsOk()) << status.Message();
 
   void* ptr = nullptr;
-  status = tc::CudaMemoryManager::Alloc(&ptr, 1, 0);
+  status = tc::cuda_memory_manager::Alloc(&ptr, 1, 0);
   ASSERT_FALSE(status.IsOk()) << "Unexpected successful allocation";
 }
 
@@ -89,22 +89,22 @@ TEST_F(CudaMemoryManagerTest, InitZeroByte)
 {
   double cc = 6.0;
   std::map<int, uint64_t> s{{0, 0}};
-  const tc::CudaMemoryManager::Options options{cc, s};
-  auto status = tc::CudaMemoryManager::Create(options);
+  const tc::cuda_memory_manager::Options options{cc, s};
+  auto status = tc::cuda_memory_manager::Create(options);
   EXPECT_TRUE(status.IsOk()) << status.Message();
 
   void* ptr = nullptr;
-  status = tc::CudaMemoryManager::Alloc(&ptr, 1, 0);
+  status = tc::cuda_memory_manager::Alloc(&ptr, 1, 0);
   ASSERT_FALSE(status.IsOk()) << "Unexpected successful allocation";
 }
 
 TEST_F(CudaMemoryManagerTest, AllocSuccess)
 {
-  auto status = tc::CudaMemoryManager::Create(options_);
+  auto status = tc::cuda_memory_manager::Create(options_);
   ASSERT_TRUE(status.IsOk()) << status.Message();
 
   void* ptr = nullptr;
-  status = tc::CudaMemoryManager::Alloc(&ptr, 1024, 0);
+  status = tc::cuda_memory_manager::Alloc(&ptr, 1024, 0);
   ASSERT_TRUE(status.IsOk()) << status.Message();
   ASSERT_TRUE(ptr) << "Expect pointer to allocated buffer";
   // check if returned pointer is CUDA pointer
@@ -113,21 +113,21 @@ TEST_F(CudaMemoryManagerTest, AllocSuccess)
 
 TEST_F(CudaMemoryManagerTest, AllocFail)
 {
-  auto status = tc::CudaMemoryManager::Create(options_);
+  auto status = tc::cuda_memory_manager::Create(options_);
   ASSERT_TRUE(status.IsOk()) << status.Message();
 
   void* ptr = nullptr;
-  status = tc::CudaMemoryManager::Alloc(&ptr, 2048, 0);
+  status = tc::cuda_memory_manager::Alloc(&ptr, 2048, 0);
   ASSERT_FALSE(status.IsOk()) << "Unexpected successful allocation";
 }
 
 TEST_F(CudaMemoryManagerTest, MultipleAlloc)
 {
-  auto status = tc::CudaMemoryManager::Create(options_);
+  auto status = tc::cuda_memory_manager::Create(options_);
   ASSERT_TRUE(status.IsOk()) << status.Message();
 
   void* first_ptr = nullptr;
-  status = tc::CudaMemoryManager::Alloc(&first_ptr, 600, 0);
+  status = tc::cuda_memory_manager::Alloc(&first_ptr, 600, 0);
   ASSERT_TRUE(status.IsOk()) << status.Message();
   ASSERT_TRUE(first_ptr) << "Expect pointer to allocated buffer";
   // check if returned pointer is CUDA pointer
@@ -135,13 +135,13 @@ TEST_F(CudaMemoryManagerTest, MultipleAlloc)
 
   // 512 + 600 > 1024
   void* second_ptr = nullptr;
-  status = tc::CudaMemoryManager::Alloc(&second_ptr, 512, 0);
+  status = tc::cuda_memory_manager::Alloc(&second_ptr, 512, 0);
   ASSERT_FALSE(status.IsOk()) << "Unexpected successful allocation";
 
   // Free the first pointer and retry the second one
-  status = tc::CudaMemoryManager::Free(first_ptr, 0);
+  status = tc::cuda_memory_manager::Free(first_ptr, 0);
   EXPECT_TRUE(status.IsOk()) << status.Message();
-  status = tc::CudaMemoryManager::Alloc(&second_ptr, 512, 0);
+  status = tc::cuda_memory_manager::Alloc(&second_ptr, 512, 0);
   ASSERT_TRUE(status.IsOk()) << status.Message();
   ASSERT_TRUE(second_ptr) << "Expect pointer to allocated buffer";
   // check if returned pointer is CUDA pointer
@@ -163,29 +163,29 @@ TEST_F(CudaMemoryManagerTest, MultipleDevice)
     // Only enough memory is only reserved in one of the devices
     s[*supported_gpus.begin()] = 32;
     s[*(++supported_gpus.begin())] = 1024;
-    const tc::CudaMemoryManager::Options options{cc, s};
-    status = tc::CudaMemoryManager::Create(options);
+    const tc::cuda_memory_manager::Options options{cc, s};
+    status = tc::cuda_memory_manager::Create(options);
     ASSERT_TRUE(status.IsOk()) << status.Message();
   }
 
   void* ptr = nullptr;
   // Allocation on small device
   int small_device = *supported_gpus.begin();
-  status = tc::CudaMemoryManager::Alloc(&ptr, 1024, small_device);
+  status = tc::cuda_memory_manager::Alloc(&ptr, 1024, small_device);
   ASSERT_FALSE(status.IsOk()) << "Unexpected successful allocation";
 
   // Allocation on large device
   int large_device = *(++supported_gpus.begin());
-  status = tc::CudaMemoryManager::Alloc(&ptr, 1024, large_device);
+  status = tc::cuda_memory_manager::Alloc(&ptr, 1024, large_device);
   ASSERT_TRUE(status.IsOk()) << status.Message();
   ASSERT_TRUE(ptr) << "Expect pointer to allocated buffer";
   // check if returned pointer is CUDA pointer
   CHECK_POINTER_ATTRIBUTES(ptr, cudaMemoryTypeDevice, large_device);
 
   // Free allocation ...
-  status = tc::CudaMemoryManager::Free(ptr, small_device);
+  status = tc::cuda_memory_manager::Free(ptr, small_device);
   EXPECT_FALSE(status.IsOk()) << "Unexpected deallocation on wrong device";
-  status = tc::CudaMemoryManager::Free(ptr, large_device);
+  status = tc::cuda_memory_manager::Free(ptr, large_device);
   EXPECT_TRUE(status.IsOk()) << status.Message();
 }
 
@@ -205,8 +205,8 @@ class AllocatedMemoryTest : public ::testing::Test {
   // Set up CUDA memory manager per test for special fallback case
   void SetUp() override
   {
-    tc::CudaMemoryManager::Options options{6.0, {{0, 1 << 10}}};
-    auto status = tc::CudaMemoryManager::Create(options);
+    tc::cuda_memory_manager::Options options{6.0, {{0, 1 << 10}}};
+    auto status = tc::cuda_memory_manager::Create(options);
     ASSERT_TRUE(status.IsOk()) << status.Message();
   }
 

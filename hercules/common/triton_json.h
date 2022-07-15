@@ -42,7 +42,7 @@
 //        return TRITONSERVER_ErrorNew(TRITONSERVER_ERROR_INTERNAL, (M).c_str())
 //   #define TRITONJSON_STATUSSUCCESS nullptr
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 //
 // A JSON parser/writer. Currently based on rapidjson but the intent
@@ -1096,4 +1096,4 @@ class TritonJson {
   };
 };
 
-}}  // namespace triton::common
+}  // namespace hercules::common

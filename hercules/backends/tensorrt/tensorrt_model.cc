@@ -8,7 +8,7 @@
 
 #include "tensorrt_model.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 TensorRTModel::Priority
 ParsePriority(const std::string& priority)
@@ -52,7 +52,7 @@ TensorRTModel::SetTensorRTModelConfig()
 void
 TensorRTModel::ParseModelConfig()
 {
-  triton::common::TritonJson::Value optimization;
+  hercules::common::TritonJson::Value optimization;
   if (model_config_.Find("optimization", &optimization)) {
     optimization.MemberAsUInt(
         "gather_kernel_buffer_threshold", &gather_kernel_buffer_threshold_);
@@ -60,7 +60,7 @@ TensorRTModel::ParseModelConfig()
     std::string priority;
     optimization.MemberAsString("priority", &priority);
     priority_ = ParsePriority(priority);
-    triton::common::TritonJson::Value cuda;
+    hercules::common::TritonJson::Value cuda;
     if (optimization.Find("cuda", &cuda)) {
       cuda.MemberAsBool("graphs", &use_cuda_graphs_);
       cuda.MemberAsBool("busy_wait_events", &busy_wait_events_);
@@ -70,4 +70,4 @@ TensorRTModel::ParseModelConfig()
   }
 }
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

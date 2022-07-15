@@ -29,16 +29,16 @@
 #pragma GCC diagnostic pop
 #endif  // TRITON_PYTORCH_ENABLE_TORCHVISION
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <c10/cuda/CUDACachingAllocator.h>
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 //
 // PyTorch C++ (LibTorch) Backend that implements the TRITONBACKEND API.
 //
 
-namespace triton { namespace backend { namespace pytorch {
+namespace hercules::backend { namespace pytorch {
 
 //
 // ModelState
@@ -253,7 +253,7 @@ ModelState::AutoCompleteConfig()
 TRITONSERVER_Error*
 ModelState::ParseParameters()
 {
-  triton::common::TritonJson::Value params;
+  hercules::common::TritonJson::Value params;
   bool status = model_config_.Find("parameters", &params);
   if (status) {
     // If 'DISABLE_OPTIMIZED_EXECUTION' is not present in 'parameters' then no
@@ -459,10 +459,10 @@ class ModelInstanceState : public BackendModelInstance {
       ModelState* model_state,
       TRITONBACKEND_ModelInstance* triton_model_instance);
   TRITONSERVER_Error* ValidateBooleanSequenceControl(
-      triton::common::TritonJson::Value& sequence_batching,
+      hercules::common::TritonJson::Value& sequence_batching,
       const std::string& control_kind, bool required, bool* have_control);
   TRITONSERVER_Error* ValidateTypedSequenceControl(
-      triton::common::TritonJson::Value& sequence_batching,
+      hercules::common::TritonJson::Value& sequence_batching,
       const std::string& control_kind, bool required, bool* have_control);
   TRITONSERVER_Error* ValidateInputs(const size_t expected_input_cnt);
   TRITONSERVER_Error* ValidateOutputs();
@@ -546,7 +546,7 @@ ModelInstanceState::ModelInstanceState(
 
   size_t expected_input_cnt = 0;
   {
-    triton::common::TritonJson::Value inputs;
+    hercules::common::TritonJson::Value inputs;
     if (model_state->ModelConfig().Find("input", &inputs)) {
       expected_input_cnt = inputs.ArraySize();
     }
@@ -555,7 +555,7 @@ ModelInstanceState::ModelInstanceState(
   // If this is a sequence model then make sure that the required
   // inputs are present in the model and have the correct shape and
   // datatype.
-  triton::common::TritonJson::Value sequence_batching;
+  hercules::common::TritonJson::Value sequence_batching;
   if (model_state->ModelConfig().Find(
           "sequence_batching", &sequence_batching)) {
     bool have_start, have_end, have_ready, have_corrid;
@@ -592,11 +592,11 @@ ModelInstanceState::ModelInstanceState(
 
 void ModelInstanceState::ClearCache()
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (device_.is_cuda()) {
     c10::cuda::CUDACachingAllocator::emptyCache();
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 }
 
 ModelInstanceState::~ModelInstanceState()
@@ -607,7 +607,7 @@ ModelInstanceState::~ModelInstanceState()
 
 TRITONSERVER_Error*
 ModelInstanceState::ValidateBooleanSequenceControl(
-    triton::common::TritonJson::Value& sequence_batching,
+    hercules::common::TritonJson::Value& sequence_batching,
     const std::string& control_kind, bool required, bool* have_control)
 {
   std::string tensor_name;
@@ -650,7 +650,7 @@ ModelInstanceState::ValidateBooleanSequenceControl(
 
 TRITONSERVER_Error*
 ModelInstanceState::ValidateTypedSequenceControl(
-    triton::common::TritonJson::Value& sequence_batching,
+    hercules::common::TritonJson::Value& sequence_batching,
     const std::string& control_kind, bool required, bool* have_control)
 {
   std::string tensor_name;
@@ -753,7 +753,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
     }
   }
 
-  triton::common::TritonJson::Value ios;
+  hercules::common::TritonJson::Value ios;
   RETURN_IF_ERROR(model_state_->ModelConfig().MemberAsArray("input", &ios));
   std::string deliminator = "__";
   int ip_index = 0;
@@ -769,7 +769,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
   RETURN_IF_ERROR(GetNamingConvention(&naming_convention, allowed_inputs));
 
   for (size_t i = 0; i < ios.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
     // Validate name
@@ -819,7 +819,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
       // If a reshape is provided for the input then use that when
       // validating the model shapes.
       std::vector<int64_t> dims;
-      triton::common::TritonJson::Value reshape;
+      hercules::common::TritonJson::Value reshape;
       if (io.Find("reshape", &reshape)) {
         RETURN_IF_ERROR(ParseShape(reshape, "shape", &dims));
       } else {
@@ -844,7 +844,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
 TRITONSERVER_Error*
 ModelInstanceState::ValidateOutputs()
 {
-  triton::common::TritonJson::Value ios;
+  hercules::common::TritonJson::Value ios;
   RETURN_IF_ERROR(model_state_->ModelConfig().MemberAsArray("output", &ios));
   std::string deliminator = "__";
   int op_index = 0;
@@ -860,7 +860,7 @@ ModelInstanceState::ValidateOutputs()
   RETURN_IF_ERROR(GetNamingConvention(&naming_convention, {}));
 
   for (size_t i = 0; i < ios.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
     // Validate name
@@ -897,7 +897,7 @@ ModelInstanceState::ValidateOutputs()
       // If a reshape is provided for the output then use that when
       // validating the model shapes.
       std::vector<int64_t> dims;
-      triton::common::TritonJson::Value reshape;
+      hercules::common::TritonJson::Value reshape;
       if (io.Find("reshape", &reshape)) {
         RETURN_IF_ERROR(ParseShape(reshape, "shape", &dims));
       } else {
@@ -1058,12 +1058,12 @@ ModelInstanceState::ProcessRequests(
   std::vector<const char*> output_names;
   std::vector<torch::jit::IValue> output_tensors;
   if (!all_response_failed) {
-    triton::common::TritonJson::Value ios;
+    hercules::common::TritonJson::Value ios;
     TRITONSERVER_Error* err =
         model_state_->ModelConfig().MemberAsArray("output", &ios);
     if (err == nullptr) {
       for (size_t i = 0; i < ios.ArraySize(); i++) {
-        triton::common::TritonJson::Value io;
+        hercules::common::TritonJson::Value io;
         err = ios.IndexAsObject(i, &io);
         if (err != nullptr) {
           break;
@@ -1090,7 +1090,7 @@ ModelInstanceState::ProcessRequests(
   }
 
 // Wait for any in-flight input tensor copies to complete.
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (cuda_copy) {
     cudaStreamSynchronize(CudaStream());
   }
@@ -1328,13 +1328,13 @@ ModelInstanceState::GetNamingConvention(
     *naming_convention = NamingConvention::NAMED_INDEX;
   }
 
-  triton::common::TritonJson::Value ios;
+  hercules::common::TritonJson::Value ios;
   RETURN_IF_ERROR(
       model_state_->ModelConfig().MemberAsArray(io_kind.c_str(), &ios));
 
   if (io_kind == "input") {
     for (size_t i = 0; i < ios.ArraySize(); i++) {
-      triton::common::TritonJson::Value io;
+      hercules::common::TritonJson::Value io;
       RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
       // Validate name
@@ -1351,7 +1351,7 @@ ModelInstanceState::GetNamingConvention(
   // If not, check if inputs follow INDEX
   if (*naming_convention == NamingConvention::NAMED_INDEX) {
     for (size_t i = 0; i < ios.ArraySize(); i++) {
-      triton::common::TritonJson::Value io;
+      hercules::common::TritonJson::Value io;
       RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
       // Validate name
@@ -1513,12 +1513,12 @@ SetStringInputTensor(
     return cuda_copy;
   }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (cuda_copy) {
     cudaStreamSynchronize(stream);
     cuda_copy = false;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   // Parse content and assign to 'tensor'. Each string in 'content'
   // is a 4-byte length followed by the string itself with no
@@ -1876,11 +1876,11 @@ ModelInstanceState::ReadOutputTensors(
   // Finalize and wait for any pending buffer copies.
   cuda_copy |= responder.Finalize();
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (cuda_copy) {
     cudaStreamSynchronize(stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   return nullptr;
 }
@@ -2078,4 +2078,4 @@ TRITONBACKEND_ModelInstanceExecute(
 
 }  // extern "C"
 
-}}}  // namespace triton::backend::pytorch
+}}}  // namespace hercules::backend::pytorch

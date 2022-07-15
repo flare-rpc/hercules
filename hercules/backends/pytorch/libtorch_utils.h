@@ -42,7 +42,7 @@
 #pragma warning(pop)
 #pragma GCC diagnostic pop
 
-namespace triton { namespace backend { namespace pytorch {
+namespace hercules::backend { namespace pytorch {
 
 TRITONSERVER_DataType ConvertTorchTypeToDataType(
     const torch::ScalarType& ttype);
@@ -55,7 +55,7 @@ std::pair<bool, torch::ScalarType> ModelConfigDataTypeToTorchType(
 // associated with that key. If 'mkey' is not present in 'params' then no update
 // is made to 'value'.
 TRITONSERVER_Error* ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     bool* value);
 
-}}}  // namespace triton::backend::pytorch
+}}}  // namespace hercules::backend::pytorch

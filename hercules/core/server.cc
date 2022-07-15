@@ -31,9 +31,9 @@
 #include "hercules/common/model_config.h"
 #include "hercules/common/table_printer.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include "cuda_memory_manager.h"
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace hercules::core {
 
@@ -57,9 +57,9 @@ class ScopedAtomicIncrement {
 }  // namespace
 
 //
-// InferenceServer
+// inference_server
 //
-InferenceServer::InferenceServer()
+inference_server::inference_server()
     : version_("1"), ready_state_(ServerReadyState::SERVER_INVALID)
 {
   id_ = "triton";
@@ -72,12 +72,12 @@ InferenceServer::InferenceServer()
   extensions_.push_back("system_shared_memory");
   extensions_.push_back("cuda_shared_memory");
   extensions_.push_back("binary_tensor_data");
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   extensions_.push_back("statistics");
-#endif  // TRITON_ENABLE_STATS
-#ifdef TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_STATS
+#ifdef HERCULES_ENABLE_TRACING
   extensions_.push_back("trace");
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   strict_model_config_ = true;
   strict_readiness_ = true;
@@ -87,17 +87,17 @@ InferenceServer::InferenceServer()
   model_load_thread_count_ =
       std::max(2u, 2 * std::thread::hardware_concurrency());
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   min_supported_compute_capability_ = TRITON_MIN_COMPUTE_CAPABILITY;
 #else
   min_supported_compute_capability_ = 0.0;
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   inflight_request_counter_ = 0;
 }
 
 Status
-InferenceServer::Init()
+inference_server::Init()
 {
   Status status;
 
@@ -128,7 +128,7 @@ InferenceServer::Init()
   }
 
   if (buffer_manager_thread_count_ > 0) {
-    status = CommonErrorToStatus(triton::common::AsyncWorkQueue::Initialize(
+    status = CommonErrorToStatus(hercules::common::AsyncWorkQueue::Initialize(
         buffer_manager_thread_count_));
     if (!status.IsOk()) {
       ready_state_ = ServerReadyState::SERVER_FAILED_TO_INITIALIZE;
@@ -169,7 +169,7 @@ InferenceServer::Init()
   }
 
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   // Set the default CUDA memory pool size for GPUs where it is not
   // set explicitly.
   std::set<int> supported_gpus;
@@ -182,15 +182,15 @@ InferenceServer::Init()
     }
   }
 
-  CudaMemoryManager::Options cuda_options(
+  cuda_memory_manager::Options cuda_options(
       min_supported_compute_capability_, cuda_memory_pool_size_);
-  status = CudaMemoryManager::Create(cuda_options);
+  status = cuda_memory_manager::Create(cuda_options);
   // If CUDA memory manager can't be created, just log error as the
   // server can still function properly
   if (!status.IsOk()) {
     LOG_ERROR << status.Message();
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   status = EnablePeerAccess(min_supported_compute_capability_);
   if (!status.IsOk()) {
@@ -227,7 +227,7 @@ InferenceServer::Init()
 }
 
 Status
-InferenceServer::Stop(const bool force)
+inference_server::Stop(const bool force)
 {
   if (!force && (ready_state_ != ServerReadyState::SERVER_READY)) {
     return Status::Success;
@@ -307,7 +307,7 @@ InferenceServer::Stop(const bool force)
 }
 
 Status
-InferenceServer::PollModelRepository()
+inference_server::PollModelRepository()
 {
   LOG_VERBOSE(1) << "Polling model repository";
 
@@ -322,7 +322,7 @@ InferenceServer::PollModelRepository()
 }
 
 Status
-InferenceServer::IsLive(bool* live)
+inference_server::IsLive(bool* live)
 {
   *live = false;
 
@@ -342,7 +342,7 @@ InferenceServer::IsLive(bool* live)
 }
 
 Status
-InferenceServer::IsReady(bool* ready)
+inference_server::IsReady(bool* ready)
 {
   *ready = false;
 
@@ -383,7 +383,7 @@ InferenceServer::IsReady(bool* ready)
 }
 
 Status
-InferenceServer::ModelIsReady(
+inference_server::ModelIsReady(
     const std::string& model_name, const int64_t model_version, bool* ready)
 {
   *ready = false;
@@ -408,7 +408,7 @@ InferenceServer::ModelIsReady(
 }
 
 Status
-InferenceServer::ModelReadyVersions(
+inference_server::ModelReadyVersions(
     const std::string& model_name, std::vector<int64_t>* versions)
 {
   if (ready_state_ != ServerReadyState::SERVER_READY) {
@@ -429,7 +429,7 @@ InferenceServer::ModelReadyVersions(
 }
 
 Status
-InferenceServer::ModelReadyVersions(
+inference_server::ModelReadyVersions(
     std::map<std::string, std::vector<int64_t>>* ready_model_versions)
 {
   if (ready_state_ != ServerReadyState::SERVER_READY) {
@@ -454,7 +454,7 @@ InferenceServer::ModelReadyVersions(
 }
 
 Status
-InferenceServer::RepositoryIndex(
+inference_server::RepositoryIndex(
     const bool ready_only,
     std::vector<ModelRepositoryManager::ModelIndex>* index)
 {
@@ -468,7 +468,7 @@ InferenceServer::RepositoryIndex(
 }
 
 Status
-InferenceServer::InferAsync(std::unique_ptr<InferenceRequest>& request)
+inference_server::InferAsync(std::unique_ptr<inference_request>& request)
 {
   // Allow inference request while server exiting to provide graceful
   // completion of inference sequence that spans multiple requests.
@@ -477,20 +477,20 @@ InferenceServer::InferAsync(std::unique_ptr<InferenceRequest>& request)
     return Status(Status::Code::UNAVAILABLE, "Server not ready");
   }
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   request->CaptureRequestStartNs();
   INFER_TRACE_ACTIVITY(
       request->Trace(), TRITONSERVER_TRACE_REQUEST_START,
       request->RequestStartNs());
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
-  return InferenceRequest::Run(request);
+  return inference_request::Run(request);
 }
 
 Status
-InferenceServer::LoadModel(
+inference_server::LoadModel(
     const std::unordered_map<
-        std::string, std::vector<const InferenceParameter*>>& models)
+        std::string, std::vector<const inference_parameter*>>& models)
 {
   if (ready_state_ != ServerReadyState::SERVER_READY) {
     return Status(Status::Code::UNAVAILABLE, "Server not ready");
@@ -504,7 +504,7 @@ InferenceServer::LoadModel(
 }
 
 Status
-InferenceServer::UnloadModel(
+inference_server::UnloadModel(
     const std::string& model_name, const bool unload_dependents)
 {
   if (ready_state_ != ServerReadyState::SERVER_READY) {
@@ -519,14 +519,14 @@ InferenceServer::UnloadModel(
 }
 
 Status
-InferenceServer::PrintBackendAndModelSummary()
+inference_server::PrintBackendAndModelSummary()
 {
   // Repository Agents Summary
   std::vector<std::string> repoagent_headers;
   repoagent_headers.emplace_back("Repository Agent");
   repoagent_headers.emplace_back("Path");
 
-  triton::common::TablePrinter repoagents_table(repoagent_headers);
+  hercules::common::TablePrinter repoagents_table(repoagent_headers);
 
   std::unique_ptr<std::unordered_map<std::string, std::string>> repoagent_state;
   RETURN_IF_ERROR(TritonRepoAgentManager::AgentState(&repoagent_state));
@@ -546,7 +546,7 @@ InferenceServer::PrintBackendAndModelSummary()
   backend_headers.emplace_back("Path");
   backend_headers.emplace_back("Config");
 
-  triton::common::TablePrinter backends_table(backend_headers);
+  hercules::common::TablePrinter backends_table(backend_headers);
 
   std::unique_ptr<std::unordered_map<std::string, std::vector<std::string>>>
       backend_state;
@@ -575,7 +575,7 @@ InferenceServer::PrintBackendAndModelSummary()
   model_headers.emplace_back("Version");
   model_headers.emplace_back("Status");
 
-  triton::common::TablePrinter models_table(model_headers);
+  hercules::common::TablePrinter models_table(model_headers);
 
   for (const auto& model_state : model_states) {
     auto model_version_map = model_state.second;
@@ -614,7 +614,7 @@ InferenceServer::PrintBackendAndModelSummary()
 }
 
 Status
-InferenceServer::RegisterModelRepository(
+inference_server::RegisterModelRepository(
     const std::string& repository,
     const std::unordered_map<std::string, std::string>& model_mapping)
 {
@@ -623,7 +623,7 @@ InferenceServer::RegisterModelRepository(
 }
 
 Status
-InferenceServer::UnregisterModelRepository(const std::string& repository)
+inference_server::UnregisterModelRepository(const std::string& repository)
 {
   return model_repository_manager_->UnregisterModelRepository(repository);
 }

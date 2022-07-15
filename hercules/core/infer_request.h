@@ -11,7 +11,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "buffer_attributes.h"
+#include "hercules/core/buffer_attributes.h"
 #include "infer_response.h"
 #include "infer_stats.h"
 #include "infer_trace.h"
@@ -25,8 +25,8 @@
 namespace hercules::core {
 
 class Model;
-class InferenceServer;
-class MetricModelReporter;
+class inference_server;
+class metric_model_reporter;
 
 //
 // An inference request. A request can be used multiple times for
@@ -36,7 +36,7 @@ class MetricModelReporter;
 // valid. Preparing involves removing/resetting any state left over
 // from the previous inference.
 //
-class InferenceRequest {
+class inference_request {
  public:
   // Input tensor
   class Input {
@@ -55,7 +55,7 @@ class InferenceRequest {
         const std::vector<int64_t>& shape);
 
     // The name of the input tensor. There is no mutable operator for
-    // the name because it is used in a InferenceRequest map and a
+    // the name because it is used in a inference_request map and a
     // mutable method would allow it to get out-of-sync.
     const std::string& Name() const { return name_; }
 
@@ -131,7 +131,7 @@ class InferenceRequest {
         int64_t memory_type_id, const char* host_policy_name);
 
     Status AppendDataWithBufferAttributes(
-        const void* base, BufferAttributes* buffer_attributes);
+        const void* base, BufferAttributes* attr);
 
     // Prepend a new buffer of data to this input.
     Status PrependData(
@@ -170,7 +170,7 @@ class InferenceRequest {
     // Get the buffer attributes associated with 'idx' buffer.
     Status DataBufferAttributes(
         const size_t idx, const void** base,
-        BufferAttributes** buffer_attributes) const;
+        BufferAttributes** attr) const;
 
     // Get the 'idx' buffer containing a contiguous chunk of bytes for
     // the input. Return error is 'idx' refers to a buffer that does
@@ -190,9 +190,9 @@ class InferenceRequest {
         const std::string& host_policy_name) const;
 
    private:
-    DISALLOW_COPY_AND_ASSIGN(Input);
+    FLARE_DISALLOW_COPY_AND_ASSIGN(Input);
     friend std::ostream& operator<<(
-        std::ostream& out, const InferenceRequest::Input& input);
+        std::ostream& out, const inference_request::Input& input);
 
     std::string name_;
     hercules::proto::DataType datatype_;
@@ -233,7 +233,7 @@ class InferenceRequest {
 
    private:
     friend std::ostream& operator<<(
-        std::ostream& out, const InferenceRequest::SequenceId& correlation_id);
+        std::ostream& out, const inference_request::SequenceId& correlation_id);
     friend bool operator==(const SequenceId lhs, const SequenceId rhs);
     friend bool operator!=(const SequenceId lhs, const SequenceId rhs);
 
@@ -242,7 +242,7 @@ class InferenceRequest {
     DataType id_type_;
   };
 
-  // InferenceRequest
+  // inference_request
   //
   // The two constructors are identical except one takes model as a
   // shared pointer and the other as a raw pointer. The shared pointer
@@ -251,15 +251,15 @@ class InferenceRequest {
   // only for cases where the model itself is issuing a request
   // (e.g. warmup) and no shared pointer version of the model exists
   // (because we aren't using shared_from_this).
-  InferenceRequest(
+  inference_request(
       const std::shared_ptr<Model>& model,
       const int64_t requested_model_version)
-      : InferenceRequest(model.get(), requested_model_version)
+      : inference_request(model.get(), requested_model_version)
   {
     model_shared_ = model;
   }
 
-  InferenceRequest(Model* model, const int64_t requested_model_version)
+  inference_request(Model* model, const int64_t requested_model_version)
       : needs_normalization_(true), model_raw_(model),
         requested_model_version_(requested_model_version), flags_(0),
         correlation_id_(0), batch_size_(0), timeout_us_(0), collect_stats_(true)
@@ -313,7 +313,7 @@ class InferenceRequest {
   }
   bool CacheKeyIsSet() const { return cache_key_is_set_; }
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   const std::shared_ptr<InferenceTraceProxy>& Trace() const { return trace_; }
   std::shared_ptr<InferenceTraceProxy>* MutableTrace() { return &trace_; }
   void SetTrace(const std::shared_ptr<InferenceTraceProxy>& trace)
@@ -329,7 +329,7 @@ class InferenceRequest {
 
   Status TraceInputTensors(
       TRITONSERVER_InferenceTraceActivity activity, const std::string& msg);
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // The original inputs are the inputs added to the request before
   // the inference execution (that is before
@@ -521,7 +521,7 @@ class InferenceRequest {
   // ownership of the request object and so 'request' will be
   // nullptr. If non-success is returned then the caller still retains
   // ownership of 'request'.
-  static Status Run(std::unique_ptr<InferenceRequest>& request);
+  static Status Run(std::unique_ptr<inference_request>& request);
 
   // Send an error response for this request. If 'status' is Success
   // then no response is sent and the request is not released (even if
@@ -532,7 +532,7 @@ class InferenceRequest {
   // this request and ownership is given to the callback. Thus, if
   // 'release_request' is true 'request' is returned as nullptr.
   static void RespondIfError(
-      std::unique_ptr<InferenceRequest>& request, const Status& status,
+      std::unique_ptr<inference_request>& request, const Status& status,
       const bool release_request = false);
 
   // Send an error response to a set of 'requests'. If 'status' is
@@ -545,21 +545,21 @@ class InferenceRequest {
   // the callback. Thus, if 'release_request' is true 'requests' is
   // returned with all nullptrs.
   static void RespondIfError(
-      std::vector<std::unique_ptr<InferenceRequest>>& requests,
+      std::vector<std::unique_ptr<inference_request>>& requests,
       const Status& status, const bool release_requests = false);
 
   // Release the request. Call the release callback and transfer
   // ownership of the request to the callback. On return 'request' is
   // nullptr.
   static void Release(
-      std::unique_ptr<InferenceRequest>&& request,
+      std::unique_ptr<inference_request>&& request,
       const uint32_t release_flags);
 
   // Create a copy of 'from' suitable for use as a "null" request as
   // required for the direct sequence batcher. The returned copy will
   // contain only the minimum content required for a null request.
   // The statistics of the copy will not be collected.
-  static InferenceRequest* CopyAsNull(const InferenceRequest& from);
+  static inference_request* CopyAsNull(const inference_request& from);
 
   uint64_t QueueStartNs() const { return queue_start_ns_; }
   uint64_t CaptureQueueStartNs()
@@ -619,7 +619,7 @@ class InferenceRequest {
     return batcher_start_ns_;
   }
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   uint64_t RequestStartNs() const { return request_start_ns_; }
   uint64_t CaptureRequestStartNs()
   {
@@ -632,42 +632,42 @@ class InferenceRequest {
   // Report the statistics to stats collectors associated with the request.
   // Duration and timestamps provide two granularities for stats collectors.
   void ReportStatistics(
-      MetricModelReporter* metric_reporter, bool success,
+      metric_model_reporter* metric_reporter, bool success,
       const uint64_t compute_start_ns, const uint64_t compute_input_end_ns,
       const uint64_t compute_output_start_ns, const uint64_t compute_end_ns);
 
   // Report the statistics to stats collectors associated with the request.
   // Duration and timestamps provide two granularities for stats collectors.
   void ReportStatisticsWithDuration(
-      MetricModelReporter* metric_reporter, bool success,
+      metric_model_reporter* metric_reporter, bool success,
       const uint64_t compute_start_ns, const uint64_t compute_input_duration_ns,
       const uint64_t compute_infer_duration_ns,
       const uint64_t compute_output_duration_ns);
 
   // Report the statistics to stats collectors associated with the request on
   // response cache hits.
-  void ReportStatisticsCacheHit(MetricModelReporter* metric_reporter);
+  void ReportStatisticsCacheHit(metric_model_reporter* metric_reporter);
 
   // Report the statistics to stats collectors associated with the request on
   // response cache misses and update request duration to include cache
   // insertion time.
-  void ReportStatisticsCacheMiss(MetricModelReporter* metric_reporter);
+  void ReportStatisticsCacheMiss(metric_model_reporter* metric_reporter);
 
   // Statistics for each request are aggregated into the corresponding
   // model's statistics. Optionally this function may be used to
   // add an additional aggregator where statistics are also aggregated.
   void SetSecondaryStatsAggregator(
-      InferenceStatsAggregator* secondary_stats_aggregator)
+      inference_stats_aggregator* secondary_stats_aggregator)
   {
     secondary_stats_aggregator_ = secondary_stats_aggregator;
   }
 
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(InferenceRequest);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(inference_request);
   friend std::ostream& operator<<(
-      std::ostream& out, const InferenceRequest& request);
+      std::ostream& out, const inference_request& request);
 
   Status Normalize();
 
@@ -752,39 +752,39 @@ class InferenceRequest {
   // Whether the stats of the request should be collected.
   bool collect_stats_;
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   uint64_t request_start_ns_;
-  InferenceStatsAggregator* secondary_stats_aggregator_ = nullptr;
-#endif  // TRITON_ENABLE_STATS
+  inference_stats_aggregator* secondary_stats_aggregator_ = nullptr;
+#endif  // HERCULES_ENABLE_STATS
 
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
   // Inference trace associated with this request.
   std::shared_ptr<InferenceTraceProxy> trace_;
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
 
   // Sequence I/O states used for implicit state.
   std::shared_ptr<SequenceStates> sequence_states_;
 };
 
-std::ostream& operator<<(std::ostream& out, const InferenceRequest& request);
+std::ostream& operator<<(std::ostream& out, const inference_request& request);
 std::ostream& operator<<(
-    std::ostream& out, const InferenceRequest::Input& input);
+    std::ostream& out, const inference_request::Input& input);
 std::ostream& operator<<(
-    std::ostream& out, const InferenceRequest::SequenceId& sequence_id);
+    std::ostream& out, const inference_request::SequenceId& sequence_id);
 bool operator==(
-    const InferenceRequest::SequenceId lhs,
-    const InferenceRequest::SequenceId rhs);
+    const inference_request::SequenceId lhs,
+    const inference_request::SequenceId rhs);
 
 }  // namespace hercules::core
 
 namespace std {
 using namespace hercules::core;
 template <>
-class hash<InferenceRequest::SequenceId> {
+class hash<inference_request::SequenceId> {
  public:
-  size_t operator()(const InferenceRequest::SequenceId& sequence_id) const
+  size_t operator()(const inference_request::SequenceId& sequence_id) const
   {
-    if (sequence_id.Type() == InferenceRequest::SequenceId::DataType::STRING) {
+    if (sequence_id.Type() == inference_request::SequenceId::DataType::STRING) {
       return std::hash<std::string>{}(sequence_id.StringValue());
     }
     return std::hash<uint64_t>{}(sequence_id.UnsignedIntValue());

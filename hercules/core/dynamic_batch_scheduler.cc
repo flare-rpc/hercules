@@ -57,7 +57,7 @@ DynamicBatchScheduler::DynamicBatchScheduler(
 #ifdef TRITON_ENABLE_METRICS
   // Initialize metric reporter for cache statistics if cache enabled
   if (response_cache_enabled_) {
-    MetricModelReporter::Create(
+    metric_model_reporter::Create(
         model_->Name(), model_->Version(), METRIC_REPORTER_ID_RESPONSE_CACHE,
         model_->Config().metric_tags(), &reporter_);
   }
@@ -143,7 +143,7 @@ DynamicBatchScheduler::~DynamicBatchScheduler()
 }
 
 Status
-DynamicBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& request)
+DynamicBatchScheduler::Enqueue(std::unique_ptr<inference_request>& request)
 {
   if (stop_) {
     return Status(
@@ -161,10 +161,10 @@ DynamicBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& request)
     INFER_TRACE_ACTIVITY(
         request->Trace(), TRITONSERVER_TRACE_QUEUE_START,
         request->QueueStartNs());
-#ifdef TRITON_ENABLE_TRACING
+#ifdef HERCULES_ENABLE_TRACING
     request->TraceInputTensors(
         TRITONSERVER_TRACE_TENSOR_QUEUE_INPUT, "DynamicBatchScheduler Enqueue");
-#endif  // TRITON_ENABLE_TRACING
+#endif  // HERCULES_ENABLE_TRACING
   }
 
   // Record time at the beginning of the batcher queueing. In the case of
@@ -192,7 +192,7 @@ DynamicBatchScheduler::Enqueue(std::unique_ptr<InferenceRequest>& request)
     // Send cached response and release request
     InferenceResponse::Send(
         std::move(cached_response), TRITONSERVER_RESPONSE_COMPLETE_FINAL);
-    InferenceRequest::Release(
+    inference_request::Release(
         std::move(request), TRITONSERVER_REQUEST_RELEASE_ALL);
 
     return Status::Success;
@@ -292,7 +292,7 @@ DynamicBatchScheduler::BatcherThread(const int nice)
   while (!scheduler_thread_exit_.load()) {
     NVTX_RANGE(nvtx_, "DynamicBatcher " + model_->Name());
 
-    std::shared_ptr<std::vector<std::deque<std::unique_ptr<InferenceRequest>>>>
+    std::shared_ptr<std::vector<std::deque<std::unique_ptr<inference_request>>>>
         rejected_requests;
     uint64_t wait_microseconds = 0;
 
@@ -346,7 +346,7 @@ DynamicBatchScheduler::BatcherThread(const int nice)
           if ((wait_microseconds == 0) && (pending_batch_queue_cnt != 0)) {
             curr_payload_->ReserveRequests(pending_batch_queue_cnt);
             for (size_t idx = 0; idx < pending_batch_queue_cnt; ++idx) {
-              std::unique_ptr<InferenceRequest> request;
+              std::unique_ptr<inference_request> request;
               auto status = queue_.Dequeue(&request);
               if (status.IsOk()) {
                 if (preserve_ordering_ || response_cache_enabled_) {
@@ -397,7 +397,7 @@ DynamicBatchScheduler::BatcherThread(const int nice)
           Status(Status::Code::UNAVAILABLE, "Request timeout expired");
       for (auto& rejected_queue : *rejected_requests) {
         for (auto& rejected_request : rejected_queue) {
-          InferenceRequest::RespondIfError(
+          inference_request::RespondIfError(
               rejected_request, rejected_status, true);
         }
       }
@@ -577,14 +577,14 @@ DynamicBatchScheduler::GetDynamicBatch()
 
 void
 DynamicBatchScheduler::DelegateResponse(
-    std::unique_ptr<InferenceRequest>& request)
+    std::unique_ptr<inference_request>& request)
 {
   std::lock_guard<std::mutex> lock(completion_queue_mtx_);
   completion_queue_.emplace_back();
   auto queue_slot = &completion_queue_.back();
   // Pass raw ptr to lambda for tracking stats from cache and updating
   // metric reporter on cache miss stats after insertion
-  InferenceRequest* raw_request_ptr = request.get();
+  inference_request* raw_request_ptr = request.get();
 
   request->SetResponseDelegator(
       [this, queue_slot, raw_request_ptr](
@@ -597,11 +597,11 @@ DynamicBatchScheduler::DelegateResponse(
           bool cache_miss =
               (status.StatusCode() != Status::Code::ALREADY_EXISTS);
           if (cache_miss) {
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
             // Update cache miss statistics even on failure to insert
             // as we still spend time on lookup and attempting to insert
             raw_request_ptr->ReportStatisticsCacheMiss(reporter_.get());
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
             if (!status.IsOk()) {
               LOG_ERROR << raw_request_ptr->LogRequest()
@@ -626,7 +626,7 @@ DynamicBatchScheduler::DelegateResponse(
 
 void
 DynamicBatchScheduler::CacheLookUp(
-    std::unique_ptr<InferenceRequest>& request,
+    std::unique_ptr<inference_request>& request,
     std::unique_ptr<InferenceResponse>& cached_response)
 {
   auto cache = model_->Server()->GetResponseCache();
@@ -636,11 +636,11 @@ DynamicBatchScheduler::CacheLookUp(
   auto status = cache->Lookup(local_response.get(), request.get());
   if (status.IsOk() && (local_response != nullptr)) {
     cached_response = std::move(local_response);
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
     // Update model metrics/stats on cache hits
     // Backends will update metrics as normal on cache misses
     request->ReportStatisticsCacheHit(reporter_.get());
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
   }
 }
 

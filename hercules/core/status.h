@@ -13,7 +13,7 @@
 
 namespace hercules::core {
 
-class Status : public triton::common::Error {
+class Status : public hercules::common::Error {
  public:
   // Construct a status from a code with no message.
   explicit Status(Code code = Code::SUCCESS) : Error(code) {}
@@ -41,7 +41,7 @@ Status::Code TritonCodeToStatusCode(TRITONSERVER_Error_Code code);
 TRITONSERVER_Error_Code StatusCodeToTritonCode(Status::Code status_code);
 
 // Converts the common Error to Status object
-Status CommonErrorToStatus(const triton::common::Error& error);
+Status CommonErrorToStatus(const hercules::common::Error& error);
 
 // If status is non-OK, return the Status.
 #define RETURN_IF_ERROR(S)        \

@@ -12,7 +12,7 @@
 #include "hercules/backend/backend_model.h"
 #include "hercules/backend/backend_model_instance.h"
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
 //
 // BackendOutputResponder
@@ -127,11 +127,11 @@ BackendOutputResponder::ProcessTensor(
 
   // Done with the tensor, flush any pending pinned copies.
   need_sync_ |= FlushPendingPinned(buffer, memory_type, memory_type_id);
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (need_sync_ && (event_ != nullptr)) {
     cudaEventRecord(event_, stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 }
 
 std::vector<TRITONBACKEND_State*>
@@ -222,11 +222,11 @@ BackendOutputResponder::ProcessStateTensor(
 
   // Done with the tensor, flush any pending pinned copies.
   need_sync_ |= FlushPendingPinned(buffer, memory_type, memory_type_id);
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (need_sync_ && (event_ != nullptr)) {
     cudaEventRecord(event_, stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   return states;
 }
@@ -234,7 +234,7 @@ BackendOutputResponder::ProcessStateTensor(
 bool
 BackendOutputResponder::Finalize()
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if ((!deferred_pinned_.empty()) && need_sync_) {
     if (event_ != nullptr) {
       cudaEventSynchronize(event_);
@@ -243,7 +243,7 @@ BackendOutputResponder::Finalize()
     }
     need_sync_ = false;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   // After the above sync all the GPU->pinned copies are complete. Any
   // deferred copies of pinned->CPU can now be done.
@@ -272,12 +272,12 @@ BackendOutputResponder::Finalize()
     }
   }
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   // Record the new event location if deferred copies occur
   if ((!deferred_pinned_.empty()) && need_sync_ && (event_ != nullptr)) {
     cudaEventRecord(event_, stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   deferred_pinned_.clear();
 
   return need_sync_;
@@ -579,11 +579,11 @@ BackendOutputResponder::ProcessBatchOutput(
 
   // Done with the tensor, flush any pending pinned copies.
   need_sync_ |= FlushPendingPinned(buffer, memory_type, memory_type_id);
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (need_sync_ && (event_ != nullptr)) {
     cudaEventRecord(event_, stream_);
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 }
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

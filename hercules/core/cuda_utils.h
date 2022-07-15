@@ -11,13 +11,13 @@
 #include "status.h"
 #include "hercules/common/sync_queue.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace hercules::core {
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #define RETURN_IF_CUDA_ERR(X, MSG)                                           \
   do {                                                                       \
     cudaError_t err__ = (X);                                                 \
@@ -26,11 +26,11 @@ namespace hercules::core {
           Status::Code::INTERNAL, (MSG) + ": " + cudaGetErrorString(err__)); \
     }                                                                        \
   } while (false)
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-#ifndef TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
 using cudaStream_t = void*;
-#endif  // !TRITON_ENABLE_GPU
+#endif  // !HERCULES_ENABLE_GPU
 
 /// Enable peer access for all GPU device pairs
 /// \param min_compute_capability The minimum support CUDA compute
@@ -66,7 +66,7 @@ Status CopyBuffer(
     void* dst, cudaStream_t cuda_stream, bool* cuda_used,
     bool copy_on_stream = false);
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 /// Validates the compute capability of the GPU indexed
 /// \param gpu_id The index of the target GPU.
 /// \param min_compute_capability The minimum support CUDA compute
@@ -102,7 +102,7 @@ void CopyBufferHandler(
     const TRITONSERVER_MemoryType dst_memory_type,
     const int64_t dst_memory_type_id, const size_t byte_size, const void* src,
     void* dst, cudaStream_t cuda_stream, void* response_ptr,
-    triton::common::SyncQueue<std::tuple<Status, bool, void*>>*
+    hercules::common::SyncQueue<std::tuple<Status, bool, void*>>*
         completion_queue);
 
 struct CopyParams {

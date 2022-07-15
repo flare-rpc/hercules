@@ -53,11 +53,11 @@ FetchContent_MakeAvailable(repo-common)
 #
 # CUDA
 #
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   find_package(CUDAToolkit REQUIRED)
   find_package(CUDA REQUIRED)
   message(STATUS "Using CUDA ${CUDA_VERSION}")
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 #
 # Boost
@@ -105,7 +105,7 @@ set(
   backend_memory_manager.cc
   backend_model.cc
   backend_model_instance.cc
-  buffer_attributes.cc
+  attr.cc
   cuda_utils.cc
   dynamic_batch_scheduler.cc
   ensemble_scheduler.cc
@@ -147,7 +147,7 @@ set(
   backend_memory_manager.h
   backend_model.h
   backend_model_instance.h
-  buffer_attributes.h
+  attr.h
   constants.h
   cuda_utils.h
   dynamic_batch_scheduler.h
@@ -186,7 +186,7 @@ set(
   tritonserver_apis.h
 )
 
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   set(
     SERVER_SRCS
     ${SERVER_SRCS}
@@ -199,7 +199,7 @@ if(${TRITON_ENABLE_GPU})
     cuda_memory_manager.h
     model_config_cuda.h
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 if(${TRITON_ENABLE_ENSEMBLE})
   set(
@@ -266,13 +266,13 @@ target_include_directories(
     ${Protobuf_INCLUDE_DIRS}
 )
 
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   target_include_directories(
     triton-core
     PRIVATE
       ${CNMEM_PATH}/include
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 if(${TRITON_ENABLE_METRICS})
   target_include_directories(
@@ -321,12 +321,12 @@ if(${TRITON_ENABLE_NVTX})
   )
 endif() # TRITON_ENABLE_NVTX
 
-if(${TRITON_ENABLE_TRACING})
+if(${HERCULES_ENABLE_TRACING})
   target_compile_definitions(
     triton-core
-    PRIVATE TRITON_ENABLE_TRACING=1
+    PRIVATE HERCULES_ENABLE_TRACING=1
   )
-endif() # TRITON_ENABLE_TRACING
+endif() # HERCULES_ENABLE_TRACING
 
 if(${TRITON_ENABLE_LOGGING})
   target_compile_definitions(
@@ -335,17 +335,17 @@ if(${TRITON_ENABLE_LOGGING})
   )
 endif() # TRITON_ENABLE_LOGGING
 
-if(${TRITON_ENABLE_STATS})
+if(${HERCULES_ENABLE_STATS})
   target_compile_definitions(
     triton-core
-    PRIVATE TRITON_ENABLE_STATS=1
+    PRIVATE HERCULES_ENABLE_STATS=1
   )
-endif() # TRITON_ENABLE_STATS
+endif() # HERCULES_ENABLE_STATS
 
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   target_compile_definitions(
     triton-core
-    PRIVATE TRITON_ENABLE_GPU=1
+    PRIVATE HERCULES_ENABLE_GPU=1
     PRIVATE TRITON_MIN_COMPUTE_CAPABILITY=${TRITON_MIN_COMPUTE_CAPABILITY}
   )
 
@@ -357,7 +357,7 @@ if(${TRITON_ENABLE_GPU})
   else()
     message(WARNING "CUDA ${CUDA_VERSION} does not support CUDA graphs.")
   endif()
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 if(${TRITON_ENABLE_MALI_GPU})
   target_compile_definitions(
@@ -475,7 +475,7 @@ if(${TRITON_ENABLE_AZURE_STORAGE})
   )
 endif() # TRITON_ENABLE_AZURE_STORAGE
 
-if(${TRITON_ENABLE_GPU})
+if(${HERCULES_ENABLE_GPU})
   find_library(CNMEM_LIBRARY NAMES cnmem PATHS ${CNMEM_PATH}/lib)
   target_link_libraries(
     triton-core
@@ -483,7 +483,7 @@ if(${TRITON_ENABLE_GPU})
       ${CNMEM_LIBRARY}
       CUDA::cudart
   )
-endif() # TRITON_ENABLE_GPU
+endif() # HERCULES_ENABLE_GPU
 
 if(${TRITON_ENABLE_METRICS_GPU})
   target_link_libraries(

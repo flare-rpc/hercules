@@ -10,7 +10,7 @@
 
 #include "triton/backend/backend_common.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 TensorRTLogger tensorrt_logger;
 
@@ -36,4 +36,4 @@ TensorRTLogger::log(Severity severity, const char* msg) noexcept
   }
 }
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

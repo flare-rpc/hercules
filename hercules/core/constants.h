@@ -8,6 +8,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <flare/base/profile.h>
 
 namespace hercules::core {
 
@@ -66,7 +67,7 @@ constexpr size_t STRING_CORRELATION_ID_MAX_LENGTH_BYTES = 128;
 constexpr size_t CUDA_IPC_STRUCT_SIZE = 64;
 
 #ifdef TRITON_ENABLE_METRICS
-// MetricModelReporter expects a device ID for GPUs, but we reuse this device
+// metric_model_reporter expects a device ID for GPUs, but we reuse this device
 // ID for other metrics as well such as for CPU and Response Cache metrics
 constexpr int METRIC_REPORTER_ID_CPU = -1;
 constexpr int METRIC_REPORTER_ID_RESPONSE_CACHE = -2;
@@ -80,8 +81,5 @@ constexpr int METRIC_REPORTER_ID_RESPONSE_CACHE = -2;
 #define DISALLOW_MOVE(TypeName) TypeName(Context&& o) = delete;
 #define DISALLOW_COPY(TypeName) TypeName(const TypeName&) = delete;
 #define DISALLOW_ASSIGN(TypeName) void operator=(const TypeName&) = delete;
-#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
-  DISALLOW_COPY(TypeName)                  \
-  DISALLOW_ASSIGN(TypeName)
 
 }  // namespace hercules::core

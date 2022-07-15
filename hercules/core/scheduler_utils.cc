@@ -16,14 +16,14 @@ namespace hercules::core {
 
 Status
 InitRequiredEqualInputs(
-    const std::unique_ptr<InferenceRequest>& request,
+    const std::unique_ptr<inference_request>& request,
     const std::unordered_map<std::string, bool>& enforce_equal_shape_tensors,
     const bool has_optional_input, RequiredEqualInputs* required_equal_inputs)
 {
   required_equal_inputs->clear();
 
   for (const auto& pr : request->ImmutableInputs()) {
-    const InferenceRequest::Input* input = pr.second;
+    const inference_request::Input* input = pr.second;
     const auto itr = enforce_equal_shape_tensors.find(input->Name());
     if (itr != enforce_equal_shape_tensors.end()) {
       required_equal_inputs->emplace(
@@ -44,7 +44,7 @@ InitRequiredEqualInputs(
 
 bool
 CompareWithRequiredEqualInputs(
-    const std::unique_ptr<InferenceRequest>& request,
+    const std::unique_ptr<inference_request>& request,
     const bool has_optional_input,
     const RequiredEqualInputs& required_equal_inputs)
 {
@@ -55,12 +55,12 @@ CompareWithRequiredEqualInputs(
     return false;
   }
   for (const auto& pr : request->ImmutableInputs()) {
-    const InferenceRequest::Input* input = pr.second;
+    const inference_request::Input* input = pr.second;
     const auto itr = required_equal_inputs.find(input->Name());
     if (itr != required_equal_inputs.end()) {
       if (itr->second.first != nullptr) {
         // Make sure shape of input tensors is equal.
-        if (!triton::common::CompareDims(
+        if (!hercules::common::CompareDims(
                 itr->second.first->Shape(), input->Shape())) {
           return false;
         }
@@ -110,7 +110,7 @@ CompareWithRequiredEqualInputs(
 }
 
 Status
-PriorityQueue::PolicyQueue::Enqueue(std::unique_ptr<InferenceRequest>& request)
+PriorityQueue::PolicyQueue::Enqueue(std::unique_ptr<inference_request>& request)
 {
   if ((max_queue_size_ != 0) && (Size() >= max_queue_size_)) {
     return Status(
@@ -140,7 +140,7 @@ PriorityQueue::PolicyQueue::Enqueue(std::unique_ptr<InferenceRequest>& request)
 }
 
 Status
-PriorityQueue::PolicyQueue::Dequeue(std::unique_ptr<InferenceRequest>* request)
+PriorityQueue::PolicyQueue::Dequeue(std::unique_ptr<inference_request>* request)
 {
   if (!queue_.empty()) {
     *request = std::move(queue_.front());
@@ -204,12 +204,12 @@ PriorityQueue::PolicyQueue::ApplyPolicy(
 
 void
 PriorityQueue::PolicyQueue::ReleaseRejectedQueue(
-    std::deque<std::unique_ptr<InferenceRequest>>* requests)
+    std::deque<std::unique_ptr<inference_request>>* requests)
 {
   rejected_queue_.swap(*requests);
 }
 
-const std::unique_ptr<InferenceRequest>&
+const std::unique_ptr<inference_request>&
 PriorityQueue::PolicyQueue::At(size_t idx) const
 {
   if (idx < queue_.size()) {
@@ -261,7 +261,7 @@ PriorityQueue::PriorityQueue(
 
 Status
 PriorityQueue::Enqueue(
-    uint32_t priority_level, std::unique_ptr<InferenceRequest>& request)
+    uint32_t priority_level, std::unique_ptr<inference_request>& request)
 {
   auto status = queues_[priority_level].Enqueue(request);
   if (status.IsOk()) {
@@ -282,7 +282,7 @@ PriorityQueue::Enqueue(
 }
 
 Status
-PriorityQueue::Dequeue(std::unique_ptr<InferenceRequest>* request)
+PriorityQueue::Dequeue(std::unique_ptr<inference_request>* request)
 {
   pending_cursor_.valid_ = false;
   while (true) {
@@ -307,11 +307,11 @@ PriorityQueue::Dequeue(std::unique_ptr<InferenceRequest>* request)
 
 void
 PriorityQueue::ReleaseRejectedRequests(
-    std::shared_ptr<std::vector<std::deque<std::unique_ptr<InferenceRequest>>>>*
+    std::shared_ptr<std::vector<std::deque<std::unique_ptr<inference_request>>>>*
         requests)
 {
   auto res = std::make_shared<
-      std::vector<std::deque<std::unique_ptr<InferenceRequest>>>>(
+      std::vector<std::deque<std::unique_ptr<inference_request>>>>(
       queues_.size());
   size_t idx = 0;
   for (auto& queue : queues_) {

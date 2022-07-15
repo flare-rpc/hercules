@@ -9,7 +9,7 @@
 
 #include <NvInfer.h>
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 // Logger for TensorRT API
 class TensorRTLogger : public nvinfer1::ILogger {
@@ -18,4 +18,4 @@ class TensorRTLogger : public nvinfer1::ILogger {
 
 extern TensorRTLogger tensorrt_logger;
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

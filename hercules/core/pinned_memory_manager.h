@@ -26,13 +26,13 @@ class PinnedMemoryManager {
   struct Options {
     Options(
         uint64_t b = 0,
-        const triton::common::HostPolicyCmdlineConfigMap& host_policy_map = {})
+        const hercules::common::HostPolicyCmdlineConfigMap& host_policy_map = {})
         : pinned_memory_pool_byte_size_(b), host_policy_map_(host_policy_map)
     {
     }
 
     uint64_t pinned_memory_pool_byte_size_;
-    triton::common::HostPolicyCmdlineConfigMap host_policy_map_;
+    hercules::common::HostPolicyCmdlineConfigMap host_policy_map_;
   };
 
   ~PinnedMemoryManager();

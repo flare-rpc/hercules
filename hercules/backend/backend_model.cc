@@ -10,7 +10,7 @@
 
 #include "hercules/backend/backend_common.h"
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
 //
 // BackendModel
@@ -101,14 +101,14 @@ BackendModel::ParseModelConfig()
       batch_output_map_.emplace(name, &batch_output);
     }
   }
-  triton::common::TritonJson::Value config_inputs;
+  hercules::common::TritonJson::Value config_inputs;
   RETURN_IF_ERROR(model_config_.MemberAsArray("input", &config_inputs));
   for (size_t i = 0; i < config_inputs.ArraySize(); i++) {
-    triton::common::TritonJson::Value io;
+    hercules::common::TritonJson::Value io;
     RETURN_IF_ERROR(config_inputs.IndexAsObject(i, &io));
     std::string io_name;
     RETURN_IF_ERROR(io.MemberAsString("name", &io_name));
-    triton::common::TritonJson::Value input_property_json;
+    hercules::common::TritonJson::Value input_property_json;
     bool allow_ragged_batch = false;
     if (io.Find("allow_ragged_batch", &input_property_json)) {
       RETURN_IF_ERROR(input_property_json.AsBool(&allow_ragged_batch));
@@ -139,7 +139,7 @@ BackendModel::ParseModelConfig()
 TRITONSERVER_Error*
 BackendModel::SetModelConfig()
 {
-  triton::common::TritonJson::WriteBuffer json_buffer;
+  hercules::common::TritonJson::WriteBuffer json_buffer;
   RETURN_IF_ERROR(ModelConfig().Write(&json_buffer));
 
   TRITONSERVER_Message* message;
@@ -170,4 +170,4 @@ BackendModel::FindBatchOutput(const std::string& output_name) const
   return ((it == batch_output_map_.end()) ? nullptr : it->second);
 }
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

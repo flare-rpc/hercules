@@ -49,13 +49,13 @@ ParseIntOption(const std::string& msg, const std::string& arg, int* value)
 #if defined(_WIN32) || defined(__MACH__)
 Status
 SetNumaConfigOnThread(
-    const triton::common::HostPolicyCmdlineConfig& host_policy)
+    const hercules::common::HostPolicyCmdlineConfig& host_policy)
 {
   return Status::Success;
 }
 
 Status
-SetNumaMemoryPolicy(const triton::common::HostPolicyCmdlineConfig& host_policy)
+SetNumaMemoryPolicy(const hercules::common::HostPolicyCmdlineConfig& host_policy)
 {
   return Status::Success;
 }
@@ -76,7 +76,7 @@ ResetNumaMemoryPolicy()
 Status
 SetNumaThreadAffinity(
     std::thread::native_handle_type thread,
-    const triton::common::HostPolicyCmdlineConfig& host_policy)
+    const hercules::common::HostPolicyCmdlineConfig& host_policy)
 {
   return Status::Success;
 }
@@ -88,7 +88,7 @@ thread_local bool numa_set = false;
 
 Status
 SetNumaConfigOnThread(
-    const triton::common::HostPolicyCmdlineConfig& host_policy)
+    const hercules::common::HostPolicyCmdlineConfig& host_policy)
 {
   // Set thread affinity
   RETURN_IF_ERROR(SetNumaThreadAffinity(pthread_self(), host_policy));
@@ -100,7 +100,7 @@ SetNumaConfigOnThread(
 }
 
 Status
-SetNumaMemoryPolicy(const triton::common::HostPolicyCmdlineConfig& host_policy)
+SetNumaMemoryPolicy(const hercules::common::HostPolicyCmdlineConfig& host_policy)
 {
   const auto it = host_policy.find("numa-node");
   if (it != host_policy.end()) {
@@ -150,7 +150,7 @@ ResetNumaMemoryPolicy()
 Status
 SetNumaThreadAffinity(
     std::thread::native_handle_type thread,
-    const triton::common::HostPolicyCmdlineConfig& host_policy)
+    const hercules::common::HostPolicyCmdlineConfig& host_policy)
 {
   const auto it = host_policy.find("cpu-cores");
   if (it != host_policy.end()) {

@@ -80,7 +80,7 @@ constexpr int WILDCARD_DIM = -1;
     }                                  \
   } while (false)
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #define FAIL_IF_CUDA_ERR(X, MSG)                                           \
   do {                                                                     \
     cudaError_t err__ = (X);                                               \
@@ -90,7 +90,7 @@ constexpr int WILDCARD_DIM = -1;
       exit(1);                                                             \
     }                                                                      \
   } while (false)
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 /// Get the integral version from a string, or fail if string does not
 /// represent a valid version.

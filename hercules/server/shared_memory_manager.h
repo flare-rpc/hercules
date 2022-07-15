@@ -19,9 +19,9 @@
 #define TRITONJSON_STATUSSUCCESS nullptr
 #include "triton/common/triton_json.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace triton { namespace server {
 
@@ -44,7 +44,7 @@ class SharedMemoryManager {
       const std::string& name, const std::string& shm_key, const size_t offset,
       const size_t byte_size);
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   /// Add a shared memory block representing shared memory in CUDA
   /// (GPU) memory to the manager. Return TRITONSERVER_ERROR_ALREADY_EXISTS
   /// if a shared memory block of the same name already exists in the manager.
@@ -57,7 +57,7 @@ class SharedMemoryManager {
   TRITONSERVER_Error* RegisterCUDASharedMemory(
       const std::string& name, const cudaIpcMemHandle_t* cuda_shm_handle,
       const size_t byte_size, const int device_id);
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   /// Get the access information for the shared memory block
   /// with the specified name. Return TRITONSERVER_ERROR_NOT_FOUND
@@ -74,7 +74,7 @@ class SharedMemoryManager {
       const std::string& name, size_t offset, void** shm_mapped_addr,
       TRITONSERVER_MemoryType* memory_type, int64_t* device_id);
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   /// Get the CUDA memory handle associated with the block name.
   /// Return TRITONSERVER_ERROR_NOT_FOUND if named block doesn't exist.
   /// \param name The name of the shared memory block to get.
@@ -94,7 +94,7 @@ class SharedMemoryManager {
   /// \return a TRITONSERVER_Error indicating success or failure.
   TRITONSERVER_Error* GetStatus(
       const std::string& name, TRITONSERVER_MemoryType memory_type,
-      triton::common::TritonJson::Value* shm_status);
+      hercules::common::TritonJson::Value* shm_status);
 
   /// Removes the named shared memory block of the specified type from
   /// the manager. Any future attempt to get the details of this block
@@ -141,7 +141,7 @@ class SharedMemoryManager {
     int64_t device_id_;
   };
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   struct CUDASharedMemoryInfo : SharedMemoryInfo {
     CUDASharedMemoryInfo(
         const std::string& name, const std::string& shm_key,

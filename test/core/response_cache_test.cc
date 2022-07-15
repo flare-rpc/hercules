@@ -33,9 +33,9 @@ InferenceResponseFactory::CreateResponse(
 }
 
 //
-// InferenceRequest
+// inference_request
 //
-InferenceRequest::Input::Input(
+inference_request::Input::Input(
     const std::string& name, const hercules::proto::DataType datatype,
     const int64_t* shape, const uint64_t dim_count)
     : name_(name), datatype_(datatype),
@@ -49,20 +49,20 @@ InferenceRequest::Input::Input(
 const std::string MODEL = "model";
 
 const std::string&
-InferenceRequest::ModelName() const
+inference_request::ModelName() const
 {
   return MODEL;
 }
 
 int64_t
-InferenceRequest::ActualModelVersion() const
+inference_request::ActualModelVersion() const
 {
   // Not using model in unit test mock
   return requested_model_version_;
 }
 
 Status
-InferenceRequest::PrepareForInference()
+inference_request::PrepareForInference()
 {
   // Remove override inputs as those are added during any previous
   // inference execution.
@@ -78,9 +78,9 @@ InferenceRequest::PrepareForInference()
 
   // Clear the timestamps
   queue_start_ns_ = 0;
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
   request_start_ns_ = 0;
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
   // LOG_VERBOSE(1) << "prepared: " << *this;
 
@@ -88,7 +88,7 @@ InferenceRequest::PrepareForInference()
 }
 
 Status
-InferenceRequest::Input::DataBuffer(
+inference_request::Input::DataBuffer(
     const size_t idx, const void** base, size_t* byte_size,
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id) const
 {
@@ -98,15 +98,15 @@ InferenceRequest::Input::DataBuffer(
 }
 
 void
-InferenceRequest::SetPriority(unsigned int)
+inference_request::SetPriority(unsigned int)
 {
 }
 
 Status
-InferenceRequest::AddOriginalInput(
+inference_request::AddOriginalInput(
     const std::string& name, const hercules::proto::DataType datatype,
     const int64_t* shape, const uint64_t dim_count,
-    InferenceRequest::Input** input)
+    inference_request::Input** input)
 {
   const auto& pr = original_inputs_.emplace(
       std::piecewise_construct, std::forward_as_tuple(name),
@@ -126,15 +126,15 @@ InferenceRequest::AddOriginalInput(
 }
 
 Status
-InferenceRequest::AddOriginalInput(
+inference_request::AddOriginalInput(
     const std::string& name, const hercules::proto::DataType datatype,
-    const std::vector<int64_t>& shape, InferenceRequest::Input** input)
+    const std::vector<int64_t>& shape, inference_request::Input** input)
 {
   return AddOriginalInput(name, datatype, &shape[0], shape.size(), input);
 }
 
 Status
-InferenceRequest::Input::AppendData(
+inference_request::Input::AppendData(
     const void* base, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
@@ -263,21 +263,21 @@ InferenceResponse::AddOutput(
   return Status::Success;
 }
 
-InferenceRequest::SequenceId::SequenceId()
+inference_request::SequenceId::SequenceId()
     : sequence_label_(""), sequence_index_(0),
-      id_type_(InferenceRequest::SequenceId::DataType::UINT64)
+      id_type_(inference_request::SequenceId::DataType::UINT64)
 {
 }
 
-InferenceRequest::SequenceId::SequenceId(const std::string& sequence_label)
+inference_request::SequenceId::SequenceId(const std::string& sequence_label)
     : sequence_label_(sequence_label), sequence_index_(0),
-      id_type_(InferenceRequest::SequenceId::DataType::STRING)
+      id_type_(inference_request::SequenceId::DataType::STRING)
 {
 }
 
-InferenceRequest::SequenceId::SequenceId(uint64_t sequence_index)
+inference_request::SequenceId::SequenceId(uint64_t sequence_index)
     : sequence_label_(""), sequence_index_(sequence_index),
-      id_type_(InferenceRequest::SequenceId::DataType::UINT64)
+      id_type_(inference_request::SequenceId::DataType::UINT64)
 {
 }
 
@@ -305,7 +305,7 @@ cache_stats(std::unique_ptr<tc::RequestResponseCache>& cache)
 void
 reset_response(
     std::unique_ptr<tc::InferenceResponse>* response,
-    tc::InferenceRequest* request)
+    tc::inference_request* request)
 {
   check_status(request->ResponseFactory().CreateResponse(response));
 }
@@ -319,7 +319,7 @@ struct Tensor {
 // Only support 1-Dimensional data to keep it simple
 std::unique_ptr<tc::InferenceResponse>
 GenerateResponse(
-    const tc::InferenceRequest* request, hercules::proto::DataType dtype,
+    const tc::inference_request* request, hercules::proto::DataType dtype,
     TRITONSERVER_MemoryType memory_type, int64_t memory_type_id,
     const std::vector<Tensor>& outputs)
 {
@@ -359,13 +359,13 @@ GenerateResponse(
 }
 
 // Only support 1-Dimensional data to keep it simple
-tc::InferenceRequest*
+tc::inference_request*
 GenerateRequest(
     tc::Model* model, uint64_t model_version, hercules::proto::DataType dtype,
     TRITONSERVER_MemoryType memory_type, int64_t memory_type_id,
     const std::vector<Tensor>& inputs)
 {
-  auto request = new tc::InferenceRequest(model, model_version);
+  auto request = new tc::inference_request(model, model_version);
   for (const auto& tensor : inputs) {
     if (tensor.data.size() == 0) {
       std::cout << "[ERROR] Can't generate a request with no input data"
@@ -373,7 +373,7 @@ GenerateRequest(
       return nullptr;
     }
 
-    tc::InferenceRequest::Input* request_input = nullptr;
+    tc::inference_request::Input* request_input = nullptr;
     std::vector<int64_t> shape{1, -1};
     shape[1] = tensor.data.size();
     request->AddOriginalInput(tensor.name, dtype, shape, &request_input);
@@ -494,9 +494,9 @@ class RequestResponseCacheTest : public ::testing::Test {
   std::vector<int> data0, data1, data100;
   std::vector<Tensor> inputs0, inputs1, inputs2, inputs3, inputs4, inputs100;
   std::vector<Tensor> outputs0, outputs100;
-  tc::InferenceRequest *request0, *request1, *request2, *request3, *request4;
+  tc::inference_request *request0, *request1, *request2, *request3, *request4;
   std::vector<std::unique_ptr<std::vector<int>>> random_data;
-  std::vector<tc::InferenceRequest*> random_requests;
+  std::vector<tc::inference_request*> random_requests;
   std::unique_ptr<tc::InferenceResponse> response0, response_400bytes;
 };
 

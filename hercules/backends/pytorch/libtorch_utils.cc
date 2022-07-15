@@ -26,7 +26,7 @@
 
 #include "libtorch_utils.h"
 
-namespace triton { namespace backend { namespace pytorch {
+namespace hercules::backend { namespace pytorch {
 
 TRITONSERVER_DataType
 ConvertTorchTypeToDataType(const torch::ScalarType& stype)
@@ -139,7 +139,7 @@ ModelConfigDataTypeToTorchType(const std::string& data_type_str)
 
 TRITONSERVER_Error*
 ParseParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     bool* value)
 {
   std::string value_str;
@@ -149,4 +149,4 @@ ParseParameter(
   return nullptr;
 }
 
-}}}  // namespace triton::backend::pytorch
+}}}  // namespace hercules::backend::pytorch

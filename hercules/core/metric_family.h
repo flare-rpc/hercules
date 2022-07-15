@@ -52,7 +52,7 @@ class Metric {
  public:
   Metric(
       TRITONSERVER_MetricFamily* family,
-      std::vector<const InferenceParameter*> labels);
+      std::vector<const inference_parameter*> labels);
   ~Metric();
 
   MetricFamily* Family() const { return family_; }

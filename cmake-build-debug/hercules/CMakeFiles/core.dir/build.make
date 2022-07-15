@@ -401,9 +401,22 @@ hercules/CMakeFiles/core.dir/core/model.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/core/model.cc.s"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liyinbin/github/flare-rpc/hercules/hercules/core/model.cc -o CMakeFiles/core.dir/core/model.cc.s
 
+hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.o: hercules/CMakeFiles/core.dir/flags.make
+hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.o: ../hercules/core/model_config_cuda.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.o"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/model_config_cuda.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_cuda.cc
+
+hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/core/model_config_cuda.cc.i"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_cuda.cc > CMakeFiles/core.dir/core/model_config_cuda.cc.i
+
+hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/core/model_config_cuda.cc.s"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_cuda.cc -o CMakeFiles/core.dir/core/model_config_cuda.cc.s
+
 hercules/CMakeFiles/core.dir/core/model_config_utils.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/model_config_utils.cc.o: ../hercules/core/model_config_utils.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object hercules/CMakeFiles/core.dir/core/model_config_utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object hercules/CMakeFiles/core.dir/core/model_config_utils.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/model_config_utils.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_config_utils.cc
 
 hercules/CMakeFiles/core.dir/core/model_config_utils.cc.i: cmake_force
@@ -416,7 +429,7 @@ hercules/CMakeFiles/core.dir/core/model_config_utils.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.o: ../hercules/core/model_repository_manager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/model_repository_manager.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/model_repository_manager.cc
 
 hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.i: cmake_force
@@ -429,7 +442,7 @@ hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/numa_utils.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/numa_utils.cc.o: ../hercules/core/numa_utils.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object hercules/CMakeFiles/core.dir/core/numa_utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object hercules/CMakeFiles/core.dir/core/numa_utils.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/numa_utils.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/numa_utils.cc
 
 hercules/CMakeFiles/core.dir/core/numa_utils.cc.i: cmake_force
@@ -442,7 +455,7 @@ hercules/CMakeFiles/core.dir/core/numa_utils.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/payload.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/payload.cc.o: ../hercules/core/payload.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object hercules/CMakeFiles/core.dir/core/payload.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object hercules/CMakeFiles/core.dir/core/payload.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/payload.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/payload.cc
 
 hercules/CMakeFiles/core.dir/core/payload.cc.i: cmake_force
@@ -455,7 +468,7 @@ hercules/CMakeFiles/core.dir/core/payload.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/pinned_memory_manager.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/pinned_memory_manager.cc.o: ../hercules/core/pinned_memory_manager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object hercules/CMakeFiles/core.dir/core/pinned_memory_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object hercules/CMakeFiles/core.dir/core/pinned_memory_manager.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/pinned_memory_manager.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/pinned_memory_manager.cc
 
 hercules/CMakeFiles/core.dir/core/pinned_memory_manager.cc.i: cmake_force
@@ -468,7 +481,7 @@ hercules/CMakeFiles/core.dir/core/pinned_memory_manager.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/rate_limiter.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/rate_limiter.cc.o: ../hercules/core/rate_limiter.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object hercules/CMakeFiles/core.dir/core/rate_limiter.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object hercules/CMakeFiles/core.dir/core/rate_limiter.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/rate_limiter.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/rate_limiter.cc
 
 hercules/CMakeFiles/core.dir/core/rate_limiter.cc.i: cmake_force
@@ -481,7 +494,7 @@ hercules/CMakeFiles/core.dir/core/rate_limiter.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/repo_agent.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/repo_agent.cc.o: ../hercules/core/repo_agent.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object hercules/CMakeFiles/core.dir/core/repo_agent.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object hercules/CMakeFiles/core.dir/core/repo_agent.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/repo_agent.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/repo_agent.cc
 
 hercules/CMakeFiles/core.dir/core/repo_agent.cc.i: cmake_force
@@ -494,7 +507,7 @@ hercules/CMakeFiles/core.dir/core/repo_agent.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/response_cache.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/response_cache.cc.o: ../hercules/core/response_cache.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object hercules/CMakeFiles/core.dir/core/response_cache.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object hercules/CMakeFiles/core.dir/core/response_cache.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/response_cache.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/response_cache.cc
 
 hercules/CMakeFiles/core.dir/core/response_cache.cc.i: cmake_force
@@ -507,7 +520,7 @@ hercules/CMakeFiles/core.dir/core/response_cache.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/scheduler_utils.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/scheduler_utils.cc.o: ../hercules/core/scheduler_utils.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object hercules/CMakeFiles/core.dir/core/scheduler_utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object hercules/CMakeFiles/core.dir/core/scheduler_utils.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/scheduler_utils.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/scheduler_utils.cc
 
 hercules/CMakeFiles/core.dir/core/scheduler_utils.cc.i: cmake_force
@@ -520,7 +533,7 @@ hercules/CMakeFiles/core.dir/core/scheduler_utils.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.o: ../hercules/core/sequence_batch_scheduler.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object hercules/CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object hercules/CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/sequence_batch_scheduler.cc
 
 hercules/CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.i: cmake_force
@@ -533,7 +546,7 @@ hercules/CMakeFiles/core.dir/core/sequence_batch_scheduler.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/sequence_state.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/sequence_state.cc.o: ../hercules/core/sequence_state.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object hercules/CMakeFiles/core.dir/core/sequence_state.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object hercules/CMakeFiles/core.dir/core/sequence_state.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/sequence_state.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/sequence_state.cc
 
 hercules/CMakeFiles/core.dir/core/sequence_state.cc.i: cmake_force
@@ -546,7 +559,7 @@ hercules/CMakeFiles/core.dir/core/sequence_state.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/server.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/server.cc.o: ../hercules/core/server.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object hercules/CMakeFiles/core.dir/core/server.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object hercules/CMakeFiles/core.dir/core/server.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/server.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/server.cc
 
 hercules/CMakeFiles/core.dir/core/server.cc.i: cmake_force
@@ -559,7 +572,7 @@ hercules/CMakeFiles/core.dir/core/server.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/shared_library.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/shared_library.cc.o: ../hercules/core/shared_library.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object hercules/CMakeFiles/core.dir/core/shared_library.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object hercules/CMakeFiles/core.dir/core/shared_library.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/shared_library.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/shared_library.cc
 
 hercules/CMakeFiles/core.dir/core/shared_library.cc.i: cmake_force
@@ -572,7 +585,7 @@ hercules/CMakeFiles/core.dir/core/shared_library.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/status.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/status.cc.o: ../hercules/core/status.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object hercules/CMakeFiles/core.dir/core/status.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object hercules/CMakeFiles/core.dir/core/status.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/status.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/status.cc
 
 hercules/CMakeFiles/core.dir/core/status.cc.i: cmake_force
@@ -585,7 +598,7 @@ hercules/CMakeFiles/core.dir/core/status.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/core/tritonserver.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/core/tritonserver.cc.o: ../hercules/core/tritonserver.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object hercules/CMakeFiles/core.dir/core/tritonserver.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object hercules/CMakeFiles/core.dir/core/tritonserver.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/core/tritonserver.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/core/tritonserver.cc
 
 hercules/CMakeFiles/core.dir/core/tritonserver.cc.i: cmake_force
@@ -598,7 +611,7 @@ hercules/CMakeFiles/core.dir/core/tritonserver.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/common/async_work_queue.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/common/async_work_queue.cc.o: ../hercules/common/async_work_queue.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object hercules/CMakeFiles/core.dir/common/async_work_queue.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object hercules/CMakeFiles/core.dir/common/async_work_queue.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/common/async_work_queue.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/common/async_work_queue.cc
 
 hercules/CMakeFiles/core.dir/common/async_work_queue.cc.i: cmake_force
@@ -611,7 +624,7 @@ hercules/CMakeFiles/core.dir/common/async_work_queue.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/common/error.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/common/error.cc.o: ../hercules/common/error.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object hercules/CMakeFiles/core.dir/common/error.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object hercules/CMakeFiles/core.dir/common/error.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/common/error.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/common/error.cc
 
 hercules/CMakeFiles/core.dir/common/error.cc.i: cmake_force
@@ -624,7 +637,7 @@ hercules/CMakeFiles/core.dir/common/error.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/common/logging.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/common/logging.cc.o: ../hercules/common/logging.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object hercules/CMakeFiles/core.dir/common/logging.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object hercules/CMakeFiles/core.dir/common/logging.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/common/logging.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/common/logging.cc
 
 hercules/CMakeFiles/core.dir/common/logging.cc.i: cmake_force
@@ -637,7 +650,7 @@ hercules/CMakeFiles/core.dir/common/logging.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/common/model_config.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/common/model_config.cc.o: ../hercules/common/model_config.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object hercules/CMakeFiles/core.dir/common/model_config.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object hercules/CMakeFiles/core.dir/common/model_config.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/common/model_config.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/common/model_config.cc
 
 hercules/CMakeFiles/core.dir/common/model_config.cc.i: cmake_force
@@ -650,7 +663,7 @@ hercules/CMakeFiles/core.dir/common/model_config.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/common/table_printer.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/common/table_printer.cc.o: ../hercules/common/table_printer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object hercules/CMakeFiles/core.dir/common/table_printer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object hercules/CMakeFiles/core.dir/common/table_printer.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/common/table_printer.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/common/table_printer.cc
 
 hercules/CMakeFiles/core.dir/common/table_printer.cc.i: cmake_force
@@ -663,7 +676,7 @@ hercules/CMakeFiles/core.dir/common/table_printer.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/common/thread_pool.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/common/thread_pool.cc.o: ../hercules/common/thread_pool.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object hercules/CMakeFiles/core.dir/common/thread_pool.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object hercules/CMakeFiles/core.dir/common/thread_pool.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/common/thread_pool.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/common/thread_pool.cc
 
 hercules/CMakeFiles/core.dir/common/thread_pool.cc.i: cmake_force
@@ -676,7 +689,7 @@ hercules/CMakeFiles/core.dir/common/thread_pool.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/backend/backend_common.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/backend/backend_common.cc.o: ../hercules/backend/backend_common.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_common.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_common.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backend/backend_common.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_common.cc
 
 hercules/CMakeFiles/core.dir/backend/backend_common.cc.i: cmake_force
@@ -689,7 +702,7 @@ hercules/CMakeFiles/core.dir/backend/backend_common.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/backend/backend_input_collector.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/backend/backend_input_collector.cc.o: ../hercules/backend/backend_input_collector.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_input_collector.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_input_collector.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backend/backend_input_collector.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_input_collector.cc
 
 hercules/CMakeFiles/core.dir/backend/backend_input_collector.cc.i: cmake_force
@@ -702,7 +715,7 @@ hercules/CMakeFiles/core.dir/backend/backend_input_collector.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/backend/backend_memory.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/backend/backend_memory.cc.o: ../hercules/backend/backend_memory.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_memory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_memory.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backend/backend_memory.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_memory.cc
 
 hercules/CMakeFiles/core.dir/backend/backend_memory.cc.i: cmake_force
@@ -715,7 +728,7 @@ hercules/CMakeFiles/core.dir/backend/backend_memory.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/backend/backend_model.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/backend/backend_model.cc.o: ../hercules/backend/backend_model.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_model.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_model.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backend/backend_model.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_model.cc
 
 hercules/CMakeFiles/core.dir/backend/backend_model.cc.i: cmake_force
@@ -728,7 +741,7 @@ hercules/CMakeFiles/core.dir/backend/backend_model.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.o: ../hercules/backend/backend_model_instance.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backend/backend_model_instance.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_model_instance.cc
 
 hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.i: cmake_force
@@ -741,7 +754,7 @@ hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.s: cmake_force
 
 hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.o: hercules/CMakeFiles/core.dir/flags.make
 hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.o: ../hercules/backend/backend_output_responder.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.o"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backend/backend_output_responder.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_output_responder.cc
 
 hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.i: cmake_force
@@ -779,6 +792,7 @@ core_OBJECTS = \
 "CMakeFiles/core.dir/core/metric_model_reporter.cc.o" \
 "CMakeFiles/core.dir/core/metrics.cc.o" \
 "CMakeFiles/core.dir/core/model.cc.o" \
+"CMakeFiles/core.dir/core/model_config_cuda.cc.o" \
 "CMakeFiles/core.dir/core/model_config_utils.cc.o" \
 "CMakeFiles/core.dir/core/model_repository_manager.cc.o" \
 "CMakeFiles/core.dir/core/numa_utils.cc.o" \
@@ -835,6 +849,7 @@ lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/metric_family.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/metric_model_reporter.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/metrics.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/model.cc.o
+lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/model_config_cuda.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/model_config_utils.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/model_repository_manager.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/core/numa_utils.cc.o
@@ -875,7 +890,7 @@ lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dy
 lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib
 lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Linking CXX shared library ../lib/libcore.dylib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Linking CXX shared library ../lib/libcore.dylib"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

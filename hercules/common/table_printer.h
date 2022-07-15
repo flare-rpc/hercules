@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 //
 // An ASCII table printer.
@@ -58,4 +58,4 @@ class TablePrinter {
   std::vector<float> shares_;
 };
 
-}}  // namespace triton::common
+}  // namespace hercules::common

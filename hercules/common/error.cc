@@ -8,7 +8,7 @@
 
 #include "hercules/common/error.h"
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 const Error Error::Success(Error::Code::SUCCESS);
 
@@ -47,4 +47,4 @@ Error::CodeString(const Code code)
   return "<invalid code>";
 }
 
-}}  // namespace triton::common
+}  // namespace hercules::common

@@ -34,7 +34,7 @@
 
 #include "onnxruntime_utils.h"
 
-namespace triton { namespace backend { namespace onnxruntime {
+namespace hercules::backend { namespace onnxruntime {
 
 std::unique_ptr<OnnxLoader> OnnxLoader::loader = nullptr;
 
@@ -67,9 +67,9 @@ OnnxLoader::Init(common::TritonJson::Value& backend_config)
     OrtThreadingOptions* threading_options = nullptr;
 
     // Read backend config
-    triton::common::TritonJson::Value cmdline;
+    hercules::common::TritonJson::Value cmdline;
     if (backend_config.Find("cmdline", &cmdline)) {
-      triton::common::TritonJson::Value value;
+      hercules::common::TritonJson::Value value;
       std::string value_str;
       if (cmdline.Find("enable-global-threadpool", &value)) {
         RETURN_IF_ERROR(value.AsString(&value_str));
@@ -223,4 +223,4 @@ OnnxLoader::UnloadSession(OrtSession* session)
   return nullptr;  // success
 }
 
-}}}  // namespace triton::backend::onnxruntime
+}}}  // namespace hercules::backend::onnxruntime

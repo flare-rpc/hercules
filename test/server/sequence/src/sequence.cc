@@ -12,7 +12,7 @@
 #include "triton/backend/backend_model.h"
 #include "triton/backend/backend_model_instance.h"
 
-namespace triton { namespace backend { namespace sequence {
+namespace hercules::backend { namespace sequence {
 
 
 // Simple sequence backend that demonstrates the TRITONBACKEND API for a
@@ -115,7 +115,7 @@ ModelState::ValidateModelConfig()
       TRITONSERVER_LOG_INFO,
       (std::string("model configuration:\n") + buffer.Contents()).c_str());
 
-  triton::common::TritonJson::Value params;
+  hercules::common::TritonJson::Value params;
   if (model_config_.Find("parameters", &params)) {
     common::TritonJson::Value exec_delay;
     if (params.Find("execute_delay_ms", &exec_delay)) {
@@ -132,7 +132,7 @@ ModelState::ValidateModelConfig()
 
   // The model configuration must specify the sequence batcher and must use the
   // START and READY input to indicate control values.
-  triton::common::TritonJson::Value sequence_batching;
+  hercules::common::TritonJson::Value sequence_batching;
   RETURN_IF_ERROR(
       model_config_.MemberAsObject("sequence_batching", &sequence_batching));
   common::TritonJson::Value control_inputs;
@@ -967,4 +967,4 @@ TRITONBACKEND_ModelInstanceExecute(
 
 }  // extern "C"
 
-}}}  // namespace triton::backend::sequence
+}}}  // namespace hercules::backend::sequence

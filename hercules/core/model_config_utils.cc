@@ -23,9 +23,9 @@
 #define TRITONJSON_STATUSSUCCESS hercules::core::Status::Success
 #include "hercules/common/triton_json.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 namespace hercules::core {
 
@@ -274,11 +274,11 @@ ValidateIOShape(
 
   for (auto dim : io.dims()) {
     // Dimension cannot be 0.
-    if ((dim < 1) && (dim != triton::common::WILDCARD_DIM)) {
+    if ((dim < 1) && (dim != hercules::common::WILDCARD_DIM)) {
       return Status(
           Status::Code::INVALID_ARG,
           message_prefix + "dimension must be integer >= 1, or " +
-              std::to_string(triton::common::WILDCARD_DIM) +
+              std::to_string(hercules::common::WILDCARD_DIM) +
               " to indicate a variable-size dimension");
     }
   }
@@ -286,18 +286,18 @@ ValidateIOShape(
   if (io.has_reshape()) {
     // Zeros are not allowed in reshape.
     for (auto dim : io.reshape().shape()) {
-      if ((dim < 1) && (dim != triton::common::WILDCARD_DIM)) {
+      if ((dim < 1) && (dim != hercules::common::WILDCARD_DIM)) {
         return Status(
             Status::Code::INVALID_ARG,
             message_prefix + "reshape dimensions must be integer >= 1, or " +
-                std::to_string(triton::common::WILDCARD_DIM) +
+                std::to_string(hercules::common::WILDCARD_DIM) +
                 " to indicate a variable-size dimension");
       }
     }
 
-    const int64_t dims_size = triton::common::GetElementCount(io.dims());
+    const int64_t dims_size = hercules::common::GetElementCount(io.dims());
     const int64_t reshape_size =
-        triton::common::GetElementCount(io.reshape().shape());
+        hercules::common::GetElementCount(io.reshape().shape());
 
     // dims and reshape must both have same element count
     // or both have variable-size dimension.
@@ -718,14 +718,14 @@ NormalizeModelConfig(
 
     // Creates a set of supported GPU device ids
     std::set<int> supported_gpus;
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     // Get the total number of GPUs from the runtime library.
     Status status = GetSupportedGPUs(&supported_gpus, min_compute_capability);
     if (!status.IsOk()) {
       return status;
     }
 
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
     // Assign default name, kind and count to each instance group that
     // doesn't give those values explicitly. For KIND_GPU, set GPUs to
@@ -1328,13 +1328,13 @@ ValidateModelConfig(
     // Make sure KIND_GPU instance group specifies at least one GPU and
     // doesn't specify a non-existent GPU. Make sure non-KIND_GPU does
     // not specify any GPUs.
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     std::set<int> supported_gpus;
     Status status = GetSupportedGPUs(&supported_gpus, min_compute_capability);
     if (!status.IsOk()) {
       return status;
     }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
     for (const auto& group : config.instance_group()) {
       if (group.kind() == hercules::proto::ModelInstanceGroup::KIND_MODEL) {
@@ -1345,12 +1345,12 @@ ValidateModelConfig(
                   " has kind KIND_MODEL but specifies one or more GPUs");
         }
       } else if (group.kind() == hercules::proto::ModelInstanceGroup::KIND_GPU) {
-#if !defined(TRITON_ENABLE_GPU) && !defined(TRITON_ENABLE_MALI_GPU)
+#if !defined(HERCULES_ENABLE_GPU) && !defined(TRITON_ENABLE_MALI_GPU)
         return Status(
             Status::Code::INVALID_ARG,
             "instance group " + group.name() + " of model " + config.name() +
                 " has kind KIND_GPU but server does not support GPUs");
-#elif defined(TRITON_ENABLE_GPU)
+#elif defined(HERCULES_ENABLE_GPU)
         if (group.gpus().size() == 0) {
           if (supported_gpus.size() == 0) {
             return Status(
@@ -1387,7 +1387,7 @@ ValidateModelConfig(
                     " are: " + supported_gpus_str);
           }
         }
-#endif  // ! TRITON_ENABLE_GPU && ! TRITON_ENABLE_MALI_GPU
+#endif  // ! HERCULES_ENABLE_GPU && ! TRITON_ENABLE_MALI_GPU
       } else if (group.kind() == hercules::proto::ModelInstanceGroup::KIND_CPU) {
         if (group.gpus().size() > 0) {
           return Status(
@@ -1676,10 +1676,10 @@ ValidateModelConfigInt64()
 
 Status
 FixInt(
-    triton::common::TritonJson::Value& document,
-    triton::common::TritonJson::Value& io, const std::string& name)
+    hercules::common::TritonJson::Value& document,
+    hercules::common::TritonJson::Value& io, const std::string& name)
 {
-  triton::common::TritonJson::Value str_value;
+  hercules::common::TritonJson::Value str_value;
   if (!io.Find(name.c_str(), &str_value)) {
     return Status::Success;
   }
@@ -1704,17 +1704,17 @@ FixInt(
 
 Status
 FixIntArray(
-    triton::common::TritonJson::Value& document,
-    triton::common::TritonJson::Value& io, const std::string& name)
+    hercules::common::TritonJson::Value& document,
+    hercules::common::TritonJson::Value& io, const std::string& name)
 {
-  triton::common::TritonJson::Value fixed_shape_array(
-      document, triton::common::TritonJson::ValueType::ARRAY);
+  hercules::common::TritonJson::Value fixed_shape_array(
+      document, hercules::common::TritonJson::ValueType::ARRAY);
 
   if (!io.Find(name.c_str())) {
     return Status::Success;
   }
 
-  triton::common::TritonJson::Value shape_array;
+  hercules::common::TritonJson::Value shape_array;
   RETURN_IF_ERROR(io.MemberAsArray(name.c_str(), &shape_array));
   for (size_t i = 0; i < shape_array.ArraySize(); ++i) {
     std::string str;
@@ -1741,11 +1741,11 @@ FixIntArray(
 
 Status
 FixObjectArray(
-    triton::common::TritonJson::Value& document,
-    triton::common::TritonJson::Value& arr, const std::string& name)
+    hercules::common::TritonJson::Value& document,
+    hercules::common::TritonJson::Value& arr, const std::string& name)
 {
   for (size_t i = 0; i < arr.ArraySize(); ++i) {
-    triton::common::TritonJson::Value obj;
+    hercules::common::TritonJson::Value obj;
     RETURN_IF_ERROR(arr.IndexAsObject(i, &obj));
     RETURN_IF_ERROR(FixInt(document, obj, name));
   }
@@ -1803,20 +1803,20 @@ ModelConfigToJson(
   // represented as strings. Protobuf doesn't provide an option to
   // disable this (sigh) so we need to fix it up here as we want the
   // json representation of the config to be reasonable json...
-  triton::common::TritonJson::Value config_json;
+  hercules::common::TritonJson::Value config_json;
   config_json.Parse(config_json_str);
 
   // Fix input::dims, input::reshape::shape, output::dims,
   // output::reshape::shape
   for (std::string name : {"input", "output"}) {
-    triton::common::TritonJson::Value ios;
+    hercules::common::TritonJson::Value ios;
     RETURN_IF_ERROR(config_json.MemberAsArray(name.c_str(), &ios));
     for (size_t i = 0; i < ios.ArraySize(); ++i) {
-      triton::common::TritonJson::Value io;
+      hercules::common::TritonJson::Value io;
       RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
       RETURN_IF_ERROR(FixIntArray(config_json, io, "dims"));
 
-      triton::common::TritonJson::Value reshape;
+      hercules::common::TritonJson::Value reshape;
       if (io.Find("reshape", &reshape)) {
         RETURN_IF_ERROR(FixIntArray(config_json, reshape, "shape"));
       }
@@ -1825,9 +1825,9 @@ ModelConfigToJson(
 
   // Fix version_policy::specific::versions
   {
-    triton::common::TritonJson::Value vp;
+    hercules::common::TritonJson::Value vp;
     if (config_json.Find("version_policy", &vp)) {
-      triton::common::TritonJson::Value specific;
+      hercules::common::TritonJson::Value specific;
       if (vp.Find("specific", &specific)) {
         RETURN_IF_ERROR(FixIntArray(config_json, specific, "versions"));
       }
@@ -1838,21 +1838,21 @@ ModelConfigToJson(
   // dynamic_batching::default_queue_policy::default_timeout_microseconds,
   // dynamic_batching::priority_queue_policy::value::default_timeout_microseconds
   {
-    triton::common::TritonJson::Value db;
+    hercules::common::TritonJson::Value db;
     if (config_json.Find("dynamic_batching", &db)) {
       RETURN_IF_ERROR(FixInt(config_json, db, "max_queue_delay_microseconds"));
-      triton::common::TritonJson::Value dqp;
+      hercules::common::TritonJson::Value dqp;
       if (db.Find("default_queue_policy", &dqp)) {
         RETURN_IF_ERROR(
             FixInt(config_json, dqp, "default_timeout_microseconds"));
       }
-      triton::common::TritonJson::Value pqp;
+      hercules::common::TritonJson::Value pqp;
       if (db.Find("priority_queue_policy", &pqp)) {
         // Iterate over each member in 'pqp' and fix...
         std::vector<std::string> members;
         RETURN_IF_ERROR(pqp.Members(&members));
         for (const auto& m : members) {
-          triton::common::TritonJson::Value el;
+          hercules::common::TritonJson::Value el;
           RETURN_IF_ERROR(pqp.MemberAsObject(m.c_str(), &el));
           RETURN_IF_ERROR(
               FixInt(config_json, el, "default_timeout_microseconds"));
@@ -1865,29 +1865,29 @@ ModelConfigToJson(
   // sequence_batching::direct::max_queue_delay_microseconds,
   // sequence_batching::max_sequence_idle_microseconds
   {
-    triton::common::TritonJson::Value sb;
+    hercules::common::TritonJson::Value sb;
     if (config_json.Find("sequence_batching", &sb)) {
       RETURN_IF_ERROR(
           FixInt(config_json, sb, "max_sequence_idle_microseconds"));
-      triton::common::TritonJson::Value oldest;
+      hercules::common::TritonJson::Value oldest;
       if (sb.Find("oldest", &oldest)) {
         RETURN_IF_ERROR(
             FixInt(config_json, oldest, "max_queue_delay_microseconds"));
       }
-      triton::common::TritonJson::Value direct;
+      hercules::common::TritonJson::Value direct;
       if (sb.Find("direct", &direct)) {
         RETURN_IF_ERROR(
             FixInt(config_json, direct, "max_queue_delay_microseconds"));
       }
 
-      triton::common::TritonJson::Value states;
+      hercules::common::TritonJson::Value states;
       if (sb.Find("state", &states)) {
         for (size_t i = 0; i < states.ArraySize(); ++i) {
-          triton::common::TritonJson::Value state;
+          hercules::common::TritonJson::Value state;
           RETURN_IF_ERROR(states.IndexAsObject(i, &state));
           RETURN_IF_ERROR(FixIntArray(config_json, state, "dims"));
 
-          triton::common::TritonJson::Value initial_state;
+          hercules::common::TritonJson::Value initial_state;
           if (sb.Find("initial_state", &initial_state)) {
             RETURN_IF_ERROR(FixIntArray(config_json, initial_state, "dims"));
           }
@@ -1898,9 +1898,9 @@ ModelConfigToJson(
 
   // Fix ensemble_scheduling::step::model_version.
   {
-    triton::common::TritonJson::Value ens;
+    hercules::common::TritonJson::Value ens;
     if (config_json.Find("ensemble_scheduling", &ens)) {
-      triton::common::TritonJson::Value step;
+      hercules::common::TritonJson::Value step;
       if (ens.Find("step", &step)) {
         RETURN_IF_ERROR(FixObjectArray(config_json, step, "model_version"));
       }
@@ -1909,17 +1909,17 @@ ModelConfigToJson(
 
   // Fix model_warmup::inputs::value::dims.
   {
-    triton::common::TritonJson::Value warmups;
+    hercules::common::TritonJson::Value warmups;
     if (config_json.Find("model_warmup", &warmups)) {
       for (size_t i = 0; i < warmups.ArraySize(); ++i) {
-        triton::common::TritonJson::Value warmup;
+        hercules::common::TritonJson::Value warmup;
         RETURN_IF_ERROR(warmups.IndexAsObject(i, &warmup));
-        triton::common::TritonJson::Value inputs;
+        hercules::common::TritonJson::Value inputs;
         if (warmup.Find("inputs", &inputs)) {
           std::vector<std::string> members;
           RETURN_IF_ERROR(inputs.Members(&members));
           for (const auto& m : members) {
-            triton::common::TritonJson::Value input;
+            hercules::common::TritonJson::Value input;
             RETURN_IF_ERROR(inputs.MemberAsObject(m.c_str(), &input));
             RETURN_IF_ERROR(FixIntArray(config_json, input, "dims"));
           }
@@ -1929,7 +1929,7 @@ ModelConfigToJson(
   }
 
   // Convert fixed json back the string...
-  triton::common::TritonJson::WriteBuffer buffer;
+  hercules::common::TritonJson::WriteBuffer buffer;
   config_json.Write(&buffer);
   *json_str = std::move(buffer.MutableContents());
 

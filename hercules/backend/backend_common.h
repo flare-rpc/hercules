@@ -25,11 +25,11 @@
 #define TRITONJSON_STATUSSUCCESS nullptr
 #include "hercules/common/triton_json.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
 #define IGNORE_ERROR(X)                   \
   do {                                    \
@@ -82,7 +82,7 @@ namespace triton { namespace backend {
     }                                    \
   } while (false)
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #define LOG_IF_CUDA_ERROR(X, MSG)                                    \
   do {                                                               \
     cudaError_t lice_err__ = (X);                                    \
@@ -102,7 +102,7 @@ namespace triton { namespace backend {
           C, ((MSG) + ": " + cudaGetErrorString(rice_err__)).c_str()); \
     }                                                                  \
   } while (false)
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 #define RESPOND_AND_SET_NULL_IF_ERROR(RESPONSE_PTR, X)               \
   do {                                                               \
@@ -157,7 +157,7 @@ namespace triton { namespace backend {
     }                                                                          \
   } while (false)
 
-#ifdef TRITON_ENABLE_STATS
+#ifdef HERCULES_ENABLE_STATS
 #define TIMESPEC_TO_NANOS(TS) ((TS).tv_sec * 1000000000 + (TS).tv_nsec)
 #define SET_TIMESTAMP(TS_NS)                                         \
   {                                                                  \
@@ -171,11 +171,11 @@ namespace triton { namespace backend {
 #else
 #define DECL_TIMESTAMP(TS_NS)
 #define SET_TIMESTAMP(TS_NS)
-#endif  // TRITON_ENABLE_STATS
+#endif  // HERCULES_ENABLE_STATS
 
-#ifndef TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
 using cudaStream_t = void*;
-#endif  // !TRITON_ENABLE_GPU
+#endif  // !HERCULES_ENABLE_GPU
 
 /// Convenience deleter for TRITONBACKEND_ResponseFactory.
 struct ResponseFactoryDeleter {
@@ -199,7 +199,7 @@ class BatchInput {
     BATCH_ITEM_SHAPE_FLATTEN
   };
   static TRITONSERVER_Error* ParseFromModelConfig(
-      triton::common::TritonJson::Value& config,
+      hercules::common::TritonJson::Value& config,
       std::vector<BatchInput>* batch_inputs);
   const std::vector<std::string>& TargetNames() const { return target_names_; }
   TRITONSERVER_DataType DataType() const { return data_type_; }
@@ -211,7 +211,7 @@ class BatchInput {
   }
 
  private:
-  TRITONSERVER_Error* Init(triton::common::TritonJson::Value& bi_config);
+  TRITONSERVER_Error* Init(hercules::common::TritonJson::Value& bi_config);
   Kind kind_;
   std::string kind_str_;
   std::vector<std::string> target_names_;
@@ -224,7 +224,7 @@ class BatchOutput {
  public:
   enum class Kind { BATCH_SCATTER_WITH_INPUT_SHAPE };
   static TRITONSERVER_Error* ParseFromModelConfig(
-      triton::common::TritonJson::Value& config,
+      hercules::common::TritonJson::Value& config,
       std::vector<BatchOutput>* batch_outputs);
   const std::vector<std::string>& TargetNames() const { return target_names_; }
   TRITONSERVER_DataType DataType() const { return data_type_; }
@@ -267,10 +267,10 @@ constexpr char kAutoMixedPrecisionExecutionAccelerator[] =
 TRITONSERVER_MemoryType GetUsePinnedMemoryType(
     TRITONSERVER_MemoryType ref_buffer_type);
 
-TRITONSERVER_Error* CommonErrorToTritonError(triton::common::Error error);
+TRITONSERVER_Error* CommonErrorToTritonError(hercules::common::Error error);
 
 TRITONSERVER_Error_Code StatusCodeToTritonCode(
-    triton::common::Error::Code error_code);
+    hercules::common::Error::Code error_code);
 
 /// Parse an array in a JSON object into the corresponding shape. The
 /// array must be composed of integers.
@@ -579,7 +579,7 @@ TRITONSERVER_Error* ParseDoubleValue(
 /// \param value Returns the value.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* GetParameterValue(
-    triton::common::TritonJson::Value& params, const std::string& key,
+    hercules::common::TritonJson::Value& params, const std::string& key,
     std::string* value);
 
 /// Return the Triton server data type of the data type string specified
@@ -598,7 +598,7 @@ TRITONSERVER_DataType ModelConfigDataTypeToTritonServerDataType(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     std::string* value, const std::string& default_value);
 
 /// Try to parse the requested parameter.
@@ -609,7 +609,7 @@ TRITONSERVER_Error* TryParseModelStringParameter(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     int* value, const int& default_value);
 
 /// Try to parse the requested parameter.
@@ -620,7 +620,7 @@ TRITONSERVER_Error* TryParseModelStringParameter(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     bool* value, const bool& default_value);
 
 /// Try to parse the requested parameter.
@@ -631,7 +631,7 @@ TRITONSERVER_Error* TryParseModelStringParameter(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     uint64_t* value, const uint64_t& default_value);
 
 /// Get a string representation of a tensor buffer.
@@ -651,4 +651,4 @@ TRITONSERVER_Error* BufferAsTypedString(
 /// \return a formatted string for logging the request ID.
 std::string GetRequestId(TRITONBACKEND_Request* request);
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

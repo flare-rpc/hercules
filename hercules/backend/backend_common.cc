@@ -37,9 +37,9 @@
 #define F_OK 0
 #endif
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 void CUDART_CB
 MemcpyHost(void* args)
 {
@@ -47,7 +47,7 @@ MemcpyHost(void* args)
   memcpy(copy_params->dst_, copy_params->src_, copy_params->byte_size_);
   delete copy_params;
 }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
 TRITONSERVER_MemoryType
 GetUsePinnedMemoryType(TRITONSERVER_MemoryType ref_buffer_type)
@@ -66,22 +66,22 @@ GetUsePinnedMemoryType(TRITONSERVER_MemoryType ref_buffer_type)
 }
 
 TRITONSERVER_Error_Code
-StatusCodeToTritonCode(triton::common::Error::Code error_code)
+StatusCodeToTritonCode(hercules::common::Error::Code error_code)
 {
   switch (error_code) {
-    case triton::common::Error::Code::UNKNOWN:
+    case hercules::common::Error::Code::UNKNOWN:
       return TRITONSERVER_ERROR_UNKNOWN;
-    case triton::common::Error::Code::INTERNAL:
+    case hercules::common::Error::Code::INTERNAL:
       return TRITONSERVER_ERROR_INTERNAL;
-    case triton::common::Error::Code::NOT_FOUND:
+    case hercules::common::Error::Code::NOT_FOUND:
       return TRITONSERVER_ERROR_NOT_FOUND;
-    case triton::common::Error::Code::INVALID_ARG:
+    case hercules::common::Error::Code::INVALID_ARG:
       return TRITONSERVER_ERROR_INVALID_ARG;
-    case triton::common::Error::Code::UNAVAILABLE:
+    case hercules::common::Error::Code::UNAVAILABLE:
       return TRITONSERVER_ERROR_UNAVAILABLE;
-    case triton::common::Error::Code::UNSUPPORTED:
+    case hercules::common::Error::Code::UNSUPPORTED:
       return TRITONSERVER_ERROR_UNSUPPORTED;
-    case triton::common::Error::Code::ALREADY_EXISTS:
+    case hercules::common::Error::Code::ALREADY_EXISTS:
       return TRITONSERVER_ERROR_ALREADY_EXISTS;
 
     default:
@@ -92,7 +92,7 @@ StatusCodeToTritonCode(triton::common::Error::Code error_code)
 }
 
 TRITONSERVER_Error*
-CommonErrorToTritonError(triton::common::Error error)
+CommonErrorToTritonError(hercules::common::Error error)
 {
   return TRITONSERVER_ErrorNew(
       StatusCodeToTritonCode(error.ErrorCode()), error.Message().c_str());
@@ -673,7 +673,7 @@ CopyBuffer(
   // need to be careful on whether the src buffer is valid.
   if ((src_memory_type != TRITONSERVER_MEMORY_GPU) &&
       (dst_memory_type != TRITONSERVER_MEMORY_GPU)) {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     if (copy_on_stream) {
       auto params = new CopyParams(dst, src, byte_size);
       cudaLaunchHostFunc(
@@ -684,9 +684,9 @@ CopyBuffer(
     }
 #else
     memcpy(dst, src, byte_size);
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   } else {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
     // [TODO] use cudaMemcpyDefault if UVM is supported for the device
     auto copy_kind = cudaMemcpyDeviceToDevice;
     if (src_memory_type != TRITONSERVER_MEMORY_GPU) {
@@ -714,7 +714,7 @@ CopyBuffer(
         TRITONSERVER_ERROR_INTERNAL,
         std::string(msg + ": try to use CUDA copy while GPU is not supported")
             .c_str());
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
   }
 
   return nullptr;  // success
@@ -881,7 +881,7 @@ CreateCudaStream(
 {
   *stream = nullptr;
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   // Make sure that correct device is set before creating stream and
   // then restore the device to what was set by the caller.
   int current_device;
@@ -910,7 +910,7 @@ CreateCudaStream(
         (std::string("unable to create stream: ") + cudaGetErrorString(cuerr))
             .c_str());
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
   return nullptr;  // success
 }
@@ -1005,10 +1005,10 @@ ParseDoubleValue(const std::string& value, double* parsed_value)
 
 TRITONSERVER_Error*
 GetParameterValue(
-    triton::common::TritonJson::Value& params, const std::string& key,
+    hercules::common::TritonJson::Value& params, const std::string& key,
     std::string* value)
 {
-  triton::common::TritonJson::Value json_value;
+  hercules::common::TritonJson::Value json_value;
   RETURN_ERROR_IF_FALSE(
       params.Find(key.c_str(), &json_value), TRITONSERVER_ERROR_NOT_FOUND,
       std::string("model configuration is missing the parameter ") + key);
@@ -1018,14 +1018,14 @@ GetParameterValue(
 
 TRITONSERVER_Error*
 BatchInput::ParseFromModelConfig(
-    triton::common::TritonJson::Value& config,
+    hercules::common::TritonJson::Value& config,
     std::vector<BatchInput>* batch_inputs)
 {
   batch_inputs->clear();
-  triton::common::TritonJson::Value bis;
+  hercules::common::TritonJson::Value bis;
   RETURN_IF_ERROR(config.MemberAsArray("batch_input", &bis));
   for (size_t i = 0; i < bis.ArraySize(); ++i) {
-    triton::common::TritonJson::Value bi;
+    hercules::common::TritonJson::Value bi;
     RETURN_IF_ERROR(bis.IndexAsObject(i, &bi));
     batch_inputs->emplace_back();
     RETURN_IF_ERROR(batch_inputs->back().Init(bi));
@@ -1035,10 +1035,10 @@ BatchInput::ParseFromModelConfig(
 }
 
 TRITONSERVER_Error*
-BatchInput::Init(triton::common::TritonJson::Value& bi_config)
+BatchInput::Init(hercules::common::TritonJson::Value& bi_config)
 {
   {
-    triton::common::TritonJson::Value bi_target_names;
+    hercules::common::TritonJson::Value bi_target_names;
     RETURN_IF_ERROR(bi_config.MemberAsArray("target_name", &bi_target_names));
     for (size_t i = 0; i < bi_target_names.ArraySize(); ++i) {
       std::string tn;
@@ -1075,7 +1075,7 @@ BatchInput::Init(triton::common::TritonJson::Value& bi_config)
         std::string("unexpected batch input data type '" + bi_dtype + "'"));
   }
   {
-    triton::common::TritonJson::Value bi_source_inputs;
+    hercules::common::TritonJson::Value bi_source_inputs;
     RETURN_IF_ERROR(bi_config.MemberAsArray("source_input", &bi_source_inputs));
     for (size_t i = 0; i < bi_source_inputs.ArraySize(); ++i) {
       std::string si;
@@ -1131,19 +1131,19 @@ ModelConfigDataTypeToTritonServerDataType(const std::string& data_type_str)
 
 TRITONSERVER_Error*
 BatchOutput::ParseFromModelConfig(
-    triton::common::TritonJson::Value& config,
+    hercules::common::TritonJson::Value& config,
     std::vector<BatchOutput>* batch_outputs)
 {
   batch_outputs->clear();
-  triton::common::TritonJson::Value bos;
+  hercules::common::TritonJson::Value bos;
   RETURN_IF_ERROR(config.MemberAsArray("batch_output", &bos));
   for (size_t i = 0; i < bos.ArraySize(); ++i) {
     batch_outputs->emplace_back();
     auto& batch_output = batch_outputs->back();
-    triton::common::TritonJson::Value bo;
+    hercules::common::TritonJson::Value bo;
     RETURN_IF_ERROR(bos.IndexAsObject(i, &bo));
     {
-      triton::common::TritonJson::Value bo_target_names;
+      hercules::common::TritonJson::Value bo_target_names;
       RETURN_IF_ERROR(bo.MemberAsArray("target_name", &bo_target_names));
       for (size_t i = 0; i < bo_target_names.ArraySize(); ++i) {
         std::string tn;
@@ -1162,10 +1162,10 @@ BatchOutput::ParseFromModelConfig(
         if (mbs != 0) {
           batch_output.shape_.push_back(-1);
         }
-        triton::common::TritonJson::Value ios;
+        hercules::common::TritonJson::Value ios;
         RETURN_IF_ERROR(config.MemberAsArray("output", &ios));
         for (size_t i = 0; i < ios.ArraySize(); i++) {
-          triton::common::TritonJson::Value io;
+          hercules::common::TritonJson::Value io;
           RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
           std::string io_name;
           RETURN_IF_ERROR(io.MemberAsString("name", &io_name));
@@ -1176,7 +1176,7 @@ BatchOutput::ParseFromModelConfig(
                 ModelConfigDataTypeToTritonServerDataType(io_dtype);
             // If a reshape is provided for the input then use that when
             // validating that the model matches what is expected.
-            triton::common::TritonJson::Value reshape;
+            hercules::common::TritonJson::Value reshape;
             if (io.Find("reshape", &reshape)) {
               RETURN_IF_ERROR(
                   ParseShape(reshape, "shape", &batch_output.shape_));
@@ -1193,7 +1193,7 @@ BatchOutput::ParseFromModelConfig(
       }
     }
     {
-      triton::common::TritonJson::Value bo_source_inputs;
+      hercules::common::TritonJson::Value bo_source_inputs;
       RETURN_IF_ERROR(bo.MemberAsArray("source_input", &bo_source_inputs));
       for (size_t i = 0; i < bo_source_inputs.ArraySize(); ++i) {
         std::string si;
@@ -1208,10 +1208,10 @@ BatchOutput::ParseFromModelConfig(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     std::string* value, const std::string& default_value)
 {
-  triton::common::TritonJson::Value json_value;
+  hercules::common::TritonJson::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", value));
   } else {
@@ -1223,10 +1223,10 @@ TryParseModelStringParameter(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     int* value, const int& default_value)
 {
-  triton::common::TritonJson::Value json_value;
+  hercules::common::TritonJson::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     std::string string_value;
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", &string_value));
@@ -1239,10 +1239,10 @@ TryParseModelStringParameter(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     bool* value, const bool& default_value)
 {
-  triton::common::TritonJson::Value json_value;
+  hercules::common::TritonJson::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     std::string string_value;
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", &string_value));
@@ -1255,10 +1255,10 @@ TryParseModelStringParameter(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    triton::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::TritonJson::Value& params, const std::string& mkey,
     uint64_t* value, const uint64_t& default_value)
 {
-  triton::common::TritonJson::Value json_value;
+  hercules::common::TritonJson::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     std::string string_value;
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", &string_value));
@@ -1353,4 +1353,4 @@ GetRequestId(TRITONBACKEND_Request* request)
   return std::string("[request id: ") + request_id + "] ";
 }
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

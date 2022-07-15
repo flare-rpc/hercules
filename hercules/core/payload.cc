@@ -12,7 +12,7 @@ namespace hercules::core {
 
 Payload::Payload()
     : op_type_(Operation::INFER_RUN),
-      requests_(std::vector<std::unique_ptr<InferenceRequest>>()),
+      requests_(std::vector<std::unique_ptr<inference_request>>()),
       OnCallback_([]() {}), instance_(nullptr), state_(State::UNINITIALIZED),
       batcher_start_ns_(0), saturated_(false)
 {
@@ -93,7 +93,7 @@ Payload::ReserveRequests(size_t size)
 }
 
 void
-Payload::AddRequest(std::unique_ptr<InferenceRequest> request)
+Payload::AddRequest(std::unique_ptr<inference_request> request)
 {
   if ((batcher_start_ns_ == 0) ||
       (batcher_start_ns_ > request->BatcherStartNs())) {

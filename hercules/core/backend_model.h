@@ -15,10 +15,11 @@
 #include "model.h"
 #include "hercules/proto/model_config.pb.h"
 #include "status.h"
+#include "flare/base/result_status.h"
 
 namespace hercules::core {
 
-class InferenceServer;
+class inference_server;
 class TritonModelInstance;
 
 //
@@ -29,9 +30,9 @@ class TritonModelInstance;
 class TritonModel : public Model {
  public:
   static Status Create(
-      InferenceServer* server, const std::string& model_path,
-      const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
-      const triton::common::HostPolicyCmdlineConfigMap& host_policy_map,
+      inference_server* server, const std::string& model_path,
+      const hercules::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+      const hercules::common::HostPolicyCmdlineConfigMap& host_policy_map,
       const std::string& model_name, const int64_t version,
       const hercules::proto::ModelConfig& model_config,
       std::unique_ptr<TritonModel>* model);
@@ -41,12 +42,12 @@ class TritonModel : public Model {
   {
     return localized_model_dir_->Path();
   }
-  InferenceServer* Server() { return server_; }
+  inference_server* Server() { return server_; }
   bool AutoCompleteConfig() const { return auto_complete_config_; }
   Status UpdateModelConfig(
       const uint32_t config_version,
       TRITONSERVER_Message* updated_config_message);
-  const std::shared_ptr<TritonBackend>& Backend() const { return backend_; }
+  const std::shared_ptr<hercules_backend>& Backend() const { return backend_; }
   const std::vector<std::unique_ptr<TritonModelInstance>>& Instances() const
   {
     return instances_;
@@ -57,12 +58,12 @@ class TritonModel : public Model {
       std::unique_ptr<TritonModelInstance>&& instance, const bool passive);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(TritonModel);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(TritonModel);
 
   TritonModel(
-      InferenceServer* server,
+      inference_server* server,
       const std::shared_ptr<LocalizedDirectory>& localized_model_dir,
-      const std::shared_ptr<TritonBackend>& backend,
+      const std::shared_ptr<hercules_backend>& backend,
       const double min_compute_capability, const int64_t version,
       const hercules::proto::ModelConfig& config, const bool auto_complete_config);
 
@@ -73,14 +74,14 @@ class TritonModel : public Model {
   // Merges the global backend configs with the specific
   // backend configs.
   static Status ResolveBackendConfigs(
-      const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+      const hercules::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
       const std::string& backend_name,
-      triton::common::BackendCmdlineConfig& config);
+      hercules::common::BackendCmdlineConfig& config);
 
   // Sets defaults for some backend configurations when none are specified on
   // the command line.
   static Status SetBackendConfigDefaults(
-      triton::common::BackendCmdlineConfig& config);
+      hercules::common::BackendCmdlineConfig& config);
 
   Status Initialize();
   Status WarmUp();
@@ -88,7 +89,7 @@ class TritonModel : public Model {
   // The server object that owns this model. The model holds this as a
   // raw pointer because the lifetime of the server is guaranteed to
   // be longer than the lifetime of a model owned by the server.
-  InferenceServer* server_;
+  inference_server* server_;
 
   // The minimum supported compute capability on device.
   const double min_compute_capability_;
@@ -102,7 +103,7 @@ class TritonModel : public Model {
   std::shared_ptr<LocalizedDirectory> localized_model_dir_;
 
   // Backend used by this model.
-  std::shared_ptr<TritonBackend> backend_;
+  std::shared_ptr<hercules_backend> backend_;
 
   // The model instances for this model.
   std::vector<std::unique_ptr<TritonModelInstance>> instances_;

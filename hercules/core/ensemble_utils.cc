@@ -25,7 +25,7 @@ namespace {
 struct TensorNode {
   TensorNode(
       const std::string& model_name, const bool batching,
-      const hercules::proto::DataType& type, const triton::common::DimsList& dims)
+      const hercules::proto::DataType& type, const hercules::common::DimsList& dims)
       : model_name_(model_name), type_(type), dims_(dims), is_decoupled_(false),
         decouple_label_(0), visited_(false)
   {
@@ -45,8 +45,8 @@ struct TensorNode {
 
   std::string model_name_;
   hercules::proto::DataType type_;
-  triton::common::DimsList dims_;
-  triton::common::DimsList full_dims_;
+  hercules::common::DimsList dims_;
+  hercules::common::DimsList full_dims_;
   bool is_decoupled_;
   size_t decouple_label_;
   bool visited_;
@@ -84,15 +84,15 @@ ValidateTensorConsistency(
   // used for both non-batching model and batching model. In that case, it
   // is acceptable if non-batching model shape is [-1, d_0, d_1, ..., d_n]
   // while the batching model shape is [d_0, d_1, ..., d_n].
-  if (!triton::common::CompareDimsWithWildcard(lhs.dims_, rhs.dims_) &&
-      !triton::common::CompareDimsWithWildcard(
+  if (!hercules::common::CompareDimsWithWildcard(lhs.dims_, rhs.dims_) &&
+      !hercules::common::CompareDimsWithWildcard(
           lhs.full_dims_, rhs.full_dims_)) {
     return Status(
         Status::Code::INVALID_ARG,
         message + "inconsistent shape: " +
-            triton::common::DimsListToString(lhs.full_dims_) +
+            hercules::common::DimsListToString(lhs.full_dims_) +
             " is inferred from model " + lhs.model_name_ + " while " +
-            triton::common::DimsListToString(rhs.full_dims_) +
+            hercules::common::DimsListToString(rhs.full_dims_) +
             " is inferred from model " + rhs.model_name_);
   }
 

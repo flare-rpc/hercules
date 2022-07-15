@@ -6,7 +6,7 @@
  *****************************************************************/
 
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include "model_config_cuda.h"
 
 #include <cuda_runtime_api.h>
@@ -42,4 +42,4 @@ GetCudaStreamPriority(
 }
 
 }  // namespace hercules::core
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU

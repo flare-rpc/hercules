@@ -25,7 +25,7 @@
 #include <string>
 #include <vector>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 //
 // ASCII table printer.
@@ -240,4 +240,4 @@ TablePrinter::TablePrinter(const std::vector<std::string>& headers)
   InsertRow(headers);
 }
 
-}}  // namespace triton::common
+}  // namespace hercules::common

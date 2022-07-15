@@ -38,6 +38,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/core.dir/core/metric_model_reporter.cc.o"
   "CMakeFiles/core.dir/core/metrics.cc.o"
   "CMakeFiles/core.dir/core/model.cc.o"
+  "CMakeFiles/core.dir/core/model_config_cuda.cc.o"
   "CMakeFiles/core.dir/core/model_config_utils.cc.o"
   "CMakeFiles/core.dir/core/model_repository_manager.cc.o"
   "CMakeFiles/core.dir/core/numa_utils.cc.o"

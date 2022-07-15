@@ -30,7 +30,7 @@
 #include "hercules/backend/backend_common.h"
 #include "hercules/backend/backend_model.h"
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
 //
 // BackendModelInstance
@@ -82,7 +82,7 @@ BackendModelInstance::BackendModelInstance(
       break;
     }
     case TRITONSERVER_INSTANCEGROUPKIND_GPU: {
-#if defined(TRITON_ENABLE_GPU)
+#if defined(HERCULES_ENABLE_GPU)
       cudaDeviceProp cuprops;
       cudaError_t cuerr = cudaGetDeviceProperties(&cuprops, device_id_);
       if (cuerr != cudaSuccess) {
@@ -111,7 +111,7 @@ BackendModelInstance::BackendModelInstance(
 #elif !defined(TRITON_ENABLE_MALI_GPU)
       throw BackendModelInstanceException(TRITONSERVER_ErrorNew(
           TRITONSERVER_ERROR_INTERNAL, "GPU instances not supported"));
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
       break;
     }
     default: {
@@ -153,7 +153,7 @@ BackendModelInstance::BackendModelInstance(
 
 BackendModelInstance::~BackendModelInstance()
 {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
   if (stream_ != nullptr) {
     cudaError_t err = cudaStreamDestroy(stream_);
     if (err != cudaSuccess) {
@@ -165,7 +165,7 @@ BackendModelInstance::~BackendModelInstance()
     }
     stream_ = nullptr;
   }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 }
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

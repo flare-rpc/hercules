@@ -29,7 +29,7 @@
 
 #include <nvtx3/nvToolsExt.h>
 
-namespace triton { namespace common {
+namespace hercules::common {
 
 // Updates a server stat with duration measured by a C++ scope.
 class NvtxRange {
@@ -41,7 +41,7 @@ class NvtxRange {
   ~NvtxRange() { nvtxRangePop(); }
 };
 
-}}  // namespace triton::common
+}  // namespace hercules::common
 
 #endif  // TRITON_ENABLE_NVTX
 
@@ -50,7 +50,7 @@ class NvtxRange {
 //
 #ifdef TRITON_ENABLE_NVTX
 #define NVTX_INITIALIZE nvtxInitialize(nullptr)
-#define NVTX_RANGE(V, L) triton::common::NvtxRange V(L)
+#define NVTX_RANGE(V, L) hercules::common::NvtxRange V(L)
 #define NVTX_MARKER(L) nvtxMarkA(L)
 #else
 #define NVTX_INITIALIZE

@@ -11,7 +11,7 @@
 #include <map>
 #include "hercules/backend/backend_common.h"
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
 TRITONSERVER_Error*
 BackendMemory::Create(
@@ -23,7 +23,7 @@ BackendMemory::Create(
   void* ptr = nullptr;
   switch (alloc_type) {
     case AllocationType::CPU_PINNED: {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
       RETURN_IF_CUDA_ERROR(
           cudaHostAlloc(&ptr, byte_size, cudaHostAllocPortable),
           TRITONSERVER_ERROR_UNAVAILABLE,
@@ -32,12 +32,12 @@ BackendMemory::Create(
       return TRITONSERVER_ErrorNew(
           TRITONSERVER_ERROR_UNSUPPORTED,
           "pinned-memory allocation not supported");
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
       break;
     }
 
     case AllocationType::GPU: {
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
       int current_device;
       RETURN_IF_CUDA_ERROR(
           cudaGetDevice(&current_device), TRITONSERVER_ERROR_INTERNAL,
@@ -63,7 +63,7 @@ BackendMemory::Create(
 #else
       return TRITONSERVER_ErrorNew(
           TRITONSERVER_ERROR_UNSUPPORTED, "GPU allocation not supported");
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
       break;
     }
 
@@ -145,20 +145,20 @@ BackendMemory::~BackendMemory()
   if (owns_buffer_) {
     switch (alloctype_) {
       case AllocationType::CPU_PINNED:
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         if (buffer_ != nullptr) {
           LOG_IF_CUDA_ERROR(
               cudaFreeHost(buffer_), "failed to free pinned memory");
         }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
         break;
 
       case AllocationType::GPU:
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
         if (buffer_ != nullptr) {
           LOG_IF_CUDA_ERROR(cudaFree(buffer_), "failed to free CUDA memory");
         }
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
         break;
 
       case AllocationType::CPU:
@@ -210,4 +210,4 @@ BackendMemory::AllocTypeString(const AllocationType a)
   return "<unknown>";
 }
 
-}}  // namespace triton::backend
+}   // namespace hercules::backend

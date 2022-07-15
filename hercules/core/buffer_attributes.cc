@@ -6,7 +6,7 @@
  *****************************************************************/
 
 
-#include "buffer_attributes.h"
+#include "hercules/core/buffer_attributes.h"
 
 #include <cstring>
 #include "constants.h"

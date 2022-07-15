@@ -9,7 +9,7 @@
 
 #include "triton/backend/backend_model.h"
 
-namespace triton { namespace backend { namespace tensorrt {
+namespace hercules::backend { namespace tensorrt {
 
 class TensorRTModel : public BackendModel {
  public:
@@ -44,4 +44,4 @@ class TensorRTModel : public BackendModel {
   bool busy_wait_events_;
 };
 
-}}}  // namespace triton::backend::tensorrt
+}}}  // namespace hercules::backend::tensorrt

@@ -39,7 +39,7 @@ class LabelProvider {
       const std::string& name, const std::vector<std::string>& labels);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(LabelProvider);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(LabelProvider);
 
   std::unordered_map<std::string, std::vector<std::string>> label_map_;
 };

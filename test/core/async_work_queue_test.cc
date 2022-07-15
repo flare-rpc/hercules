@@ -17,7 +17,7 @@
 #include <vector>
 #include "hercules/common/async_work_queue.h"
 
-namespace tc = triton::common;
+namespace tc = hercules::common;
 
 namespace {
 

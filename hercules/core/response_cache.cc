@@ -17,7 +17,7 @@ enum class ScopedTimerType { INSERTION, LOOKUP };
 class ScopedTimer {
  public:
   explicit ScopedTimer(
-      hercules::core::InferenceRequest& request, uint64_t& duration,
+      hercules::core::inference_request& request, uint64_t& duration,
       ScopedTimerType type)
       : request_(request), duration_(duration), type_(type)
   {
@@ -48,7 +48,7 @@ class ScopedTimer {
   }
 
  private:
-  hercules::core::InferenceRequest& request_;
+  hercules::core::inference_request& request_;
   uint64_t& duration_;
   ScopedTimerType type_;
 };
@@ -117,7 +117,7 @@ RequestResponseCache::~RequestResponseCache()
 
 Status
 RequestResponseCache::Lookup(
-    InferenceResponse* const response, InferenceRequest* const request)
+    InferenceResponse* const response, inference_request* const request)
 {
   // Lock on cache lookup
   std::lock_guard<std::recursive_mutex> lk(cache_mtx_);
@@ -172,7 +172,7 @@ RequestResponseCache::Lookup(
 
 Status
 RequestResponseCache::Insert(
-    const InferenceResponse& response, InferenceRequest* const request)
+    const InferenceResponse& response, inference_request* const request)
 {
   // Lock on cache insertion
   std::lock_guard<std::recursive_mutex> lk(cache_mtx_);
@@ -441,7 +441,7 @@ RequestResponseCache::BuildInferenceResponse(
 
 Status
 RequestResponseCache::HashInputBuffers(
-    const InferenceRequest::Input* input, size_t* seed)
+    const inference_request::Input* input, size_t* seed)
 {
   // Iterate over each data buffer in input in case of non-contiguous memory
   for (size_t idx = 0; idx < input->DataBufferCount(); ++idx) {
@@ -474,12 +474,12 @@ RequestResponseCache::HashInputBuffers(
 
 
 Status
-RequestResponseCache::HashInputs(const InferenceRequest& request, size_t* seed)
+RequestResponseCache::HashInputs(const inference_request& request, size_t* seed)
 {
   const auto& inputs = request.ImmutableInputs();
   // Convert inputs to ordered map for consistency in hashing
   // inputs sorted by key (input) name
-  std::map<std::string, InferenceRequest::Input*> ordered_inputs(
+  std::map<std::string, inference_request::Input*> ordered_inputs(
       inputs.begin(), inputs.end());
   for (const auto& input : ordered_inputs) {
     // Add input name to hash
@@ -493,7 +493,7 @@ RequestResponseCache::HashInputs(const InferenceRequest& request, size_t* seed)
 
 
 Status
-RequestResponseCache::Hash(const InferenceRequest& request, uint64_t* key)
+RequestResponseCache::Hash(const inference_request& request, uint64_t* key)
 {
   std::size_t seed = 0;
   // Add request model name to hash
@@ -506,7 +506,7 @@ RequestResponseCache::Hash(const InferenceRequest& request, uint64_t* key)
 }
 
 Status
-RequestResponseCache::HashAndSet(InferenceRequest* const request)
+RequestResponseCache::HashAndSet(inference_request* const request)
 {
   uint64_t key = 0;
   RETURN_IF_ERROR(Hash(*request, &key));

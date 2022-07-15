@@ -18,7 +18,7 @@
 
 namespace hercules::core {
 
-class InferenceServer;
+class inference_server;
 class Model;
 
 /// Predefined reason strings
@@ -125,14 +125,14 @@ class ModelRepositoryManager {
   /// \param model_repository_manager Return the model repository manager.
   /// \return The error status.
   static Status Create(
-      InferenceServer* server, const std::string& server_version,
+      inference_server* server, const std::string& server_version,
       const std::set<std::string>& repository_paths,
       const std::set<std::string>& startup_models,
       const bool strict_model_config,
-      const triton::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
+      const hercules::common::BackendCmdlineConfigMap& backend_cmdline_config_map,
       const bool polling_enabled, const bool model_control_enabled,
       const double min_compute_capability,
-      const triton::common::HostPolicyCmdlineConfigMap& host_policy_map,
+      const hercules::common::HostPolicyCmdlineConfigMap& host_policy_map,
       const unsigned int model_load_thread_count,
       std::unique_ptr<ModelRepositoryManager>* model_repository_manager);
 
@@ -150,7 +150,7 @@ class ModelRepositoryManager {
   /// loaded.
   Status LoadUnloadModel(
       const std::unordered_map<
-          std::string, std::vector<const InferenceParameter*>>& models,
+          std::string, std::vector<const inference_parameter*>>& models,
       const ActionType type, const bool unload_dependents);
 
   /// Unload all models. This function should be called before shutting down
@@ -240,7 +240,7 @@ class ModelRepositoryManager {
   /// The internal function that load or unload a set of models.
   Status LoadUnloadModels(
       const std::unordered_map<
-          std::string, std::vector<const InferenceParameter*>>& models,
+          std::string, std::vector<const inference_parameter*>>& models,
       const ActionType type, const bool unload_dependents,
       bool* all_models_polled);
 
@@ -264,7 +264,7 @@ class ModelRepositoryManager {
   /// \return The error status.
   Status Poll(
       const std::unordered_map<
-          std::string, std::vector<const InferenceParameter*>>& models,
+          std::string, std::vector<const inference_parameter*>>& models,
       std::set<std::string>* added, std::set<std::string>* deleted,
       std::set<std::string>* modified, std::set<std::string>* unmodified,
       ModelInfoMap* updated_infos, bool* all_models_polled);
@@ -279,7 +279,7 @@ class ModelRepositoryManager {
   /// \return The error status.
   Status InitializeModelInfo(
       const std::string& name, const std::string& path,
-      const std::vector<const InferenceParameter*>& params,
+      const std::vector<const inference_parameter*>& params,
       std::unique_ptr<ModelInfo>* info);
 
   /// Load models based on the dependency graph. The function will iteratively
@@ -336,7 +336,7 @@ class ModelRepositoryManager {
       DependencyNode* current_node, const DependencyNode* start_node);
 
   bool ModelDirectoryOverride(
-      const std::vector<const InferenceParameter*>& model_params);
+      const std::vector<const inference_parameter*>& model_params);
 
   std::set<std::string> repository_paths_;
   const bool autofill_;

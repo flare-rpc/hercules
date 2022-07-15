@@ -14,19 +14,19 @@
 
 namespace hercules::core {
 
-class InferenceServer;
+class inference_server;
 
 class EnsembleModel : public Model {
  public:
   EnsembleModel(EnsembleModel&&) = default;
 
   static Status Create(
-      InferenceServer* server, const std::string& path, const int64_t version,
+      inference_server* server, const std::string& path, const int64_t version,
       const hercules::proto::ModelConfig& model_config,
       const double min_compute_capability, std::unique_ptr<Model>* model);
 
  private:
-  DISALLOW_COPY_AND_ASSIGN(EnsembleModel);
+  FLARE_DISALLOW_COPY_AND_ASSIGN(EnsembleModel);
 
   explicit EnsembleModel(
       const double min_compute_capability, const std::string& model_dir,

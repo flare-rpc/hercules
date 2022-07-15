@@ -14,164 +14,163 @@
 #include "hercules/common/async_work_queue.h"
 #include "hercules/core/tritonbackend.h"
 
-#ifdef TRITON_ENABLE_GPU
+#ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
-#endif  // TRITON_ENABLE_GPU
+#endif  // HERCULES_ENABLE_GPU
 
-namespace triton { namespace backend {
+namespace hercules::backend {
 
-#ifndef TRITON_ENABLE_GPU
-using cudaStream_t = void*;
-using cudaEvent_t = void*;
-#endif  // !TRITON_ENABLE_GPU
+#ifndef HERCULES_ENABLE_GPU
+    using cudaStream_t = void *;
+    using cudaEvent_t = void *;
+#endif  // !HERCULES_ENABLE_GPU
 
-//
-// BackendOutputResponder
-//
-class BackendOutputResponder {
- public:
-  // The caller can optionally provide 'event' for internal synchronization
-  // instead of using 'stream'.
-  explicit BackendOutputResponder(
-      TRITONBACKEND_Request** requests, const uint32_t request_count,
-      std::vector<TRITONBACKEND_Response*>* responses,
-      TRITONBACKEND_MemoryManager* memory_manager,
-      const bool first_dim_batching, const bool pinned_enabled,
-      cudaStream_t stream, cudaEvent_t event = nullptr,
-      bool copy_on_stream = false)
-      : need_sync_(false), requests_(requests), request_count_(request_count),
-        responses_(responses), memory_manager_(memory_manager),
-        first_dim_batching_(first_dim_batching),
-        pinned_enabled_(pinned_enabled),
-        use_async_cpu_copy_(triton::common::AsyncWorkQueue::WorkerCount() > 1),
-        stream_(stream), event_(event), pending_pinned_byte_size_(0),
-        copy_on_stream_(copy_on_stream)
-  {
-  }
+    //
+    // BackendOutputResponder
+    //
+    class BackendOutputResponder {
+    public:
+        // The caller can optionally provide 'event' for internal synchronization
+        // instead of using 'stream'.
+        explicit BackendOutputResponder(
+                TRITONBACKEND_Request **requests, const uint32_t request_count,
+                std::vector<TRITONBACKEND_Response *> *responses,
+                TRITONBACKEND_MemoryManager *memory_manager,
+                const bool first_dim_batching, const bool pinned_enabled,
+                cudaStream_t stream, cudaEvent_t event = nullptr,
+                bool copy_on_stream = false)
+                : need_sync_(false), requests_(requests), request_count_(request_count),
+                  responses_(responses), memory_manager_(memory_manager),
+                  first_dim_batching_(first_dim_batching),
+                  pinned_enabled_(pinned_enabled),
+                  use_async_cpu_copy_(hercules::common::AsyncWorkQueue::WorkerCount() > 1),
+                  stream_(stream), event_(event), pending_pinned_byte_size_(0),
+                  copy_on_stream_(copy_on_stream) {
+        }
 
-  // Legacy constructor for backwards compatibility. The above
-  // constructor should be used for all new cases. The responder needs
-  // to know if the model is batching along the first dimension. With
-  // this constructor we derive that information from the
-  // max_batch_size value instead of having it provided directly as in
-  // the above constructor.
-  explicit BackendOutputResponder(
-      TRITONBACKEND_Request** requests, const uint32_t request_count,
-      std::vector<TRITONBACKEND_Response*>* responses, const int max_batch_size,
-      TRITONBACKEND_MemoryManager* memory_manager, const bool pinned_enabled,
-      cudaStream_t stream, cudaEvent_t event = nullptr,
-      bool copy_on_stream = false)
-      : need_sync_(false), requests_(requests), request_count_(request_count),
-        responses_(responses), memory_manager_(memory_manager),
-        first_dim_batching_(max_batch_size >= 1),
-        pinned_enabled_(pinned_enabled),
-        use_async_cpu_copy_(triton::common::AsyncWorkQueue::WorkerCount() > 1),
-        stream_(stream), event_(event), pending_pinned_byte_size_(0),
-        copy_on_stream_(copy_on_stream)
-  {
-  }
+        // Legacy constructor for backwards compatibility. The above
+        // constructor should be used for all new cases. The responder needs
+        // to know if the model is batching along the first dimension. With
+        // this constructor we derive that information from the
+        // max_batch_size value instead of having it provided directly as in
+        // the above constructor.
+        explicit BackendOutputResponder(
+                TRITONBACKEND_Request **requests, const uint32_t request_count,
+                std::vector<TRITONBACKEND_Response *> *responses, const int max_batch_size,
+                TRITONBACKEND_MemoryManager *memory_manager, const bool pinned_enabled,
+                cudaStream_t stream, cudaEvent_t event = nullptr,
+                bool copy_on_stream = false)
+                : need_sync_(false), requests_(requests), request_count_(request_count),
+                  responses_(responses), memory_manager_(memory_manager),
+                  first_dim_batching_(max_batch_size >= 1),
+                  pinned_enabled_(pinned_enabled),
+                  use_async_cpu_copy_(hercules::common::AsyncWorkQueue::WorkerCount() > 1),
+                  stream_(stream), event_(event), pending_pinned_byte_size_(0),
+                  copy_on_stream_(copy_on_stream) {
+        }
 
-  ~BackendOutputResponder();
+        ~BackendOutputResponder();
 
-  // Process all responses for a named output tensor.
-  // 'batchn_shape' may be modified by the call.
-  void ProcessTensor(
-      const std::string& name, const TRITONSERVER_DataType datatype,
-      std::vector<int64_t>& batchn_shape, const char* buffer,
-      const TRITONSERVER_MemoryType memory_type, const int64_t memory_type_id);
+        // Process all responses for a named output tensor.
+        // 'batchn_shape' may be modified by the call.
+        void ProcessTensor(
+                const std::string &name, const TRITONSERVER_DataType datatype,
+                std::vector<int64_t> &batchn_shape, const char *buffer,
+                const TRITONSERVER_MemoryType memory_type, const int64_t memory_type_id);
 
-  // Process all responses for a named state tensor. Returns a vector of
-  // TRITONBACKEND_State objects that the backend can use to update the state.
-  // If TRITONBACKEND_StateUpdate is not called on the vector elements, the
-  // state will not be updated.
-  // 'batchn_shape' may be modified by the call.
-  std::vector<TRITONBACKEND_State*> ProcessStateTensor(
-      const std::string& name, const TRITONSERVER_DataType datatype,
-      std::vector<int64_t>& batchn_shape, const char* buffer,
-      const TRITONSERVER_MemoryType memory_type, const int64_t memory_type_id);
+        // Process all responses for a named state tensor. Returns a vector of
+        // TRITONBACKEND_State objects that the backend can use to update the state.
+        // If TRITONBACKEND_StateUpdate is not called on the vector elements, the
+        // state will not be updated.
+        // 'batchn_shape' may be modified by the call.
+        std::vector<TRITONBACKEND_State *> ProcessStateTensor(
+                const std::string &name, const TRITONSERVER_DataType datatype,
+                std::vector<int64_t> &batchn_shape, const char *buffer,
+                const TRITONSERVER_MemoryType memory_type, const int64_t memory_type_id);
 
-  // Process all responses for a batch output and derive its value from
-  // 'buffer'.
-  void ProcessBatchOutput(
-      const std::string& name, const BatchOutput& batch_output,
-      const char* buffer, const TRITONSERVER_MemoryType memory_type,
-      const int64_t memory_type_id);
+        // Process all responses for a batch output and derive its value from
+        // 'buffer'.
+        void ProcessBatchOutput(
+                const std::string &name, const BatchOutput &batch_output,
+                const char *buffer, const TRITONSERVER_MemoryType memory_type,
+                const int64_t memory_type_id);
 
-  // Finalize processing of all responses for all output
-  // tensors. Return true if cudaMemcpyAsync is called, and the caller
-  // should call cudaStreamSynchronize (or cudaEventSynchronize on 'event')
-  // before using the data.
-  bool Finalize();
+        // Finalize processing of all responses for all output
+        // tensors. Return true if cudaMemcpyAsync is called, and the caller
+        // should call cudaStreamSynchronize (or cudaEventSynchronize on 'event')
+        // before using the data.
+        bool Finalize();
 
- private:
-  bool FlushPendingPinned(
-      const char* tensor_buffer,
-      const TRITONSERVER_MemoryType tensor_memory_type,
-      const int64_t tensor_memory_type_id);
-  bool SetFixedSizeBuffer(
-      TRITONBACKEND_Response** response, void* response_state_or_output,
-      const std::string& output_name, const size_t tensor_byte_size,
-      const size_t tensor_offset, const char* tensor_buffer,
-      const TRITONSERVER_MemoryType tensor_memory_type,
-      const int64_t tensor_memory_type_id,
-      const TRITONSERVER_MemoryType use_pinned_memory_type, bool state);
+    private:
+        bool FlushPendingPinned(
+                const char *tensor_buffer,
+                const TRITONSERVER_MemoryType tensor_memory_type,
+                const int64_t tensor_memory_type_id);
 
-  struct OutputData {
-    OutputData(
-        const std::string& name, void* buffer, const size_t buffer_byte_size,
-        const TRITONSERVER_MemoryType memory_type, const int64_t memory_type_id)
-        : name_(name), buffer_(buffer), buffer_byte_size_(buffer_byte_size),
-          memory_type_(memory_type), memory_type_id_(memory_type_id)
-    {
-    }
-    const std::string name_;
-    void* buffer_;
-    const size_t buffer_byte_size_;
-    const TRITONSERVER_MemoryType memory_type_;
-    const int64_t memory_type_id_;
-  };
+        bool SetFixedSizeBuffer(
+                TRITONBACKEND_Response **response, void *response_state_or_output,
+                const std::string &output_name, const size_t tensor_byte_size,
+                const size_t tensor_offset, const char *tensor_buffer,
+                const TRITONSERVER_MemoryType tensor_memory_type,
+                const int64_t tensor_memory_type_id,
+                const TRITONSERVER_MemoryType use_pinned_memory_type, bool state);
 
-  bool need_sync_;
-  TRITONBACKEND_Request** requests_;
-  const uint32_t request_count_;
-  std::vector<TRITONBACKEND_Response*>* responses_;
-  TRITONBACKEND_MemoryManager* memory_manager_;
-  const bool first_dim_batching_;
-  const bool pinned_enabled_;
-  const bool use_async_cpu_copy_;
-  cudaStream_t stream_;
-  cudaEvent_t event_;
+        struct OutputData {
+            OutputData(
+                    const std::string &name, void *buffer, const size_t buffer_byte_size,
+                    const TRITONSERVER_MemoryType memory_type, const int64_t memory_type_id)
+                    : name_(name), buffer_(buffer), buffer_byte_size_(buffer_byte_size),
+                      memory_type_(memory_type), memory_type_id_(memory_type_id) {
+            }
 
-  using ResponsesList =
-      std::list<std::pair<TRITONBACKEND_Response**, OutputData>>;
+            const std::string name_;
+            void *buffer_;
+            const size_t buffer_byte_size_;
+            const TRITONSERVER_MemoryType memory_type_;
+            const int64_t memory_type_id_;
+        };
 
-  size_t pending_pinned_byte_size_;
-  size_t pending_pinned_offset_;
-  ResponsesList pending_pinned_outputs_;
-  const bool copy_on_stream_;
+        bool need_sync_;
+        TRITONBACKEND_Request **requests_;
+        const uint32_t request_count_;
+        std::vector<TRITONBACKEND_Response *> *responses_;
+        TRITONBACKEND_MemoryManager *memory_manager_;
+        const bool first_dim_batching_;
+        const bool pinned_enabled_;
+        const bool use_async_cpu_copy_;
+        cudaStream_t stream_;
+        cudaEvent_t event_;
 
-  // Pinned memories that need to live over the lifetime of this
-  // BackendOutputResponder object.
-  std::list<char*> pinned_memories_;
+        using ResponsesList =
+        std::list<std::pair<TRITONBACKEND_Response **, OutputData>>;
 
-  // Pinned memory buffers and the corresponding response outputs
-  // where the final copy to the response is deferred until Finalize()
-  // after waiting for all in-flight copies.
-  struct DeferredPinned {
-    DeferredPinned(
-        char* pinned_memory, const size_t pinned_memory_size,
-        ResponsesList&& responses)
-        : pinned_memory_(pinned_memory),
-          pinned_memory_size_(pinned_memory_size),
-          responses_(std::move(responses))
-    {
-    }
-    char* pinned_memory_;
-    const size_t pinned_memory_size_;
-    ResponsesList responses_;
-  };
+        size_t pending_pinned_byte_size_;
+        size_t pending_pinned_offset_;
+        ResponsesList pending_pinned_outputs_;
+        const bool copy_on_stream_;
 
-  std::list<DeferredPinned> deferred_pinned_;
-};
+        // Pinned memories that need to live over the lifetime of this
+        // BackendOutputResponder object.
+        std::list<char *> pinned_memories_;
 
-}}  // namespace triton::backend
+        // Pinned memory buffers and the corresponding response outputs
+        // where the final copy to the response is deferred until Finalize()
+        // after waiting for all in-flight copies.
+        struct DeferredPinned {
+            DeferredPinned(
+                    char *pinned_memory, const size_t pinned_memory_size,
+                    ResponsesList &&responses)
+                    : pinned_memory_(pinned_memory),
+                      pinned_memory_size_(pinned_memory_size),
+                      responses_(std::move(responses)) {
+            }
+
+            char *pinned_memory_;
+            const size_t pinned_memory_size_;
+            ResponsesList responses_;
+        };
+
+        std::list<DeferredPinned> deferred_pinned_;
+    };
+
+}   // namespace hercules::backend
