@@ -29,7 +29,7 @@
 #include "infer_request.h"
 #include "status.h"
 
-namespace triton { namespace core {
+namespace hercules::core {
 
 // Scheduler interface.
 class Scheduler {
@@ -77,4 +77,4 @@ class Scheduler {
   virtual void Stop() = 0;
 };
 
-}}  // namespace triton::core
+}  // namespace hercules::core

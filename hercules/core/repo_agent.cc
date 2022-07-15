@@ -44,7 +44,7 @@
 #define TRITONAPI_DECLSPEC
 #endif
 
-namespace triton { namespace core {
+namespace hercules::core {
 
 std::string
 TritonRepoAgentLibraryName(const std::string& agent_name)
@@ -570,4 +570,4 @@ TRITONREPOAGENT_SetState(TRITONREPOAGENT_Agent* agent, void* state)
 
 }  // extern C
 
-}}  // namespace triton::core
+}  // namespace hercules::core
