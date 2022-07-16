@@ -12,7 +12,7 @@
 #include <memory>
 #include <mutex>
 #include "logging.h"
-#include "triton/backend/backend_common.h"
+#include "hercules/backend/backend_common.h"
 
 namespace hercules::backend { namespace tensorrt {
 

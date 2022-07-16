@@ -18,7 +18,7 @@ using DimsList = ::google::protobuf::RepeatedField<::google::protobuf::int64>;
 
 /// The type for the metric_tags map.
 using MetricTagsMap = ::google::protobuf::Map<
-    ::google::protobuf::string, ::google::protobuf::string>;
+    std::string, std::string>;
 
 // Map from a host policy name to <setting, value> map of cmdline
 // settings for the host policy.

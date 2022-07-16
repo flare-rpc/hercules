@@ -14,7 +14,7 @@
 #define TRITONJSON_STATUSRETURN(M) \
   return hercules::core::Status(hercules::core::Status::Code::INTERNAL, (M))
 #define TRITONJSON_STATUSSUCCESS hercules::core::Status::Success
-#include "hercules/common/triton_json.h"
+#include "hercules/common/json_parser.h"
 
 namespace hercules::core {
 
@@ -23,7 +23,7 @@ namespace hercules::core {
 //
 class TritonServerMessage {
  public:
-  TritonServerMessage(const hercules::common::TritonJson::Value& msg)
+  TritonServerMessage(const hercules::common::json_parser::Value& msg)
   {
     json_buffer_.Clear();
     msg.Write(&json_buffer_);
@@ -62,7 +62,7 @@ class TritonServerMessage {
 
  private:
   bool from_json_;
-  hercules::common::TritonJson::WriteBuffer json_buffer_;
+  hercules::common::json_parser::WriteBuffer json_buffer_;
   std::string str_buffer_;
 
   const char* base_;

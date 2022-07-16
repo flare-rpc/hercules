@@ -14,1083 +14,778 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelConfig_CcModelFilenamesEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelConfig_MetricTagsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelConfig_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelEnsembling_Step_InputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelEnsembling_Step_OutputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelWarmup_InputsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto;
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace hercules {
 namespace proto {
-class ModelRateLimiter_ResourceDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelRateLimiter_Resource> _instance;
-} _ModelRateLimiter_Resource_default_instance_;
-class ModelRateLimiterDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelRateLimiter> _instance;
-} _ModelRateLimiter_default_instance_;
-class ModelInstanceGroup_SecondaryDeviceDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInstanceGroup_SecondaryDevice> _instance;
-} _ModelInstanceGroup_SecondaryDevice_default_instance_;
-class ModelInstanceGroupDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInstanceGroup> _instance;
-} _ModelInstanceGroup_default_instance_;
-class ModelTensorReshapeDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelTensorReshape> _instance;
-} _ModelTensorReshape_default_instance_;
-class ModelInputDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInput> _instance;
-} _ModelInput_default_instance_;
-class ModelOutputDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOutput> _instance;
-} _ModelOutput_default_instance_;
-class BatchInputDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BatchInput> _instance;
-} _BatchInput_default_instance_;
-class BatchOutputDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BatchOutput> _instance;
-} _BatchOutput_default_instance_;
-class ModelVersionPolicy_LatestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelVersionPolicy_Latest> _instance;
-} _ModelVersionPolicy_Latest_default_instance_;
-class ModelVersionPolicy_AllDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelVersionPolicy_All> _instance;
-} _ModelVersionPolicy_All_default_instance_;
-class ModelVersionPolicy_SpecificDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelVersionPolicy_Specific> _instance;
-} _ModelVersionPolicy_Specific_default_instance_;
-class ModelVersionPolicyDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelVersionPolicy> _instance;
-  const ::hercules::proto::ModelVersionPolicy_Latest* latest_;
-  const ::hercules::proto::ModelVersionPolicy_All* all_;
-  const ::hercules::proto::ModelVersionPolicy_Specific* specific_;
-} _ModelVersionPolicy_default_instance_;
-class ModelOptimizationPolicy_GraphDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Graph> _instance;
-} _ModelOptimizationPolicy_Graph_default_instance_;
-class ModelOptimizationPolicy_Cuda_GraphSpec_ShapeDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Cuda_GraphSpec_Shape> _instance;
-} _ModelOptimizationPolicy_Cuda_GraphSpec_Shape_default_instance_;
-class ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse> _instance;
-} _ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_default_instance_;
-class ModelOptimizationPolicy_Cuda_GraphSpec_LowerBoundDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound> _instance;
-} _ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_default_instance_;
-class ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse> _instance;
-} _ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_default_instance_;
-class ModelOptimizationPolicy_Cuda_GraphSpecDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Cuda_GraphSpec> _instance;
-} _ModelOptimizationPolicy_Cuda_GraphSpec_default_instance_;
-class ModelOptimizationPolicy_CudaDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_Cuda> _instance;
-} _ModelOptimizationPolicy_Cuda_default_instance_;
-class ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse> _instance;
-} _ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_default_instance_;
-class ModelOptimizationPolicy_ExecutionAccelerators_AcceleratorDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_ExecutionAccelerators_Accelerator> _instance;
-} _ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_default_instance_;
-class ModelOptimizationPolicy_ExecutionAcceleratorsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_ExecutionAccelerators> _instance;
-} _ModelOptimizationPolicy_ExecutionAccelerators_default_instance_;
-class ModelOptimizationPolicy_PinnedMemoryBufferDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy_PinnedMemoryBuffer> _instance;
-} _ModelOptimizationPolicy_PinnedMemoryBuffer_default_instance_;
-class ModelOptimizationPolicyDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOptimizationPolicy> _instance;
-} _ModelOptimizationPolicy_default_instance_;
-class ModelQueuePolicyDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelQueuePolicy> _instance;
-} _ModelQueuePolicy_default_instance_;
-class ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse> _instance;
-} _ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_default_instance_;
-class ModelDynamicBatchingDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelDynamicBatching> _instance;
-} _ModelDynamicBatching_default_instance_;
-class ModelSequenceBatching_ControlDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching_Control> _instance;
-} _ModelSequenceBatching_Control_default_instance_;
-class ModelSequenceBatching_ControlInputDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching_ControlInput> _instance;
-} _ModelSequenceBatching_ControlInput_default_instance_;
-class ModelSequenceBatching_InitialStateDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching_InitialState> _instance;
-  bool zero_data_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_file_;
-} _ModelSequenceBatching_InitialState_default_instance_;
-class ModelSequenceBatching_StateDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching_State> _instance;
-} _ModelSequenceBatching_State_default_instance_;
-class ModelSequenceBatching_StrategyDirectDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching_StrategyDirect> _instance;
-} _ModelSequenceBatching_StrategyDirect_default_instance_;
-class ModelSequenceBatching_StrategyOldestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching_StrategyOldest> _instance;
-} _ModelSequenceBatching_StrategyOldest_default_instance_;
-class ModelSequenceBatchingDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelSequenceBatching> _instance;
-  const ::hercules::proto::ModelSequenceBatching_StrategyDirect* direct_;
-  const ::hercules::proto::ModelSequenceBatching_StrategyOldest* oldest_;
-} _ModelSequenceBatching_default_instance_;
-class ModelEnsembling_Step_InputMapEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelEnsembling_Step_InputMapEntry_DoNotUse> _instance;
-} _ModelEnsembling_Step_InputMapEntry_DoNotUse_default_instance_;
-class ModelEnsembling_Step_OutputMapEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelEnsembling_Step_OutputMapEntry_DoNotUse> _instance;
-} _ModelEnsembling_Step_OutputMapEntry_DoNotUse_default_instance_;
-class ModelEnsembling_StepDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelEnsembling_Step> _instance;
-} _ModelEnsembling_Step_default_instance_;
-class ModelEnsemblingDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelEnsembling> _instance;
-} _ModelEnsembling_default_instance_;
-class ModelParameterDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelParameter> _instance;
-} _ModelParameter_default_instance_;
-class ModelWarmup_InputDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelWarmup_Input> _instance;
-  bool zero_data_;
-  bool random_data_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr input_data_file_;
-} _ModelWarmup_Input_default_instance_;
-class ModelWarmup_InputsEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelWarmup_InputsEntry_DoNotUse> _instance;
-} _ModelWarmup_InputsEntry_DoNotUse_default_instance_;
-class ModelWarmupDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelWarmup> _instance;
-} _ModelWarmup_default_instance_;
-class ModelOperationsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelOperations> _instance;
-} _ModelOperations_default_instance_;
-class ModelTransactionPolicyDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelTransactionPolicy> _instance;
-} _ModelTransactionPolicy_default_instance_;
-class ModelRepositoryAgents_Agent_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse> _instance;
-} _ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_default_instance_;
-class ModelRepositoryAgents_AgentDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelRepositoryAgents_Agent> _instance;
-} _ModelRepositoryAgents_Agent_default_instance_;
-class ModelRepositoryAgentsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelRepositoryAgents> _instance;
-} _ModelRepositoryAgents_default_instance_;
-class ModelResponseCacheDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelResponseCache> _instance;
-} _ModelResponseCache_default_instance_;
-class ModelConfig_CcModelFilenamesEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelConfig_CcModelFilenamesEntry_DoNotUse> _instance;
-} _ModelConfig_CcModelFilenamesEntry_DoNotUse_default_instance_;
-class ModelConfig_MetricTagsEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelConfig_MetricTagsEntry_DoNotUse> _instance;
-} _ModelConfig_MetricTagsEntry_DoNotUse_default_instance_;
-class ModelConfig_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelConfig_ParametersEntry_DoNotUse> _instance;
-} _ModelConfig_ParametersEntry_DoNotUse_default_instance_;
-class ModelConfigDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelConfig> _instance;
-  const ::hercules::proto::ModelDynamicBatching* dynamic_batching_;
-  const ::hercules::proto::ModelSequenceBatching* sequence_batching_;
-  const ::hercules::proto::ModelEnsembling* ensemble_scheduling_;
-} _ModelConfig_default_instance_;
+PROTOBUF_CONSTEXPR ModelRateLimiter_Resource::ModelRateLimiter_Resource(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , global_(false)
+  , count_(0u){}
+struct ModelRateLimiter_ResourceDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelRateLimiter_ResourceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelRateLimiter_ResourceDefaultTypeInternal() {}
+  union {
+    ModelRateLimiter_Resource _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelRateLimiter_ResourceDefaultTypeInternal _ModelRateLimiter_Resource_default_instance_;
+PROTOBUF_CONSTEXPR ModelRateLimiter::ModelRateLimiter(
+    ::_pbi::ConstantInitialized)
+  : resources_()
+  , priority_(0u){}
+struct ModelRateLimiterDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelRateLimiterDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelRateLimiterDefaultTypeInternal() {}
+  union {
+    ModelRateLimiter _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelRateLimiterDefaultTypeInternal _ModelRateLimiter_default_instance_;
+PROTOBUF_CONSTEXPR ModelInstanceGroup_SecondaryDevice::ModelInstanceGroup_SecondaryDevice(
+    ::_pbi::ConstantInitialized)
+  : device_id_(int64_t{0})
+  , kind_(0)
+{}
+struct ModelInstanceGroup_SecondaryDeviceDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInstanceGroup_SecondaryDeviceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInstanceGroup_SecondaryDeviceDefaultTypeInternal() {}
+  union {
+    ModelInstanceGroup_SecondaryDevice _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInstanceGroup_SecondaryDeviceDefaultTypeInternal _ModelInstanceGroup_SecondaryDevice_default_instance_;
+PROTOBUF_CONSTEXPR ModelInstanceGroup::ModelInstanceGroup(
+    ::_pbi::ConstantInitialized)
+  : gpus_()
+  , _gpus_cached_byte_size_(0)
+  , profile_()
+  , secondary_devices_()
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , host_policy_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , rate_limiter_(nullptr)
+  , count_(0)
+  , kind_(0)
+
+  , passive_(false){}
+struct ModelInstanceGroupDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInstanceGroupDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInstanceGroupDefaultTypeInternal() {}
+  union {
+    ModelInstanceGroup _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInstanceGroupDefaultTypeInternal _ModelInstanceGroup_default_instance_;
+PROTOBUF_CONSTEXPR ModelTensorReshape::ModelTensorReshape(
+    ::_pbi::ConstantInitialized)
+  : shape_()
+  , _shape_cached_byte_size_(0){}
+struct ModelTensorReshapeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelTensorReshapeDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelTensorReshapeDefaultTypeInternal() {}
+  union {
+    ModelTensorReshape _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelTensorReshapeDefaultTypeInternal _ModelTensorReshape_default_instance_;
+PROTOBUF_CONSTEXPR ModelInput::ModelInput(
+    ::_pbi::ConstantInitialized)
+  : dims_()
+  , _dims_cached_byte_size_(0)
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , reshape_(nullptr)
+  , data_type_(0)
+
+  , format_(0)
+
+  , is_shape_tensor_(false)
+  , allow_ragged_batch_(false)
+  , optional_(false){}
+struct ModelInputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInputDefaultTypeInternal() {}
+  union {
+    ModelInput _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInputDefaultTypeInternal _ModelInput_default_instance_;
+PROTOBUF_CONSTEXPR ModelOutput::ModelOutput(
+    ::_pbi::ConstantInitialized)
+  : dims_()
+  , _dims_cached_byte_size_(0)
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , label_filename_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , reshape_(nullptr)
+  , data_type_(0)
+
+  , is_shape_tensor_(false){}
+struct ModelOutputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOutputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOutputDefaultTypeInternal() {}
+  union {
+    ModelOutput _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOutputDefaultTypeInternal _ModelOutput_default_instance_;
+PROTOBUF_CONSTEXPR BatchInput::BatchInput(
+    ::_pbi::ConstantInitialized)
+  : target_name_()
+  , source_input_()
+  , kind_(0)
+
+  , data_type_(0)
+{}
+struct BatchInputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BatchInputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BatchInputDefaultTypeInternal() {}
+  union {
+    BatchInput _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BatchInputDefaultTypeInternal _BatchInput_default_instance_;
+PROTOBUF_CONSTEXPR BatchOutput::BatchOutput(
+    ::_pbi::ConstantInitialized)
+  : target_name_()
+  , source_input_()
+  , kind_(0)
+{}
+struct BatchOutputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BatchOutputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BatchOutputDefaultTypeInternal() {}
+  union {
+    BatchOutput _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BatchOutputDefaultTypeInternal _BatchOutput_default_instance_;
+PROTOBUF_CONSTEXPR ModelVersionPolicy_Latest::ModelVersionPolicy_Latest(
+    ::_pbi::ConstantInitialized)
+  : num_versions_(0u){}
+struct ModelVersionPolicy_LatestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelVersionPolicy_LatestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelVersionPolicy_LatestDefaultTypeInternal() {}
+  union {
+    ModelVersionPolicy_Latest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelVersionPolicy_LatestDefaultTypeInternal _ModelVersionPolicy_Latest_default_instance_;
+PROTOBUF_CONSTEXPR ModelVersionPolicy_All::ModelVersionPolicy_All(
+    ::_pbi::ConstantInitialized){}
+struct ModelVersionPolicy_AllDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelVersionPolicy_AllDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelVersionPolicy_AllDefaultTypeInternal() {}
+  union {
+    ModelVersionPolicy_All _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelVersionPolicy_AllDefaultTypeInternal _ModelVersionPolicy_All_default_instance_;
+PROTOBUF_CONSTEXPR ModelVersionPolicy_Specific::ModelVersionPolicy_Specific(
+    ::_pbi::ConstantInitialized)
+  : versions_()
+  , _versions_cached_byte_size_(0){}
+struct ModelVersionPolicy_SpecificDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelVersionPolicy_SpecificDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelVersionPolicy_SpecificDefaultTypeInternal() {}
+  union {
+    ModelVersionPolicy_Specific _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelVersionPolicy_SpecificDefaultTypeInternal _ModelVersionPolicy_Specific_default_instance_;
+PROTOBUF_CONSTEXPR ModelVersionPolicy::ModelVersionPolicy(
+    ::_pbi::ConstantInitialized)
+  : _oneof_case_{}{}
+struct ModelVersionPolicyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelVersionPolicyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelVersionPolicyDefaultTypeInternal() {}
+  union {
+    ModelVersionPolicy _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelVersionPolicyDefaultTypeInternal _ModelVersionPolicy_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Graph::ModelOptimizationPolicy_Graph(
+    ::_pbi::ConstantInitialized)
+  : level_(0){}
+struct ModelOptimizationPolicy_GraphDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_GraphDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_GraphDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Graph _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_GraphDefaultTypeInternal _ModelOptimizationPolicy_Graph_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ModelOptimizationPolicy_Cuda_GraphSpec_Shape(
+    ::_pbi::ConstantInitialized)
+  : dim_()
+  , _dim_cached_byte_size_(0){}
+struct ModelOptimizationPolicy_Cuda_GraphSpec_ShapeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_ShapeDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_Cuda_GraphSpec_ShapeDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Cuda_GraphSpec_Shape _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_Cuda_GraphSpec_ShapeDefaultTypeInternal _ModelOptimizationPolicy_Cuda_GraphSpec_Shape_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUseDefaultTypeInternal _ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound(
+    ::_pbi::ConstantInitialized)
+  : input_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , batch_size_(0){}
+struct ModelOptimizationPolicy_Cuda_GraphSpec_LowerBoundDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_LowerBoundDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_Cuda_GraphSpec_LowerBoundDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_Cuda_GraphSpec_LowerBoundDefaultTypeInternal _ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUseDefaultTypeInternal _ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpec::ModelOptimizationPolicy_Cuda_GraphSpec(
+    ::_pbi::ConstantInitialized)
+  : input_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , graph_lower_bound_(nullptr)
+  , batch_size_(0){}
+struct ModelOptimizationPolicy_Cuda_GraphSpecDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda_GraphSpecDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_Cuda_GraphSpecDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Cuda_GraphSpec _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_Cuda_GraphSpecDefaultTypeInternal _ModelOptimizationPolicy_Cuda_GraphSpec_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_Cuda::ModelOptimizationPolicy_Cuda(
+    ::_pbi::ConstantInitialized)
+  : graph_spec_()
+  , graphs_(false)
+  , busy_wait_events_(false)
+  , output_copy_stream_(false){}
+struct ModelOptimizationPolicy_CudaDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_CudaDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_CudaDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_Cuda _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_CudaDefaultTypeInternal _ModelOptimizationPolicy_Cuda_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUseDefaultTypeInternal _ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelOptimizationPolicy_ExecutionAccelerators_AcceleratorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_ExecutionAccelerators_AcceleratorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_ExecutionAccelerators_AcceleratorDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_ExecutionAccelerators_Accelerator _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_ExecutionAccelerators_AcceleratorDefaultTypeInternal _ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_ExecutionAccelerators::ModelOptimizationPolicy_ExecutionAccelerators(
+    ::_pbi::ConstantInitialized)
+  : gpu_execution_accelerator_()
+  , cpu_execution_accelerator_(){}
+struct ModelOptimizationPolicy_ExecutionAcceleratorsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_ExecutionAcceleratorsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_ExecutionAcceleratorsDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_ExecutionAccelerators _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_ExecutionAcceleratorsDefaultTypeInternal _ModelOptimizationPolicy_ExecutionAccelerators_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy_PinnedMemoryBuffer::ModelOptimizationPolicy_PinnedMemoryBuffer(
+    ::_pbi::ConstantInitialized)
+  : enable_(false){}
+struct ModelOptimizationPolicy_PinnedMemoryBufferDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicy_PinnedMemoryBufferDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicy_PinnedMemoryBufferDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy_PinnedMemoryBuffer _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicy_PinnedMemoryBufferDefaultTypeInternal _ModelOptimizationPolicy_PinnedMemoryBuffer_default_instance_;
+PROTOBUF_CONSTEXPR ModelOptimizationPolicy::ModelOptimizationPolicy(
+    ::_pbi::ConstantInitialized)
+  : graph_(nullptr)
+  , cuda_(nullptr)
+  , execution_accelerators_(nullptr)
+  , input_pinned_memory_(nullptr)
+  , output_pinned_memory_(nullptr)
+  , priority_(0)
+
+  , gather_kernel_buffer_threshold_(0u)
+  , eager_batching_(false){}
+struct ModelOptimizationPolicyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOptimizationPolicyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOptimizationPolicyDefaultTypeInternal() {}
+  union {
+    ModelOptimizationPolicy _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOptimizationPolicyDefaultTypeInternal _ModelOptimizationPolicy_default_instance_;
+PROTOBUF_CONSTEXPR ModelQueuePolicy::ModelQueuePolicy(
+    ::_pbi::ConstantInitialized)
+  : default_timeout_microseconds_(uint64_t{0u})
+  , timeout_action_(0)
+
+  , allow_timeout_override_(false)
+  , max_queue_size_(0u){}
+struct ModelQueuePolicyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelQueuePolicyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelQueuePolicyDefaultTypeInternal() {}
+  union {
+    ModelQueuePolicy _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelQueuePolicyDefaultTypeInternal _ModelQueuePolicy_default_instance_;
+PROTOBUF_CONSTEXPR ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUseDefaultTypeInternal _ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelDynamicBatching::ModelDynamicBatching(
+    ::_pbi::ConstantInitialized)
+  : preferred_batch_size_()
+  , _preferred_batch_size_cached_byte_size_(0)
+  , priority_queue_policy_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , default_queue_policy_(nullptr)
+  , max_queue_delay_microseconds_(uint64_t{0u})
+  , preserve_ordering_(false)
+  , priority_levels_(0u)
+  , default_priority_level_(0u){}
+struct ModelDynamicBatchingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelDynamicBatchingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelDynamicBatchingDefaultTypeInternal() {}
+  union {
+    ModelDynamicBatching _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelDynamicBatchingDefaultTypeInternal _ModelDynamicBatching_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching_Control::ModelSequenceBatching_Control(
+    ::_pbi::ConstantInitialized)
+  : int32_false_true_()
+  , _int32_false_true_cached_byte_size_(0)
+  , fp32_false_true_()
+  , bool_false_true_()
+  , kind_(0)
+
+  , data_type_(0)
+{}
+struct ModelSequenceBatching_ControlDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatching_ControlDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatching_ControlDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching_Control _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatching_ControlDefaultTypeInternal _ModelSequenceBatching_Control_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching_ControlInput::ModelSequenceBatching_ControlInput(
+    ::_pbi::ConstantInitialized)
+  : control_()
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelSequenceBatching_ControlInputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatching_ControlInputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatching_ControlInputDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching_ControlInput _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatching_ControlInputDefaultTypeInternal _ModelSequenceBatching_ControlInput_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching_InitialState::ModelSequenceBatching_InitialState(
+    ::_pbi::ConstantInitialized)
+  : dims_()
+  , _dims_cached_byte_size_(0)
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , data_type_(0)
+
+  , _oneof_case_{}{}
+struct ModelSequenceBatching_InitialStateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatching_InitialStateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatching_InitialStateDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching_InitialState _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatching_InitialStateDefaultTypeInternal _ModelSequenceBatching_InitialState_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching_State::ModelSequenceBatching_State(
+    ::_pbi::ConstantInitialized)
+  : dims_()
+  , _dims_cached_byte_size_(0)
+  , initial_state_()
+  , input_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , output_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , data_type_(0)
+{}
+struct ModelSequenceBatching_StateDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatching_StateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatching_StateDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching_State _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatching_StateDefaultTypeInternal _ModelSequenceBatching_State_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching_StrategyDirect::ModelSequenceBatching_StrategyDirect(
+    ::_pbi::ConstantInitialized)
+  : max_queue_delay_microseconds_(uint64_t{0u})
+  , minimum_slot_utilization_(0){}
+struct ModelSequenceBatching_StrategyDirectDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatching_StrategyDirectDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatching_StrategyDirectDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching_StrategyDirect _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatching_StrategyDirectDefaultTypeInternal _ModelSequenceBatching_StrategyDirect_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching_StrategyOldest::ModelSequenceBatching_StrategyOldest(
+    ::_pbi::ConstantInitialized)
+  : preferred_batch_size_()
+  , _preferred_batch_size_cached_byte_size_(0)
+  , max_queue_delay_microseconds_(uint64_t{0u})
+  , max_candidate_sequences_(0){}
+struct ModelSequenceBatching_StrategyOldestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatching_StrategyOldestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatching_StrategyOldestDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching_StrategyOldest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatching_StrategyOldestDefaultTypeInternal _ModelSequenceBatching_StrategyOldest_default_instance_;
+PROTOBUF_CONSTEXPR ModelSequenceBatching::ModelSequenceBatching(
+    ::_pbi::ConstantInitialized)
+  : control_input_()
+  , state_()
+  , max_sequence_idle_microseconds_(uint64_t{0u})
+  , _oneof_case_{}{}
+struct ModelSequenceBatchingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelSequenceBatchingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelSequenceBatchingDefaultTypeInternal() {}
+  union {
+    ModelSequenceBatching _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelSequenceBatchingDefaultTypeInternal _ModelSequenceBatching_default_instance_;
+PROTOBUF_CONSTEXPR ModelEnsembling_Step_InputMapEntry_DoNotUse::ModelEnsembling_Step_InputMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelEnsembling_Step_InputMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelEnsembling_Step_InputMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelEnsembling_Step_InputMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelEnsembling_Step_InputMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelEnsembling_Step_InputMapEntry_DoNotUseDefaultTypeInternal _ModelEnsembling_Step_InputMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelEnsembling_Step_OutputMapEntry_DoNotUse::ModelEnsembling_Step_OutputMapEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelEnsembling_Step_OutputMapEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelEnsembling_Step_OutputMapEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelEnsembling_Step_OutputMapEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelEnsembling_Step_OutputMapEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelEnsembling_Step_OutputMapEntry_DoNotUseDefaultTypeInternal _ModelEnsembling_Step_OutputMapEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelEnsembling_Step::ModelEnsembling_Step(
+    ::_pbi::ConstantInitialized)
+  : input_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , output_map_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , model_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , model_version_(int64_t{0}){}
+struct ModelEnsembling_StepDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelEnsembling_StepDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelEnsembling_StepDefaultTypeInternal() {}
+  union {
+    ModelEnsembling_Step _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelEnsembling_StepDefaultTypeInternal _ModelEnsembling_Step_default_instance_;
+PROTOBUF_CONSTEXPR ModelEnsembling::ModelEnsembling(
+    ::_pbi::ConstantInitialized)
+  : step_(){}
+struct ModelEnsemblingDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelEnsemblingDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelEnsemblingDefaultTypeInternal() {}
+  union {
+    ModelEnsembling _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelEnsemblingDefaultTypeInternal _ModelEnsembling_default_instance_;
+PROTOBUF_CONSTEXPR ModelParameter::ModelParameter(
+    ::_pbi::ConstantInitialized)
+  : string_value_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelParameterDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelParameterDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelParameterDefaultTypeInternal() {}
+  union {
+    ModelParameter _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelParameterDefaultTypeInternal _ModelParameter_default_instance_;
+PROTOBUF_CONSTEXPR ModelWarmup_Input::ModelWarmup_Input(
+    ::_pbi::ConstantInitialized)
+  : dims_()
+  , _dims_cached_byte_size_(0)
+  , data_type_(0)
+
+  , _oneof_case_{}{}
+struct ModelWarmup_InputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelWarmup_InputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelWarmup_InputDefaultTypeInternal() {}
+  union {
+    ModelWarmup_Input _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelWarmup_InputDefaultTypeInternal _ModelWarmup_Input_default_instance_;
+PROTOBUF_CONSTEXPR ModelWarmup_InputsEntry_DoNotUse::ModelWarmup_InputsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelWarmup_InputsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelWarmup_InputsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelWarmup_InputsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelWarmup_InputsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelWarmup_InputsEntry_DoNotUseDefaultTypeInternal _ModelWarmup_InputsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelWarmup::ModelWarmup(
+    ::_pbi::ConstantInitialized)
+  : inputs_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , batch_size_(0u)
+  , count_(0u){}
+struct ModelWarmupDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelWarmupDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelWarmupDefaultTypeInternal() {}
+  union {
+    ModelWarmup _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelWarmupDefaultTypeInternal _ModelWarmup_default_instance_;
+PROTOBUF_CONSTEXPR ModelOperations::ModelOperations(
+    ::_pbi::ConstantInitialized)
+  : op_library_filename_(){}
+struct ModelOperationsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelOperationsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelOperationsDefaultTypeInternal() {}
+  union {
+    ModelOperations _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelOperationsDefaultTypeInternal _ModelOperations_default_instance_;
+PROTOBUF_CONSTEXPR ModelTransactionPolicy::ModelTransactionPolicy(
+    ::_pbi::ConstantInitialized)
+  : decoupled_(false){}
+struct ModelTransactionPolicyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelTransactionPolicyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelTransactionPolicyDefaultTypeInternal() {}
+  union {
+    ModelTransactionPolicy _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelTransactionPolicyDefaultTypeInternal _ModelTransactionPolicy_default_instance_;
+PROTOBUF_CONSTEXPR ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelRepositoryAgents_Agent_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelRepositoryAgents_Agent_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelRepositoryAgents_Agent_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelRepositoryAgents_Agent_ParametersEntry_DoNotUseDefaultTypeInternal _ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelRepositoryAgents_Agent::ModelRepositoryAgents_Agent(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelRepositoryAgents_AgentDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelRepositoryAgents_AgentDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelRepositoryAgents_AgentDefaultTypeInternal() {}
+  union {
+    ModelRepositoryAgents_Agent _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelRepositoryAgents_AgentDefaultTypeInternal _ModelRepositoryAgents_Agent_default_instance_;
+PROTOBUF_CONSTEXPR ModelRepositoryAgents::ModelRepositoryAgents(
+    ::_pbi::ConstantInitialized)
+  : agents_(){}
+struct ModelRepositoryAgentsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelRepositoryAgentsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelRepositoryAgentsDefaultTypeInternal() {}
+  union {
+    ModelRepositoryAgents _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelRepositoryAgentsDefaultTypeInternal _ModelRepositoryAgents_default_instance_;
+PROTOBUF_CONSTEXPR ModelResponseCache::ModelResponseCache(
+    ::_pbi::ConstantInitialized)
+  : enable_(false){}
+struct ModelResponseCacheDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelResponseCacheDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelResponseCacheDefaultTypeInternal() {}
+  union {
+    ModelResponseCache _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelResponseCacheDefaultTypeInternal _ModelResponseCache_default_instance_;
+PROTOBUF_CONSTEXPR ModelConfig_CcModelFilenamesEntry_DoNotUse::ModelConfig_CcModelFilenamesEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelConfig_CcModelFilenamesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelConfig_CcModelFilenamesEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelConfig_CcModelFilenamesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelConfig_CcModelFilenamesEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelConfig_CcModelFilenamesEntry_DoNotUseDefaultTypeInternal _ModelConfig_CcModelFilenamesEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelConfig_MetricTagsEntry_DoNotUse::ModelConfig_MetricTagsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelConfig_MetricTagsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelConfig_MetricTagsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelConfig_MetricTagsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelConfig_MetricTagsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelConfig_MetricTagsEntry_DoNotUseDefaultTypeInternal _ModelConfig_MetricTagsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelConfig_ParametersEntry_DoNotUse::ModelConfig_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelConfig_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelConfig_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelConfig_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelConfig_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelConfig_ParametersEntry_DoNotUseDefaultTypeInternal _ModelConfig_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelConfig::ModelConfig(
+    ::_pbi::ConstantInitialized)
+  : input_()
+  , output_()
+  , instance_group_()
+  , cc_model_filenames_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , metric_tags_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , model_warmup_()
+  , batch_input_()
+  , batch_output_()
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , platform_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , default_model_filename_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , backend_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_policy_(nullptr)
+  , optimization_(nullptr)
+  , model_operations_(nullptr)
+  , model_transaction_policy_(nullptr)
+  , model_repository_agents_(nullptr)
+  , response_cache_(nullptr)
+  , max_batch_size_(0)
+  , _oneof_case_{}{}
+struct ModelConfigDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelConfigDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelConfigDefaultTypeInternal() {}
+  union {
+    ModelConfig _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelConfigDefaultTypeInternal _ModelConfig_default_instance_;
 }  // namespace proto
 }  // namespace hercules
-static void InitDefaultsscc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_BatchInput_default_instance_;
-    new (ptr) ::hercules::proto::BatchInput();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::BatchInput::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_BatchOutput_default_instance_;
-    new (ptr) ::hercules::proto::BatchOutput();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::BatchOutput::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelConfig_default_instance_;
-    new (ptr) ::hercules::proto::ModelConfig();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelConfig::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<18> scc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 18, 0, InitDefaultsscc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelConfig_CcModelFilenamesEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelConfig_MetricTagsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelConfig_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelConfig_CcModelFilenamesEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelConfig_CcModelFilenamesEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelConfig_CcModelFilenamesEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelConfig_CcModelFilenamesEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelConfig_MetricTagsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelConfig_MetricTagsEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelConfig_MetricTagsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelConfig_MetricTagsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelConfig_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelConfig_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelConfig_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelConfig_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelDynamicBatching_default_instance_;
-    new (ptr) ::hercules::proto::ModelDynamicBatching();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelDynamicBatching::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelEnsembling_default_instance_;
-    new (ptr) ::hercules::proto::ModelEnsembling();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelEnsembling::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelEnsembling_Step_default_instance_;
-    new (ptr) ::hercules::proto::ModelEnsembling_Step();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelEnsembling_Step::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelEnsembling_Step_InputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelEnsembling_Step_OutputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelEnsembling_Step_InputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelEnsembling_Step_InputMapEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelEnsembling_Step_InputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelEnsembling_Step_InputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelEnsembling_Step_OutputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelEnsembling_Step_OutputMapEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelEnsembling_Step_OutputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelEnsembling_Step_OutputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInput_default_instance_;
-    new (ptr) ::hercules::proto::ModelInput();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInput::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInstanceGroup_default_instance_;
-    new (ptr) ::hercules::proto::ModelInstanceGroup();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInstanceGroup::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInstanceGroup_SecondaryDevice_default_instance_;
-    new (ptr) ::hercules::proto::ModelInstanceGroup_SecondaryDevice();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInstanceGroup_SecondaryDevice::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOperations_default_instance_;
-    new (ptr) ::hercules::proto::ModelOperations();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOperations::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Cuda_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Cuda();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Cuda::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_Graph_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_Graph();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_Graph::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOptimizationPolicy_PinnedMemoryBuffer_default_instance_;
-    new (ptr) ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelOutput_default_instance_;
-    new (ptr) ::hercules::proto::ModelOutput();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelOutput::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelParameter_default_instance_;
-    new (ptr) ::hercules::proto::ModelParameter();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelParameter::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelQueuePolicy_default_instance_;
-    new (ptr) ::hercules::proto::ModelQueuePolicy();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelQueuePolicy::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelRateLimiter_default_instance_;
-    new (ptr) ::hercules::proto::ModelRateLimiter();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelRateLimiter::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelRateLimiter_Resource_default_instance_;
-    new (ptr) ::hercules::proto::ModelRateLimiter_Resource();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelRateLimiter_Resource::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelRepositoryAgents_default_instance_;
-    new (ptr) ::hercules::proto::ModelRepositoryAgents();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelRepositoryAgents::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelRepositoryAgents_Agent_default_instance_;
-    new (ptr) ::hercules::proto::ModelRepositoryAgents_Agent();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelRepositoryAgents_Agent::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelResponseCache_default_instance_;
-    new (ptr) ::hercules::proto::ModelResponseCache();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelResponseCache::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 4, 0, InitDefaultsscc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_Control_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching_Control();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching_Control::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_ControlInput_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching_ControlInput();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching_ControlInput::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_InitialState_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching_InitialState();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching_InitialState::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_State_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching_State();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching_State::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_StrategyDirect_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching_StrategyDirect();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching_StrategyDirect::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelSequenceBatching_StrategyOldest_default_instance_;
-    new (ptr) ::hercules::proto::ModelSequenceBatching_StrategyOldest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelSequenceBatching_StrategyOldest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelTensorReshape_default_instance_;
-    new (ptr) ::hercules::proto::ModelTensorReshape();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelTensorReshape::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelTransactionPolicy_default_instance_;
-    new (ptr) ::hercules::proto::ModelTransactionPolicy();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelTransactionPolicy::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelVersionPolicy_default_instance_;
-    new (ptr) ::hercules::proto::ModelVersionPolicy();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelVersionPolicy::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-      &scc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelVersionPolicy_All_default_instance_;
-    new (ptr) ::hercules::proto::ModelVersionPolicy_All();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelVersionPolicy_All::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelVersionPolicy_Latest_default_instance_;
-    new (ptr) ::hercules::proto::ModelVersionPolicy_Latest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelVersionPolicy_Latest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelVersionPolicy_Specific_default_instance_;
-    new (ptr) ::hercules::proto::ModelVersionPolicy_Specific();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelVersionPolicy_Specific::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelWarmup_default_instance_;
-    new (ptr) ::hercules::proto::ModelWarmup();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelWarmup::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelWarmup_InputsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelWarmup_Input_default_instance_;
-    new (ptr) ::hercules::proto::ModelWarmup_Input();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelWarmup_Input::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelWarmup_InputsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelWarmup_InputsEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelWarmup_InputsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelWarmup_InputsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto}, {
-      &scc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[53];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[9];
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fconfig_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static ::_pb::Metadata file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[53];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[9];
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto = nullptr;
+
+const uint32_t TableStruct_hercules_2fproto_2fmodel_5fconfig_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRateLimiter_Resource, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRateLimiter_Resource, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRateLimiter_Resource, global_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRateLimiter_Resource, count_),
@@ -1099,6 +794,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRateLimiter, resources_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRateLimiter, priority_),
   ~0u,  // no _has_bits_
@@ -1106,6 +802,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInstanceGroup_SecondaryDevice, kind_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInstanceGroup_SecondaryDevice, device_id_),
   ~0u,  // no _has_bits_
@@ -1113,6 +810,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInstanceGroup, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInstanceGroup, kind_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInstanceGroup, count_),
@@ -1127,12 +825,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelTensorReshape, shape_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInput, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInput, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInput, data_type_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInput, format_),
@@ -1146,6 +846,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOutput, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOutput, data_type_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOutput, dims_),
@@ -1157,6 +858,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::BatchInput, kind_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::BatchInput, target_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::BatchInput, data_type_),
@@ -1166,6 +868,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::BatchOutput, target_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::BatchOutput, kind_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::BatchOutput, source_input_),
@@ -1174,44 +877,51 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy_Latest, num_versions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy_All, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy_Specific, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy_Specific, versions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::hercules::proto::ModelVersionPolicyDefaultTypeInternal, latest_),
-  offsetof(::hercules::proto::ModelVersionPolicyDefaultTypeInternal, all_),
-  offsetof(::hercules::proto::ModelVersionPolicyDefaultTypeInternal, specific_),
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelVersionPolicy, policy_choice_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Graph, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Graph, level_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape, dim_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse, value_),
   0,
@@ -1221,6 +931,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound, batch_size_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound, input_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse, _has_bits_),
@@ -1228,6 +939,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse, value_),
   0,
@@ -1237,6 +949,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec, batch_size_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec, input_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec, graph_lower_bound_),
@@ -1245,6 +958,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda, graphs_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda, busy_wait_events_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_Cuda, graph_spec_),
@@ -1254,6 +968,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse, value_),
   0,
@@ -1263,6 +978,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator, parameters_),
   ~0u,  // no _has_bits_
@@ -1270,6 +986,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators, gpu_execution_accelerator_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators, cpu_execution_accelerator_),
   ~0u,  // no _has_bits_
@@ -1277,12 +994,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer, enable_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy, graph_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy, priority_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOptimizationPolicy, cuda_),
@@ -1296,6 +1015,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelQueuePolicy, timeout_action_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelQueuePolicy, default_timeout_microseconds_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelQueuePolicy, allow_timeout_override_),
@@ -1305,6 +1025,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse, value_),
   0,
@@ -1314,6 +1035,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelDynamicBatching, preferred_batch_size_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelDynamicBatching, max_queue_delay_microseconds_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelDynamicBatching, preserve_ordering_),
@@ -1326,6 +1048,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_Control, kind_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_Control, int32_false_true_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_Control, fp32_false_true_),
@@ -1336,6 +1059,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_ControlInput, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_ControlInput, control_),
   ~0u,  // no _has_bits_
@@ -1343,10 +1067,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_InitialState, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_InitialState, data_type_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_InitialState, dims_),
-  offsetof(::hercules::proto::ModelSequenceBatching_InitialStateDefaultTypeInternal, zero_data_),
-  offsetof(::hercules::proto::ModelSequenceBatching_InitialStateDefaultTypeInternal, data_file_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_InitialState, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_InitialState, state_data_),
   ~0u,  // no _has_bits_
@@ -1354,6 +1079,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_State, input_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_State, output_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_State, data_type_),
@@ -1364,6 +1090,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_StrategyDirect, max_queue_delay_microseconds_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_StrategyDirect, minimum_slot_utilization_),
   ~0u,  // no _has_bits_
@@ -1371,6 +1098,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_StrategyOldest, max_candidate_sequences_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_StrategyOldest, preferred_batch_size_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching_StrategyOldest, max_queue_delay_microseconds_),
@@ -1379,8 +1107,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::hercules::proto::ModelSequenceBatchingDefaultTypeInternal, direct_),
-  offsetof(::hercules::proto::ModelSequenceBatchingDefaultTypeInternal, oldest_),
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching, max_sequence_idle_microseconds_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching, control_input_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelSequenceBatching, state_),
@@ -1390,6 +1119,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse, value_),
   0,
@@ -1399,6 +1129,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse, value_),
   0,
@@ -1408,6 +1139,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step, model_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step, model_version_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling_Step, input_map_),
@@ -1417,29 +1149,33 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelEnsembling, step_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelParameter, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelParameter, string_value_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_Input, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_Input, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_Input, data_type_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_Input, dims_),
-  offsetof(::hercules::proto::ModelWarmup_InputDefaultTypeInternal, zero_data_),
-  offsetof(::hercules::proto::ModelWarmup_InputDefaultTypeInternal, random_data_),
-  offsetof(::hercules::proto::ModelWarmup_InputDefaultTypeInternal, input_data_file_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_Input, input_data_type_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_InputsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_InputsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_InputsEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup_InputsEntry_DoNotUse, value_),
   0,
@@ -1449,6 +1185,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup, batch_size_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelWarmup, inputs_),
@@ -1458,18 +1195,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelOperations, op_library_filename_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelTransactionPolicy, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelTransactionPolicy, decoupled_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse, value_),
   0,
@@ -1479,6 +1219,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents_Agent, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents_Agent, parameters_),
   ~0u,  // no _has_bits_
@@ -1486,18 +1227,21 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryAgents, agents_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelResponseCache, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelResponseCache, enable_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse, value_),
   0,
@@ -1507,6 +1251,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse, value_),
   0,
@@ -1516,6 +1261,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig_ParametersEntry_DoNotUse, value_),
   0,
@@ -1525,6 +1271,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, platform_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, backend_),
@@ -1535,9 +1282,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, batch_input_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, batch_output_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, optimization_),
-  offsetof(::hercules::proto::ModelConfigDefaultTypeInternal, dynamic_batching_),
-  offsetof(::hercules::proto::ModelConfigDefaultTypeInternal, sequence_batching_),
-  offsetof(::hercules::proto::ModelConfigDefaultTypeInternal, ensemble_scheduling_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, instance_group_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, default_model_filename_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, cc_model_filenames_),
@@ -1550,116 +1297,116 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fmodel_5fcon
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, response_cache_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfig, scheduling_choice_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::hercules::proto::ModelRateLimiter_Resource)},
-  { 8, -1, sizeof(::hercules::proto::ModelRateLimiter)},
-  { 15, -1, sizeof(::hercules::proto::ModelInstanceGroup_SecondaryDevice)},
-  { 22, -1, sizeof(::hercules::proto::ModelInstanceGroup)},
-  { 36, -1, sizeof(::hercules::proto::ModelTensorReshape)},
-  { 42, -1, sizeof(::hercules::proto::ModelInput)},
-  { 55, -1, sizeof(::hercules::proto::ModelOutput)},
-  { 66, -1, sizeof(::hercules::proto::BatchInput)},
-  { 75, -1, sizeof(::hercules::proto::BatchOutput)},
-  { 83, -1, sizeof(::hercules::proto::ModelVersionPolicy_Latest)},
-  { 89, -1, sizeof(::hercules::proto::ModelVersionPolicy_All)},
-  { 94, -1, sizeof(::hercules::proto::ModelVersionPolicy_Specific)},
-  { 100, -1, sizeof(::hercules::proto::ModelVersionPolicy)},
-  { 109, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Graph)},
-  { 115, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape)},
-  { 121, 128, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse)},
-  { 130, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound)},
-  { 137, 144, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse)},
-  { 146, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec)},
-  { 154, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda)},
-  { 163, 170, sizeof(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse)},
-  { 172, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator)},
-  { 179, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators)},
-  { 186, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer)},
-  { 192, -1, sizeof(::hercules::proto::ModelOptimizationPolicy)},
-  { 205, -1, sizeof(::hercules::proto::ModelQueuePolicy)},
-  { 214, 221, sizeof(::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse)},
-  { 223, -1, sizeof(::hercules::proto::ModelDynamicBatching)},
-  { 235, -1, sizeof(::hercules::proto::ModelSequenceBatching_Control)},
-  { 245, -1, sizeof(::hercules::proto::ModelSequenceBatching_ControlInput)},
-  { 252, -1, sizeof(::hercules::proto::ModelSequenceBatching_InitialState)},
-  { 263, -1, sizeof(::hercules::proto::ModelSequenceBatching_State)},
-  { 273, -1, sizeof(::hercules::proto::ModelSequenceBatching_StrategyDirect)},
-  { 280, -1, sizeof(::hercules::proto::ModelSequenceBatching_StrategyOldest)},
-  { 288, -1, sizeof(::hercules::proto::ModelSequenceBatching)},
-  { 299, 306, sizeof(::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse)},
-  { 308, 315, sizeof(::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse)},
-  { 317, -1, sizeof(::hercules::proto::ModelEnsembling_Step)},
-  { 326, -1, sizeof(::hercules::proto::ModelEnsembling)},
-  { 332, -1, sizeof(::hercules::proto::ModelParameter)},
-  { 338, -1, sizeof(::hercules::proto::ModelWarmup_Input)},
-  { 349, 356, sizeof(::hercules::proto::ModelWarmup_InputsEntry_DoNotUse)},
-  { 358, -1, sizeof(::hercules::proto::ModelWarmup)},
-  { 367, -1, sizeof(::hercules::proto::ModelOperations)},
-  { 373, -1, sizeof(::hercules::proto::ModelTransactionPolicy)},
-  { 379, 386, sizeof(::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse)},
-  { 388, -1, sizeof(::hercules::proto::ModelRepositoryAgents_Agent)},
-  { 395, -1, sizeof(::hercules::proto::ModelRepositoryAgents)},
-  { 401, -1, sizeof(::hercules::proto::ModelResponseCache)},
-  { 407, 414, sizeof(::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse)},
-  { 416, 423, sizeof(::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse)},
-  { 425, 432, sizeof(::hercules::proto::ModelConfig_ParametersEntry_DoNotUse)},
-  { 434, -1, sizeof(::hercules::proto::ModelConfig)},
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::hercules::proto::ModelRateLimiter_Resource)},
+  { 9, -1, -1, sizeof(::hercules::proto::ModelRateLimiter)},
+  { 17, -1, -1, sizeof(::hercules::proto::ModelInstanceGroup_SecondaryDevice)},
+  { 25, -1, -1, sizeof(::hercules::proto::ModelInstanceGroup)},
+  { 40, -1, -1, sizeof(::hercules::proto::ModelTensorReshape)},
+  { 47, -1, -1, sizeof(::hercules::proto::ModelInput)},
+  { 61, -1, -1, sizeof(::hercules::proto::ModelOutput)},
+  { 73, -1, -1, sizeof(::hercules::proto::BatchInput)},
+  { 83, -1, -1, sizeof(::hercules::proto::BatchOutput)},
+  { 92, -1, -1, sizeof(::hercules::proto::ModelVersionPolicy_Latest)},
+  { 99, -1, -1, sizeof(::hercules::proto::ModelVersionPolicy_All)},
+  { 105, -1, -1, sizeof(::hercules::proto::ModelVersionPolicy_Specific)},
+  { 112, -1, -1, sizeof(::hercules::proto::ModelVersionPolicy)},
+  { 122, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Graph)},
+  { 129, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape)},
+  { 136, 144, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse)},
+  { 146, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound)},
+  { 154, 162, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse)},
+  { 164, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec)},
+  { 173, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_Cuda)},
+  { 183, 191, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse)},
+  { 193, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator)},
+  { 201, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators)},
+  { 209, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer)},
+  { 216, -1, -1, sizeof(::hercules::proto::ModelOptimizationPolicy)},
+  { 230, -1, -1, sizeof(::hercules::proto::ModelQueuePolicy)},
+  { 240, 248, -1, sizeof(::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse)},
+  { 250, -1, -1, sizeof(::hercules::proto::ModelDynamicBatching)},
+  { 263, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching_Control)},
+  { 274, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching_ControlInput)},
+  { 282, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching_InitialState)},
+  { 294, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching_State)},
+  { 305, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching_StrategyDirect)},
+  { 313, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching_StrategyOldest)},
+  { 322, -1, -1, sizeof(::hercules::proto::ModelSequenceBatching)},
+  { 334, 342, -1, sizeof(::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse)},
+  { 344, 352, -1, sizeof(::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse)},
+  { 354, -1, -1, sizeof(::hercules::proto::ModelEnsembling_Step)},
+  { 364, -1, -1, sizeof(::hercules::proto::ModelEnsembling)},
+  { 371, -1, -1, sizeof(::hercules::proto::ModelParameter)},
+  { 378, -1, -1, sizeof(::hercules::proto::ModelWarmup_Input)},
+  { 390, 398, -1, sizeof(::hercules::proto::ModelWarmup_InputsEntry_DoNotUse)},
+  { 400, -1, -1, sizeof(::hercules::proto::ModelWarmup)},
+  { 410, -1, -1, sizeof(::hercules::proto::ModelOperations)},
+  { 417, -1, -1, sizeof(::hercules::proto::ModelTransactionPolicy)},
+  { 424, 432, -1, sizeof(::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse)},
+  { 434, -1, -1, sizeof(::hercules::proto::ModelRepositoryAgents_Agent)},
+  { 442, -1, -1, sizeof(::hercules::proto::ModelRepositoryAgents)},
+  { 449, -1, -1, sizeof(::hercules::proto::ModelResponseCache)},
+  { 456, 464, -1, sizeof(::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse)},
+  { 466, 474, -1, sizeof(::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse)},
+  { 476, 484, -1, sizeof(::hercules::proto::ModelConfig_ParametersEntry_DoNotUse)},
+  { 486, -1, -1, sizeof(::hercules::proto::ModelConfig)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelRateLimiter_Resource_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelRateLimiter_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInstanceGroup_SecondaryDevice_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInstanceGroup_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelTensorReshape_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInput_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOutput_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_BatchInput_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_BatchOutput_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelVersionPolicy_Latest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelVersionPolicy_All_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelVersionPolicy_Specific_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelVersionPolicy_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Graph_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_Cuda_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_PinnedMemoryBuffer_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOptimizationPolicy_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelQueuePolicy_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelDynamicBatching_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_Control_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_ControlInput_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_InitialState_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_State_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_StrategyDirect_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_StrategyOldest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelSequenceBatching_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelEnsembling_Step_InputMapEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelEnsembling_Step_OutputMapEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelEnsembling_Step_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelEnsembling_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelParameter_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelWarmup_Input_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelWarmup_InputsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelWarmup_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelOperations_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelTransactionPolicy_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelRepositoryAgents_Agent_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelRepositoryAgents_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelResponseCache_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelConfig_CcModelFilenamesEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelConfig_MetricTagsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelConfig_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelConfig_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::hercules::proto::_ModelRateLimiter_Resource_default_instance_._instance,
+  &::hercules::proto::_ModelRateLimiter_default_instance_._instance,
+  &::hercules::proto::_ModelInstanceGroup_SecondaryDevice_default_instance_._instance,
+  &::hercules::proto::_ModelInstanceGroup_default_instance_._instance,
+  &::hercules::proto::_ModelTensorReshape_default_instance_._instance,
+  &::hercules::proto::_ModelInput_default_instance_._instance,
+  &::hercules::proto::_ModelOutput_default_instance_._instance,
+  &::hercules::proto::_BatchInput_default_instance_._instance,
+  &::hercules::proto::_BatchOutput_default_instance_._instance,
+  &::hercules::proto::_ModelVersionPolicy_Latest_default_instance_._instance,
+  &::hercules::proto::_ModelVersionPolicy_All_default_instance_._instance,
+  &::hercules::proto::_ModelVersionPolicy_Specific_default_instance_._instance,
+  &::hercules::proto::_ModelVersionPolicy_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Graph_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_Cuda_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_ExecutionAccelerators_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_PinnedMemoryBuffer_default_instance_._instance,
+  &::hercules::proto::_ModelOptimizationPolicy_default_instance_._instance,
+  &::hercules::proto::_ModelQueuePolicy_default_instance_._instance,
+  &::hercules::proto::_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelDynamicBatching_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_Control_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_ControlInput_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_InitialState_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_State_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_StrategyDirect_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_StrategyOldest_default_instance_._instance,
+  &::hercules::proto::_ModelSequenceBatching_default_instance_._instance,
+  &::hercules::proto::_ModelEnsembling_Step_InputMapEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelEnsembling_Step_OutputMapEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelEnsembling_Step_default_instance_._instance,
+  &::hercules::proto::_ModelEnsembling_default_instance_._instance,
+  &::hercules::proto::_ModelParameter_default_instance_._instance,
+  &::hercules::proto::_ModelWarmup_Input_default_instance_._instance,
+  &::hercules::proto::_ModelWarmup_InputsEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelWarmup_default_instance_._instance,
+  &::hercules::proto::_ModelOperations_default_instance_._instance,
+  &::hercules::proto::_ModelTransactionPolicy_default_instance_._instance,
+  &::hercules::proto::_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelRepositoryAgents_Agent_default_instance_._instance,
+  &::hercules::proto::_ModelRepositoryAgents_default_instance_._instance,
+  &::hercules::proto::_ModelResponseCache_default_instance_._instance,
+  &::hercules::proto::_ModelConfig_CcModelFilenamesEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelConfig_MetricTagsEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelConfig_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelConfig_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_hercules_2fproto_2fmodel_5fconfig_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1884,73 +1631,21 @@ const char descriptor_table_protodef_hercules_2fproto_2fmodel_5fconfig_2eproto[]
   "\r\n\tTYPE_FP64\020\014\022\017\n\013TYPE_STRING\020\r\022\r\n\tTYPE_"
   "BF16\020\016b\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_deps[1] = {
+static ::_pbi::once_flag descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto = {
+    false, false, 8774, descriptor_table_protodef_hercules_2fproto_2fmodel_5fconfig_2eproto,
+    "hercules/proto/model_config.proto",
+    &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once, nullptr, 0, 53,
+    schemas, file_default_instances, TableStruct_hercules_2fproto_2fmodel_5fconfig_2eproto::offsets,
+    file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto, file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto,
+    file_level_service_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_sccs[53] = {
-  &scc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelConfig_CcModelFilenamesEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelConfig_MetricTagsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelConfig_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelEnsembling_Step_InputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelEnsembling_Step_OutputMapEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-  &scc_info_ModelWarmup_InputsEntry_DoNotUse_hercules_2fproto_2fmodel_5fconfig_2eproto.base,
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto = {
-  false, false, descriptor_table_protodef_hercules_2fproto_2fmodel_5fconfig_2eproto, "hercules/proto/model_config.proto", 8774,
-  &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once, descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_sccs, descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_deps, 53, 0,
-  schemas, file_default_instances, TableStruct_hercules_2fproto_2fmodel_5fconfig_2eproto::offsets,
-  file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto, 53, file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto, file_level_service_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto,
-};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter() {
+  return &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto;
+}
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_hercules_2fproto_2fmodel_5fconfig_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_hercules_2fproto_2fmodel_5fconfig_2eproto(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
 namespace hercules {
 namespace proto {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelInstanceGroup_SecondaryDevice_SecondaryDeviceKind_descriptor() {
@@ -1966,12 +1661,12 @@ bool ModelInstanceGroup_SecondaryDevice_SecondaryDeviceKind_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr ModelInstanceGroup_SecondaryDevice_SecondaryDeviceKind ModelInstanceGroup_SecondaryDevice::KIND_NVDLA;
 constexpr ModelInstanceGroup_SecondaryDevice_SecondaryDeviceKind ModelInstanceGroup_SecondaryDevice::SecondaryDeviceKind_MIN;
 constexpr ModelInstanceGroup_SecondaryDevice_SecondaryDeviceKind ModelInstanceGroup_SecondaryDevice::SecondaryDeviceKind_MAX;
 constexpr int ModelInstanceGroup_SecondaryDevice::SecondaryDeviceKind_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelInstanceGroup_Kind_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[1];
@@ -1988,7 +1683,7 @@ bool ModelInstanceGroup_Kind_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr ModelInstanceGroup_Kind ModelInstanceGroup::KIND_AUTO;
 constexpr ModelInstanceGroup_Kind ModelInstanceGroup::KIND_GPU;
 constexpr ModelInstanceGroup_Kind ModelInstanceGroup::KIND_CPU;
@@ -1996,7 +1691,7 @@ constexpr ModelInstanceGroup_Kind ModelInstanceGroup::KIND_MODEL;
 constexpr ModelInstanceGroup_Kind ModelInstanceGroup::Kind_MIN;
 constexpr ModelInstanceGroup_Kind ModelInstanceGroup::Kind_MAX;
 constexpr int ModelInstanceGroup::Kind_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelInput_Format_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[2];
@@ -2012,14 +1707,14 @@ bool ModelInput_Format_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr ModelInput_Format ModelInput::FORMAT_NONE;
 constexpr ModelInput_Format ModelInput::FORMAT_NHWC;
 constexpr ModelInput_Format ModelInput::FORMAT_NCHW;
 constexpr ModelInput_Format ModelInput::Format_MIN;
 constexpr ModelInput_Format ModelInput::Format_MAX;
 constexpr int ModelInput::Format_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BatchInput_Kind_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[3];
@@ -2038,7 +1733,7 @@ bool BatchInput_Kind_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr BatchInput_Kind BatchInput::BATCH_ELEMENT_COUNT;
 constexpr BatchInput_Kind BatchInput::BATCH_ACCUMULATED_ELEMENT_COUNT;
 constexpr BatchInput_Kind BatchInput::BATCH_ACCUMULATED_ELEMENT_COUNT_WITH_ZERO;
@@ -2048,7 +1743,7 @@ constexpr BatchInput_Kind BatchInput::BATCH_ITEM_SHAPE_FLATTEN;
 constexpr BatchInput_Kind BatchInput::Kind_MIN;
 constexpr BatchInput_Kind BatchInput::Kind_MAX;
 constexpr int BatchInput::Kind_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BatchOutput_Kind_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[4];
@@ -2062,12 +1757,12 @@ bool BatchOutput_Kind_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr BatchOutput_Kind BatchOutput::BATCH_SCATTER_WITH_INPUT_SHAPE;
 constexpr BatchOutput_Kind BatchOutput::Kind_MIN;
 constexpr BatchOutput_Kind BatchOutput::Kind_MAX;
 constexpr int BatchOutput::Kind_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelOptimizationPolicy_ModelPriority_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[5];
@@ -2083,14 +1778,14 @@ bool ModelOptimizationPolicy_ModelPriority_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr ModelOptimizationPolicy_ModelPriority ModelOptimizationPolicy::PRIORITY_DEFAULT;
 constexpr ModelOptimizationPolicy_ModelPriority ModelOptimizationPolicy::PRIORITY_MAX;
 constexpr ModelOptimizationPolicy_ModelPriority ModelOptimizationPolicy::PRIORITY_MIN;
 constexpr ModelOptimizationPolicy_ModelPriority ModelOptimizationPolicy::ModelPriority_MIN;
 constexpr ModelOptimizationPolicy_ModelPriority ModelOptimizationPolicy::ModelPriority_MAX;
 constexpr int ModelOptimizationPolicy::ModelPriority_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelQueuePolicy_TimeoutAction_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[6];
@@ -2105,13 +1800,13 @@ bool ModelQueuePolicy_TimeoutAction_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr ModelQueuePolicy_TimeoutAction ModelQueuePolicy::REJECT;
 constexpr ModelQueuePolicy_TimeoutAction ModelQueuePolicy::DELAY;
 constexpr ModelQueuePolicy_TimeoutAction ModelQueuePolicy::TimeoutAction_MIN;
 constexpr ModelQueuePolicy_TimeoutAction ModelQueuePolicy::TimeoutAction_MAX;
 constexpr int ModelQueuePolicy::TimeoutAction_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ModelSequenceBatching_Control_Kind_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[7];
@@ -2128,7 +1823,7 @@ bool ModelSequenceBatching_Control_Kind_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr ModelSequenceBatching_Control_Kind ModelSequenceBatching_Control::CONTROL_SEQUENCE_START;
 constexpr ModelSequenceBatching_Control_Kind ModelSequenceBatching_Control::CONTROL_SEQUENCE_READY;
 constexpr ModelSequenceBatching_Control_Kind ModelSequenceBatching_Control::CONTROL_SEQUENCE_END;
@@ -2136,7 +1831,7 @@ constexpr ModelSequenceBatching_Control_Kind ModelSequenceBatching_Control::CONT
 constexpr ModelSequenceBatching_Control_Kind ModelSequenceBatching_Control::Kind_MIN;
 constexpr ModelSequenceBatching_Control_Kind ModelSequenceBatching_Control::Kind_MAX;
 constexpr int ModelSequenceBatching_Control::Kind_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* DataType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto);
   return file_level_enum_descriptors_hercules_2fproto_2fmodel_5fconfig_2eproto[8];
@@ -2167,25 +1862,26 @@ bool DataType_IsValid(int value) {
 
 // ===================================================================
 
-void ModelRateLimiter_Resource::InitAsDefaultInstance() {
-}
 class ModelRateLimiter_Resource::_Internal {
  public:
 };
 
-ModelRateLimiter_Resource::ModelRateLimiter_Resource(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelRateLimiter_Resource::ModelRateLimiter_Resource(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelRateLimiter.Resource)
 }
 ModelRateLimiter_Resource::ModelRateLimiter_Resource(const ModelRateLimiter_Resource& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&global_, &from.global_,
     static_cast<size_t>(reinterpret_cast<char*>(&count_) -
@@ -2193,114 +1889,111 @@ ModelRateLimiter_Resource::ModelRateLimiter_Resource(const ModelRateLimiter_Reso
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelRateLimiter.Resource)
 }
 
-void ModelRateLimiter_Resource::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&global_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&count_) -
-      reinterpret_cast<char*>(&global_)) + sizeof(count_));
+inline void ModelRateLimiter_Resource::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&global_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&count_) -
+    reinterpret_cast<char*>(&global_)) + sizeof(count_));
 }
 
 ModelRateLimiter_Resource::~ModelRateLimiter_Resource() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelRateLimiter.Resource)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelRateLimiter_Resource::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelRateLimiter_Resource::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void ModelRateLimiter_Resource::ArenaDtor(void* object) {
-  ModelRateLimiter_Resource* _this = reinterpret_cast< ModelRateLimiter_Resource* >(object);
-  (void)_this;
-}
-void ModelRateLimiter_Resource::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelRateLimiter_Resource::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelRateLimiter_Resource& ModelRateLimiter_Resource::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelRateLimiter_Resource_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelRateLimiter_Resource::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelRateLimiter.Resource)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   ::memset(&global_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&count_) -
       reinterpret_cast<char*>(&global_)) + sizeof(count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelRateLimiter_Resource::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelRateLimiter_Resource::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelRateLimiter.Resource.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelRateLimiter.Resource.name"));
+        } else
+          goto handle_unusual;
         continue;
       // bool global = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           global_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 count = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelRateLimiter_Resource::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelRateLimiter_Resource::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelRateLimiter.Resource)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -2310,19 +2003,19 @@ failure:
   }
 
   // bool global = 2;
-  if (this->global() != 0) {
+  if (this->_internal_global() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_global(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_global(), target);
   }
 
   // uint32 count = 3;
-  if (this->count() != 0) {
+  if (this->_internal_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_count(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_count(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelRateLimiter.Resource)
@@ -2333,76 +2026,59 @@ size_t ModelRateLimiter_Resource::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelRateLimiter.Resource)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // bool global = 2;
-  if (this->global() != 0) {
+  if (this->_internal_global() != 0) {
     total_size += 1 + 1;
   }
 
   // uint32 count = 3;
-  if (this->count() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_count());
+  if (this->_internal_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_count());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelRateLimiter_Resource::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelRateLimiter.Resource)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelRateLimiter_Resource* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelRateLimiter_Resource>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelRateLimiter.Resource)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelRateLimiter.Resource)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelRateLimiter_Resource::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelRateLimiter_Resource::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelRateLimiter_Resource::GetClassData() const { return &_class_data_; }
+
+void ModelRateLimiter_Resource::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelRateLimiter_Resource *>(to)->MergeFrom(
+      static_cast<const ModelRateLimiter_Resource &>(from));
 }
+
 
 void ModelRateLimiter_Resource::MergeFrom(const ModelRateLimiter_Resource& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelRateLimiter.Resource)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.global() != 0) {
+  if (from._internal_global() != 0) {
     _internal_set_global(from._internal_global());
   }
-  if (from.count() != 0) {
+  if (from._internal_count() != 0) {
     _internal_set_count(from._internal_count());
   }
-}
-
-void ModelRateLimiter_Resource::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelRateLimiter.Resource)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelRateLimiter_Resource::CopyFrom(const ModelRateLimiter_Resource& from) {
@@ -2418,8 +2094,13 @@ bool ModelRateLimiter_Resource::IsInitialized() const {
 
 void ModelRateLimiter_Resource::InternalSwap(ModelRateLimiter_Resource* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelRateLimiter_Resource, count_)
       + sizeof(ModelRateLimiter_Resource::count_)
@@ -2429,23 +2110,22 @@ void ModelRateLimiter_Resource::InternalSwap(ModelRateLimiter_Resource* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelRateLimiter_Resource::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[0]);
 }
-
 
 // ===================================================================
 
-void ModelRateLimiter::InitAsDefaultInstance() {
-}
 class ModelRateLimiter::_Internal {
  public:
 };
 
-ModelRateLimiter::ModelRateLimiter(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelRateLimiter::ModelRateLimiter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   resources_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelRateLimiter)
 }
 ModelRateLimiter::ModelRateLimiter(const ModelRateLimiter& from)
@@ -2456,39 +2136,30 @@ ModelRateLimiter::ModelRateLimiter(const ModelRateLimiter& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelRateLimiter)
 }
 
-void ModelRateLimiter::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  priority_ = 0u;
+inline void ModelRateLimiter::SharedCtor() {
+priority_ = 0u;
 }
 
 ModelRateLimiter::~ModelRateLimiter() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelRateLimiter)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelRateLimiter::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelRateLimiter::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelRateLimiter::ArenaDtor(void* object) {
-  ModelRateLimiter* _this = reinterpret_cast< ModelRateLimiter* >(object);
-  (void)_this;
-}
-void ModelRateLimiter::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelRateLimiter::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelRateLimiter& ModelRateLimiter::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelRateLimiter_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelRateLimiter::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelRateLimiter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2497,17 +2168,15 @@ void ModelRateLimiter::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelRateLimiter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelRateLimiter::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .hercules.proto.ModelRateLimiter.Resource resources = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -2515,59 +2184,62 @@ const char* ModelRateLimiter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 priority = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           priority_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelRateLimiter::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelRateLimiter::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelRateLimiter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .hercules.proto.ModelRateLimiter.Resource resources = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_resources_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_resources_size()); i < n; i++) {
+    const auto& repfield = this->_internal_resources(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_resources(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // uint32 priority = 2;
-  if (this->priority() != 0) {
+  if (this->_internal_priority() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_priority(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_priority(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelRateLimiter)
@@ -2578,7 +2250,7 @@ size_t ModelRateLimiter::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelRateLimiter)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2590,54 +2262,37 @@ size_t ModelRateLimiter::ByteSizeLong() const {
   }
 
   // uint32 priority = 2;
-  if (this->priority() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_priority());
+  if (this->_internal_priority() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_priority());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelRateLimiter::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelRateLimiter)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelRateLimiter* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelRateLimiter>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelRateLimiter)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelRateLimiter)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelRateLimiter::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelRateLimiter::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelRateLimiter::GetClassData() const { return &_class_data_; }
+
+void ModelRateLimiter::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelRateLimiter *>(to)->MergeFrom(
+      static_cast<const ModelRateLimiter &>(from));
 }
+
 
 void ModelRateLimiter::MergeFrom(const ModelRateLimiter& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelRateLimiter)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   resources_.MergeFrom(from.resources_);
-  if (from.priority() != 0) {
+  if (from._internal_priority() != 0) {
     _internal_set_priority(from._internal_priority());
   }
-}
-
-void ModelRateLimiter::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelRateLimiter)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelRateLimiter::CopyFrom(const ModelRateLimiter& from) {
@@ -2653,28 +2308,27 @@ bool ModelRateLimiter::IsInitialized() const {
 
 void ModelRateLimiter::InternalSwap(ModelRateLimiter* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   resources_.InternalSwap(&other->resources_);
   swap(priority_, other->priority_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelRateLimiter::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[1]);
 }
-
 
 // ===================================================================
 
-void ModelInstanceGroup_SecondaryDevice::InitAsDefaultInstance() {
-}
 class ModelInstanceGroup_SecondaryDevice::_Internal {
  public:
 };
 
-ModelInstanceGroup_SecondaryDevice::ModelInstanceGroup_SecondaryDevice(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelInstanceGroup_SecondaryDevice::ModelInstanceGroup_SecondaryDevice(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInstanceGroup.SecondaryDevice)
 }
 ModelInstanceGroup_SecondaryDevice::ModelInstanceGroup_SecondaryDevice(const ModelInstanceGroup_SecondaryDevice& from)
@@ -2686,40 +2340,33 @@ ModelInstanceGroup_SecondaryDevice::ModelInstanceGroup_SecondaryDevice(const Mod
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInstanceGroup.SecondaryDevice)
 }
 
-void ModelInstanceGroup_SecondaryDevice::SharedCtor() {
-  ::memset(&device_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&kind_) -
-      reinterpret_cast<char*>(&device_id_)) + sizeof(kind_));
+inline void ModelInstanceGroup_SecondaryDevice::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&device_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&kind_) -
+    reinterpret_cast<char*>(&device_id_)) + sizeof(kind_));
 }
 
 ModelInstanceGroup_SecondaryDevice::~ModelInstanceGroup_SecondaryDevice() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInstanceGroup.SecondaryDevice)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInstanceGroup_SecondaryDevice::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelInstanceGroup_SecondaryDevice::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelInstanceGroup_SecondaryDevice::ArenaDtor(void* object) {
-  ModelInstanceGroup_SecondaryDevice* _this = reinterpret_cast< ModelInstanceGroup_SecondaryDevice* >(object);
-  (void)_this;
-}
-void ModelInstanceGroup_SecondaryDevice::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelInstanceGroup_SecondaryDevice::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInstanceGroup_SecondaryDevice& ModelInstanceGroup_SecondaryDevice::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInstanceGroup_SecondaryDevice_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInstanceGroup_SecondaryDevice::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInstanceGroup.SecondaryDevice)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2729,72 +2376,73 @@ void ModelInstanceGroup_SecondaryDevice::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInstanceGroup_SecondaryDevice::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInstanceGroup_SecondaryDevice::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.ModelInstanceGroup.SecondaryDevice.SecondaryDeviceKind kind = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_kind(static_cast<::hercules::proto::ModelInstanceGroup_SecondaryDevice_SecondaryDeviceKind>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int64 device_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           device_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInstanceGroup_SecondaryDevice::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInstanceGroup_SecondaryDevice::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInstanceGroup.SecondaryDevice)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.ModelInstanceGroup.SecondaryDevice.SecondaryDeviceKind kind = 1;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_kind(), target);
   }
 
   // int64 device_id = 2;
-  if (this->device_id() != 0) {
+  if (this->_internal_device_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_device_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_device_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInstanceGroup.SecondaryDevice)
@@ -2805,67 +2453,50 @@ size_t ModelInstanceGroup_SecondaryDevice::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInstanceGroup.SecondaryDevice)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // int64 device_id = 2;
-  if (this->device_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-        this->_internal_device_id());
+  if (this->_internal_device_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_device_id());
   }
 
   // .hercules.proto.ModelInstanceGroup.SecondaryDevice.SecondaryDeviceKind kind = 1;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_kind());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_kind());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInstanceGroup_SecondaryDevice::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInstanceGroup.SecondaryDevice)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInstanceGroup_SecondaryDevice* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInstanceGroup_SecondaryDevice>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInstanceGroup.SecondaryDevice)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInstanceGroup.SecondaryDevice)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInstanceGroup_SecondaryDevice::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInstanceGroup_SecondaryDevice::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInstanceGroup_SecondaryDevice::GetClassData() const { return &_class_data_; }
+
+void ModelInstanceGroup_SecondaryDevice::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInstanceGroup_SecondaryDevice *>(to)->MergeFrom(
+      static_cast<const ModelInstanceGroup_SecondaryDevice &>(from));
 }
+
 
 void ModelInstanceGroup_SecondaryDevice::MergeFrom(const ModelInstanceGroup_SecondaryDevice& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInstanceGroup.SecondaryDevice)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.device_id() != 0) {
+  if (from._internal_device_id() != 0) {
     _internal_set_device_id(from._internal_device_id());
   }
-  if (from.kind() != 0) {
+  if (from._internal_kind() != 0) {
     _internal_set_kind(from._internal_kind());
   }
-}
-
-void ModelInstanceGroup_SecondaryDevice::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInstanceGroup.SecondaryDevice)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInstanceGroup_SecondaryDevice::CopyFrom(const ModelInstanceGroup_SecondaryDevice& from) {
@@ -2881,7 +2512,7 @@ bool ModelInstanceGroup_SecondaryDevice::IsInitialized() const {
 
 void ModelInstanceGroup_SecondaryDevice::InternalSwap(ModelInstanceGroup_SecondaryDevice* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelInstanceGroup_SecondaryDevice, kind_)
       + sizeof(ModelInstanceGroup_SecondaryDevice::kind_)
@@ -2891,16 +2522,13 @@ void ModelInstanceGroup_SecondaryDevice::InternalSwap(ModelInstanceGroup_Seconda
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInstanceGroup_SecondaryDevice::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[2]);
 }
-
 
 // ===================================================================
 
-void ModelInstanceGroup::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelInstanceGroup_default_instance_._instance.get_mutable()->rate_limiter_ = const_cast< ::hercules::proto::ModelRateLimiter*>(
-      ::hercules::proto::ModelRateLimiter::internal_default_instance());
-}
 class ModelInstanceGroup::_Internal {
  public:
   static const ::hercules::proto::ModelRateLimiter& rate_limiter(const ModelInstanceGroup* msg);
@@ -2910,13 +2538,13 @@ const ::hercules::proto::ModelRateLimiter&
 ModelInstanceGroup::_Internal::rate_limiter(const ModelInstanceGroup* msg) {
   return *msg->rate_limiter_;
 }
-ModelInstanceGroup::ModelInstanceGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInstanceGroup::ModelInstanceGroup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   gpus_(arena),
   profile_(arena),
   secondary_devices_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInstanceGroup)
 }
 ModelInstanceGroup::ModelInstanceGroup(const ModelInstanceGroup& from)
@@ -2925,15 +2553,21 @@ ModelInstanceGroup::ModelInstanceGroup(const ModelInstanceGroup& from)
       profile_(from.profile_),
       secondary_devices_(from.secondary_devices_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  host_policy_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  host_policy_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    host_policy_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_host_policy().empty()) {
-    host_policy_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_host_policy(),
-      GetArena());
+    host_policy_.Set(from._internal_host_policy(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_rate_limiter()) {
     rate_limiter_ = new ::hercules::proto::ModelRateLimiter(*from.rate_limiter_);
@@ -2946,55 +2580,53 @@ ModelInstanceGroup::ModelInstanceGroup(const ModelInstanceGroup& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInstanceGroup)
 }
 
-void ModelInstanceGroup::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  host_policy_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&rate_limiter_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&passive_) -
-      reinterpret_cast<char*>(&rate_limiter_)) + sizeof(passive_));
+inline void ModelInstanceGroup::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+host_policy_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  host_policy_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&rate_limiter_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&passive_) -
+    reinterpret_cast<char*>(&rate_limiter_)) + sizeof(passive_));
 }
 
 ModelInstanceGroup::~ModelInstanceGroup() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInstanceGroup)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInstanceGroup::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  host_policy_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInstanceGroup::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  host_policy_.Destroy();
   if (this != internal_default_instance()) delete rate_limiter_;
 }
 
-void ModelInstanceGroup::ArenaDtor(void* object) {
-  ModelInstanceGroup* _this = reinterpret_cast< ModelInstanceGroup* >(object);
-  (void)_this;
-}
-void ModelInstanceGroup::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelInstanceGroup::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInstanceGroup& ModelInstanceGroup::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInstanceGroup_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInstanceGroup::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInstanceGroup)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   gpus_.Clear();
   profile_.Clear();
   secondary_devices_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  host_policy_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && rate_limiter_ != nullptr) {
+  name_.ClearToEmpty();
+  host_policy_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && rate_limiter_ != nullptr) {
     delete rate_limiter_;
   }
   rate_limiter_ = nullptr;
@@ -3004,79 +2636,84 @@ void ModelInstanceGroup::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInstanceGroup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInstanceGroup::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInstanceGroup.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInstanceGroup.name"));
+        } else
+          goto handle_unusual;
         continue;
       // int32 count = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int32 gpus = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_gpus(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
-          _internal_add_gpus(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+        } else if (static_cast<uint8_t>(tag) == 24) {
+          _internal_add_gpus(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelInstanceGroup.Kind kind = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_kind(static_cast<::hercules::proto::ModelInstanceGroup_Kind>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated string profile = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_profile();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInstanceGroup.profile"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInstanceGroup.profile"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelRateLimiter rate_limiter = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_rate_limiter(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool passive = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           passive_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelInstanceGroup.SecondaryDevice secondary_devices = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -3084,47 +2721,50 @@ const char* ModelInstanceGroup::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string host_policy = 9;
       case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           auto str = _internal_mutable_host_policy();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInstanceGroup.host_policy"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInstanceGroup.host_policy"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInstanceGroup::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInstanceGroup::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInstanceGroup)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3134,9 +2774,9 @@ failure:
   }
 
   // int32 count = 2;
-  if (this->count() != 0) {
+  if (this->_internal_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_count(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_count(), target);
   }
 
   // repeated int32 gpus = 3;
@@ -3149,9 +2789,9 @@ failure:
   }
 
   // .hercules.proto.ModelInstanceGroup.Kind kind = 4;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       4, this->_internal_kind(), target);
   }
 
@@ -3166,29 +2806,28 @@ failure:
   }
 
   // .hercules.proto.ModelRateLimiter rate_limiter = 6;
-  if (this->has_rate_limiter()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_rate_limiter()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::rate_limiter(this), target, stream);
+      InternalWriteMessage(6, _Internal::rate_limiter(this),
+        _Internal::rate_limiter(this).GetCachedSize(), target, stream);
   }
 
   // bool passive = 7;
-  if (this->passive() != 0) {
+  if (this->_internal_passive() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_passive(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_passive(), target);
   }
 
   // repeated .hercules.proto.ModelInstanceGroup.SecondaryDevice secondary_devices = 8;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_secondary_devices_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_secondary_devices_size()); i < n; i++) {
+    const auto& repfield = this->_internal_secondary_devices(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(8, this->_internal_secondary_devices(i), target, stream);
+        InternalWriteMessage(8, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string host_policy = 9;
-  if (this->host_policy().size() > 0) {
+  if (!this->_internal_host_policy().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_host_policy().data(), static_cast<int>(this->_internal_host_policy().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3198,7 +2837,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInstanceGroup)
@@ -3209,20 +2848,19 @@ size_t ModelInstanceGroup::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInstanceGroup)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int32 gpus = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int32Size(this->gpus_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _gpus_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -3244,103 +2882,86 @@ size_t ModelInstanceGroup::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string host_policy = 9;
-  if (this->host_policy().size() > 0) {
+  if (!this->_internal_host_policy().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_host_policy());
   }
 
   // .hercules.proto.ModelRateLimiter rate_limiter = 6;
-  if (this->has_rate_limiter()) {
+  if (this->_internal_has_rate_limiter()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *rate_limiter_);
   }
 
   // int32 count = 2;
-  if (this->count() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_count());
+  if (this->_internal_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_count());
   }
 
   // .hercules.proto.ModelInstanceGroup.Kind kind = 4;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_kind());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_kind());
   }
 
   // bool passive = 7;
-  if (this->passive() != 0) {
+  if (this->_internal_passive() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInstanceGroup::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInstanceGroup)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInstanceGroup* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInstanceGroup>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInstanceGroup)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInstanceGroup)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInstanceGroup::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInstanceGroup::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInstanceGroup::GetClassData() const { return &_class_data_; }
+
+void ModelInstanceGroup::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInstanceGroup *>(to)->MergeFrom(
+      static_cast<const ModelInstanceGroup &>(from));
 }
+
 
 void ModelInstanceGroup::MergeFrom(const ModelInstanceGroup& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInstanceGroup)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   gpus_.MergeFrom(from.gpus_);
   profile_.MergeFrom(from.profile_);
   secondary_devices_.MergeFrom(from.secondary_devices_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.host_policy().size() > 0) {
+  if (!from._internal_host_policy().empty()) {
     _internal_set_host_policy(from._internal_host_policy());
   }
-  if (from.has_rate_limiter()) {
+  if (from._internal_has_rate_limiter()) {
     _internal_mutable_rate_limiter()->::hercules::proto::ModelRateLimiter::MergeFrom(from._internal_rate_limiter());
   }
-  if (from.count() != 0) {
+  if (from._internal_count() != 0) {
     _internal_set_count(from._internal_count());
   }
-  if (from.kind() != 0) {
+  if (from._internal_kind() != 0) {
     _internal_set_kind(from._internal_kind());
   }
-  if (from.passive() != 0) {
+  if (from._internal_passive() != 0) {
     _internal_set_passive(from._internal_passive());
   }
-}
-
-void ModelInstanceGroup::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInstanceGroup)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInstanceGroup::CopyFrom(const ModelInstanceGroup& from) {
@@ -3356,12 +2977,20 @@ bool ModelInstanceGroup::IsInitialized() const {
 
 void ModelInstanceGroup::InternalSwap(ModelInstanceGroup* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   gpus_.InternalSwap(&other->gpus_);
   profile_.InternalSwap(&other->profile_);
   secondary_devices_.InternalSwap(&other->secondary_devices_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  host_policy_.Swap(&other->host_policy_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &host_policy_, lhs_arena,
+      &other->host_policy_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelInstanceGroup, passive_)
       + sizeof(ModelInstanceGroup::passive_)
@@ -3371,23 +3000,22 @@ void ModelInstanceGroup::InternalSwap(ModelInstanceGroup* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInstanceGroup::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[3]);
 }
-
 
 // ===================================================================
 
-void ModelTensorReshape::InitAsDefaultInstance() {
-}
 class ModelTensorReshape::_Internal {
  public:
 };
 
-ModelTensorReshape::ModelTensorReshape(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelTensorReshape::ModelTensorReshape(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   shape_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelTensorReshape)
 }
 ModelTensorReshape::ModelTensorReshape(const ModelTensorReshape& from)
@@ -3397,37 +3025,29 @@ ModelTensorReshape::ModelTensorReshape(const ModelTensorReshape& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelTensorReshape)
 }
 
-void ModelTensorReshape::SharedCtor() {
+inline void ModelTensorReshape::SharedCtor() {
 }
 
 ModelTensorReshape::~ModelTensorReshape() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelTensorReshape)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelTensorReshape::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelTensorReshape::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelTensorReshape::ArenaDtor(void* object) {
-  ModelTensorReshape* _this = reinterpret_cast< ModelTensorReshape* >(object);
-  (void)_this;
-}
-void ModelTensorReshape::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelTensorReshape::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelTensorReshape& ModelTensorReshape::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelTensorReshape_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelTensorReshape::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelTensorReshape)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3435,50 +3055,50 @@ void ModelTensorReshape::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelTensorReshape::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelTensorReshape::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated int64 shape = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_shape(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+        } else if (static_cast<uint8_t>(tag) == 8) {
           _internal_add_shape(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelTensorReshape::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelTensorReshape::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelTensorReshape)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated int64 shape = 1;
@@ -3491,7 +3111,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelTensorReshape)
@@ -3502,64 +3122,48 @@ size_t ModelTensorReshape::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelTensorReshape)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 shape = 1;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->shape_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _shape_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelTensorReshape::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelTensorReshape)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelTensorReshape* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelTensorReshape>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelTensorReshape)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelTensorReshape)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelTensorReshape::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelTensorReshape::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelTensorReshape::GetClassData() const { return &_class_data_; }
+
+void ModelTensorReshape::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelTensorReshape *>(to)->MergeFrom(
+      static_cast<const ModelTensorReshape &>(from));
 }
+
 
 void ModelTensorReshape::MergeFrom(const ModelTensorReshape& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelTensorReshape)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   shape_.MergeFrom(from.shape_);
-}
-
-void ModelTensorReshape::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelTensorReshape)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelTensorReshape::CopyFrom(const ModelTensorReshape& from) {
@@ -3575,21 +3179,18 @@ bool ModelTensorReshape::IsInitialized() const {
 
 void ModelTensorReshape::InternalSwap(ModelTensorReshape* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   shape_.InternalSwap(&other->shape_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelTensorReshape::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[4]);
 }
-
 
 // ===================================================================
 
-void ModelInput::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelInput_default_instance_._instance.get_mutable()->reshape_ = const_cast< ::hercules::proto::ModelTensorReshape*>(
-      ::hercules::proto::ModelTensorReshape::internal_default_instance());
-}
 class ModelInput::_Internal {
  public:
   static const ::hercules::proto::ModelTensorReshape& reshape(const ModelInput* msg);
@@ -3599,21 +3200,24 @@ const ::hercules::proto::ModelTensorReshape&
 ModelInput::_Internal::reshape(const ModelInput* msg) {
   return *msg->reshape_;
 }
-ModelInput::ModelInput(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInput::ModelInput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   dims_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInput)
 }
 ModelInput::ModelInput(const ModelInput& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       dims_(from.dims_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_reshape()) {
     reshape_ = new ::hercules::proto::ModelTensorReshape(*from.reshape_);
@@ -3626,50 +3230,45 @@ ModelInput::ModelInput(const ModelInput& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInput)
 }
 
-void ModelInput::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&reshape_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&optional_) -
-      reinterpret_cast<char*>(&reshape_)) + sizeof(optional_));
+inline void ModelInput::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&reshape_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&optional_) -
+    reinterpret_cast<char*>(&reshape_)) + sizeof(optional_));
 }
 
 ModelInput::~ModelInput() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInput)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInput::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInput::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
   if (this != internal_default_instance()) delete reshape_;
 }
 
-void ModelInput::ArenaDtor(void* object) {
-  ModelInput* _this = reinterpret_cast< ModelInput* >(object);
-  (void)_this;
-}
-void ModelInput::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelInput::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInput& ModelInput::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInput::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   dims_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && reshape_ != nullptr) {
+  name_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && reshape_ != nullptr) {
     delete reshape_;
   }
   reshape_ = nullptr;
@@ -3679,107 +3278,114 @@ void ModelInput::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInput::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInput::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInput.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInput.name"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.DataType data_type = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelInput.Format format = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_format(static_cast<::hercules::proto::ModelInput_Format>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 dims = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_dims(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32) {
+        } else if (static_cast<uint8_t>(tag) == 32) {
           _internal_add_dims(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelTensorReshape reshape = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_reshape(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_shape_tensor = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           is_shape_tensor_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool allow_ragged_batch = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           allow_ragged_batch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool optional = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
           optional_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInput::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInput::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3789,16 +3395,16 @@ failure:
   }
 
   // .hercules.proto.DataType data_type = 2;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       2, this->_internal_data_type(), target);
   }
 
   // .hercules.proto.ModelInput.Format format = 3;
-  if (this->format() != 0) {
+  if (this->_internal_format() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_format(), target);
   }
 
@@ -3812,33 +3418,32 @@ failure:
   }
 
   // .hercules.proto.ModelTensorReshape reshape = 5;
-  if (this->has_reshape()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_reshape()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::reshape(this), target, stream);
+      InternalWriteMessage(5, _Internal::reshape(this),
+        _Internal::reshape(this).GetCachedSize(), target, stream);
   }
 
   // bool is_shape_tensor = 6;
-  if (this->is_shape_tensor() != 0) {
+  if (this->_internal_is_shape_tensor() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_shape_tensor(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_is_shape_tensor(), target);
   }
 
   // bool allow_ragged_batch = 7;
-  if (this->allow_ragged_batch() != 0) {
+  if (this->_internal_allow_ragged_batch() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_allow_ragged_batch(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(7, this->_internal_allow_ragged_batch(), target);
   }
 
   // bool optional = 8;
-  if (this->optional() != 0) {
+  if (this->_internal_optional() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_optional(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(8, this->_internal_optional(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInput)
@@ -3849,126 +3454,110 @@ size_t ModelInput::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInput)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 dims = 4;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->dims_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _dims_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // .hercules.proto.ModelTensorReshape reshape = 5;
-  if (this->has_reshape()) {
+  if (this->_internal_has_reshape()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *reshape_);
   }
 
   // .hercules.proto.DataType data_type = 2;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
   // .hercules.proto.ModelInput.Format format = 3;
-  if (this->format() != 0) {
+  if (this->_internal_format() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_format());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_format());
   }
 
   // bool is_shape_tensor = 6;
-  if (this->is_shape_tensor() != 0) {
+  if (this->_internal_is_shape_tensor() != 0) {
     total_size += 1 + 1;
   }
 
   // bool allow_ragged_batch = 7;
-  if (this->allow_ragged_batch() != 0) {
+  if (this->_internal_allow_ragged_batch() != 0) {
     total_size += 1 + 1;
   }
 
   // bool optional = 8;
-  if (this->optional() != 0) {
+  if (this->_internal_optional() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInput::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInput)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInput* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInput>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInput)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInput)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInput::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInput::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInput::GetClassData() const { return &_class_data_; }
+
+void ModelInput::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInput *>(to)->MergeFrom(
+      static_cast<const ModelInput &>(from));
 }
+
 
 void ModelInput::MergeFrom(const ModelInput& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInput)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   dims_.MergeFrom(from.dims_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.has_reshape()) {
+  if (from._internal_has_reshape()) {
     _internal_mutable_reshape()->::hercules::proto::ModelTensorReshape::MergeFrom(from._internal_reshape());
   }
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
-  if (from.format() != 0) {
+  if (from._internal_format() != 0) {
     _internal_set_format(from._internal_format());
   }
-  if (from.is_shape_tensor() != 0) {
+  if (from._internal_is_shape_tensor() != 0) {
     _internal_set_is_shape_tensor(from._internal_is_shape_tensor());
   }
-  if (from.allow_ragged_batch() != 0) {
+  if (from._internal_allow_ragged_batch() != 0) {
     _internal_set_allow_ragged_batch(from._internal_allow_ragged_batch());
   }
-  if (from.optional() != 0) {
+  if (from._internal_optional() != 0) {
     _internal_set_optional(from._internal_optional());
   }
-}
-
-void ModelInput::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInput)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInput::CopyFrom(const ModelInput& from) {
@@ -3984,9 +3573,14 @@ bool ModelInput::IsInitialized() const {
 
 void ModelInput::InternalSwap(ModelInput* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   dims_.InternalSwap(&other->dims_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelInput, optional_)
       + sizeof(ModelInput::optional_)
@@ -3996,16 +3590,13 @@ void ModelInput::InternalSwap(ModelInput* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInput::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[5]);
 }
-
 
 // ===================================================================
 
-void ModelOutput::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelOutput_default_instance_._instance.get_mutable()->reshape_ = const_cast< ::hercules::proto::ModelTensorReshape*>(
-      ::hercules::proto::ModelTensorReshape::internal_default_instance());
-}
 class ModelOutput::_Internal {
  public:
   static const ::hercules::proto::ModelTensorReshape& reshape(const ModelOutput* msg);
@@ -4015,26 +3606,32 @@ const ::hercules::proto::ModelTensorReshape&
 ModelOutput::_Internal::reshape(const ModelOutput* msg) {
   return *msg->reshape_;
 }
-ModelOutput::ModelOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOutput::ModelOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   dims_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOutput)
 }
 ModelOutput::ModelOutput(const ModelOutput& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       dims_(from.dims_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  label_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  label_filename_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    label_filename_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_label_filename().empty()) {
-    label_filename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_label_filename(),
-      GetArena());
+    label_filename_.Set(from._internal_label_filename(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_reshape()) {
     reshape_ = new ::hercules::proto::ModelTensorReshape(*from.reshape_);
@@ -4047,53 +3644,51 @@ ModelOutput::ModelOutput(const ModelOutput& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOutput)
 }
 
-void ModelOutput::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  label_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&reshape_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&is_shape_tensor_) -
-      reinterpret_cast<char*>(&reshape_)) + sizeof(is_shape_tensor_));
+inline void ModelOutput::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+label_filename_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  label_filename_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&reshape_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_shape_tensor_) -
+    reinterpret_cast<char*>(&reshape_)) + sizeof(is_shape_tensor_));
 }
 
 ModelOutput::~ModelOutput() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOutput)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOutput::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  label_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelOutput::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  label_filename_.Destroy();
   if (this != internal_default_instance()) delete reshape_;
 }
 
-void ModelOutput::ArenaDtor(void* object) {
-  ModelOutput* _this = reinterpret_cast< ModelOutput* >(object);
-  (void)_this;
-}
-void ModelOutput::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOutput::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOutput& ModelOutput::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOutput::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOutput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   dims_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  label_filename_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && reshape_ != nullptr) {
+  name_.ClearToEmpty();
+  label_filename_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && reshape_ != nullptr) {
     delete reshape_;
   }
   reshape_ = nullptr;
@@ -4103,94 +3698,99 @@ void ModelOutput::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOutput::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOutput::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelOutput.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelOutput.name"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.DataType data_type = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 dims = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_dims(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<uint8_t>(tag) == 24) {
           _internal_add_dims(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string label_filename = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_label_filename();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelOutput.label_filename"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelOutput.label_filename"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelTensorReshape reshape = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_reshape(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_shape_tensor = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           is_shape_tensor_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOutput::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOutput::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOutput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4200,9 +3800,9 @@ failure:
   }
 
   // .hercules.proto.DataType data_type = 2;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       2, this->_internal_data_type(), target);
   }
 
@@ -4216,7 +3816,7 @@ failure:
   }
 
   // string label_filename = 4;
-  if (this->label_filename().size() > 0) {
+  if (!this->_internal_label_filename().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_label_filename().data(), static_cast<int>(this->_internal_label_filename().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4226,21 +3826,20 @@ failure:
   }
 
   // .hercules.proto.ModelTensorReshape reshape = 5;
-  if (this->has_reshape()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_reshape()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::reshape(this), target, stream);
+      InternalWriteMessage(5, _Internal::reshape(this),
+        _Internal::reshape(this).GetCachedSize(), target, stream);
   }
 
   // bool is_shape_tensor = 6;
-  if (this->is_shape_tensor() != 0) {
+  if (this->_internal_is_shape_tensor() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_shape_tensor(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_is_shape_tensor(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOutput)
@@ -4251,111 +3850,95 @@ size_t ModelOutput::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOutput)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 dims = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->dims_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _dims_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string label_filename = 4;
-  if (this->label_filename().size() > 0) {
+  if (!this->_internal_label_filename().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_label_filename());
   }
 
   // .hercules.proto.ModelTensorReshape reshape = 5;
-  if (this->has_reshape()) {
+  if (this->_internal_has_reshape()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *reshape_);
   }
 
   // .hercules.proto.DataType data_type = 2;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
   // bool is_shape_tensor = 6;
-  if (this->is_shape_tensor() != 0) {
+  if (this->_internal_is_shape_tensor() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOutput::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOutput)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOutput* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOutput>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOutput)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOutput)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOutput::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOutput::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOutput::GetClassData() const { return &_class_data_; }
+
+void ModelOutput::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOutput *>(to)->MergeFrom(
+      static_cast<const ModelOutput &>(from));
 }
+
 
 void ModelOutput::MergeFrom(const ModelOutput& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOutput)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   dims_.MergeFrom(from.dims_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.label_filename().size() > 0) {
+  if (!from._internal_label_filename().empty()) {
     _internal_set_label_filename(from._internal_label_filename());
   }
-  if (from.has_reshape()) {
+  if (from._internal_has_reshape()) {
     _internal_mutable_reshape()->::hercules::proto::ModelTensorReshape::MergeFrom(from._internal_reshape());
   }
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
-  if (from.is_shape_tensor() != 0) {
+  if (from._internal_is_shape_tensor() != 0) {
     _internal_set_is_shape_tensor(from._internal_is_shape_tensor());
   }
-}
-
-void ModelOutput::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOutput)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOutput::CopyFrom(const ModelOutput& from) {
@@ -4371,10 +3954,18 @@ bool ModelOutput::IsInitialized() const {
 
 void ModelOutput::InternalSwap(ModelOutput* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   dims_.InternalSwap(&other->dims_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  label_filename_.Swap(&other->label_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &label_filename_, lhs_arena,
+      &other->label_filename_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelOutput, is_shape_tensor_)
       + sizeof(ModelOutput::is_shape_tensor_)
@@ -4384,24 +3975,23 @@ void ModelOutput::InternalSwap(ModelOutput* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOutput::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[6]);
 }
-
 
 // ===================================================================
 
-void BatchInput::InitAsDefaultInstance() {
-}
 class BatchInput::_Internal {
  public:
 };
 
-BatchInput::BatchInput(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+BatchInput::BatchInput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   target_name_(arena),
   source_input_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.BatchInput)
 }
 BatchInput::BatchInput(const BatchInput& from)
@@ -4415,41 +4005,33 @@ BatchInput::BatchInput(const BatchInput& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.BatchInput)
 }
 
-void BatchInput::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  ::memset(&kind_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&data_type_) -
-      reinterpret_cast<char*>(&kind_)) + sizeof(data_type_));
+inline void BatchInput::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&kind_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&data_type_) -
+    reinterpret_cast<char*>(&kind_)) + sizeof(data_type_));
 }
 
 BatchInput::~BatchInput() {
   // @@protoc_insertion_point(destructor:hercules.proto.BatchInput)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void BatchInput::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void BatchInput::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void BatchInput::ArenaDtor(void* object) {
-  BatchInput* _this = reinterpret_cast< BatchInput* >(object);
-  (void)_this;
-}
-void BatchInput::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void BatchInput::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const BatchInput& BatchInput::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BatchInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void BatchInput::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.BatchInput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4461,90 +4043,93 @@ void BatchInput::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* BatchInput::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* BatchInput::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.BatchInput.Kind kind = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_kind(static_cast<::hercules::proto::BatchInput_Kind>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated string target_name = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_target_name();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.BatchInput.target_name"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.BatchInput.target_name"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.DataType data_type = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated string source_input = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_source_input();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.BatchInput.source_input"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.BatchInput.source_input"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* BatchInput::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* BatchInput::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.BatchInput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.BatchInput.Kind kind = 1;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_kind(), target);
   }
 
@@ -4559,9 +4144,9 @@ failure:
   }
 
   // .hercules.proto.DataType data_type = 3;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_data_type(), target);
   }
 
@@ -4576,7 +4161,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.BatchInput)
@@ -4587,7 +4172,7 @@ size_t BatchInput::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.BatchInput)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4608,63 +4193,48 @@ size_t BatchInput::ByteSizeLong() const {
   }
 
   // .hercules.proto.BatchInput.Kind kind = 1;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_kind());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_kind());
   }
 
   // .hercules.proto.DataType data_type = 3;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void BatchInput::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.BatchInput)
-  GOOGLE_DCHECK_NE(&from, this);
-  const BatchInput* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BatchInput>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.BatchInput)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.BatchInput)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BatchInput::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    BatchInput::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BatchInput::GetClassData() const { return &_class_data_; }
+
+void BatchInput::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<BatchInput *>(to)->MergeFrom(
+      static_cast<const BatchInput &>(from));
 }
+
 
 void BatchInput::MergeFrom(const BatchInput& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.BatchInput)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   target_name_.MergeFrom(from.target_name_);
   source_input_.MergeFrom(from.source_input_);
-  if (from.kind() != 0) {
+  if (from._internal_kind() != 0) {
     _internal_set_kind(from._internal_kind());
   }
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
-}
-
-void BatchInput::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.BatchInput)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void BatchInput::CopyFrom(const BatchInput& from) {
@@ -4680,7 +4250,7 @@ bool BatchInput::IsInitialized() const {
 
 void BatchInput::InternalSwap(BatchInput* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   target_name_.InternalSwap(&other->target_name_);
   source_input_.InternalSwap(&other->source_input_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
@@ -4692,24 +4262,23 @@ void BatchInput::InternalSwap(BatchInput* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata BatchInput::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[7]);
 }
-
 
 // ===================================================================
 
-void BatchOutput::InitAsDefaultInstance() {
-}
 class BatchOutput::_Internal {
  public:
 };
 
-BatchOutput::BatchOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+BatchOutput::BatchOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   target_name_(arena),
   source_input_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.BatchOutput)
 }
 BatchOutput::BatchOutput(const BatchOutput& from)
@@ -4721,39 +4290,30 @@ BatchOutput::BatchOutput(const BatchOutput& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.BatchOutput)
 }
 
-void BatchOutput::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  kind_ = 0;
+inline void BatchOutput::SharedCtor() {
+kind_ = 0;
 }
 
 BatchOutput::~BatchOutput() {
   // @@protoc_insertion_point(destructor:hercules.proto.BatchOutput)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void BatchOutput::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void BatchOutput::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void BatchOutput::ArenaDtor(void* object) {
-  BatchOutput* _this = reinterpret_cast< BatchOutput* >(object);
-  (void)_this;
-}
-void BatchOutput::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void BatchOutput::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const BatchOutput& BatchOutput::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_BatchOutput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void BatchOutput::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.BatchOutput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4763,76 +4323,78 @@ void BatchOutput::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* BatchOutput::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* BatchOutput::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated string target_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_target_name();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.BatchOutput.target_name"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.BatchOutput.target_name"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.BatchOutput.Kind kind = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_kind(static_cast<::hercules::proto::BatchOutput_Kind>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated string source_input = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_source_input();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.BatchOutput.source_input"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.BatchOutput.source_input"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* BatchOutput::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* BatchOutput::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.BatchOutput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated string target_name = 1;
@@ -4846,9 +4408,9 @@ failure:
   }
 
   // .hercules.proto.BatchOutput.Kind kind = 2;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       2, this->_internal_kind(), target);
   }
 
@@ -4863,7 +4425,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.BatchOutput)
@@ -4874,7 +4436,7 @@ size_t BatchOutput::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.BatchOutput)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4895,54 +4457,39 @@ size_t BatchOutput::ByteSizeLong() const {
   }
 
   // .hercules.proto.BatchOutput.Kind kind = 2;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_kind());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_kind());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void BatchOutput::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.BatchOutput)
-  GOOGLE_DCHECK_NE(&from, this);
-  const BatchOutput* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<BatchOutput>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.BatchOutput)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.BatchOutput)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BatchOutput::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    BatchOutput::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BatchOutput::GetClassData() const { return &_class_data_; }
+
+void BatchOutput::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<BatchOutput *>(to)->MergeFrom(
+      static_cast<const BatchOutput &>(from));
 }
+
 
 void BatchOutput::MergeFrom(const BatchOutput& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.BatchOutput)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   target_name_.MergeFrom(from.target_name_);
   source_input_.MergeFrom(from.source_input_);
-  if (from.kind() != 0) {
+  if (from._internal_kind() != 0) {
     _internal_set_kind(from._internal_kind());
   }
-}
-
-void BatchOutput::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.BatchOutput)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void BatchOutput::CopyFrom(const BatchOutput& from) {
@@ -4958,29 +4505,28 @@ bool BatchOutput::IsInitialized() const {
 
 void BatchOutput::InternalSwap(BatchOutput* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   target_name_.InternalSwap(&other->target_name_);
   source_input_.InternalSwap(&other->source_input_);
   swap(kind_, other->kind_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata BatchOutput::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[8]);
 }
-
 
 // ===================================================================
 
-void ModelVersionPolicy_Latest::InitAsDefaultInstance() {
-}
 class ModelVersionPolicy_Latest::_Internal {
  public:
 };
 
-ModelVersionPolicy_Latest::ModelVersionPolicy_Latest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelVersionPolicy_Latest::ModelVersionPolicy_Latest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelVersionPolicy.Latest)
 }
 ModelVersionPolicy_Latest::ModelVersionPolicy_Latest(const ModelVersionPolicy_Latest& from)
@@ -4990,38 +4536,30 @@ ModelVersionPolicy_Latest::ModelVersionPolicy_Latest(const ModelVersionPolicy_La
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelVersionPolicy.Latest)
 }
 
-void ModelVersionPolicy_Latest::SharedCtor() {
-  num_versions_ = 0u;
+inline void ModelVersionPolicy_Latest::SharedCtor() {
+num_versions_ = 0u;
 }
 
 ModelVersionPolicy_Latest::~ModelVersionPolicy_Latest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelVersionPolicy.Latest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelVersionPolicy_Latest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelVersionPolicy_Latest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelVersionPolicy_Latest::ArenaDtor(void* object) {
-  ModelVersionPolicy_Latest* _this = reinterpret_cast< ModelVersionPolicy_Latest* >(object);
-  (void)_this;
-}
-void ModelVersionPolicy_Latest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelVersionPolicy_Latest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelVersionPolicy_Latest& ModelVersionPolicy_Latest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelVersionPolicy_Latest_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelVersionPolicy_Latest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelVersionPolicy.Latest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5029,57 +4567,57 @@ void ModelVersionPolicy_Latest::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelVersionPolicy_Latest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelVersionPolicy_Latest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 num_versions = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           num_versions_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelVersionPolicy_Latest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelVersionPolicy_Latest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelVersionPolicy.Latest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 num_versions = 1;
-  if (this->num_versions() != 0) {
+  if (this->_internal_num_versions() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_versions(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_versions(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelVersionPolicy.Latest)
@@ -5090,58 +4628,41 @@ size_t ModelVersionPolicy_Latest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelVersionPolicy.Latest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint32 num_versions = 1;
-  if (this->num_versions() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_num_versions());
+  if (this->_internal_num_versions() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_num_versions());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelVersionPolicy_Latest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelVersionPolicy.Latest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelVersionPolicy_Latest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelVersionPolicy_Latest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelVersionPolicy.Latest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelVersionPolicy.Latest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelVersionPolicy_Latest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelVersionPolicy_Latest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelVersionPolicy_Latest::GetClassData() const { return &_class_data_; }
+
+void ModelVersionPolicy_Latest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelVersionPolicy_Latest *>(to)->MergeFrom(
+      static_cast<const ModelVersionPolicy_Latest &>(from));
 }
+
 
 void ModelVersionPolicy_Latest::MergeFrom(const ModelVersionPolicy_Latest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelVersionPolicy.Latest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.num_versions() != 0) {
+  if (from._internal_num_versions() != 0) {
     _internal_set_num_versions(from._internal_num_versions());
   }
-}
-
-void ModelVersionPolicy_Latest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelVersionPolicy.Latest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelVersionPolicy_Latest::CopyFrom(const ModelVersionPolicy_Latest& from) {
@@ -5157,193 +4678,66 @@ bool ModelVersionPolicy_Latest::IsInitialized() const {
 
 void ModelVersionPolicy_Latest::InternalSwap(ModelVersionPolicy_Latest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(num_versions_, other->num_versions_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelVersionPolicy_Latest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[9]);
 }
-
 
 // ===================================================================
 
-void ModelVersionPolicy_All::InitAsDefaultInstance() {
-}
 class ModelVersionPolicy_All::_Internal {
  public:
 };
 
-ModelVersionPolicy_All::ModelVersionPolicy_All(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ModelVersionPolicy_All::ModelVersionPolicy_All(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelVersionPolicy.All)
 }
 ModelVersionPolicy_All::ModelVersionPolicy_All(const ModelVersionPolicy_All& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelVersionPolicy.All)
 }
 
-void ModelVersionPolicy_All::SharedCtor() {
-}
-
-ModelVersionPolicy_All::~ModelVersionPolicy_All() {
-  // @@protoc_insertion_point(destructor:hercules.proto.ModelVersionPolicy.All)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ModelVersionPolicy_All::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ModelVersionPolicy_All::ArenaDtor(void* object) {
-  ModelVersionPolicy_All* _this = reinterpret_cast< ModelVersionPolicy_All* >(object);
-  (void)_this;
-}
-void ModelVersionPolicy_All::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ModelVersionPolicy_All::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ModelVersionPolicy_All& ModelVersionPolicy_All::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelVersionPolicy_All_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void ModelVersionPolicy_All::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.ModelVersionPolicy.All)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* ModelVersionPolicy_All::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelVersionPolicy_All::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelVersionPolicy_All::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelVersionPolicy_All::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelVersionPolicy.All)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelVersionPolicy.All)
-  return target;
-}
 
-size_t ModelVersionPolicy_All::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelVersionPolicy.All)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void ModelVersionPolicy_All::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelVersionPolicy.All)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelVersionPolicy_All* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelVersionPolicy_All>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelVersionPolicy.All)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelVersionPolicy.All)
-    MergeFrom(*source);
-  }
-}
-
-void ModelVersionPolicy_All::MergeFrom(const ModelVersionPolicy_All& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelVersionPolicy.All)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void ModelVersionPolicy_All::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelVersionPolicy.All)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ModelVersionPolicy_All::CopyFrom(const ModelVersionPolicy_All& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.ModelVersionPolicy.All)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ModelVersionPolicy_All::IsInitialized() const {
-  return true;
-}
-
-void ModelVersionPolicy_All::InternalSwap(ModelVersionPolicy_All* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelVersionPolicy_All::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[10]);
 }
-
 
 // ===================================================================
 
-void ModelVersionPolicy_Specific::InitAsDefaultInstance() {
-}
 class ModelVersionPolicy_Specific::_Internal {
  public:
 };
 
-ModelVersionPolicy_Specific::ModelVersionPolicy_Specific(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelVersionPolicy_Specific::ModelVersionPolicy_Specific(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   versions_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelVersionPolicy.Specific)
 }
 ModelVersionPolicy_Specific::ModelVersionPolicy_Specific(const ModelVersionPolicy_Specific& from)
@@ -5353,37 +4747,29 @@ ModelVersionPolicy_Specific::ModelVersionPolicy_Specific(const ModelVersionPolic
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelVersionPolicy.Specific)
 }
 
-void ModelVersionPolicy_Specific::SharedCtor() {
+inline void ModelVersionPolicy_Specific::SharedCtor() {
 }
 
 ModelVersionPolicy_Specific::~ModelVersionPolicy_Specific() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelVersionPolicy.Specific)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelVersionPolicy_Specific::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelVersionPolicy_Specific::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelVersionPolicy_Specific::ArenaDtor(void* object) {
-  ModelVersionPolicy_Specific* _this = reinterpret_cast< ModelVersionPolicy_Specific* >(object);
-  (void)_this;
-}
-void ModelVersionPolicy_Specific::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelVersionPolicy_Specific::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelVersionPolicy_Specific& ModelVersionPolicy_Specific::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelVersionPolicy_Specific_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelVersionPolicy_Specific::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelVersionPolicy.Specific)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5391,50 +4777,50 @@ void ModelVersionPolicy_Specific::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelVersionPolicy_Specific::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelVersionPolicy_Specific::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated int64 versions = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_versions(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+        } else if (static_cast<uint8_t>(tag) == 8) {
           _internal_add_versions(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelVersionPolicy_Specific::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelVersionPolicy_Specific::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelVersionPolicy.Specific)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated int64 versions = 1;
@@ -5447,7 +4833,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelVersionPolicy.Specific)
@@ -5458,64 +4844,48 @@ size_t ModelVersionPolicy_Specific::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelVersionPolicy.Specific)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 versions = 1;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->versions_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _versions_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelVersionPolicy_Specific::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelVersionPolicy.Specific)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelVersionPolicy_Specific* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelVersionPolicy_Specific>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelVersionPolicy.Specific)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelVersionPolicy.Specific)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelVersionPolicy_Specific::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelVersionPolicy_Specific::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelVersionPolicy_Specific::GetClassData() const { return &_class_data_; }
+
+void ModelVersionPolicy_Specific::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelVersionPolicy_Specific *>(to)->MergeFrom(
+      static_cast<const ModelVersionPolicy_Specific &>(from));
 }
+
 
 void ModelVersionPolicy_Specific::MergeFrom(const ModelVersionPolicy_Specific& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelVersionPolicy.Specific)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   versions_.MergeFrom(from.versions_);
-}
-
-void ModelVersionPolicy_Specific::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelVersionPolicy.Specific)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelVersionPolicy_Specific::CopyFrom(const ModelVersionPolicy_Specific& from) {
@@ -5531,25 +4901,18 @@ bool ModelVersionPolicy_Specific::IsInitialized() const {
 
 void ModelVersionPolicy_Specific::InternalSwap(ModelVersionPolicy_Specific* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   versions_.InternalSwap(&other->versions_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelVersionPolicy_Specific::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[11]);
 }
-
 
 // ===================================================================
 
-void ModelVersionPolicy::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelVersionPolicy_default_instance_.latest_ = const_cast< ::hercules::proto::ModelVersionPolicy_Latest*>(
-      ::hercules::proto::ModelVersionPolicy_Latest::internal_default_instance());
-  ::hercules::proto::_ModelVersionPolicy_default_instance_.all_ = const_cast< ::hercules::proto::ModelVersionPolicy_All*>(
-      ::hercules::proto::ModelVersionPolicy_All::internal_default_instance());
-  ::hercules::proto::_ModelVersionPolicy_default_instance_.specific_ = const_cast< ::hercules::proto::ModelVersionPolicy_Specific*>(
-      ::hercules::proto::ModelVersionPolicy_Specific::internal_default_instance());
-}
 class ModelVersionPolicy::_Internal {
  public:
   static const ::hercules::proto::ModelVersionPolicy_Latest& latest(const ModelVersionPolicy* msg);
@@ -5570,11 +4933,11 @@ ModelVersionPolicy::_Internal::specific(const ModelVersionPolicy* msg) {
   return *msg->policy_choice_.specific_;
 }
 void ModelVersionPolicy::set_allocated_latest(::hercules::proto::ModelVersionPolicy_Latest* latest) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_policy_choice();
   if (latest) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(latest);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(latest);
     if (message_arena != submessage_arena) {
       latest = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, latest, submessage_arena);
@@ -5585,11 +4948,11 @@ void ModelVersionPolicy::set_allocated_latest(::hercules::proto::ModelVersionPol
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelVersionPolicy.latest)
 }
 void ModelVersionPolicy::set_allocated_all(::hercules::proto::ModelVersionPolicy_All* all) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_policy_choice();
   if (all) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(all);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(all);
     if (message_arena != submessage_arena) {
       all = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, all, submessage_arena);
@@ -5600,11 +4963,11 @@ void ModelVersionPolicy::set_allocated_all(::hercules::proto::ModelVersionPolicy
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelVersionPolicy.all)
 }
 void ModelVersionPolicy::set_allocated_specific(::hercules::proto::ModelVersionPolicy_Specific* specific) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_policy_choice();
   if (specific) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(specific);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(specific);
     if (message_arena != submessage_arena) {
       specific = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, specific, submessage_arena);
@@ -5614,10 +4977,10 @@ void ModelVersionPolicy::set_allocated_specific(::hercules::proto::ModelVersionP
   }
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelVersionPolicy.specific)
 }
-ModelVersionPolicy::ModelVersionPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelVersionPolicy::ModelVersionPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelVersionPolicy)
 }
 ModelVersionPolicy::ModelVersionPolicy(const ModelVersionPolicy& from)
@@ -5644,56 +5007,47 @@ ModelVersionPolicy::ModelVersionPolicy(const ModelVersionPolicy& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelVersionPolicy)
 }
 
-void ModelVersionPolicy::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  clear_has_policy_choice();
+inline void ModelVersionPolicy::SharedCtor() {
+clear_has_policy_choice();
 }
 
 ModelVersionPolicy::~ModelVersionPolicy() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelVersionPolicy)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelVersionPolicy::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelVersionPolicy::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (has_policy_choice()) {
     clear_policy_choice();
   }
 }
 
-void ModelVersionPolicy::ArenaDtor(void* object) {
-  ModelVersionPolicy* _this = reinterpret_cast< ModelVersionPolicy* >(object);
-  (void)_this;
-}
-void ModelVersionPolicy::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelVersionPolicy::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelVersionPolicy& ModelVersionPolicy::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelVersionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelVersionPolicy::clear_policy_choice() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.ModelVersionPolicy)
   switch (policy_choice_case()) {
     case kLatest: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete policy_choice_.latest_;
       }
       break;
     }
     case kAll: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete policy_choice_.all_;
       }
       break;
     }
     case kSpecific: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete policy_choice_.specific_;
       }
       break;
@@ -5708,7 +5062,7 @@ void ModelVersionPolicy::clear_policy_choice() {
 
 void ModelVersionPolicy::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelVersionPolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5716,89 +5070,88 @@ void ModelVersionPolicy::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelVersionPolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelVersionPolicy::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.ModelVersionPolicy.Latest latest = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_latest(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelVersionPolicy.All all = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_all(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelVersionPolicy.Specific specific = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_specific(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelVersionPolicy::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelVersionPolicy::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelVersionPolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.ModelVersionPolicy.Latest latest = 1;
   if (_internal_has_latest()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::latest(this), target, stream);
+      InternalWriteMessage(1, _Internal::latest(this),
+        _Internal::latest(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelVersionPolicy.All all = 2;
   if (_internal_has_all()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::all(this), target, stream);
+      InternalWriteMessage(2, _Internal::all(this),
+        _Internal::all(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelVersionPolicy.Specific specific = 3;
   if (_internal_has_specific()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::specific(this), target, stream);
+      InternalWriteMessage(3, _Internal::specific(this),
+        _Internal::specific(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelVersionPolicy)
@@ -5809,7 +5162,7 @@ size_t ModelVersionPolicy::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelVersionPolicy)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5839,35 +5192,26 @@ size_t ModelVersionPolicy::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelVersionPolicy::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelVersionPolicy)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelVersionPolicy* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelVersionPolicy>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelVersionPolicy)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelVersionPolicy)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelVersionPolicy::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelVersionPolicy::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelVersionPolicy::GetClassData() const { return &_class_data_; }
+
+void ModelVersionPolicy::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelVersionPolicy *>(to)->MergeFrom(
+      static_cast<const ModelVersionPolicy &>(from));
 }
+
 
 void ModelVersionPolicy::MergeFrom(const ModelVersionPolicy& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelVersionPolicy)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.policy_choice_case()) {
@@ -5887,13 +5231,7 @@ void ModelVersionPolicy::MergeFrom(const ModelVersionPolicy& from) {
       break;
     }
   }
-}
-
-void ModelVersionPolicy::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelVersionPolicy)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelVersionPolicy::CopyFrom(const ModelVersionPolicy& from) {
@@ -5909,28 +5247,27 @@ bool ModelVersionPolicy::IsInitialized() const {
 
 void ModelVersionPolicy::InternalSwap(ModelVersionPolicy* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(policy_choice_, other->policy_choice_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelVersionPolicy::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[12]);
 }
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_Graph::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_Graph::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_Graph::ModelOptimizationPolicy_Graph(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelOptimizationPolicy_Graph::ModelOptimizationPolicy_Graph(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.Graph)
 }
 ModelOptimizationPolicy_Graph::ModelOptimizationPolicy_Graph(const ModelOptimizationPolicy_Graph& from)
@@ -5940,38 +5277,30 @@ ModelOptimizationPolicy_Graph::ModelOptimizationPolicy_Graph(const ModelOptimiza
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.Graph)
 }
 
-void ModelOptimizationPolicy_Graph::SharedCtor() {
-  level_ = 0;
+inline void ModelOptimizationPolicy_Graph::SharedCtor() {
+level_ = 0;
 }
 
 ModelOptimizationPolicy_Graph::~ModelOptimizationPolicy_Graph() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.Graph)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_Graph::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_Graph::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelOptimizationPolicy_Graph::ArenaDtor(void* object) {
-  ModelOptimizationPolicy_Graph* _this = reinterpret_cast< ModelOptimizationPolicy_Graph* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_Graph::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOptimizationPolicy_Graph::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_Graph& ModelOptimizationPolicy_Graph::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_Graph_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_Graph::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.Graph)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5979,57 +5308,57 @@ void ModelOptimizationPolicy_Graph::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_Graph::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_Graph::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 level = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_Graph::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_Graph::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.Graph)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 level = 1;
-  if (this->level() != 0) {
+  if (this->_internal_level() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_level(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_level(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.Graph)
@@ -6040,58 +5369,41 @@ size_t ModelOptimizationPolicy_Graph::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.Graph)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // int32 level = 1;
-  if (this->level() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_level());
+  if (this->_internal_level() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_level());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_Graph::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.Graph)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_Graph* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_Graph>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.Graph)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.Graph)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_Graph::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_Graph::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_Graph::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_Graph::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_Graph *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_Graph &>(from));
 }
+
 
 void ModelOptimizationPolicy_Graph::MergeFrom(const ModelOptimizationPolicy_Graph& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.Graph)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.level() != 0) {
+  if (from._internal_level() != 0) {
     _internal_set_level(from._internal_level());
   }
-}
-
-void ModelOptimizationPolicy_Graph::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.Graph)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_Graph::CopyFrom(const ModelOptimizationPolicy_Graph& from) {
@@ -6107,28 +5419,27 @@ bool ModelOptimizationPolicy_Graph::IsInitialized() const {
 
 void ModelOptimizationPolicy_Graph::InternalSwap(ModelOptimizationPolicy_Graph* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(level_, other->level_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Graph::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[13]);
 }
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_Cuda_GraphSpec_Shape::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ModelOptimizationPolicy_Cuda_GraphSpec_Shape(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ModelOptimizationPolicy_Cuda_GraphSpec_Shape(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   dim_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
 }
 ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ModelOptimizationPolicy_Cuda_GraphSpec_Shape(const ModelOptimizationPolicy_Cuda_GraphSpec_Shape& from)
@@ -6138,37 +5449,29 @@ ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ModelOptimizationPolicy_Cuda_Graph
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::SharedCtor() {
+inline void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::SharedCtor() {
 }
 
 ModelOptimizationPolicy_Cuda_GraphSpec_Shape::~ModelOptimizationPolicy_Cuda_GraphSpec_Shape() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ArenaDtor(void* object) {
-  ModelOptimizationPolicy_Cuda_GraphSpec_Shape* _this = reinterpret_cast< ModelOptimizationPolicy_Cuda_GraphSpec_Shape* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_Cuda_GraphSpec_Shape& ModelOptimizationPolicy_Cuda_GraphSpec_Shape::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_Shape_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6176,50 +5479,50 @@ void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_Cuda_GraphSpec_Shape::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_Cuda_GraphSpec_Shape::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated int64 dim = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_dim(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+        } else if (static_cast<uint8_t>(tag) == 8) {
           _internal_add_dim(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_Cuda_GraphSpec_Shape::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_Cuda_GraphSpec_Shape::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated int64 dim = 1;
@@ -6232,7 +5535,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
@@ -6243,64 +5546,48 @@ size_t ModelOptimizationPolicy_Cuda_GraphSpec_Shape::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 dim = 1;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->dim_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _dim_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_Cuda_GraphSpec_Shape* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_Cuda_GraphSpec_Shape>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_Cuda_GraphSpec_Shape::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_Cuda_GraphSpec_Shape::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_Cuda_GraphSpec_Shape::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_Cuda_GraphSpec_Shape *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_Cuda_GraphSpec_Shape &>(from));
 }
+
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::MergeFrom(const ModelOptimizationPolicy_Cuda_GraphSpec_Shape& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   dim_.MergeFrom(from.dim_);
-}
-
-void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::CopyFrom(const ModelOptimizationPolicy_Cuda_GraphSpec_Shape& from) {
@@ -6316,14 +5603,15 @@ bool ModelOptimizationPolicy_Cuda_GraphSpec_Shape::IsInitialized() const {
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_Shape::InternalSwap(ModelOptimizationPolicy_Cuda_GraphSpec_Shape* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   dim_.InternalSwap(&other->dim_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Cuda_GraphSpec_Shape::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[14]);
 }
-
 
 // ===================================================================
 
@@ -6334,27 +5622,25 @@ void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::Merg
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[15]);
 }
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   input_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
 }
 ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound(const ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound& from)
@@ -6365,39 +5651,36 @@ ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ModelOptimizationPolicy_Cuda_
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  batch_size_ = 0;
+inline void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::SharedCtor() {
+batch_size_ = 0;
 }
 
 ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::~ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  input_.Destruct();
 }
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ArenaDtor(void* object) {
   ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound* _this = reinterpret_cast< ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->input_.Destruct();
 }
 void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound& ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6406,24 +5689,23 @@ void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 batch_size = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape> input = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -6431,85 +5713,72 @@ const char* ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_InternalParse(co
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 batch_size = 1;
-  if (this->batch_size() != 0) {
+  if (this->_internal_batch_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_batch_size(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_batch_size(), target);
   }
 
   // map<string, .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape> input = 2;
   if (!this->_internal_input().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound.InputEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape>;
+    using WireHelper = ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_input();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound.InputEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_input().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_input().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::const_iterator
-          it = this->_internal_input().begin();
-          it != this->_internal_input().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::const_iterator
-          it = this->_internal_input().begin();
-          it != this->_internal_input().end(); ++it) {
-        target = ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
@@ -6520,7 +5789,7 @@ size_t ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6534,54 +5803,37 @@ size_t ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::ByteSizeLong() const {
   }
 
   // int32 batch_size = 1;
-  if (this->batch_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_batch_size());
+  if (this->_internal_batch_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_batch_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound &>(from));
 }
+
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::MergeFrom(const ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   input_.MergeFrom(from.input_);
-  if (from.batch_size() != 0) {
+  if (from._internal_batch_size() != 0) {
     _internal_set_batch_size(from._internal_batch_size());
   }
-}
-
-void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::CopyFrom(const ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound& from) {
@@ -6597,15 +5849,16 @@ bool ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::IsInitialized() const {
 
 void ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::InternalSwap(ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  input_.Swap(&other->input_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  input_.InternalSwap(&other->input_);
   swap(batch_size_, other->batch_size_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[16]);
 }
-
 
 // ===================================================================
 
@@ -6616,20 +5869,13 @@ void ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::MergeFrom(const
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[17]);
 }
-void ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_Cuda_GraphSpec::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelOptimizationPolicy_Cuda_GraphSpec_default_instance_._instance.get_mutable()->graph_lower_bound_ = const_cast< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound*>(
-      ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::internal_default_instance());
-}
 class ModelOptimizationPolicy_Cuda_GraphSpec::_Internal {
  public:
   static const ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound& graph_lower_bound(const ModelOptimizationPolicy_Cuda_GraphSpec* msg);
@@ -6639,11 +5885,14 @@ const ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound&
 ModelOptimizationPolicy_Cuda_GraphSpec::_Internal::graph_lower_bound(const ModelOptimizationPolicy_Cuda_GraphSpec* msg) {
   return *msg->graph_lower_bound_;
 }
-ModelOptimizationPolicy_Cuda_GraphSpec::ModelOptimizationPolicy_Cuda_GraphSpec(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOptimizationPolicy_Cuda_GraphSpec::ModelOptimizationPolicy_Cuda_GraphSpec(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   input_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelOptimizationPolicy_Cuda_GraphSpec::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
 }
 ModelOptimizationPolicy_Cuda_GraphSpec::ModelOptimizationPolicy_Cuda_GraphSpec(const ModelOptimizationPolicy_Cuda_GraphSpec& from)
@@ -6659,47 +5908,45 @@ ModelOptimizationPolicy_Cuda_GraphSpec::ModelOptimizationPolicy_Cuda_GraphSpec(c
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  ::memset(&graph_lower_bound_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&batch_size_) -
-      reinterpret_cast<char*>(&graph_lower_bound_)) + sizeof(batch_size_));
+inline void ModelOptimizationPolicy_Cuda_GraphSpec::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&graph_lower_bound_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&batch_size_) -
+    reinterpret_cast<char*>(&graph_lower_bound_)) + sizeof(batch_size_));
 }
 
 ModelOptimizationPolicy_Cuda_GraphSpec::~ModelOptimizationPolicy_Cuda_GraphSpec() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_Cuda_GraphSpec::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  input_.Destruct();
   if (this != internal_default_instance()) delete graph_lower_bound_;
 }
 
 void ModelOptimizationPolicy_Cuda_GraphSpec::ArenaDtor(void* object) {
   ModelOptimizationPolicy_Cuda_GraphSpec* _this = reinterpret_cast< ModelOptimizationPolicy_Cuda_GraphSpec* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_Cuda_GraphSpec::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->input_.Destruct();
 }
 void ModelOptimizationPolicy_Cuda_GraphSpec::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_Cuda_GraphSpec& ModelOptimizationPolicy_Cuda_GraphSpec::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_Cuda_GraphSpec_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_Cuda_GraphSpec::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   input_.Clear();
-  if (GetArena() == nullptr && graph_lower_bound_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && graph_lower_bound_ != nullptr) {
     delete graph_lower_bound_;
   }
   graph_lower_bound_ = nullptr;
@@ -6707,24 +5954,23 @@ void ModelOptimizationPolicy_Cuda_GraphSpec::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_Cuda_GraphSpec::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_Cuda_GraphSpec::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 batch_size = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape> input = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -6732,100 +5978,87 @@ const char* ModelOptimizationPolicy_Cuda_GraphSpec::_InternalParse(const char* p
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound graph_lower_bound = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_graph_lower_bound(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_Cuda_GraphSpec::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_Cuda_GraphSpec::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 batch_size = 1;
-  if (this->batch_size() != 0) {
+  if (this->_internal_batch_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_batch_size(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_batch_size(), target);
   }
 
   // map<string, .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.Shape> input = 2;
   if (!this->_internal_input().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.InputEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape>;
+    using WireHelper = ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_input();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.InputEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_input().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_input().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::const_iterator
-          it = this->_internal_input().begin();
-          it != this->_internal_input().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >::const_iterator
-          it = this->_internal_input().begin();
-          it != this->_internal_input().end(); ++it) {
-        target = ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound graph_lower_bound = 3;
-  if (this->has_graph_lower_bound()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_graph_lower_bound()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::graph_lower_bound(this), target, stream);
+      InternalWriteMessage(3, _Internal::graph_lower_bound(this),
+        _Internal::graph_lower_bound(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
@@ -6836,7 +6069,7 @@ size_t ModelOptimizationPolicy_Cuda_GraphSpec::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6850,64 +6083,47 @@ size_t ModelOptimizationPolicy_Cuda_GraphSpec::ByteSizeLong() const {
   }
 
   // .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec.LowerBound graph_lower_bound = 3;
-  if (this->has_graph_lower_bound()) {
+  if (this->_internal_has_graph_lower_bound()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *graph_lower_bound_);
   }
 
   // int32 batch_size = 1;
-  if (this->batch_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_batch_size());
+  if (this->_internal_batch_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_batch_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_Cuda_GraphSpec::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_Cuda_GraphSpec* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_Cuda_GraphSpec>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_Cuda_GraphSpec::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_Cuda_GraphSpec::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_Cuda_GraphSpec::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_Cuda_GraphSpec::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_Cuda_GraphSpec *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_Cuda_GraphSpec &>(from));
 }
+
 
 void ModelOptimizationPolicy_Cuda_GraphSpec::MergeFrom(const ModelOptimizationPolicy_Cuda_GraphSpec& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   input_.MergeFrom(from.input_);
-  if (from.has_graph_lower_bound()) {
+  if (from._internal_has_graph_lower_bound()) {
     _internal_mutable_graph_lower_bound()->::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound::MergeFrom(from._internal_graph_lower_bound());
   }
-  if (from.batch_size() != 0) {
+  if (from._internal_batch_size() != 0) {
     _internal_set_batch_size(from._internal_batch_size());
   }
-}
-
-void ModelOptimizationPolicy_Cuda_GraphSpec::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_Cuda_GraphSpec::CopyFrom(const ModelOptimizationPolicy_Cuda_GraphSpec& from) {
@@ -6923,8 +6139,8 @@ bool ModelOptimizationPolicy_Cuda_GraphSpec::IsInitialized() const {
 
 void ModelOptimizationPolicy_Cuda_GraphSpec::InternalSwap(ModelOptimizationPolicy_Cuda_GraphSpec* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  input_.Swap(&other->input_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  input_.InternalSwap(&other->input_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelOptimizationPolicy_Cuda_GraphSpec, batch_size_)
       + sizeof(ModelOptimizationPolicy_Cuda_GraphSpec::batch_size_)
@@ -6934,23 +6150,22 @@ void ModelOptimizationPolicy_Cuda_GraphSpec::InternalSwap(ModelOptimizationPolic
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Cuda_GraphSpec::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[18]);
 }
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_Cuda::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_Cuda::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_Cuda::ModelOptimizationPolicy_Cuda(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOptimizationPolicy_Cuda::ModelOptimizationPolicy_Cuda(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   graph_spec_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.Cuda)
 }
 ModelOptimizationPolicy_Cuda::ModelOptimizationPolicy_Cuda(const ModelOptimizationPolicy_Cuda& from)
@@ -6963,41 +6178,33 @@ ModelOptimizationPolicy_Cuda::ModelOptimizationPolicy_Cuda(const ModelOptimizati
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.Cuda)
 }
 
-void ModelOptimizationPolicy_Cuda::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  ::memset(&graphs_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&output_copy_stream_) -
-      reinterpret_cast<char*>(&graphs_)) + sizeof(output_copy_stream_));
+inline void ModelOptimizationPolicy_Cuda::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&graphs_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&output_copy_stream_) -
+    reinterpret_cast<char*>(&graphs_)) + sizeof(output_copy_stream_));
 }
 
 ModelOptimizationPolicy_Cuda::~ModelOptimizationPolicy_Cuda() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.Cuda)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_Cuda::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_Cuda::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelOptimizationPolicy_Cuda::ArenaDtor(void* object) {
-  ModelOptimizationPolicy_Cuda* _this = reinterpret_cast< ModelOptimizationPolicy_Cuda* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_Cuda::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOptimizationPolicy_Cuda::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_Cuda& ModelOptimizationPolicy_Cuda::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_Cuda_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_Cuda::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.Cuda)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7008,31 +6215,31 @@ void ModelOptimizationPolicy_Cuda::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_Cuda::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_Cuda::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool graphs = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           graphs_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool busy_wait_events = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           busy_wait_events_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec graph_spec = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -7040,71 +6247,74 @@ const char* ModelOptimizationPolicy_Cuda::_InternalParse(const char* ptr, ::PROT
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool output_copy_stream = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           output_copy_stream_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_Cuda::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_Cuda::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.Cuda)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool graphs = 1;
-  if (this->graphs() != 0) {
+  if (this->_internal_graphs() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_graphs(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_graphs(), target);
   }
 
   // bool busy_wait_events = 2;
-  if (this->busy_wait_events() != 0) {
+  if (this->_internal_busy_wait_events() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_busy_wait_events(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_busy_wait_events(), target);
   }
 
   // repeated .hercules.proto.ModelOptimizationPolicy.Cuda.GraphSpec graph_spec = 3;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_graph_spec_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_graph_spec_size()); i < n; i++) {
+    const auto& repfield = this->_internal_graph_spec(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, this->_internal_graph_spec(i), target, stream);
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // bool output_copy_stream = 4;
-  if (this->output_copy_stream() != 0) {
+  if (this->_internal_output_copy_stream() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_output_copy_stream(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_output_copy_stream(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.Cuda)
@@ -7115,7 +6325,7 @@ size_t ModelOptimizationPolicy_Cuda::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.Cuda)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7127,68 +6337,53 @@ size_t ModelOptimizationPolicy_Cuda::ByteSizeLong() const {
   }
 
   // bool graphs = 1;
-  if (this->graphs() != 0) {
+  if (this->_internal_graphs() != 0) {
     total_size += 1 + 1;
   }
 
   // bool busy_wait_events = 2;
-  if (this->busy_wait_events() != 0) {
+  if (this->_internal_busy_wait_events() != 0) {
     total_size += 1 + 1;
   }
 
   // bool output_copy_stream = 4;
-  if (this->output_copy_stream() != 0) {
+  if (this->_internal_output_copy_stream() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_Cuda::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_Cuda* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_Cuda>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.Cuda)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.Cuda)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_Cuda::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_Cuda::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_Cuda::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_Cuda::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_Cuda *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_Cuda &>(from));
 }
+
 
 void ModelOptimizationPolicy_Cuda::MergeFrom(const ModelOptimizationPolicy_Cuda& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.Cuda)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   graph_spec_.MergeFrom(from.graph_spec_);
-  if (from.graphs() != 0) {
+  if (from._internal_graphs() != 0) {
     _internal_set_graphs(from._internal_graphs());
   }
-  if (from.busy_wait_events() != 0) {
+  if (from._internal_busy_wait_events() != 0) {
     _internal_set_busy_wait_events(from._internal_busy_wait_events());
   }
-  if (from.output_copy_stream() != 0) {
+  if (from._internal_output_copy_stream() != 0) {
     _internal_set_output_copy_stream(from._internal_output_copy_stream());
   }
-}
-
-void ModelOptimizationPolicy_Cuda::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.Cuda)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_Cuda::CopyFrom(const ModelOptimizationPolicy_Cuda& from) {
@@ -7204,7 +6399,7 @@ bool ModelOptimizationPolicy_Cuda::IsInitialized() const {
 
 void ModelOptimizationPolicy_Cuda::InternalSwap(ModelOptimizationPolicy_Cuda* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   graph_spec_.InternalSwap(&other->graph_spec_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelOptimizationPolicy_Cuda, output_copy_stream_)
@@ -7215,9 +6410,10 @@ void ModelOptimizationPolicy_Cuda::InternalSwap(ModelOptimizationPolicy_Cuda* ot
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_Cuda::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[19]);
 }
-
 
 // ===================================================================
 
@@ -7228,103 +6424,103 @@ void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_D
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[20]);
 }
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
 }
 ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator(const ModelOptimizationPolicy_ExecutionAccelerators_Accelerator& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::~ModelOptimizationPolicy_ExecutionAccelerators_Accelerator() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  name_.Destroy();
 }
 
 void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ArenaDtor(void* object) {
   ModelOptimizationPolicy_ExecutionAccelerators_Accelerator* _this = reinterpret_cast< ModelOptimizationPolicy_ExecutionAccelerators_Accelerator* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_ExecutionAccelerators_Accelerator& ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   parameters_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator.name"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, string> parameters = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -7332,38 +6528,40 @@ const char* ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_Internal
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7374,51 +6572,36 @@ failure:
 
   // map<string, string> parameters = 2;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator.ParametersEntry.key");
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator.ParametersEntry.value");
-      }
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator.ParametersEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator.ParametersEntry.value");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
@@ -7429,7 +6612,7 @@ size_t ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ByteSizeLong()
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7443,54 +6626,39 @@ size_t ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::ByteSizeLong()
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_ExecutionAccelerators_Accelerator* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_ExecutionAccelerators_Accelerator>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_ExecutionAccelerators_Accelerator *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_ExecutionAccelerators_Accelerator &>(from));
 }
+
 
 void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::MergeFrom(const ModelOptimizationPolicy_ExecutionAccelerators_Accelerator& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::CopyFrom(const ModelOptimizationPolicy_ExecutionAccelerators_Accelerator& from) {
@@ -7506,30 +6674,34 @@ bool ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::IsInitialized() 
 
 void ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::InternalSwap(ModelOptimizationPolicy_ExecutionAccelerators_Accelerator* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_ExecutionAccelerators_Accelerator::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[21]);
 }
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_ExecutionAccelerators::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_ExecutionAccelerators::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_ExecutionAccelerators::ModelOptimizationPolicy_ExecutionAccelerators(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOptimizationPolicy_ExecutionAccelerators::ModelOptimizationPolicy_ExecutionAccelerators(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   gpu_execution_accelerator_(arena),
   cpu_execution_accelerator_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
 }
 ModelOptimizationPolicy_ExecutionAccelerators::ModelOptimizationPolicy_ExecutionAccelerators(const ModelOptimizationPolicy_ExecutionAccelerators& from)
@@ -7540,38 +6712,29 @@ ModelOptimizationPolicy_ExecutionAccelerators::ModelOptimizationPolicy_Execution
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
+inline void ModelOptimizationPolicy_ExecutionAccelerators::SharedCtor() {
 }
 
 ModelOptimizationPolicy_ExecutionAccelerators::~ModelOptimizationPolicy_ExecutionAccelerators() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_ExecutionAccelerators::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators::ArenaDtor(void* object) {
-  ModelOptimizationPolicy_ExecutionAccelerators* _this = reinterpret_cast< ModelOptimizationPolicy_ExecutionAccelerators* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_ExecutionAccelerators::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOptimizationPolicy_ExecutionAccelerators::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_ExecutionAccelerators& ModelOptimizationPolicy_ExecutionAccelerators::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_ExecutionAccelerators_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_ExecutionAccelerators::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7580,17 +6743,15 @@ void ModelOptimizationPolicy_ExecutionAccelerators::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_ExecutionAccelerators::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_ExecutionAccelerators::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator gpu_execution_accelerator = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -7598,11 +6759,12 @@ const char* ModelOptimizationPolicy_ExecutionAccelerators::_InternalParse(const 
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator cpu_execution_accelerator = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -7610,54 +6772,56 @@ const char* ModelOptimizationPolicy_ExecutionAccelerators::_InternalParse(const 
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_ExecutionAccelerators::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_ExecutionAccelerators::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator gpu_execution_accelerator = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_gpu_execution_accelerator_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_gpu_execution_accelerator_size()); i < n; i++) {
+    const auto& repfield = this->_internal_gpu_execution_accelerator(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_gpu_execution_accelerator(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators.Accelerator cpu_execution_accelerator = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_cpu_execution_accelerator_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_cpu_execution_accelerator_size()); i < n; i++) {
+    const auto& repfield = this->_internal_cpu_execution_accelerator(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_cpu_execution_accelerator(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
@@ -7668,7 +6832,7 @@ size_t ModelOptimizationPolicy_ExecutionAccelerators::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7686,46 +6850,31 @@ size_t ModelOptimizationPolicy_ExecutionAccelerators::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_ExecutionAccelerators::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_ExecutionAccelerators* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_ExecutionAccelerators>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_ExecutionAccelerators::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_ExecutionAccelerators::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_ExecutionAccelerators::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_ExecutionAccelerators::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_ExecutionAccelerators *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_ExecutionAccelerators &>(from));
 }
+
 
 void ModelOptimizationPolicy_ExecutionAccelerators::MergeFrom(const ModelOptimizationPolicy_ExecutionAccelerators& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   gpu_execution_accelerator_.MergeFrom(from.gpu_execution_accelerator_);
   cpu_execution_accelerator_.MergeFrom(from.cpu_execution_accelerator_);
-}
-
-void ModelOptimizationPolicy_ExecutionAccelerators::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_ExecutionAccelerators::CopyFrom(const ModelOptimizationPolicy_ExecutionAccelerators& from) {
@@ -7741,28 +6890,27 @@ bool ModelOptimizationPolicy_ExecutionAccelerators::IsInitialized() const {
 
 void ModelOptimizationPolicy_ExecutionAccelerators::InternalSwap(ModelOptimizationPolicy_ExecutionAccelerators* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   gpu_execution_accelerator_.InternalSwap(&other->gpu_execution_accelerator_);
   cpu_execution_accelerator_.InternalSwap(&other->cpu_execution_accelerator_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_ExecutionAccelerators::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[22]);
 }
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy_PinnedMemoryBuffer::InitAsDefaultInstance() {
-}
 class ModelOptimizationPolicy_PinnedMemoryBuffer::_Internal {
  public:
 };
 
-ModelOptimizationPolicy_PinnedMemoryBuffer::ModelOptimizationPolicy_PinnedMemoryBuffer(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelOptimizationPolicy_PinnedMemoryBuffer::ModelOptimizationPolicy_PinnedMemoryBuffer(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
 }
 ModelOptimizationPolicy_PinnedMemoryBuffer::ModelOptimizationPolicy_PinnedMemoryBuffer(const ModelOptimizationPolicy_PinnedMemoryBuffer& from)
@@ -7772,38 +6920,30 @@ ModelOptimizationPolicy_PinnedMemoryBuffer::ModelOptimizationPolicy_PinnedMemory
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
 }
 
-void ModelOptimizationPolicy_PinnedMemoryBuffer::SharedCtor() {
-  enable_ = false;
+inline void ModelOptimizationPolicy_PinnedMemoryBuffer::SharedCtor() {
+enable_ = false;
 }
 
 ModelOptimizationPolicy_PinnedMemoryBuffer::~ModelOptimizationPolicy_PinnedMemoryBuffer() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy_PinnedMemoryBuffer::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy_PinnedMemoryBuffer::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelOptimizationPolicy_PinnedMemoryBuffer::ArenaDtor(void* object) {
-  ModelOptimizationPolicy_PinnedMemoryBuffer* _this = reinterpret_cast< ModelOptimizationPolicy_PinnedMemoryBuffer* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy_PinnedMemoryBuffer::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOptimizationPolicy_PinnedMemoryBuffer::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy_PinnedMemoryBuffer& ModelOptimizationPolicy_PinnedMemoryBuffer::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_PinnedMemoryBuffer_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy_PinnedMemoryBuffer::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7811,57 +6951,57 @@ void ModelOptimizationPolicy_PinnedMemoryBuffer::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy_PinnedMemoryBuffer::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy_PinnedMemoryBuffer::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool enable = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           enable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy_PinnedMemoryBuffer::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy_PinnedMemoryBuffer::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool enable = 1;
-  if (this->enable() != 0) {
+  if (this->_internal_enable() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_enable(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_enable(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
@@ -7872,56 +7012,41 @@ size_t ModelOptimizationPolicy_PinnedMemoryBuffer::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool enable = 1;
-  if (this->enable() != 0) {
+  if (this->_internal_enable() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy_PinnedMemoryBuffer::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy_PinnedMemoryBuffer* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy_PinnedMemoryBuffer>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy_PinnedMemoryBuffer::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy_PinnedMemoryBuffer::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy_PinnedMemoryBuffer::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy_PinnedMemoryBuffer::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy_PinnedMemoryBuffer *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy_PinnedMemoryBuffer &>(from));
 }
+
 
 void ModelOptimizationPolicy_PinnedMemoryBuffer::MergeFrom(const ModelOptimizationPolicy_PinnedMemoryBuffer& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.enable() != 0) {
+  if (from._internal_enable() != 0) {
     _internal_set_enable(from._internal_enable());
   }
-}
-
-void ModelOptimizationPolicy_PinnedMemoryBuffer::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy_PinnedMemoryBuffer::CopyFrom(const ModelOptimizationPolicy_PinnedMemoryBuffer& from) {
@@ -7937,29 +7062,18 @@ bool ModelOptimizationPolicy_PinnedMemoryBuffer::IsInitialized() const {
 
 void ModelOptimizationPolicy_PinnedMemoryBuffer::InternalSwap(ModelOptimizationPolicy_PinnedMemoryBuffer* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(enable_, other->enable_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy_PinnedMemoryBuffer::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[23]);
 }
-
 
 // ===================================================================
 
-void ModelOptimizationPolicy::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelOptimizationPolicy_default_instance_._instance.get_mutable()->graph_ = const_cast< ::hercules::proto::ModelOptimizationPolicy_Graph*>(
-      ::hercules::proto::ModelOptimizationPolicy_Graph::internal_default_instance());
-  ::hercules::proto::_ModelOptimizationPolicy_default_instance_._instance.get_mutable()->cuda_ = const_cast< ::hercules::proto::ModelOptimizationPolicy_Cuda*>(
-      ::hercules::proto::ModelOptimizationPolicy_Cuda::internal_default_instance());
-  ::hercules::proto::_ModelOptimizationPolicy_default_instance_._instance.get_mutable()->execution_accelerators_ = const_cast< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators*>(
-      ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators::internal_default_instance());
-  ::hercules::proto::_ModelOptimizationPolicy_default_instance_._instance.get_mutable()->input_pinned_memory_ = const_cast< ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer*>(
-      ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer::internal_default_instance());
-  ::hercules::proto::_ModelOptimizationPolicy_default_instance_._instance.get_mutable()->output_pinned_memory_ = const_cast< ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer*>(
-      ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer::internal_default_instance());
-}
 class ModelOptimizationPolicy::_Internal {
  public:
   static const ::hercules::proto::ModelOptimizationPolicy_Graph& graph(const ModelOptimizationPolicy* msg);
@@ -7989,10 +7103,10 @@ const ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer&
 ModelOptimizationPolicy::_Internal::output_pinned_memory(const ModelOptimizationPolicy* msg) {
   return *msg->output_pinned_memory_;
 }
-ModelOptimizationPolicy::ModelOptimizationPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelOptimizationPolicy::ModelOptimizationPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOptimizationPolicy)
 }
 ModelOptimizationPolicy::ModelOptimizationPolicy(const ModelOptimizationPolicy& from)
@@ -8029,21 +7143,24 @@ ModelOptimizationPolicy::ModelOptimizationPolicy(const ModelOptimizationPolicy& 
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOptimizationPolicy)
 }
 
-void ModelOptimizationPolicy::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  ::memset(&graph_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&eager_batching_) -
-      reinterpret_cast<char*>(&graph_)) + sizeof(eager_batching_));
+inline void ModelOptimizationPolicy::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&graph_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&eager_batching_) -
+    reinterpret_cast<char*>(&graph_)) + sizeof(eager_batching_));
 }
 
 ModelOptimizationPolicy::~ModelOptimizationPolicy() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOptimizationPolicy)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOptimizationPolicy::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOptimizationPolicy::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete graph_;
   if (this != internal_default_instance()) delete cuda_;
   if (this != internal_default_instance()) delete execution_accelerators_;
@@ -8051,44 +7168,33 @@ void ModelOptimizationPolicy::SharedDtor() {
   if (this != internal_default_instance()) delete output_pinned_memory_;
 }
 
-void ModelOptimizationPolicy::ArenaDtor(void* object) {
-  ModelOptimizationPolicy* _this = reinterpret_cast< ModelOptimizationPolicy* >(object);
-  (void)_this;
-}
-void ModelOptimizationPolicy::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOptimizationPolicy::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOptimizationPolicy& ModelOptimizationPolicy::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOptimizationPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOptimizationPolicy::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOptimizationPolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && graph_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && graph_ != nullptr) {
     delete graph_;
   }
   graph_ = nullptr;
-  if (GetArena() == nullptr && cuda_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && cuda_ != nullptr) {
     delete cuda_;
   }
   cuda_ = nullptr;
-  if (GetArena() == nullptr && execution_accelerators_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && execution_accelerators_ != nullptr) {
     delete execution_accelerators_;
   }
   execution_accelerators_ = nullptr;
-  if (GetArena() == nullptr && input_pinned_memory_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && input_pinned_memory_ != nullptr) {
     delete input_pinned_memory_;
   }
   input_pinned_memory_ = nullptr;
-  if (GetArena() == nullptr && output_pinned_memory_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && output_pinned_memory_ != nullptr) {
     delete output_pinned_memory_;
   }
   output_pinned_memory_ = nullptr;
@@ -8098,160 +7204,162 @@ void ModelOptimizationPolicy::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOptimizationPolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOptimizationPolicy::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.ModelOptimizationPolicy.Graph graph = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_graph(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy.ModelPriority priority = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_priority(static_cast<::hercules::proto::ModelOptimizationPolicy_ModelPriority>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy.Cuda cuda = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_cuda(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators execution_accelerators = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_execution_accelerators(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer input_pinned_memory = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_input_pinned_memory(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer output_pinned_memory = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_output_pinned_memory(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 gather_kernel_buffer_threshold = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
           gather_kernel_buffer_threshold_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool eager_batching = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
           eager_batching_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOptimizationPolicy::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOptimizationPolicy::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOptimizationPolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.ModelOptimizationPolicy.Graph graph = 1;
-  if (this->has_graph()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_graph()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::graph(this), target, stream);
+      InternalWriteMessage(1, _Internal::graph(this),
+        _Internal::graph(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.ModelPriority priority = 2;
-  if (this->priority() != 0) {
+  if (this->_internal_priority() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       2, this->_internal_priority(), target);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.Cuda cuda = 3;
-  if (this->has_cuda()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_cuda()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::cuda(this), target, stream);
+      InternalWriteMessage(3, _Internal::cuda(this),
+        _Internal::cuda(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators execution_accelerators = 4;
-  if (this->has_execution_accelerators()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_execution_accelerators()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::execution_accelerators(this), target, stream);
+      InternalWriteMessage(4, _Internal::execution_accelerators(this),
+        _Internal::execution_accelerators(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer input_pinned_memory = 5;
-  if (this->has_input_pinned_memory()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_input_pinned_memory()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::input_pinned_memory(this), target, stream);
+      InternalWriteMessage(5, _Internal::input_pinned_memory(this),
+        _Internal::input_pinned_memory(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer output_pinned_memory = 6;
-  if (this->has_output_pinned_memory()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_output_pinned_memory()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::output_pinned_memory(this), target, stream);
+      InternalWriteMessage(6, _Internal::output_pinned_memory(this),
+        _Internal::output_pinned_memory(this).GetCachedSize(), target, stream);
   }
 
   // uint32 gather_kernel_buffer_threshold = 7;
-  if (this->gather_kernel_buffer_threshold() != 0) {
+  if (this->_internal_gather_kernel_buffer_threshold() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_gather_kernel_buffer_threshold(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_gather_kernel_buffer_threshold(), target);
   }
 
   // bool eager_batching = 8;
-  if (this->eager_batching() != 0) {
+  if (this->_internal_eager_batching() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_eager_batching(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(8, this->_internal_eager_batching(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOptimizationPolicy)
@@ -8262,125 +7370,108 @@ size_t ModelOptimizationPolicy::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOptimizationPolicy)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .hercules.proto.ModelOptimizationPolicy.Graph graph = 1;
-  if (this->has_graph()) {
+  if (this->_internal_has_graph()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *graph_);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.Cuda cuda = 3;
-  if (this->has_cuda()) {
+  if (this->_internal_has_cuda()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *cuda_);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.ExecutionAccelerators execution_accelerators = 4;
-  if (this->has_execution_accelerators()) {
+  if (this->_internal_has_execution_accelerators()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *execution_accelerators_);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer input_pinned_memory = 5;
-  if (this->has_input_pinned_memory()) {
+  if (this->_internal_has_input_pinned_memory()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *input_pinned_memory_);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.PinnedMemoryBuffer output_pinned_memory = 6;
-  if (this->has_output_pinned_memory()) {
+  if (this->_internal_has_output_pinned_memory()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *output_pinned_memory_);
   }
 
   // .hercules.proto.ModelOptimizationPolicy.ModelPriority priority = 2;
-  if (this->priority() != 0) {
+  if (this->_internal_priority() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_priority());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_priority());
   }
 
   // uint32 gather_kernel_buffer_threshold = 7;
-  if (this->gather_kernel_buffer_threshold() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_gather_kernel_buffer_threshold());
+  if (this->_internal_gather_kernel_buffer_threshold() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_gather_kernel_buffer_threshold());
   }
 
   // bool eager_batching = 8;
-  if (this->eager_batching() != 0) {
+  if (this->_internal_eager_batching() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOptimizationPolicy::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOptimizationPolicy)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOptimizationPolicy* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOptimizationPolicy>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOptimizationPolicy)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOptimizationPolicy)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOptimizationPolicy::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOptimizationPolicy::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOptimizationPolicy::GetClassData() const { return &_class_data_; }
+
+void ModelOptimizationPolicy::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOptimizationPolicy *>(to)->MergeFrom(
+      static_cast<const ModelOptimizationPolicy &>(from));
 }
+
 
 void ModelOptimizationPolicy::MergeFrom(const ModelOptimizationPolicy& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOptimizationPolicy)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_graph()) {
+  if (from._internal_has_graph()) {
     _internal_mutable_graph()->::hercules::proto::ModelOptimizationPolicy_Graph::MergeFrom(from._internal_graph());
   }
-  if (from.has_cuda()) {
+  if (from._internal_has_cuda()) {
     _internal_mutable_cuda()->::hercules::proto::ModelOptimizationPolicy_Cuda::MergeFrom(from._internal_cuda());
   }
-  if (from.has_execution_accelerators()) {
+  if (from._internal_has_execution_accelerators()) {
     _internal_mutable_execution_accelerators()->::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators::MergeFrom(from._internal_execution_accelerators());
   }
-  if (from.has_input_pinned_memory()) {
+  if (from._internal_has_input_pinned_memory()) {
     _internal_mutable_input_pinned_memory()->::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer::MergeFrom(from._internal_input_pinned_memory());
   }
-  if (from.has_output_pinned_memory()) {
+  if (from._internal_has_output_pinned_memory()) {
     _internal_mutable_output_pinned_memory()->::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer::MergeFrom(from._internal_output_pinned_memory());
   }
-  if (from.priority() != 0) {
+  if (from._internal_priority() != 0) {
     _internal_set_priority(from._internal_priority());
   }
-  if (from.gather_kernel_buffer_threshold() != 0) {
+  if (from._internal_gather_kernel_buffer_threshold() != 0) {
     _internal_set_gather_kernel_buffer_threshold(from._internal_gather_kernel_buffer_threshold());
   }
-  if (from.eager_batching() != 0) {
+  if (from._internal_eager_batching() != 0) {
     _internal_set_eager_batching(from._internal_eager_batching());
   }
-}
-
-void ModelOptimizationPolicy::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOptimizationPolicy)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOptimizationPolicy::CopyFrom(const ModelOptimizationPolicy& from) {
@@ -8396,7 +7487,7 @@ bool ModelOptimizationPolicy::IsInitialized() const {
 
 void ModelOptimizationPolicy::InternalSwap(ModelOptimizationPolicy* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelOptimizationPolicy, eager_batching_)
       + sizeof(ModelOptimizationPolicy::eager_batching_)
@@ -8406,22 +7497,21 @@ void ModelOptimizationPolicy::InternalSwap(ModelOptimizationPolicy* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOptimizationPolicy::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[24]);
 }
-
 
 // ===================================================================
 
-void ModelQueuePolicy::InitAsDefaultInstance() {
-}
 class ModelQueuePolicy::_Internal {
  public:
 };
 
-ModelQueuePolicy::ModelQueuePolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelQueuePolicy::ModelQueuePolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelQueuePolicy)
 }
 ModelQueuePolicy::ModelQueuePolicy(const ModelQueuePolicy& from)
@@ -8433,40 +7523,33 @@ ModelQueuePolicy::ModelQueuePolicy(const ModelQueuePolicy& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelQueuePolicy)
 }
 
-void ModelQueuePolicy::SharedCtor() {
-  ::memset(&default_timeout_microseconds_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&max_queue_size_) -
-      reinterpret_cast<char*>(&default_timeout_microseconds_)) + sizeof(max_queue_size_));
+inline void ModelQueuePolicy::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&default_timeout_microseconds_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&max_queue_size_) -
+    reinterpret_cast<char*>(&default_timeout_microseconds_)) + sizeof(max_queue_size_));
 }
 
 ModelQueuePolicy::~ModelQueuePolicy() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelQueuePolicy)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelQueuePolicy::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelQueuePolicy::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelQueuePolicy::ArenaDtor(void* object) {
-  ModelQueuePolicy* _this = reinterpret_cast< ModelQueuePolicy* >(object);
-  (void)_this;
-}
-void ModelQueuePolicy::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelQueuePolicy::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelQueuePolicy& ModelQueuePolicy::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelQueuePolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelQueuePolicy::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelQueuePolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -8476,98 +7559,101 @@ void ModelQueuePolicy::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelQueuePolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelQueuePolicy::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.ModelQueuePolicy.TimeoutAction timeout_action = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_timeout_action(static_cast<::hercules::proto::ModelQueuePolicy_TimeoutAction>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 default_timeout_microseconds = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           default_timeout_microseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool allow_timeout_override = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           allow_timeout_override_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 max_queue_size = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           max_queue_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelQueuePolicy::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelQueuePolicy::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelQueuePolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.ModelQueuePolicy.TimeoutAction timeout_action = 1;
-  if (this->timeout_action() != 0) {
+  if (this->_internal_timeout_action() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_timeout_action(), target);
   }
 
   // uint64 default_timeout_microseconds = 2;
-  if (this->default_timeout_microseconds() != 0) {
+  if (this->_internal_default_timeout_microseconds() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_default_timeout_microseconds(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_default_timeout_microseconds(), target);
   }
 
   // bool allow_timeout_override = 3;
-  if (this->allow_timeout_override() != 0) {
+  if (this->_internal_allow_timeout_override() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_allow_timeout_override(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_allow_timeout_override(), target);
   }
 
   // uint32 max_queue_size = 4;
-  if (this->max_queue_size() != 0) {
+  if (this->_internal_max_queue_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_max_queue_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_max_queue_size(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelQueuePolicy)
@@ -8578,85 +7664,66 @@ size_t ModelQueuePolicy::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelQueuePolicy)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 default_timeout_microseconds = 2;
-  if (this->default_timeout_microseconds() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_default_timeout_microseconds());
+  if (this->_internal_default_timeout_microseconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_default_timeout_microseconds());
   }
 
   // .hercules.proto.ModelQueuePolicy.TimeoutAction timeout_action = 1;
-  if (this->timeout_action() != 0) {
+  if (this->_internal_timeout_action() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_timeout_action());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_timeout_action());
   }
 
   // bool allow_timeout_override = 3;
-  if (this->allow_timeout_override() != 0) {
+  if (this->_internal_allow_timeout_override() != 0) {
     total_size += 1 + 1;
   }
 
   // uint32 max_queue_size = 4;
-  if (this->max_queue_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_max_queue_size());
+  if (this->_internal_max_queue_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_max_queue_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelQueuePolicy::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelQueuePolicy)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelQueuePolicy* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelQueuePolicy>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelQueuePolicy)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelQueuePolicy)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelQueuePolicy::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelQueuePolicy::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelQueuePolicy::GetClassData() const { return &_class_data_; }
+
+void ModelQueuePolicy::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelQueuePolicy *>(to)->MergeFrom(
+      static_cast<const ModelQueuePolicy &>(from));
 }
+
 
 void ModelQueuePolicy::MergeFrom(const ModelQueuePolicy& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelQueuePolicy)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.default_timeout_microseconds() != 0) {
+  if (from._internal_default_timeout_microseconds() != 0) {
     _internal_set_default_timeout_microseconds(from._internal_default_timeout_microseconds());
   }
-  if (from.timeout_action() != 0) {
+  if (from._internal_timeout_action() != 0) {
     _internal_set_timeout_action(from._internal_timeout_action());
   }
-  if (from.allow_timeout_override() != 0) {
+  if (from._internal_allow_timeout_override() != 0) {
     _internal_set_allow_timeout_override(from._internal_allow_timeout_override());
   }
-  if (from.max_queue_size() != 0) {
+  if (from._internal_max_queue_size() != 0) {
     _internal_set_max_queue_size(from._internal_max_queue_size());
   }
-}
-
-void ModelQueuePolicy::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelQueuePolicy)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelQueuePolicy::CopyFrom(const ModelQueuePolicy& from) {
@@ -8672,7 +7739,7 @@ bool ModelQueuePolicy::IsInitialized() const {
 
 void ModelQueuePolicy::InternalSwap(ModelQueuePolicy* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelQueuePolicy, max_queue_size_)
       + sizeof(ModelQueuePolicy::max_queue_size_)
@@ -8682,9 +7749,10 @@ void ModelQueuePolicy::InternalSwap(ModelQueuePolicy* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelQueuePolicy::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[25]);
 }
-
 
 // ===================================================================
 
@@ -8695,20 +7763,13 @@ void ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::MergeFrom(const Mod
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[26]);
 }
-void ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelDynamicBatching::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelDynamicBatching_default_instance_._instance.get_mutable()->default_queue_policy_ = const_cast< ::hercules::proto::ModelQueuePolicy*>(
-      ::hercules::proto::ModelQueuePolicy::internal_default_instance());
-}
 class ModelDynamicBatching::_Internal {
  public:
   static const ::hercules::proto::ModelQueuePolicy& default_queue_policy(const ModelDynamicBatching* msg);
@@ -8718,12 +7779,15 @@ const ::hercules::proto::ModelQueuePolicy&
 ModelDynamicBatching::_Internal::default_queue_policy(const ModelDynamicBatching* msg) {
   return *msg->default_queue_policy_;
 }
-ModelDynamicBatching::ModelDynamicBatching(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelDynamicBatching::ModelDynamicBatching(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   preferred_batch_size_(arena),
   priority_queue_policy_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelDynamicBatching::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelDynamicBatching)
 }
 ModelDynamicBatching::ModelDynamicBatching(const ModelDynamicBatching& from)
@@ -8742,48 +7806,46 @@ ModelDynamicBatching::ModelDynamicBatching(const ModelDynamicBatching& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelDynamicBatching)
 }
 
-void ModelDynamicBatching::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  ::memset(&default_queue_policy_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&default_priority_level_) -
-      reinterpret_cast<char*>(&default_queue_policy_)) + sizeof(default_priority_level_));
+inline void ModelDynamicBatching::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&default_queue_policy_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&default_priority_level_) -
+    reinterpret_cast<char*>(&default_queue_policy_)) + sizeof(default_priority_level_));
 }
 
 ModelDynamicBatching::~ModelDynamicBatching() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelDynamicBatching)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelDynamicBatching::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelDynamicBatching::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  priority_queue_policy_.Destruct();
   if (this != internal_default_instance()) delete default_queue_policy_;
 }
 
 void ModelDynamicBatching::ArenaDtor(void* object) {
   ModelDynamicBatching* _this = reinterpret_cast< ModelDynamicBatching* >(object);
-  (void)_this;
-}
-void ModelDynamicBatching::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->priority_queue_policy_.Destruct();
 }
 void ModelDynamicBatching::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelDynamicBatching& ModelDynamicBatching::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelDynamicBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelDynamicBatching::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelDynamicBatching)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   preferred_batch_size_.Clear();
   priority_queue_policy_.Clear();
-  if (GetArena() == nullptr && default_queue_policy_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && default_queue_policy_ != nullptr) {
     delete default_queue_policy_;
   }
   default_queue_policy_ = nullptr;
@@ -8793,62 +7855,66 @@ void ModelDynamicBatching::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelDynamicBatching::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelDynamicBatching::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated int32 preferred_batch_size = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_preferred_batch_size(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
-          _internal_add_preferred_batch_size(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+        } else if (static_cast<uint8_t>(tag) == 8) {
+          _internal_add_preferred_batch_size(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 max_queue_delay_microseconds = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           max_queue_delay_microseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool preserve_ordering = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           preserve_ordering_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 priority_levels = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           priority_levels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 default_priority_level = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           default_priority_level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelQueuePolicy default_queue_policy = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_default_queue_policy(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<uint32, .hercules.proto.ModelQueuePolicy> priority_queue_policy = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -8856,34 +7922,36 @@ const char* ModelDynamicBatching::_InternalParse(const char* ptr, ::PROTOBUF_NAM
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelDynamicBatching::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelDynamicBatching::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelDynamicBatching)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated int32 preferred_batch_size = 1;
@@ -8896,70 +7964,55 @@ failure:
   }
 
   // uint64 max_queue_delay_microseconds = 2;
-  if (this->max_queue_delay_microseconds() != 0) {
+  if (this->_internal_max_queue_delay_microseconds() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_max_queue_delay_microseconds(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_max_queue_delay_microseconds(), target);
   }
 
   // bool preserve_ordering = 3;
-  if (this->preserve_ordering() != 0) {
+  if (this->_internal_preserve_ordering() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_preserve_ordering(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_preserve_ordering(), target);
   }
 
   // uint32 priority_levels = 4;
-  if (this->priority_levels() != 0) {
+  if (this->_internal_priority_levels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_priority_levels(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_priority_levels(), target);
   }
 
   // uint32 default_priority_level = 5;
-  if (this->default_priority_level() != 0) {
+  if (this->_internal_default_priority_level() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_default_priority_level(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_default_priority_level(), target);
   }
 
   // .hercules.proto.ModelQueuePolicy default_queue_policy = 6;
-  if (this->has_default_queue_policy()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_default_queue_policy()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::default_queue_policy(this), target, stream);
+      InternalWriteMessage(6, _Internal::default_queue_policy(this),
+        _Internal::default_queue_policy(this).GetCachedSize(), target, stream);
   }
 
   // map<uint32, .hercules.proto.ModelQueuePolicy> priority_queue_policy = 7;
   if (!this->_internal_priority_queue_policy().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::hercules::proto::ModelQueuePolicy >::const_pointer
-        ConstPtr;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< ::PROTOBUF_NAMESPACE_ID::uint32, ConstPtr > SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
+    using MapType = ::_pb::Map<uint32_t, ::hercules::proto::ModelQueuePolicy>;
+    using WireHelper = ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_priority_queue_policy();
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_priority_queue_policy().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_priority_queue_policy().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::hercules::proto::ModelQueuePolicy >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::hercules::proto::ModelQueuePolicy >::const_iterator
-          it = this->_internal_priority_queue_policy().begin();
-          it != this->_internal_priority_queue_policy().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::Funcs::InternalSerialize(7, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterFlat<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::hercules::proto::ModelQueuePolicy >::const_iterator
-          it = this->_internal_priority_queue_policy().begin();
-          it != this->_internal_priority_queue_policy().end(); ++it) {
-        target = ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::Funcs::InternalSerialize(7, it->first, it->second, target, stream);
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelDynamicBatching)
@@ -8970,20 +8023,19 @@ size_t ModelDynamicBatching::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelDynamicBatching)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int32 preferred_batch_size = 1;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int32Size(this->preferred_batch_size_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _preferred_batch_size_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -8992,100 +8044,79 @@ size_t ModelDynamicBatching::ByteSizeLong() const {
   // map<uint32, .hercules.proto.ModelQueuePolicy> priority_queue_policy = 7;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_priority_queue_policy_size());
-  for (::PROTOBUF_NAMESPACE_ID::Map< ::PROTOBUF_NAMESPACE_ID::uint32, ::hercules::proto::ModelQueuePolicy >::const_iterator
+  for (::PROTOBUF_NAMESPACE_ID::Map< uint32_t, ::hercules::proto::ModelQueuePolicy >::const_iterator
       it = this->_internal_priority_queue_policy().begin();
       it != this->_internal_priority_queue_policy().end(); ++it) {
     total_size += ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
   // .hercules.proto.ModelQueuePolicy default_queue_policy = 6;
-  if (this->has_default_queue_policy()) {
+  if (this->_internal_has_default_queue_policy()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *default_queue_policy_);
   }
 
   // uint64 max_queue_delay_microseconds = 2;
-  if (this->max_queue_delay_microseconds() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_max_queue_delay_microseconds());
+  if (this->_internal_max_queue_delay_microseconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_max_queue_delay_microseconds());
   }
 
   // bool preserve_ordering = 3;
-  if (this->preserve_ordering() != 0) {
+  if (this->_internal_preserve_ordering() != 0) {
     total_size += 1 + 1;
   }
 
   // uint32 priority_levels = 4;
-  if (this->priority_levels() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_priority_levels());
+  if (this->_internal_priority_levels() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_priority_levels());
   }
 
   // uint32 default_priority_level = 5;
-  if (this->default_priority_level() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_default_priority_level());
+  if (this->_internal_default_priority_level() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_default_priority_level());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelDynamicBatching::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelDynamicBatching)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelDynamicBatching* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelDynamicBatching>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelDynamicBatching)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelDynamicBatching)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelDynamicBatching::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelDynamicBatching::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelDynamicBatching::GetClassData() const { return &_class_data_; }
+
+void ModelDynamicBatching::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelDynamicBatching *>(to)->MergeFrom(
+      static_cast<const ModelDynamicBatching &>(from));
 }
+
 
 void ModelDynamicBatching::MergeFrom(const ModelDynamicBatching& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelDynamicBatching)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   preferred_batch_size_.MergeFrom(from.preferred_batch_size_);
   priority_queue_policy_.MergeFrom(from.priority_queue_policy_);
-  if (from.has_default_queue_policy()) {
+  if (from._internal_has_default_queue_policy()) {
     _internal_mutable_default_queue_policy()->::hercules::proto::ModelQueuePolicy::MergeFrom(from._internal_default_queue_policy());
   }
-  if (from.max_queue_delay_microseconds() != 0) {
+  if (from._internal_max_queue_delay_microseconds() != 0) {
     _internal_set_max_queue_delay_microseconds(from._internal_max_queue_delay_microseconds());
   }
-  if (from.preserve_ordering() != 0) {
+  if (from._internal_preserve_ordering() != 0) {
     _internal_set_preserve_ordering(from._internal_preserve_ordering());
   }
-  if (from.priority_levels() != 0) {
+  if (from._internal_priority_levels() != 0) {
     _internal_set_priority_levels(from._internal_priority_levels());
   }
-  if (from.default_priority_level() != 0) {
+  if (from._internal_default_priority_level() != 0) {
     _internal_set_default_priority_level(from._internal_default_priority_level());
   }
-}
-
-void ModelDynamicBatching::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelDynamicBatching)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelDynamicBatching::CopyFrom(const ModelDynamicBatching& from) {
@@ -9101,9 +8132,9 @@ bool ModelDynamicBatching::IsInitialized() const {
 
 void ModelDynamicBatching::InternalSwap(ModelDynamicBatching* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   preferred_batch_size_.InternalSwap(&other->preferred_batch_size_);
-  priority_queue_policy_.Swap(&other->priority_queue_policy_);
+  priority_queue_policy_.InternalSwap(&other->priority_queue_policy_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelDynamicBatching, default_priority_level_)
       + sizeof(ModelDynamicBatching::default_priority_level_)
@@ -9113,25 +8144,24 @@ void ModelDynamicBatching::InternalSwap(ModelDynamicBatching* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelDynamicBatching::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[27]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching_Control::InitAsDefaultInstance() {
-}
 class ModelSequenceBatching_Control::_Internal {
  public:
 };
 
-ModelSequenceBatching_Control::ModelSequenceBatching_Control(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelSequenceBatching_Control::ModelSequenceBatching_Control(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   int32_false_true_(arena),
   fp32_false_true_(arena),
   bool_false_true_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching.Control)
 }
 ModelSequenceBatching_Control::ModelSequenceBatching_Control(const ModelSequenceBatching_Control& from)
@@ -9146,40 +8176,33 @@ ModelSequenceBatching_Control::ModelSequenceBatching_Control(const ModelSequence
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching.Control)
 }
 
-void ModelSequenceBatching_Control::SharedCtor() {
-  ::memset(&kind_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&data_type_) -
-      reinterpret_cast<char*>(&kind_)) + sizeof(data_type_));
+inline void ModelSequenceBatching_Control::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&kind_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&data_type_) -
+    reinterpret_cast<char*>(&kind_)) + sizeof(data_type_));
 }
 
 ModelSequenceBatching_Control::~ModelSequenceBatching_Control() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching.Control)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching_Control::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelSequenceBatching_Control::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelSequenceBatching_Control::ArenaDtor(void* object) {
-  ModelSequenceBatching_Control* _this = reinterpret_cast< ModelSequenceBatching_Control* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching_Control::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching_Control::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching_Control& ModelSequenceBatching_Control::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_Control_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching_Control::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching.Control)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -9192,92 +8215,96 @@ void ModelSequenceBatching_Control::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching_Control::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching_Control::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.ModelSequenceBatching.Control.Kind kind = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_kind(static_cast<::hercules::proto::ModelSequenceBatching_Control_Kind>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int32 int32_false_true = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_int32_false_true(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
-          _internal_add_int32_false_true(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+        } else if (static_cast<uint8_t>(tag) == 16) {
+          _internal_add_int32_false_true(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated float fp32_false_true = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_fp32_false_true(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29) {
+        } else if (static_cast<uint8_t>(tag) == 29) {
           _internal_add_fp32_false_true(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.DataType data_type = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated bool bool_false_true = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedBoolParser(_internal_mutable_bool_false_true(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40) {
+        } else if (static_cast<uint8_t>(tag) == 40) {
           _internal_add_bool_false_true(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching_Control::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching_Control::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching.Control)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.ModelSequenceBatching.Control.Kind kind = 1;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_kind(), target);
   }
 
@@ -9296,9 +8323,9 @@ failure:
   }
 
   // .hercules.proto.DataType data_type = 4;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       4, this->_internal_data_type(), target);
   }
 
@@ -9308,7 +8335,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching.Control)
@@ -9319,20 +8346,19 @@ size_t ModelSequenceBatching_Control::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching.Control)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int32 int32_false_true = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int32Size(this->int32_false_true_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _int32_false_true_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -9344,12 +8370,8 @@ size_t ModelSequenceBatching_Control::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _fp32_false_true_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
     total_size += data_size;
   }
 
@@ -9359,74 +8381,55 @@ size_t ModelSequenceBatching_Control::ByteSizeLong() const {
     size_t data_size = 1UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _bool_false_true_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // .hercules.proto.ModelSequenceBatching.Control.Kind kind = 1;
-  if (this->kind() != 0) {
+  if (this->_internal_kind() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_kind());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_kind());
   }
 
   // .hercules.proto.DataType data_type = 4;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching_Control::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching.Control)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching_Control* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching_Control>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching.Control)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching.Control)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching_Control::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching_Control::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching_Control::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching_Control::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching_Control *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching_Control &>(from));
 }
+
 
 void ModelSequenceBatching_Control::MergeFrom(const ModelSequenceBatching_Control& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching.Control)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   int32_false_true_.MergeFrom(from.int32_false_true_);
   fp32_false_true_.MergeFrom(from.fp32_false_true_);
   bool_false_true_.MergeFrom(from.bool_false_true_);
-  if (from.kind() != 0) {
+  if (from._internal_kind() != 0) {
     _internal_set_kind(from._internal_kind());
   }
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
-}
-
-void ModelSequenceBatching_Control::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching.Control)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching_Control::CopyFrom(const ModelSequenceBatching_Control& from) {
@@ -9442,7 +8445,7 @@ bool ModelSequenceBatching_Control::IsInitialized() const {
 
 void ModelSequenceBatching_Control::InternalSwap(ModelSequenceBatching_Control* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   int32_false_true_.InternalSwap(&other->int32_false_true_);
   fp32_false_true_.InternalSwap(&other->fp32_false_true_);
   bool_false_true_.InternalSwap(&other->bool_false_true_);
@@ -9455,99 +8458,94 @@ void ModelSequenceBatching_Control::InternalSwap(ModelSequenceBatching_Control* 
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching_Control::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[28]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching_ControlInput::InitAsDefaultInstance() {
-}
 class ModelSequenceBatching_ControlInput::_Internal {
  public:
 };
 
-ModelSequenceBatching_ControlInput::ModelSequenceBatching_ControlInput(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelSequenceBatching_ControlInput::ModelSequenceBatching_ControlInput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   control_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching.ControlInput)
 }
 ModelSequenceBatching_ControlInput::ModelSequenceBatching_ControlInput(const ModelSequenceBatching_ControlInput& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       control_(from.control_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching.ControlInput)
 }
 
-void ModelSequenceBatching_ControlInput::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelSequenceBatching_ControlInput::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelSequenceBatching_ControlInput::~ModelSequenceBatching_ControlInput() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching.ControlInput)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching_ControlInput::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelSequenceBatching_ControlInput::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void ModelSequenceBatching_ControlInput::ArenaDtor(void* object) {
-  ModelSequenceBatching_ControlInput* _this = reinterpret_cast< ModelSequenceBatching_ControlInput* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching_ControlInput::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching_ControlInput::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching_ControlInput& ModelSequenceBatching_ControlInput::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_ControlInput_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching_ControlInput::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching.ControlInput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   control_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching_ControlInput::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching_ControlInput::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.ControlInput.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.ControlInput.name"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelSequenceBatching.Control control = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -9555,38 +8553,40 @@ const char* ModelSequenceBatching_ControlInput::_InternalParse(const char* ptr, 
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching_ControlInput::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching_ControlInput::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching.ControlInput)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -9596,15 +8596,15 @@ failure:
   }
 
   // repeated .hercules.proto.ModelSequenceBatching.Control control = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_control_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_control_size()); i < n; i++) {
+    const auto& repfield = this->_internal_control(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_control(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching.ControlInput)
@@ -9615,7 +8615,7 @@ size_t ModelSequenceBatching_ControlInput::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching.ControlInput)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -9627,54 +8627,39 @@ size_t ModelSequenceBatching_ControlInput::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching_ControlInput::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching.ControlInput)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching_ControlInput* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching_ControlInput>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching.ControlInput)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching.ControlInput)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching_ControlInput::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching_ControlInput::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching_ControlInput::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching_ControlInput::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching_ControlInput *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching_ControlInput &>(from));
 }
+
 
 void ModelSequenceBatching_ControlInput::MergeFrom(const ModelSequenceBatching_ControlInput& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching.ControlInput)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   control_.MergeFrom(from.control_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void ModelSequenceBatching_ControlInput::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching.ControlInput)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching_ControlInput::CopyFrom(const ModelSequenceBatching_ControlInput& from) {
@@ -9690,42 +8675,46 @@ bool ModelSequenceBatching_ControlInput::IsInitialized() const {
 
 void ModelSequenceBatching_ControlInput::InternalSwap(ModelSequenceBatching_ControlInput* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   control_.InternalSwap(&other->control_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching_ControlInput::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[29]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching_InitialState::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelSequenceBatching_InitialState_default_instance_.zero_data_ = false;
-  ::hercules::proto::_ModelSequenceBatching_InitialState_default_instance_.data_file_.UnsafeSetDefault(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
 class ModelSequenceBatching_InitialState::_Internal {
  public:
 };
 
-ModelSequenceBatching_InitialState::ModelSequenceBatching_InitialState(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelSequenceBatching_InitialState::ModelSequenceBatching_InitialState(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   dims_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching.InitialState)
 }
 ModelSequenceBatching_InitialState::ModelSequenceBatching_InitialState(const ModelSequenceBatching_InitialState& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       dims_(from.dims_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   data_type_ = from.data_type_;
   clear_has_state_data();
@@ -9745,41 +8734,35 @@ ModelSequenceBatching_InitialState::ModelSequenceBatching_InitialState(const Mod
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching.InitialState)
 }
 
-void ModelSequenceBatching_InitialState::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  data_type_ = 0;
-  clear_has_state_data();
+inline void ModelSequenceBatching_InitialState::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+data_type_ = 0;
+clear_has_state_data();
 }
 
 ModelSequenceBatching_InitialState::~ModelSequenceBatching_InitialState() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching.InitialState)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching_InitialState::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelSequenceBatching_InitialState::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
   if (has_state_data()) {
     clear_state_data();
   }
 }
 
-void ModelSequenceBatching_InitialState::ArenaDtor(void* object) {
-  ModelSequenceBatching_InitialState* _this = reinterpret_cast< ModelSequenceBatching_InitialState* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching_InitialState::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching_InitialState::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching_InitialState& ModelSequenceBatching_InitialState::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_InitialState_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching_InitialState::clear_state_data() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.ModelSequenceBatching.InitialState)
@@ -9789,7 +8772,7 @@ void ModelSequenceBatching_InitialState::clear_state_data() {
       break;
     }
     case kDataFile: {
-      state_data_.data_file_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+      state_data_.data_file_.Destroy();
       break;
     }
     case STATE_DATA_NOT_SET: {
@@ -9802,100 +8785,104 @@ void ModelSequenceBatching_InitialState::clear_state_data() {
 
 void ModelSequenceBatching_InitialState::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching.InitialState)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   dims_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   data_type_ = 0;
   clear_state_data();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching_InitialState::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching_InitialState::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.DataType data_type = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 dims = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_dims(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+        } else if (static_cast<uint8_t>(tag) == 16) {
           _internal_add_dims(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool zero_data = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _internal_set_zero_data(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string data_file = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_data_file();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.InitialState.data_file"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.InitialState.data_file"));
+        } else
+          goto handle_unusual;
         continue;
       // string name = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.InitialState.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.InitialState.name"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching_InitialState::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching_InitialState::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching.InitialState)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.DataType data_type = 1;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_data_type(), target);
   }
 
@@ -9911,7 +8898,7 @@ failure:
   // bool zero_data = 3;
   if (_internal_has_zero_data()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_zero_data(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_zero_data(), target);
   }
 
   // string data_file = 4;
@@ -9925,7 +8912,7 @@ failure:
   }
 
   // string name = 5;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -9935,7 +8922,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching.InitialState)
@@ -9946,36 +8933,35 @@ size_t ModelSequenceBatching_InitialState::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching.InitialState)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 dims = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->dims_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _dims_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // string name = 5;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // .hercules.proto.DataType data_type = 1;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
   switch (state_data_case()) {
@@ -9995,42 +8981,33 @@ size_t ModelSequenceBatching_InitialState::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching_InitialState::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching.InitialState)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching_InitialState* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching_InitialState>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching.InitialState)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching.InitialState)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching_InitialState::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching_InitialState::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching_InitialState::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching_InitialState::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching_InitialState *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching_InitialState &>(from));
 }
+
 
 void ModelSequenceBatching_InitialState::MergeFrom(const ModelSequenceBatching_InitialState& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching.InitialState)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   dims_.MergeFrom(from.dims_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
   switch (from.state_data_case()) {
@@ -10046,13 +9023,7 @@ void ModelSequenceBatching_InitialState::MergeFrom(const ModelSequenceBatching_I
       break;
     }
   }
-}
-
-void ModelSequenceBatching_InitialState::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching.InitialState)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching_InitialState::CopyFrom(const ModelSequenceBatching_InitialState& from) {
@@ -10068,33 +9039,37 @@ bool ModelSequenceBatching_InitialState::IsInitialized() const {
 
 void ModelSequenceBatching_InitialState::InternalSwap(ModelSequenceBatching_InitialState* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   dims_.InternalSwap(&other->dims_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
   swap(data_type_, other->data_type_);
   swap(state_data_, other->state_data_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching_InitialState::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[30]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching_State::InitAsDefaultInstance() {
-}
 class ModelSequenceBatching_State::_Internal {
  public:
 };
 
-ModelSequenceBatching_State::ModelSequenceBatching_State(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelSequenceBatching_State::ModelSequenceBatching_State(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   dims_(arena),
   initial_state_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching.State)
 }
 ModelSequenceBatching_State::ModelSequenceBatching_State(const ModelSequenceBatching_State& from)
@@ -10102,115 +9077,120 @@ ModelSequenceBatching_State::ModelSequenceBatching_State(const ModelSequenceBatc
       dims_(from.dims_),
       initial_state_(from.initial_state_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  input_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  input_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    input_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_input_name().empty()) {
-    input_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_input_name(),
-      GetArena());
+    input_name_.Set(from._internal_input_name(), 
+      GetArenaForAllocation());
   }
-  output_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  output_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    output_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_output_name().empty()) {
-    output_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_output_name(),
-      GetArena());
+    output_name_.Set(from._internal_output_name(), 
+      GetArenaForAllocation());
   }
   data_type_ = from.data_type_;
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching.State)
 }
 
-void ModelSequenceBatching_State::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  input_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  output_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  data_type_ = 0;
+inline void ModelSequenceBatching_State::SharedCtor() {
+input_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  input_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+output_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  output_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+data_type_ = 0;
 }
 
 ModelSequenceBatching_State::~ModelSequenceBatching_State() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching.State)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching_State::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  input_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  output_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelSequenceBatching_State::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  input_name_.Destroy();
+  output_name_.Destroy();
 }
 
-void ModelSequenceBatching_State::ArenaDtor(void* object) {
-  ModelSequenceBatching_State* _this = reinterpret_cast< ModelSequenceBatching_State* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching_State::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching_State::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching_State& ModelSequenceBatching_State::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_State_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching_State::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching.State)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   dims_.Clear();
   initial_state_.Clear();
-  input_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  output_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  input_name_.ClearToEmpty();
+  output_name_.ClearToEmpty();
   data_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching_State::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching_State::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string input_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_input_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.State.input_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.State.input_name"));
+        } else
+          goto handle_unusual;
         continue;
       // string output_name = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_output_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.State.output_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelSequenceBatching.State.output_name"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.DataType data_type = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 dims = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_dims(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32) {
+        } else if (static_cast<uint8_t>(tag) == 32) {
           _internal_add_dims(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelSequenceBatching.InitialState initial_state = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -10218,38 +9198,40 @@ const char* ModelSequenceBatching_State::_InternalParse(const char* ptr, ::PROTO
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching_State::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching_State::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching.State)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string input_name = 1;
-  if (this->input_name().size() > 0) {
+  if (!this->_internal_input_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_input_name().data(), static_cast<int>(this->_internal_input_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10259,7 +9241,7 @@ failure:
   }
 
   // string output_name = 2;
-  if (this->output_name().size() > 0) {
+  if (!this->_internal_output_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_output_name().data(), static_cast<int>(this->_internal_output_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10269,9 +9251,9 @@ failure:
   }
 
   // .hercules.proto.DataType data_type = 3;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       3, this->_internal_data_type(), target);
   }
 
@@ -10285,15 +9267,15 @@ failure:
   }
 
   // repeated .hercules.proto.ModelSequenceBatching.InitialState initial_state = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_initial_state_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_initial_state_size()); i < n; i++) {
+    const auto& repfield = this->_internal_initial_state(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_initial_state(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching.State)
@@ -10304,20 +9286,19 @@ size_t ModelSequenceBatching_State::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching.State)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 dims = 4;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->dims_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _dims_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -10331,74 +9312,59 @@ size_t ModelSequenceBatching_State::ByteSizeLong() const {
   }
 
   // string input_name = 1;
-  if (this->input_name().size() > 0) {
+  if (!this->_internal_input_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_input_name());
   }
 
   // string output_name = 2;
-  if (this->output_name().size() > 0) {
+  if (!this->_internal_output_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_output_name());
   }
 
   // .hercules.proto.DataType data_type = 3;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching_State::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching.State)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching_State* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching_State>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching.State)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching.State)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching_State::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching_State::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching_State::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching_State::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching_State *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching_State &>(from));
 }
+
 
 void ModelSequenceBatching_State::MergeFrom(const ModelSequenceBatching_State& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching.State)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   dims_.MergeFrom(from.dims_);
   initial_state_.MergeFrom(from.initial_state_);
-  if (from.input_name().size() > 0) {
+  if (!from._internal_input_name().empty()) {
     _internal_set_input_name(from._internal_input_name());
   }
-  if (from.output_name().size() > 0) {
+  if (!from._internal_output_name().empty()) {
     _internal_set_output_name(from._internal_output_name());
   }
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
-}
-
-void ModelSequenceBatching_State::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching.State)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching_State::CopyFrom(const ModelSequenceBatching_State& from) {
@@ -10414,31 +9380,38 @@ bool ModelSequenceBatching_State::IsInitialized() const {
 
 void ModelSequenceBatching_State::InternalSwap(ModelSequenceBatching_State* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   dims_.InternalSwap(&other->dims_);
   initial_state_.InternalSwap(&other->initial_state_);
-  input_name_.Swap(&other->input_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  output_name_.Swap(&other->output_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &input_name_, lhs_arena,
+      &other->input_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &output_name_, lhs_arena,
+      &other->output_name_, rhs_arena
+  );
   swap(data_type_, other->data_type_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching_State::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[31]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching_StrategyDirect::InitAsDefaultInstance() {
-}
 class ModelSequenceBatching_StrategyDirect::_Internal {
  public:
 };
 
-ModelSequenceBatching_StrategyDirect::ModelSequenceBatching_StrategyDirect(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelSequenceBatching_StrategyDirect::ModelSequenceBatching_StrategyDirect(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching.StrategyDirect)
 }
 ModelSequenceBatching_StrategyDirect::ModelSequenceBatching_StrategyDirect(const ModelSequenceBatching_StrategyDirect& from)
@@ -10450,40 +9423,33 @@ ModelSequenceBatching_StrategyDirect::ModelSequenceBatching_StrategyDirect(const
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching.StrategyDirect)
 }
 
-void ModelSequenceBatching_StrategyDirect::SharedCtor() {
-  ::memset(&max_queue_delay_microseconds_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&minimum_slot_utilization_) -
-      reinterpret_cast<char*>(&max_queue_delay_microseconds_)) + sizeof(minimum_slot_utilization_));
+inline void ModelSequenceBatching_StrategyDirect::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&max_queue_delay_microseconds_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&minimum_slot_utilization_) -
+    reinterpret_cast<char*>(&max_queue_delay_microseconds_)) + sizeof(minimum_slot_utilization_));
 }
 
 ModelSequenceBatching_StrategyDirect::~ModelSequenceBatching_StrategyDirect() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching.StrategyDirect)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching_StrategyDirect::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelSequenceBatching_StrategyDirect::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelSequenceBatching_StrategyDirect::ArenaDtor(void* object) {
-  ModelSequenceBatching_StrategyDirect* _this = reinterpret_cast< ModelSequenceBatching_StrategyDirect* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching_StrategyDirect::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching_StrategyDirect::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching_StrategyDirect& ModelSequenceBatching_StrategyDirect::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_StrategyDirect_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching_StrategyDirect::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching.StrategyDirect)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -10493,70 +9459,75 @@ void ModelSequenceBatching_StrategyDirect::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching_StrategyDirect::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching_StrategyDirect::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 max_queue_delay_microseconds = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           max_queue_delay_microseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float minimum_slot_utilization = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
           minimum_slot_utilization_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching_StrategyDirect::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching_StrategyDirect::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching.StrategyDirect)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 max_queue_delay_microseconds = 1;
-  if (this->max_queue_delay_microseconds() != 0) {
+  if (this->_internal_max_queue_delay_microseconds() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_max_queue_delay_microseconds(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_max_queue_delay_microseconds(), target);
   }
 
   // float minimum_slot_utilization = 2;
-  if (!(this->minimum_slot_utilization() <= 0 && this->minimum_slot_utilization() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_minimum_slot_utilization = this->_internal_minimum_slot_utilization();
+  uint32_t raw_minimum_slot_utilization;
+  memcpy(&raw_minimum_slot_utilization, &tmp_minimum_slot_utilization, sizeof(tmp_minimum_slot_utilization));
+  if (raw_minimum_slot_utilization != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_minimum_slot_utilization(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_minimum_slot_utilization(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching.StrategyDirect)
@@ -10567,66 +9538,57 @@ size_t ModelSequenceBatching_StrategyDirect::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching.StrategyDirect)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 max_queue_delay_microseconds = 1;
-  if (this->max_queue_delay_microseconds() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_max_queue_delay_microseconds());
+  if (this->_internal_max_queue_delay_microseconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_max_queue_delay_microseconds());
   }
 
   // float minimum_slot_utilization = 2;
-  if (!(this->minimum_slot_utilization() <= 0 && this->minimum_slot_utilization() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_minimum_slot_utilization = this->_internal_minimum_slot_utilization();
+  uint32_t raw_minimum_slot_utilization;
+  memcpy(&raw_minimum_slot_utilization, &tmp_minimum_slot_utilization, sizeof(tmp_minimum_slot_utilization));
+  if (raw_minimum_slot_utilization != 0) {
     total_size += 1 + 4;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching_StrategyDirect::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching.StrategyDirect)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching_StrategyDirect* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching_StrategyDirect>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching.StrategyDirect)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching.StrategyDirect)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching_StrategyDirect::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching_StrategyDirect::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching_StrategyDirect::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching_StrategyDirect::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching_StrategyDirect *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching_StrategyDirect &>(from));
 }
+
 
 void ModelSequenceBatching_StrategyDirect::MergeFrom(const ModelSequenceBatching_StrategyDirect& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching.StrategyDirect)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.max_queue_delay_microseconds() != 0) {
+  if (from._internal_max_queue_delay_microseconds() != 0) {
     _internal_set_max_queue_delay_microseconds(from._internal_max_queue_delay_microseconds());
   }
-  if (!(from.minimum_slot_utilization() <= 0 && from.minimum_slot_utilization() >= 0)) {
+  static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
+  float tmp_minimum_slot_utilization = from._internal_minimum_slot_utilization();
+  uint32_t raw_minimum_slot_utilization;
+  memcpy(&raw_minimum_slot_utilization, &tmp_minimum_slot_utilization, sizeof(tmp_minimum_slot_utilization));
+  if (raw_minimum_slot_utilization != 0) {
     _internal_set_minimum_slot_utilization(from._internal_minimum_slot_utilization());
   }
-}
-
-void ModelSequenceBatching_StrategyDirect::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching.StrategyDirect)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching_StrategyDirect::CopyFrom(const ModelSequenceBatching_StrategyDirect& from) {
@@ -10642,7 +9604,7 @@ bool ModelSequenceBatching_StrategyDirect::IsInitialized() const {
 
 void ModelSequenceBatching_StrategyDirect::InternalSwap(ModelSequenceBatching_StrategyDirect* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelSequenceBatching_StrategyDirect, minimum_slot_utilization_)
       + sizeof(ModelSequenceBatching_StrategyDirect::minimum_slot_utilization_)
@@ -10652,23 +9614,22 @@ void ModelSequenceBatching_StrategyDirect::InternalSwap(ModelSequenceBatching_St
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching_StrategyDirect::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[32]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching_StrategyOldest::InitAsDefaultInstance() {
-}
 class ModelSequenceBatching_StrategyOldest::_Internal {
  public:
 };
 
-ModelSequenceBatching_StrategyOldest::ModelSequenceBatching_StrategyOldest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelSequenceBatching_StrategyOldest::ModelSequenceBatching_StrategyOldest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   preferred_batch_size_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching.StrategyOldest)
 }
 ModelSequenceBatching_StrategyOldest::ModelSequenceBatching_StrategyOldest(const ModelSequenceBatching_StrategyOldest& from)
@@ -10681,40 +9642,33 @@ ModelSequenceBatching_StrategyOldest::ModelSequenceBatching_StrategyOldest(const
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching.StrategyOldest)
 }
 
-void ModelSequenceBatching_StrategyOldest::SharedCtor() {
-  ::memset(&max_queue_delay_microseconds_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&max_candidate_sequences_) -
-      reinterpret_cast<char*>(&max_queue_delay_microseconds_)) + sizeof(max_candidate_sequences_));
+inline void ModelSequenceBatching_StrategyOldest::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&max_queue_delay_microseconds_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&max_candidate_sequences_) -
+    reinterpret_cast<char*>(&max_queue_delay_microseconds_)) + sizeof(max_candidate_sequences_));
 }
 
 ModelSequenceBatching_StrategyOldest::~ModelSequenceBatching_StrategyOldest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching.StrategyOldest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching_StrategyOldest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelSequenceBatching_StrategyOldest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelSequenceBatching_StrategyOldest::ArenaDtor(void* object) {
-  ModelSequenceBatching_StrategyOldest* _this = reinterpret_cast< ModelSequenceBatching_StrategyOldest* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching_StrategyOldest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching_StrategyOldest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching_StrategyOldest& ModelSequenceBatching_StrategyOldest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_StrategyOldest_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching_StrategyOldest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching.StrategyOldest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -10725,70 +9679,72 @@ void ModelSequenceBatching_StrategyOldest::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching_StrategyOldest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching_StrategyOldest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 max_candidate_sequences = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          max_candidate_sequences_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          max_candidate_sequences_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int32 preferred_batch_size = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_preferred_batch_size(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
-          _internal_add_preferred_batch_size(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+        } else if (static_cast<uint8_t>(tag) == 16) {
+          _internal_add_preferred_batch_size(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 max_queue_delay_microseconds = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           max_queue_delay_microseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching_StrategyOldest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching_StrategyOldest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching.StrategyOldest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // int32 max_candidate_sequences = 1;
-  if (this->max_candidate_sequences() != 0) {
+  if (this->_internal_max_candidate_sequences() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_max_candidate_sequences(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_max_candidate_sequences(), target);
   }
 
   // repeated int32 preferred_batch_size = 2;
@@ -10801,13 +9757,13 @@ failure:
   }
 
   // uint64 max_queue_delay_microseconds = 3;
-  if (this->max_queue_delay_microseconds() != 0) {
+  if (this->_internal_max_queue_delay_microseconds() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_max_queue_delay_microseconds(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_max_queue_delay_microseconds(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching.StrategyOldest)
@@ -10818,84 +9774,64 @@ size_t ModelSequenceBatching_StrategyOldest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching.StrategyOldest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int32 preferred_batch_size = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int32Size(this->preferred_batch_size_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _preferred_batch_size_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // uint64 max_queue_delay_microseconds = 3;
-  if (this->max_queue_delay_microseconds() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_max_queue_delay_microseconds());
+  if (this->_internal_max_queue_delay_microseconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_max_queue_delay_microseconds());
   }
 
   // int32 max_candidate_sequences = 1;
-  if (this->max_candidate_sequences() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_max_candidate_sequences());
+  if (this->_internal_max_candidate_sequences() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_max_candidate_sequences());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching_StrategyOldest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching.StrategyOldest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching_StrategyOldest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching_StrategyOldest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching.StrategyOldest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching.StrategyOldest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching_StrategyOldest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching_StrategyOldest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching_StrategyOldest::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching_StrategyOldest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching_StrategyOldest *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching_StrategyOldest &>(from));
 }
+
 
 void ModelSequenceBatching_StrategyOldest::MergeFrom(const ModelSequenceBatching_StrategyOldest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching.StrategyOldest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   preferred_batch_size_.MergeFrom(from.preferred_batch_size_);
-  if (from.max_queue_delay_microseconds() != 0) {
+  if (from._internal_max_queue_delay_microseconds() != 0) {
     _internal_set_max_queue_delay_microseconds(from._internal_max_queue_delay_microseconds());
   }
-  if (from.max_candidate_sequences() != 0) {
+  if (from._internal_max_candidate_sequences() != 0) {
     _internal_set_max_candidate_sequences(from._internal_max_candidate_sequences());
   }
-}
-
-void ModelSequenceBatching_StrategyOldest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching.StrategyOldest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching_StrategyOldest::CopyFrom(const ModelSequenceBatching_StrategyOldest& from) {
@@ -10911,7 +9847,7 @@ bool ModelSequenceBatching_StrategyOldest::IsInitialized() const {
 
 void ModelSequenceBatching_StrategyOldest::InternalSwap(ModelSequenceBatching_StrategyOldest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   preferred_batch_size_.InternalSwap(&other->preferred_batch_size_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelSequenceBatching_StrategyOldest, max_candidate_sequences_)
@@ -10922,18 +9858,13 @@ void ModelSequenceBatching_StrategyOldest::InternalSwap(ModelSequenceBatching_St
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching_StrategyOldest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[33]);
 }
-
 
 // ===================================================================
 
-void ModelSequenceBatching::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelSequenceBatching_default_instance_.direct_ = const_cast< ::hercules::proto::ModelSequenceBatching_StrategyDirect*>(
-      ::hercules::proto::ModelSequenceBatching_StrategyDirect::internal_default_instance());
-  ::hercules::proto::_ModelSequenceBatching_default_instance_.oldest_ = const_cast< ::hercules::proto::ModelSequenceBatching_StrategyOldest*>(
-      ::hercules::proto::ModelSequenceBatching_StrategyOldest::internal_default_instance());
-}
 class ModelSequenceBatching::_Internal {
  public:
   static const ::hercules::proto::ModelSequenceBatching_StrategyDirect& direct(const ModelSequenceBatching* msg);
@@ -10949,11 +9880,11 @@ ModelSequenceBatching::_Internal::oldest(const ModelSequenceBatching* msg) {
   return *msg->strategy_choice_.oldest_;
 }
 void ModelSequenceBatching::set_allocated_direct(::hercules::proto::ModelSequenceBatching_StrategyDirect* direct) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_strategy_choice();
   if (direct) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(direct);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(direct);
     if (message_arena != submessage_arena) {
       direct = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, direct, submessage_arena);
@@ -10964,11 +9895,11 @@ void ModelSequenceBatching::set_allocated_direct(::hercules::proto::ModelSequenc
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelSequenceBatching.direct)
 }
 void ModelSequenceBatching::set_allocated_oldest(::hercules::proto::ModelSequenceBatching_StrategyOldest* oldest) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_strategy_choice();
   if (oldest) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(oldest);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(oldest);
     if (message_arena != submessage_arena) {
       oldest = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, oldest, submessage_arena);
@@ -10978,12 +9909,12 @@ void ModelSequenceBatching::set_allocated_oldest(::hercules::proto::ModelSequenc
   }
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelSequenceBatching.oldest)
 }
-ModelSequenceBatching::ModelSequenceBatching(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelSequenceBatching::ModelSequenceBatching(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   control_input_(arena),
   state_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelSequenceBatching)
 }
 ModelSequenceBatching::ModelSequenceBatching(const ModelSequenceBatching& from)
@@ -11009,51 +9940,42 @@ ModelSequenceBatching::ModelSequenceBatching(const ModelSequenceBatching& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelSequenceBatching)
 }
 
-void ModelSequenceBatching::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  max_sequence_idle_microseconds_ = PROTOBUF_ULONGLONG(0);
-  clear_has_strategy_choice();
+inline void ModelSequenceBatching::SharedCtor() {
+max_sequence_idle_microseconds_ = uint64_t{0u};
+clear_has_strategy_choice();
 }
 
 ModelSequenceBatching::~ModelSequenceBatching() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelSequenceBatching)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelSequenceBatching::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelSequenceBatching::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (has_strategy_choice()) {
     clear_strategy_choice();
   }
 }
 
-void ModelSequenceBatching::ArenaDtor(void* object) {
-  ModelSequenceBatching* _this = reinterpret_cast< ModelSequenceBatching* >(object);
-  (void)_this;
-}
-void ModelSequenceBatching::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelSequenceBatching::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelSequenceBatching& ModelSequenceBatching::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelSequenceBatching_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelSequenceBatching::clear_strategy_choice() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.ModelSequenceBatching)
   switch (strategy_choice_case()) {
     case kDirect: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete strategy_choice_.direct_;
       }
       break;
     }
     case kOldest: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete strategy_choice_.oldest_;
       }
       break;
@@ -11068,35 +9990,34 @@ void ModelSequenceBatching::clear_strategy_choice() {
 
 void ModelSequenceBatching::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelSequenceBatching)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   control_input_.Clear();
   state_.Clear();
-  max_sequence_idle_microseconds_ = PROTOBUF_ULONGLONG(0);
+  max_sequence_idle_microseconds_ = uint64_t{0u};
   clear_strategy_choice();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelSequenceBatching::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelSequenceBatching::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 max_sequence_idle_microseconds = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           max_sequence_idle_microseconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelSequenceBatching.ControlInput control_input = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11104,25 +10025,28 @@ const char* ModelSequenceBatching::_InternalParse(const char* ptr, ::PROTOBUF_NA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelSequenceBatching.StrategyDirect direct = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_direct(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelSequenceBatching.StrategyOldest oldest = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_oldest(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelSequenceBatching.State state = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11130,76 +10054,76 @@ const char* ModelSequenceBatching::_InternalParse(const char* ptr, ::PROTOBUF_NA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelSequenceBatching::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelSequenceBatching::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelSequenceBatching)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 max_sequence_idle_microseconds = 1;
-  if (this->max_sequence_idle_microseconds() != 0) {
+  if (this->_internal_max_sequence_idle_microseconds() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_max_sequence_idle_microseconds(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_max_sequence_idle_microseconds(), target);
   }
 
   // repeated .hercules.proto.ModelSequenceBatching.ControlInput control_input = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_control_input_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_control_input_size()); i < n; i++) {
+    const auto& repfield = this->_internal_control_input(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_control_input(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelSequenceBatching.StrategyDirect direct = 3;
   if (_internal_has_direct()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::direct(this), target, stream);
+      InternalWriteMessage(3, _Internal::direct(this),
+        _Internal::direct(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelSequenceBatching.StrategyOldest oldest = 4;
   if (_internal_has_oldest()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::oldest(this), target, stream);
+      InternalWriteMessage(4, _Internal::oldest(this),
+        _Internal::oldest(this).GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelSequenceBatching.State state = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_state_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_state_size()); i < n; i++) {
+    const auto& repfield = this->_internal_state(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_state(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelSequenceBatching)
@@ -11210,7 +10134,7 @@ size_t ModelSequenceBatching::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelSequenceBatching)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11229,10 +10153,8 @@ size_t ModelSequenceBatching::ByteSizeLong() const {
   }
 
   // uint64 max_sequence_idle_microseconds = 1;
-  if (this->max_sequence_idle_microseconds() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_max_sequence_idle_microseconds());
+  if (this->_internal_max_sequence_idle_microseconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_max_sequence_idle_microseconds());
   }
 
   switch (strategy_choice_case()) {
@@ -11254,40 +10176,31 @@ size_t ModelSequenceBatching::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelSequenceBatching::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelSequenceBatching)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelSequenceBatching* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelSequenceBatching>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelSequenceBatching)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelSequenceBatching)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelSequenceBatching::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelSequenceBatching::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelSequenceBatching::GetClassData() const { return &_class_data_; }
+
+void ModelSequenceBatching::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelSequenceBatching *>(to)->MergeFrom(
+      static_cast<const ModelSequenceBatching &>(from));
 }
+
 
 void ModelSequenceBatching::MergeFrom(const ModelSequenceBatching& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelSequenceBatching)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   control_input_.MergeFrom(from.control_input_);
   state_.MergeFrom(from.state_);
-  if (from.max_sequence_idle_microseconds() != 0) {
+  if (from._internal_max_sequence_idle_microseconds() != 0) {
     _internal_set_max_sequence_idle_microseconds(from._internal_max_sequence_idle_microseconds());
   }
   switch (from.strategy_choice_case()) {
@@ -11303,13 +10216,7 @@ void ModelSequenceBatching::MergeFrom(const ModelSequenceBatching& from) {
       break;
     }
   }
-}
-
-void ModelSequenceBatching::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelSequenceBatching)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelSequenceBatching::CopyFrom(const ModelSequenceBatching& from) {
@@ -11325,7 +10232,7 @@ bool ModelSequenceBatching::IsInitialized() const {
 
 void ModelSequenceBatching::InternalSwap(ModelSequenceBatching* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   control_input_.InternalSwap(&other->control_input_);
   state_.InternalSwap(&other->state_);
   swap(max_sequence_idle_microseconds_, other->max_sequence_idle_microseconds_);
@@ -11334,9 +10241,10 @@ void ModelSequenceBatching::InternalSwap(ModelSequenceBatching* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelSequenceBatching::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[34]);
 }
-
 
 // ===================================================================
 
@@ -11347,13 +10255,10 @@ void ModelEnsembling_Step_InputMapEntry_DoNotUse::MergeFrom(const ModelEnsemblin
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelEnsembling_Step_InputMapEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[35]);
 }
-void ModelEnsembling_Step_InputMapEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
@@ -11364,28 +10269,26 @@ void ModelEnsembling_Step_OutputMapEntry_DoNotUse::MergeFrom(const ModelEnsembli
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelEnsembling_Step_OutputMapEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[36]);
 }
-void ModelEnsembling_Step_OutputMapEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelEnsembling_Step::InitAsDefaultInstance() {
-}
 class ModelEnsembling_Step::_Internal {
  public:
 };
 
-ModelEnsembling_Step::ModelEnsembling_Step(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelEnsembling_Step::ModelEnsembling_Step(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   input_map_(arena),
   output_map_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelEnsembling_Step::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelEnsembling.Step)
 }
 ModelEnsembling_Step::ModelEnsembling_Step(const ModelEnsembling_Step& from)
@@ -11393,87 +10296,92 @@ ModelEnsembling_Step::ModelEnsembling_Step(const ModelEnsembling_Step& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   input_map_.MergeFrom(from.input_map_);
   output_map_.MergeFrom(from.output_map_);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_name().empty()) {
-    model_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_name(),
-      GetArena());
+    model_name_.Set(from._internal_model_name(), 
+      GetArenaForAllocation());
   }
   model_version_ = from.model_version_;
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelEnsembling.Step)
 }
 
-void ModelEnsembling_Step::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_version_ = PROTOBUF_LONGLONG(0);
+inline void ModelEnsembling_Step::SharedCtor() {
+model_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+model_version_ = int64_t{0};
 }
 
 ModelEnsembling_Step::~ModelEnsembling_Step() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelEnsembling.Step)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelEnsembling_Step::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  model_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelEnsembling_Step::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  input_map_.Destruct();
+  output_map_.Destruct();
+  model_name_.Destroy();
 }
 
 void ModelEnsembling_Step::ArenaDtor(void* object) {
   ModelEnsembling_Step* _this = reinterpret_cast< ModelEnsembling_Step* >(object);
-  (void)_this;
-}
-void ModelEnsembling_Step::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->input_map_.Destruct();
+  _this->output_map_.Destruct();
 }
 void ModelEnsembling_Step::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelEnsembling_Step& ModelEnsembling_Step::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelEnsembling_Step_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelEnsembling_Step::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelEnsembling.Step)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   input_map_.Clear();
   output_map_.Clear();
-  model_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_version_ = PROTOBUF_LONGLONG(0);
+  model_name_.ClearToEmpty();
+  model_version_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelEnsembling_Step::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelEnsembling_Step::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string model_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_model_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelEnsembling.Step.model_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelEnsembling.Step.model_name"));
+        } else
+          goto handle_unusual;
         continue;
       // int64 model_version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           model_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, string> input_map = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11481,11 +10389,12 @@ const char* ModelEnsembling_Step::_InternalParse(const char* ptr, ::PROTOBUF_NAM
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, string> output_map = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11493,38 +10402,40 @@ const char* ModelEnsembling_Step::_InternalParse(const char* ptr, ::PROTOBUF_NAM
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelEnsembling_Step::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelEnsembling_Step::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelEnsembling.Step)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string model_name = 1;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_name().data(), static_cast<int>(this->_internal_model_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -11534,103 +10445,73 @@ failure:
   }
 
   // int64 model_version = 2;
-  if (this->model_version() != 0) {
+  if (this->_internal_model_version() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_model_version(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_model_version(), target);
   }
 
   // map<string, string> input_map = 3;
   if (!this->_internal_input_map().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelEnsembling.Step.InputMapEntry.key");
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelEnsembling.Step.InputMapEntry.value");
-      }
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ModelEnsembling_Step_InputMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_input_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelEnsembling.Step.InputMapEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelEnsembling.Step.InputMapEntry.value");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_input_map().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_input_map().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_input_map().begin();
-          it != this->_internal_input_map().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelEnsembling_Step_InputMapEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_input_map().begin();
-          it != this->_internal_input_map().end(); ++it) {
-        target = ModelEnsembling_Step_InputMapEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // map<string, string> output_map = 4;
   if (!this->_internal_output_map().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelEnsembling.Step.OutputMapEntry.key");
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelEnsembling.Step.OutputMapEntry.value");
-      }
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ModelEnsembling_Step_OutputMapEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_output_map();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelEnsembling.Step.OutputMapEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelEnsembling.Step.OutputMapEntry.value");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_output_map().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_output_map().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_output_map().begin();
-          it != this->_internal_output_map().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelEnsembling_Step_OutputMapEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_output_map().begin();
-          it != this->_internal_output_map().end(); ++it) {
-        target = ModelEnsembling_Step_OutputMapEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelEnsembling.Step)
@@ -11641,7 +10522,7 @@ size_t ModelEnsembling_Step::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelEnsembling.Step)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11664,65 +10545,48 @@ size_t ModelEnsembling_Step::ByteSizeLong() const {
   }
 
   // string model_name = 1;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_name());
   }
 
   // int64 model_version = 2;
-  if (this->model_version() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-        this->_internal_model_version());
+  if (this->_internal_model_version() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_model_version());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelEnsembling_Step::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelEnsembling.Step)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelEnsembling_Step* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelEnsembling_Step>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelEnsembling.Step)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelEnsembling.Step)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelEnsembling_Step::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelEnsembling_Step::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelEnsembling_Step::GetClassData() const { return &_class_data_; }
+
+void ModelEnsembling_Step::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelEnsembling_Step *>(to)->MergeFrom(
+      static_cast<const ModelEnsembling_Step &>(from));
 }
+
 
 void ModelEnsembling_Step::MergeFrom(const ModelEnsembling_Step& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelEnsembling.Step)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   input_map_.MergeFrom(from.input_map_);
   output_map_.MergeFrom(from.output_map_);
-  if (from.model_name().size() > 0) {
+  if (!from._internal_model_name().empty()) {
     _internal_set_model_name(from._internal_model_name());
   }
-  if (from.model_version() != 0) {
+  if (from._internal_model_version() != 0) {
     _internal_set_model_version(from._internal_model_version());
   }
-}
-
-void ModelEnsembling_Step::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelEnsembling.Step)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelEnsembling_Step::CopyFrom(const ModelEnsembling_Step& from) {
@@ -11738,31 +10602,35 @@ bool ModelEnsembling_Step::IsInitialized() const {
 
 void ModelEnsembling_Step::InternalSwap(ModelEnsembling_Step* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  input_map_.Swap(&other->input_map_);
-  output_map_.Swap(&other->output_map_);
-  model_name_.Swap(&other->model_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  input_map_.InternalSwap(&other->input_map_);
+  output_map_.InternalSwap(&other->output_map_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_name_, lhs_arena,
+      &other->model_name_, rhs_arena
+  );
   swap(model_version_, other->model_version_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelEnsembling_Step::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[37]);
 }
-
 
 // ===================================================================
 
-void ModelEnsembling::InitAsDefaultInstance() {
-}
 class ModelEnsembling::_Internal {
  public:
 };
 
-ModelEnsembling::ModelEnsembling(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelEnsembling::ModelEnsembling(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   step_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelEnsembling)
 }
 ModelEnsembling::ModelEnsembling(const ModelEnsembling& from)
@@ -11772,38 +10640,29 @@ ModelEnsembling::ModelEnsembling(const ModelEnsembling& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelEnsembling)
 }
 
-void ModelEnsembling::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
+inline void ModelEnsembling::SharedCtor() {
 }
 
 ModelEnsembling::~ModelEnsembling() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelEnsembling)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelEnsembling::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelEnsembling::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelEnsembling::ArenaDtor(void* object) {
-  ModelEnsembling* _this = reinterpret_cast< ModelEnsembling* >(object);
-  (void)_this;
-}
-void ModelEnsembling::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelEnsembling::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelEnsembling& ModelEnsembling::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelEnsembling_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelEnsembling::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelEnsembling)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11811,17 +10670,15 @@ void ModelEnsembling::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelEnsembling::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelEnsembling::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .hercules.proto.ModelEnsembling.Step step = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11829,46 +10686,48 @@ const char* ModelEnsembling::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelEnsembling::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelEnsembling::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelEnsembling)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .hercules.proto.ModelEnsembling.Step step = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_step_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_step_size()); i < n; i++) {
+    const auto& repfield = this->_internal_step(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_step(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelEnsembling)
@@ -11879,7 +10738,7 @@ size_t ModelEnsembling::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelEnsembling)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11890,45 +10749,30 @@ size_t ModelEnsembling::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelEnsembling::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelEnsembling)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelEnsembling* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelEnsembling>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelEnsembling)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelEnsembling)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelEnsembling::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelEnsembling::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelEnsembling::GetClassData() const { return &_class_data_; }
+
+void ModelEnsembling::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelEnsembling *>(to)->MergeFrom(
+      static_cast<const ModelEnsembling &>(from));
 }
+
 
 void ModelEnsembling::MergeFrom(const ModelEnsembling& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelEnsembling)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   step_.MergeFrom(from.step_);
-}
-
-void ModelEnsembling::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelEnsembling)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelEnsembling::CopyFrom(const ModelEnsembling& from) {
@@ -11944,128 +10788,124 @@ bool ModelEnsembling::IsInitialized() const {
 
 void ModelEnsembling::InternalSwap(ModelEnsembling* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   step_.InternalSwap(&other->step_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelEnsembling::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[38]);
 }
-
 
 // ===================================================================
 
-void ModelParameter::InitAsDefaultInstance() {
-}
 class ModelParameter::_Internal {
  public:
 };
 
-ModelParameter::ModelParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelParameter::ModelParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelParameter)
 }
 ModelParameter::ModelParameter(const ModelParameter& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  string_value_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    string_value_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_string_value().empty()) {
-    string_value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_string_value(),
-      GetArena());
+    string_value_.Set(from._internal_string_value(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelParameter)
 }
 
-void ModelParameter::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  string_value_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelParameter::SharedCtor() {
+string_value_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  string_value_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelParameter::~ModelParameter() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelParameter)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelParameter::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  string_value_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelParameter::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  string_value_.Destroy();
 }
 
-void ModelParameter::ArenaDtor(void* object) {
-  ModelParameter* _this = reinterpret_cast< ModelParameter* >(object);
-  (void)_this;
-}
-void ModelParameter::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelParameter::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelParameter& ModelParameter::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelParameter_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelParameter::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelParameter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  string_value_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  string_value_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelParameter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelParameter::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string string_value = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_string_value();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelParameter.string_value"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelParameter.string_value"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelParameter::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelParameter::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelParameter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string string_value = 1;
-  if (this->string_value().size() > 0) {
+  if (!this->_internal_string_value().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_string_value().data(), static_cast<int>(this->_internal_string_value().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -12075,7 +10915,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelParameter)
@@ -12086,58 +10926,43 @@ size_t ModelParameter::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelParameter)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string string_value = 1;
-  if (this->string_value().size() > 0) {
+  if (!this->_internal_string_value().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_string_value());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelParameter::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelParameter)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelParameter* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelParameter>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelParameter)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelParameter)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelParameter::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelParameter::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelParameter::GetClassData() const { return &_class_data_; }
+
+void ModelParameter::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelParameter *>(to)->MergeFrom(
+      static_cast<const ModelParameter &>(from));
 }
+
 
 void ModelParameter::MergeFrom(const ModelParameter& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelParameter)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.string_value().size() > 0) {
+  if (!from._internal_string_value().empty()) {
     _internal_set_string_value(from._internal_string_value());
   }
-}
-
-void ModelParameter::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelParameter)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelParameter::CopyFrom(const ModelParameter& from) {
@@ -12153,32 +10978,32 @@ bool ModelParameter::IsInitialized() const {
 
 void ModelParameter::InternalSwap(ModelParameter* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  string_value_.Swap(&other->string_value_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &string_value_, lhs_arena,
+      &other->string_value_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelParameter::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[39]);
 }
-
 
 // ===================================================================
 
-void ModelWarmup_Input::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelWarmup_Input_default_instance_.zero_data_ = false;
-  ::hercules::proto::_ModelWarmup_Input_default_instance_.random_data_ = false;
-  ::hercules::proto::_ModelWarmup_Input_default_instance_.input_data_file_.UnsafeSetDefault(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
 class ModelWarmup_Input::_Internal {
  public:
 };
 
-ModelWarmup_Input::ModelWarmup_Input(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelWarmup_Input::ModelWarmup_Input(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   dims_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelWarmup.Input)
 }
 ModelWarmup_Input::ModelWarmup_Input(const ModelWarmup_Input& from)
@@ -12207,39 +11032,30 @@ ModelWarmup_Input::ModelWarmup_Input(const ModelWarmup_Input& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelWarmup.Input)
 }
 
-void ModelWarmup_Input::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  data_type_ = 0;
-  clear_has_input_data_type();
+inline void ModelWarmup_Input::SharedCtor() {
+data_type_ = 0;
+clear_has_input_data_type();
 }
 
 ModelWarmup_Input::~ModelWarmup_Input() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelWarmup.Input)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelWarmup_Input::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelWarmup_Input::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (has_input_data_type()) {
     clear_input_data_type();
   }
 }
 
-void ModelWarmup_Input::ArenaDtor(void* object) {
-  ModelWarmup_Input* _this = reinterpret_cast< ModelWarmup_Input* >(object);
-  (void)_this;
-}
-void ModelWarmup_Input::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelWarmup_Input::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelWarmup_Input& ModelWarmup_Input::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelWarmup_Input_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelWarmup_Input::clear_input_data_type() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.ModelWarmup.Input)
@@ -12253,7 +11069,7 @@ void ModelWarmup_Input::clear_input_data_type() {
       break;
     }
     case kInputDataFile: {
-      input_data_type_.input_data_file_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+      input_data_type_.input_data_file_.Destroy();
       break;
     }
     case INPUT_DATA_TYPE_NOT_SET: {
@@ -12266,7 +11082,7 @@ void ModelWarmup_Input::clear_input_data_type() {
 
 void ModelWarmup_Input::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelWarmup.Input)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -12276,87 +11092,91 @@ void ModelWarmup_Input::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelWarmup_Input::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelWarmup_Input::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.DataType data_type = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_data_type(static_cast<::hercules::proto::DataType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 dims = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_dims(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+        } else if (static_cast<uint8_t>(tag) == 16) {
           _internal_add_dims(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool zero_data = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _internal_set_zero_data(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool random_data = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _internal_set_random_data(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string input_data_file = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_input_data_file();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelWarmup.Input.input_data_file"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelWarmup.Input.input_data_file"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelWarmup_Input::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelWarmup_Input::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelWarmup.Input)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.DataType data_type = 1;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_data_type(), target);
   }
 
@@ -12372,13 +11192,13 @@ failure:
   // bool zero_data = 3;
   if (_internal_has_zero_data()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_zero_data(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_zero_data(), target);
   }
 
   // bool random_data = 4;
   if (_internal_has_random_data()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_random_data(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_random_data(), target);
   }
 
   // string input_data_file = 5;
@@ -12392,7 +11212,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelWarmup.Input)
@@ -12403,29 +11223,28 @@ size_t ModelWarmup_Input::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelWarmup.Input)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 dims = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->dims_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _dims_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // .hercules.proto.DataType data_type = 1;
-  if (this->data_type() != 0) {
+  if (this->_internal_data_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_data_type());
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
   switch (input_data_type_case()) {
@@ -12450,39 +11269,30 @@ size_t ModelWarmup_Input::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelWarmup_Input::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelWarmup.Input)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelWarmup_Input* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelWarmup_Input>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelWarmup.Input)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelWarmup.Input)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelWarmup_Input::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelWarmup_Input::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelWarmup_Input::GetClassData() const { return &_class_data_; }
+
+void ModelWarmup_Input::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelWarmup_Input *>(to)->MergeFrom(
+      static_cast<const ModelWarmup_Input &>(from));
 }
+
 
 void ModelWarmup_Input::MergeFrom(const ModelWarmup_Input& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelWarmup.Input)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   dims_.MergeFrom(from.dims_);
-  if (from.data_type() != 0) {
+  if (from._internal_data_type() != 0) {
     _internal_set_data_type(from._internal_data_type());
   }
   switch (from.input_data_type_case()) {
@@ -12502,13 +11312,7 @@ void ModelWarmup_Input::MergeFrom(const ModelWarmup_Input& from) {
       break;
     }
   }
-}
-
-void ModelWarmup_Input::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelWarmup.Input)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelWarmup_Input::CopyFrom(const ModelWarmup_Input& from) {
@@ -12524,7 +11328,7 @@ bool ModelWarmup_Input::IsInitialized() const {
 
 void ModelWarmup_Input::InternalSwap(ModelWarmup_Input* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   dims_.InternalSwap(&other->dims_);
   swap(data_type_, other->data_type_);
   swap(input_data_type_, other->input_data_type_);
@@ -12532,9 +11336,10 @@ void ModelWarmup_Input::InternalSwap(ModelWarmup_Input* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelWarmup_Input::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[40]);
 }
-
 
 // ===================================================================
 
@@ -12545,37 +11350,38 @@ void ModelWarmup_InputsEntry_DoNotUse::MergeFrom(const ModelWarmup_InputsEntry_D
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelWarmup_InputsEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[41]);
 }
-void ModelWarmup_InputsEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelWarmup::InitAsDefaultInstance() {
-}
 class ModelWarmup::_Internal {
  public:
 };
 
-ModelWarmup::ModelWarmup(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelWarmup::ModelWarmup(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   inputs_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelWarmup::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelWarmup)
 }
 ModelWarmup::ModelWarmup(const ModelWarmup& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   inputs_.MergeFrom(from.inputs_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&batch_size_, &from.batch_size_,
     static_cast<size_t>(reinterpret_cast<char*>(&count_) -
@@ -12583,81 +11389,82 @@ ModelWarmup::ModelWarmup(const ModelWarmup& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelWarmup)
 }
 
-void ModelWarmup::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&batch_size_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&count_) -
-      reinterpret_cast<char*>(&batch_size_)) + sizeof(count_));
+inline void ModelWarmup::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&batch_size_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&count_) -
+    reinterpret_cast<char*>(&batch_size_)) + sizeof(count_));
 }
 
 ModelWarmup::~ModelWarmup() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelWarmup)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelWarmup::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelWarmup::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  inputs_.Destruct();
+  name_.Destroy();
 }
 
 void ModelWarmup::ArenaDtor(void* object) {
   ModelWarmup* _this = reinterpret_cast< ModelWarmup* >(object);
-  (void)_this;
-}
-void ModelWarmup::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->inputs_.Destruct();
 }
 void ModelWarmup::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelWarmup& ModelWarmup::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelWarmup_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelWarmup::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelWarmup)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   inputs_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   ::memset(&batch_size_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&count_) -
       reinterpret_cast<char*>(&batch_size_)) + sizeof(count_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelWarmup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelWarmup::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelWarmup.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelWarmup.name"));
+        } else
+          goto handle_unusual;
         continue;
       // uint32 batch_size = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.ModelWarmup.Input> inputs = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -12665,45 +11472,48 @@ const char* ModelWarmup::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 count = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelWarmup::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelWarmup::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelWarmup)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -12713,60 +11523,45 @@ failure:
   }
 
   // uint32 batch_size = 2;
-  if (this->batch_size() != 0) {
+  if (this->_internal_batch_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_batch_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_batch_size(), target);
   }
 
   // map<string, .hercules.proto.ModelWarmup.Input> inputs = 3;
   if (!this->_internal_inputs().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelWarmup_Input >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelWarmup.InputsEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::ModelWarmup_Input>;
+    using WireHelper = ModelWarmup_InputsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_inputs();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelWarmup.InputsEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_inputs().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_inputs().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelWarmup_Input >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelWarmup_Input >::const_iterator
-          it = this->_internal_inputs().begin();
-          it != this->_internal_inputs().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelWarmup_InputsEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelWarmup_Input >::const_iterator
-          it = this->_internal_inputs().begin();
-          it != this->_internal_inputs().end(); ++it) {
-        target = ModelWarmup_InputsEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // uint32 count = 4;
-  if (this->count() != 0) {
+  if (this->_internal_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_count(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_count(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelWarmup)
@@ -12777,7 +11572,7 @@ size_t ModelWarmup::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelWarmup)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -12791,74 +11586,55 @@ size_t ModelWarmup::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // uint32 batch_size = 2;
-  if (this->batch_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_batch_size());
+  if (this->_internal_batch_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_batch_size());
   }
 
   // uint32 count = 4;
-  if (this->count() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_count());
+  if (this->_internal_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_count());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelWarmup::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelWarmup)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelWarmup* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelWarmup>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelWarmup)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelWarmup)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelWarmup::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelWarmup::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelWarmup::GetClassData() const { return &_class_data_; }
+
+void ModelWarmup::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelWarmup *>(to)->MergeFrom(
+      static_cast<const ModelWarmup &>(from));
 }
+
 
 void ModelWarmup::MergeFrom(const ModelWarmup& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelWarmup)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   inputs_.MergeFrom(from.inputs_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.batch_size() != 0) {
+  if (from._internal_batch_size() != 0) {
     _internal_set_batch_size(from._internal_batch_size());
   }
-  if (from.count() != 0) {
+  if (from._internal_count() != 0) {
     _internal_set_count(from._internal_count());
   }
-}
-
-void ModelWarmup::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelWarmup)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelWarmup::CopyFrom(const ModelWarmup& from) {
@@ -12874,9 +11650,14 @@ bool ModelWarmup::IsInitialized() const {
 
 void ModelWarmup::InternalSwap(ModelWarmup* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  inputs_.Swap(&other->inputs_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  inputs_.InternalSwap(&other->inputs_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelWarmup, count_)
       + sizeof(ModelWarmup::count_)
@@ -12886,23 +11667,22 @@ void ModelWarmup::InternalSwap(ModelWarmup* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelWarmup::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[42]);
 }
-
 
 // ===================================================================
 
-void ModelOperations::InitAsDefaultInstance() {
-}
 class ModelOperations::_Internal {
  public:
 };
 
-ModelOperations::ModelOperations(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelOperations::ModelOperations(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   op_library_filename_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelOperations)
 }
 ModelOperations::ModelOperations(const ModelOperations& from)
@@ -12912,38 +11692,29 @@ ModelOperations::ModelOperations(const ModelOperations& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelOperations)
 }
 
-void ModelOperations::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
+inline void ModelOperations::SharedCtor() {
 }
 
 ModelOperations::~ModelOperations() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelOperations)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelOperations::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelOperations::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelOperations::ArenaDtor(void* object) {
-  ModelOperations* _this = reinterpret_cast< ModelOperations* >(object);
-  (void)_this;
-}
-void ModelOperations::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelOperations::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelOperations& ModelOperations::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelOperations_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelOperations::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelOperations)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -12951,54 +11722,54 @@ void ModelOperations::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelOperations::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelOperations::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated string op_library_filename = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_op_library_filename();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelOperations.op_library_filename"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelOperations.op_library_filename"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelOperations::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelOperations::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelOperations)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated string op_library_filename = 1;
@@ -13012,7 +11783,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelOperations)
@@ -13023,7 +11794,7 @@ size_t ModelOperations::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelOperations)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -13035,45 +11806,30 @@ size_t ModelOperations::ByteSizeLong() const {
       op_library_filename_.Get(i));
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelOperations::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelOperations)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelOperations* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelOperations>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelOperations)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelOperations)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelOperations::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelOperations::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelOperations::GetClassData() const { return &_class_data_; }
+
+void ModelOperations::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelOperations *>(to)->MergeFrom(
+      static_cast<const ModelOperations &>(from));
 }
+
 
 void ModelOperations::MergeFrom(const ModelOperations& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelOperations)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   op_library_filename_.MergeFrom(from.op_library_filename_);
-}
-
-void ModelOperations::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelOperations)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelOperations::CopyFrom(const ModelOperations& from) {
@@ -13089,27 +11845,26 @@ bool ModelOperations::IsInitialized() const {
 
 void ModelOperations::InternalSwap(ModelOperations* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   op_library_filename_.InternalSwap(&other->op_library_filename_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelOperations::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[43]);
 }
-
 
 // ===================================================================
 
-void ModelTransactionPolicy::InitAsDefaultInstance() {
-}
 class ModelTransactionPolicy::_Internal {
  public:
 };
 
-ModelTransactionPolicy::ModelTransactionPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelTransactionPolicy::ModelTransactionPolicy(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelTransactionPolicy)
 }
 ModelTransactionPolicy::ModelTransactionPolicy(const ModelTransactionPolicy& from)
@@ -13119,38 +11874,30 @@ ModelTransactionPolicy::ModelTransactionPolicy(const ModelTransactionPolicy& fro
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelTransactionPolicy)
 }
 
-void ModelTransactionPolicy::SharedCtor() {
-  decoupled_ = false;
+inline void ModelTransactionPolicy::SharedCtor() {
+decoupled_ = false;
 }
 
 ModelTransactionPolicy::~ModelTransactionPolicy() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelTransactionPolicy)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelTransactionPolicy::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelTransactionPolicy::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelTransactionPolicy::ArenaDtor(void* object) {
-  ModelTransactionPolicy* _this = reinterpret_cast< ModelTransactionPolicy* >(object);
-  (void)_this;
-}
-void ModelTransactionPolicy::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelTransactionPolicy::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelTransactionPolicy& ModelTransactionPolicy::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelTransactionPolicy_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelTransactionPolicy::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelTransactionPolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -13158,57 +11905,57 @@ void ModelTransactionPolicy::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelTransactionPolicy::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelTransactionPolicy::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool decoupled = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           decoupled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelTransactionPolicy::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelTransactionPolicy::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelTransactionPolicy)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool decoupled = 1;
-  if (this->decoupled() != 0) {
+  if (this->_internal_decoupled() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_decoupled(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_decoupled(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelTransactionPolicy)
@@ -13219,56 +11966,41 @@ size_t ModelTransactionPolicy::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelTransactionPolicy)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool decoupled = 1;
-  if (this->decoupled() != 0) {
+  if (this->_internal_decoupled() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelTransactionPolicy::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelTransactionPolicy)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelTransactionPolicy* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelTransactionPolicy>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelTransactionPolicy)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelTransactionPolicy)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelTransactionPolicy::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelTransactionPolicy::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelTransactionPolicy::GetClassData() const { return &_class_data_; }
+
+void ModelTransactionPolicy::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelTransactionPolicy *>(to)->MergeFrom(
+      static_cast<const ModelTransactionPolicy &>(from));
 }
+
 
 void ModelTransactionPolicy::MergeFrom(const ModelTransactionPolicy& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelTransactionPolicy)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.decoupled() != 0) {
+  if (from._internal_decoupled() != 0) {
     _internal_set_decoupled(from._internal_decoupled());
   }
-}
-
-void ModelTransactionPolicy::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelTransactionPolicy)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelTransactionPolicy::CopyFrom(const ModelTransactionPolicy& from) {
@@ -13284,14 +12016,15 @@ bool ModelTransactionPolicy::IsInitialized() const {
 
 void ModelTransactionPolicy::InternalSwap(ModelTransactionPolicy* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(decoupled_, other->decoupled_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelTransactionPolicy::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[44]);
 }
-
 
 // ===================================================================
 
@@ -13302,103 +12035,103 @@ void ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::MergeFrom(const Model
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[45]);
 }
-void ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelRepositoryAgents_Agent::InitAsDefaultInstance() {
-}
 class ModelRepositoryAgents_Agent::_Internal {
  public:
 };
 
-ModelRepositoryAgents_Agent::ModelRepositoryAgents_Agent(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelRepositoryAgents_Agent::ModelRepositoryAgents_Agent(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelRepositoryAgents_Agent::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelRepositoryAgents.Agent)
 }
 ModelRepositoryAgents_Agent::ModelRepositoryAgents_Agent(const ModelRepositoryAgents_Agent& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelRepositoryAgents.Agent)
 }
 
-void ModelRepositoryAgents_Agent::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelRepositoryAgents_Agent::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelRepositoryAgents_Agent::~ModelRepositoryAgents_Agent() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelRepositoryAgents.Agent)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelRepositoryAgents_Agent::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelRepositoryAgents_Agent::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  name_.Destroy();
 }
 
 void ModelRepositoryAgents_Agent::ArenaDtor(void* object) {
   ModelRepositoryAgents_Agent* _this = reinterpret_cast< ModelRepositoryAgents_Agent* >(object);
-  (void)_this;
-}
-void ModelRepositoryAgents_Agent::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelRepositoryAgents_Agent::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelRepositoryAgents_Agent& ModelRepositoryAgents_Agent::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelRepositoryAgents_Agent_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelRepositoryAgents_Agent::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelRepositoryAgents.Agent)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   parameters_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelRepositoryAgents_Agent::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelRepositoryAgents_Agent::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelRepositoryAgents.Agent.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelRepositoryAgents.Agent.name"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, string> parameters = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -13406,38 +12139,40 @@ const char* ModelRepositoryAgents_Agent::_InternalParse(const char* ptr, ::PROTO
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelRepositoryAgents_Agent::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelRepositoryAgents_Agent::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelRepositoryAgents.Agent)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -13448,51 +12183,36 @@ failure:
 
   // map<string, string> parameters = 2;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelRepositoryAgents.Agent.ParametersEntry.key");
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelRepositoryAgents.Agent.ParametersEntry.value");
-      }
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelRepositoryAgents.Agent.ParametersEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelRepositoryAgents.Agent.ParametersEntry.value");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelRepositoryAgents.Agent)
@@ -13503,7 +12223,7 @@ size_t ModelRepositoryAgents_Agent::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelRepositoryAgents.Agent)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -13517,54 +12237,39 @@ size_t ModelRepositoryAgents_Agent::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelRepositoryAgents_Agent::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelRepositoryAgents.Agent)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelRepositoryAgents_Agent* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelRepositoryAgents_Agent>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelRepositoryAgents.Agent)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelRepositoryAgents.Agent)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelRepositoryAgents_Agent::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelRepositoryAgents_Agent::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelRepositoryAgents_Agent::GetClassData() const { return &_class_data_; }
+
+void ModelRepositoryAgents_Agent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelRepositoryAgents_Agent *>(to)->MergeFrom(
+      static_cast<const ModelRepositoryAgents_Agent &>(from));
 }
+
 
 void ModelRepositoryAgents_Agent::MergeFrom(const ModelRepositoryAgents_Agent& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelRepositoryAgents.Agent)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void ModelRepositoryAgents_Agent::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelRepositoryAgents.Agent)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelRepositoryAgents_Agent::CopyFrom(const ModelRepositoryAgents_Agent& from) {
@@ -13580,29 +12285,33 @@ bool ModelRepositoryAgents_Agent::IsInitialized() const {
 
 void ModelRepositoryAgents_Agent::InternalSwap(ModelRepositoryAgents_Agent* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelRepositoryAgents_Agent::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[46]);
 }
-
 
 // ===================================================================
 
-void ModelRepositoryAgents::InitAsDefaultInstance() {
-}
 class ModelRepositoryAgents::_Internal {
  public:
 };
 
-ModelRepositoryAgents::ModelRepositoryAgents(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelRepositoryAgents::ModelRepositoryAgents(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   agents_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelRepositoryAgents)
 }
 ModelRepositoryAgents::ModelRepositoryAgents(const ModelRepositoryAgents& from)
@@ -13612,38 +12321,29 @@ ModelRepositoryAgents::ModelRepositoryAgents(const ModelRepositoryAgents& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelRepositoryAgents)
 }
 
-void ModelRepositoryAgents::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
+inline void ModelRepositoryAgents::SharedCtor() {
 }
 
 ModelRepositoryAgents::~ModelRepositoryAgents() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelRepositoryAgents)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelRepositoryAgents::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelRepositoryAgents::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelRepositoryAgents::ArenaDtor(void* object) {
-  ModelRepositoryAgents* _this = reinterpret_cast< ModelRepositoryAgents* >(object);
-  (void)_this;
-}
-void ModelRepositoryAgents::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelRepositoryAgents::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelRepositoryAgents& ModelRepositoryAgents::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelRepositoryAgents_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelRepositoryAgents::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelRepositoryAgents)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -13651,17 +12351,15 @@ void ModelRepositoryAgents::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelRepositoryAgents::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelRepositoryAgents::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .hercules.proto.ModelRepositoryAgents.Agent agents = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -13669,46 +12367,48 @@ const char* ModelRepositoryAgents::_InternalParse(const char* ptr, ::PROTOBUF_NA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelRepositoryAgents::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelRepositoryAgents::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelRepositoryAgents)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .hercules.proto.ModelRepositoryAgents.Agent agents = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_agents_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_agents_size()); i < n; i++) {
+    const auto& repfield = this->_internal_agents(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_agents(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelRepositoryAgents)
@@ -13719,7 +12419,7 @@ size_t ModelRepositoryAgents::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelRepositoryAgents)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -13730,45 +12430,30 @@ size_t ModelRepositoryAgents::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelRepositoryAgents::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelRepositoryAgents)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelRepositoryAgents* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelRepositoryAgents>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelRepositoryAgents)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelRepositoryAgents)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelRepositoryAgents::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelRepositoryAgents::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelRepositoryAgents::GetClassData() const { return &_class_data_; }
+
+void ModelRepositoryAgents::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelRepositoryAgents *>(to)->MergeFrom(
+      static_cast<const ModelRepositoryAgents &>(from));
 }
+
 
 void ModelRepositoryAgents::MergeFrom(const ModelRepositoryAgents& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelRepositoryAgents)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   agents_.MergeFrom(from.agents_);
-}
-
-void ModelRepositoryAgents::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelRepositoryAgents)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelRepositoryAgents::CopyFrom(const ModelRepositoryAgents& from) {
@@ -13784,27 +12469,26 @@ bool ModelRepositoryAgents::IsInitialized() const {
 
 void ModelRepositoryAgents::InternalSwap(ModelRepositoryAgents* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   agents_.InternalSwap(&other->agents_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelRepositoryAgents::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[47]);
 }
-
 
 // ===================================================================
 
-void ModelResponseCache::InitAsDefaultInstance() {
-}
 class ModelResponseCache::_Internal {
  public:
 };
 
-ModelResponseCache::ModelResponseCache(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelResponseCache::ModelResponseCache(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelResponseCache)
 }
 ModelResponseCache::ModelResponseCache(const ModelResponseCache& from)
@@ -13814,38 +12498,30 @@ ModelResponseCache::ModelResponseCache(const ModelResponseCache& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelResponseCache)
 }
 
-void ModelResponseCache::SharedCtor() {
-  enable_ = false;
+inline void ModelResponseCache::SharedCtor() {
+enable_ = false;
 }
 
 ModelResponseCache::~ModelResponseCache() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelResponseCache)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelResponseCache::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelResponseCache::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelResponseCache::ArenaDtor(void* object) {
-  ModelResponseCache* _this = reinterpret_cast< ModelResponseCache* >(object);
-  (void)_this;
-}
-void ModelResponseCache::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelResponseCache::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelResponseCache& ModelResponseCache::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelResponseCache_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelResponseCache::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelResponseCache)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -13853,57 +12529,57 @@ void ModelResponseCache::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelResponseCache::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelResponseCache::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool enable = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           enable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelResponseCache::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelResponseCache::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelResponseCache)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool enable = 1;
-  if (this->enable() != 0) {
+  if (this->_internal_enable() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_enable(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_enable(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelResponseCache)
@@ -13914,56 +12590,41 @@ size_t ModelResponseCache::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelResponseCache)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool enable = 1;
-  if (this->enable() != 0) {
+  if (this->_internal_enable() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelResponseCache::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelResponseCache)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelResponseCache* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelResponseCache>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelResponseCache)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelResponseCache)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelResponseCache::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelResponseCache::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelResponseCache::GetClassData() const { return &_class_data_; }
+
+void ModelResponseCache::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelResponseCache *>(to)->MergeFrom(
+      static_cast<const ModelResponseCache &>(from));
 }
+
 
 void ModelResponseCache::MergeFrom(const ModelResponseCache& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelResponseCache)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.enable() != 0) {
+  if (from._internal_enable() != 0) {
     _internal_set_enable(from._internal_enable());
   }
-}
-
-void ModelResponseCache::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelResponseCache)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelResponseCache::CopyFrom(const ModelResponseCache& from) {
@@ -13979,14 +12640,15 @@ bool ModelResponseCache::IsInitialized() const {
 
 void ModelResponseCache::InternalSwap(ModelResponseCache* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(enable_, other->enable_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelResponseCache::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[48]);
 }
-
 
 // ===================================================================
 
@@ -13997,13 +12659,10 @@ void ModelConfig_CcModelFilenamesEntry_DoNotUse::MergeFrom(const ModelConfig_CcM
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelConfig_CcModelFilenamesEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[49]);
 }
-void ModelConfig_CcModelFilenamesEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
@@ -14014,13 +12673,10 @@ void ModelConfig_MetricTagsEntry_DoNotUse::MergeFrom(const ModelConfig_MetricTag
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelConfig_MetricTagsEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[50]);
 }
-void ModelConfig_MetricTagsEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
@@ -14031,36 +12687,13 @@ void ModelConfig_ParametersEntry_DoNotUse::MergeFrom(const ModelConfig_Parameter
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelConfig_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[51]);
 }
-void ModelConfig_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelConfig::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelConfig_default_instance_._instance.get_mutable()->version_policy_ = const_cast< ::hercules::proto::ModelVersionPolicy*>(
-      ::hercules::proto::ModelVersionPolicy::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_._instance.get_mutable()->optimization_ = const_cast< ::hercules::proto::ModelOptimizationPolicy*>(
-      ::hercules::proto::ModelOptimizationPolicy::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_.dynamic_batching_ = const_cast< ::hercules::proto::ModelDynamicBatching*>(
-      ::hercules::proto::ModelDynamicBatching::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_.sequence_batching_ = const_cast< ::hercules::proto::ModelSequenceBatching*>(
-      ::hercules::proto::ModelSequenceBatching::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_.ensemble_scheduling_ = const_cast< ::hercules::proto::ModelEnsembling*>(
-      ::hercules::proto::ModelEnsembling::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_._instance.get_mutable()->model_operations_ = const_cast< ::hercules::proto::ModelOperations*>(
-      ::hercules::proto::ModelOperations::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_._instance.get_mutable()->model_transaction_policy_ = const_cast< ::hercules::proto::ModelTransactionPolicy*>(
-      ::hercules::proto::ModelTransactionPolicy::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_._instance.get_mutable()->model_repository_agents_ = const_cast< ::hercules::proto::ModelRepositoryAgents*>(
-      ::hercules::proto::ModelRepositoryAgents::internal_default_instance());
-  ::hercules::proto::_ModelConfig_default_instance_._instance.get_mutable()->response_cache_ = const_cast< ::hercules::proto::ModelResponseCache*>(
-      ::hercules::proto::ModelResponseCache::internal_default_instance());
-}
 class ModelConfig::_Internal {
  public:
   static const ::hercules::proto::ModelVersionPolicy& version_policy(const ModelConfig* msg);
@@ -14111,11 +12744,11 @@ ModelConfig::_Internal::response_cache(const ModelConfig* msg) {
   return *msg->response_cache_;
 }
 void ModelConfig::set_allocated_dynamic_batching(::hercules::proto::ModelDynamicBatching* dynamic_batching) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_scheduling_choice();
   if (dynamic_batching) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(dynamic_batching);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(dynamic_batching);
     if (message_arena != submessage_arena) {
       dynamic_batching = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, dynamic_batching, submessage_arena);
@@ -14126,11 +12759,11 @@ void ModelConfig::set_allocated_dynamic_batching(::hercules::proto::ModelDynamic
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelConfig.dynamic_batching)
 }
 void ModelConfig::set_allocated_sequence_batching(::hercules::proto::ModelSequenceBatching* sequence_batching) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_scheduling_choice();
   if (sequence_batching) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(sequence_batching);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(sequence_batching);
     if (message_arena != submessage_arena) {
       sequence_batching = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, sequence_batching, submessage_arena);
@@ -14141,11 +12774,11 @@ void ModelConfig::set_allocated_sequence_batching(::hercules::proto::ModelSequen
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelConfig.sequence_batching)
 }
 void ModelConfig::set_allocated_ensemble_scheduling(::hercules::proto::ModelEnsembling* ensemble_scheduling) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_scheduling_choice();
   if (ensemble_scheduling) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(ensemble_scheduling);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(ensemble_scheduling);
     if (message_arena != submessage_arena) {
       ensemble_scheduling = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, ensemble_scheduling, submessage_arena);
@@ -14155,8 +12788,9 @@ void ModelConfig::set_allocated_ensemble_scheduling(::hercules::proto::ModelEnse
   }
   // @@protoc_insertion_point(field_set_allocated:hercules.proto.ModelConfig.ensemble_scheduling)
 }
-ModelConfig::ModelConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelConfig::ModelConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   input_(arena),
   output_(arena),
   instance_group_(arena),
@@ -14167,7 +12801,9 @@ ModelConfig::ModelConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   batch_input_(arena),
   batch_output_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelConfig::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelConfig)
 }
 ModelConfig::ModelConfig(const ModelConfig& from)
@@ -14182,25 +12818,37 @@ ModelConfig::ModelConfig(const ModelConfig& from)
   cc_model_filenames_.MergeFrom(from.cc_model_filenames_);
   metric_tags_.MergeFrom(from.metric_tags_);
   parameters_.MergeFrom(from.parameters_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  platform_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    platform_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_platform().empty()) {
-    platform_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_platform(),
-      GetArena());
+    platform_.Set(from._internal_platform(), 
+      GetArenaForAllocation());
   }
-  default_model_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  default_model_filename_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    default_model_filename_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_default_model_filename().empty()) {
-    default_model_filename_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_default_model_filename(),
-      GetArena());
+    default_model_filename_.Set(from._internal_default_model_filename(), 
+      GetArenaForAllocation());
   }
-  backend_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  backend_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    backend_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_backend().empty()) {
-    backend_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_backend(),
-      GetArena());
+    backend_.Set(from._internal_backend(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_version_policy()) {
     version_policy_ = new ::hercules::proto::ModelVersionPolicy(*from.version_policy_);
@@ -14254,30 +12902,49 @@ ModelConfig::ModelConfig(const ModelConfig& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelConfig)
 }
 
-void ModelConfig::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  default_model_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  backend_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&version_policy_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&max_batch_size_) -
-      reinterpret_cast<char*>(&version_policy_)) + sizeof(max_batch_size_));
-  clear_has_scheduling_choice();
+inline void ModelConfig::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+platform_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  platform_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+default_model_filename_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  default_model_filename_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+backend_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  backend_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&version_policy_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&max_batch_size_) -
+    reinterpret_cast<char*>(&version_policy_)) + sizeof(max_batch_size_));
+clear_has_scheduling_choice();
 }
 
 ModelConfig::~ModelConfig() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelConfig)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelConfig::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  platform_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  default_model_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  backend_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelConfig::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  cc_model_filenames_.Destruct();
+  metric_tags_.Destruct();
+  parameters_.Destruct();
+  name_.Destroy();
+  platform_.Destroy();
+  default_model_filename_.Destroy();
+  backend_.Destroy();
   if (this != internal_default_instance()) delete version_policy_;
   if (this != internal_default_instance()) delete optimization_;
   if (this != internal_default_instance()) delete model_operations_;
@@ -14291,36 +12958,31 @@ void ModelConfig::SharedDtor() {
 
 void ModelConfig::ArenaDtor(void* object) {
   ModelConfig* _this = reinterpret_cast< ModelConfig* >(object);
-  (void)_this;
-}
-void ModelConfig::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->cc_model_filenames_.Destruct();
+  _this->metric_tags_.Destruct();
+  _this->parameters_.Destruct();
 }
 void ModelConfig::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelConfig& ModelConfig::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelConfig::clear_scheduling_choice() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.ModelConfig)
   switch (scheduling_choice_case()) {
     case kDynamicBatching: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete scheduling_choice_.dynamic_batching_;
       }
       break;
     }
     case kSequenceBatching: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete scheduling_choice_.sequence_batching_;
       }
       break;
     }
     case kEnsembleScheduling: {
-      if (GetArena() == nullptr) {
+      if (GetArenaForAllocation() == nullptr) {
         delete scheduling_choice_.ensemble_scheduling_;
       }
       break;
@@ -14335,7 +12997,7 @@ void ModelConfig::clear_scheduling_choice() {
 
 void ModelConfig::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelConfig)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -14348,31 +13010,31 @@ void ModelConfig::Clear() {
   model_warmup_.Clear();
   batch_input_.Clear();
   batch_output_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  platform_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  default_model_filename_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  backend_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && version_policy_ != nullptr) {
+  name_.ClearToEmpty();
+  platform_.ClearToEmpty();
+  default_model_filename_.ClearToEmpty();
+  backend_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && version_policy_ != nullptr) {
     delete version_policy_;
   }
   version_policy_ = nullptr;
-  if (GetArena() == nullptr && optimization_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && optimization_ != nullptr) {
     delete optimization_;
   }
   optimization_ = nullptr;
-  if (GetArena() == nullptr && model_operations_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && model_operations_ != nullptr) {
     delete model_operations_;
   }
   model_operations_ = nullptr;
-  if (GetArena() == nullptr && model_transaction_policy_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && model_transaction_policy_ != nullptr) {
     delete model_transaction_policy_;
   }
   model_transaction_policy_ = nullptr;
-  if (GetArena() == nullptr && model_repository_agents_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && model_repository_agents_ != nullptr) {
     delete model_repository_agents_;
   }
   model_repository_agents_ = nullptr;
-  if (GetArena() == nullptr && response_cache_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && response_cache_ != nullptr) {
     delete response_cache_;
   }
   response_cache_ = nullptr;
@@ -14381,49 +13043,51 @@ void ModelConfig::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelConfig::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelConfig.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelConfig.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string platform = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_platform();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelConfig.platform"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelConfig.platform"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelVersionPolicy version_policy = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_version_policy(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int32 max_batch_size = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          max_batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          max_batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelInput input = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14431,11 +13095,12 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelOutput output = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14443,11 +13108,12 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelInstanceGroup instance_group = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14455,20 +13121,22 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string default_model_filename = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           auto str = _internal_mutable_default_model_filename();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelConfig.default_model_filename"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelConfig.default_model_filename"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, string> cc_model_filenames = 9;
       case 9:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14476,11 +13144,12 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, string> metric_tags = 10;
       case 10:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14488,32 +13157,36 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelDynamicBatching dynamic_batching = 11;
       case 11:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
           ptr = ctx->ParseMessage(_internal_mutable_dynamic_batching(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOptimizationPolicy optimization = 12;
       case 12:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_optimization(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelSequenceBatching sequence_batching = 13;
       case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
           ptr = ctx->ParseMessage(_internal_mutable_sequence_batching(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.ModelParameter> parameters = 14;
       case 14:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 114)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14521,18 +13194,20 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<114>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelEnsembling ensemble_scheduling = 15;
       case 15:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_ensemble_scheduling(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelWarmup model_warmup = 16;
       case 16:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
           ptr -= 2;
           do {
             ptr += 2;
@@ -14540,34 +13215,38 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<130>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string backend = 17;
       case 17:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 138)) {
           auto str = _internal_mutable_backend();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelConfig.backend"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelConfig.backend"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelOperations model_operations = 18;
       case 18:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 146)) {
           ptr = ctx->ParseMessage(_internal_mutable_model_operations(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelTransactionPolicy model_transaction_policy = 19;
       case 19:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 154)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 154)) {
           ptr = ctx->ParseMessage(_internal_mutable_model_transaction_policy(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.BatchInput batch_input = 20;
       case 20:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 162)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 162)) {
           ptr -= 2;
           do {
             ptr += 2;
@@ -14575,11 +13254,12 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<162>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.BatchOutput batch_output = 21;
       case 21:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 170)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 170)) {
           ptr -= 2;
           do {
             ptr += 2;
@@ -14587,52 +13267,56 @@ const char* ModelConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<170>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelRepositoryAgents model_repository_agents = 23;
       case 23:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 186)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 186)) {
           ptr = ctx->ParseMessage(_internal_mutable_model_repository_agents(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelResponseCache response_cache = 24;
       case 24:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 194)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 194)) {
           ptr = ctx->ParseMessage(_internal_mutable_response_cache(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelConfig::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelConfig::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelConfig)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -14642,7 +13326,7 @@ failure:
   }
 
   // string platform = 2;
-  if (this->platform().size() > 0) {
+  if (!this->_internal_platform().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_platform().data(), static_cast<int>(this->_internal_platform().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -14652,45 +13336,44 @@ failure:
   }
 
   // .hercules.proto.ModelVersionPolicy version_policy = 3;
-  if (this->has_version_policy()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_version_policy()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::version_policy(this), target, stream);
+      InternalWriteMessage(3, _Internal::version_policy(this),
+        _Internal::version_policy(this).GetCachedSize(), target, stream);
   }
 
   // int32 max_batch_size = 4;
-  if (this->max_batch_size() != 0) {
+  if (this->_internal_max_batch_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_max_batch_size(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_max_batch_size(), target);
   }
 
   // repeated .hercules.proto.ModelInput input = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_input_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_input_size()); i < n; i++) {
+    const auto& repfield = this->_internal_input(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_input(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelOutput output = 6;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_output_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_output_size()); i < n; i++) {
+    const auto& repfield = this->_internal_output(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(6, this->_internal_output(i), target, stream);
+        InternalWriteMessage(6, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelInstanceGroup instance_group = 7;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_instance_group_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_instance_group_size()); i < n; i++) {
+    const auto& repfield = this->_internal_instance_group(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, this->_internal_instance_group(i), target, stream);
+        InternalWriteMessage(7, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string default_model_filename = 8;
-  if (this->default_model_filename().size() > 0) {
+  if (!this->_internal_default_model_filename().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_default_model_filename().data(), static_cast<int>(this->_internal_default_model_filename().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -14701,177 +13384,128 @@ failure:
 
   // map<string, string> cc_model_filenames = 9;
   if (!this->_internal_cc_model_filenames().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelConfig.CcModelFilenamesEntry.key");
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelConfig.CcModelFilenamesEntry.value");
-      }
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ModelConfig_CcModelFilenamesEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_cc_model_filenames();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelConfig.CcModelFilenamesEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelConfig.CcModelFilenamesEntry.value");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_cc_model_filenames().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_cc_model_filenames().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_cc_model_filenames().begin();
-          it != this->_internal_cc_model_filenames().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelConfig_CcModelFilenamesEntry_DoNotUse::Funcs::InternalSerialize(9, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(9, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_cc_model_filenames().begin();
-          it != this->_internal_cc_model_filenames().end(); ++it) {
-        target = ModelConfig_CcModelFilenamesEntry_DoNotUse::Funcs::InternalSerialize(9, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(9, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // map<string, string> metric_tags = 10;
   if (!this->_internal_metric_tags().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelConfig.MetricTagsEntry.key");
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->second.data(), static_cast<int>(p->second.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelConfig.MetricTagsEntry.value");
-      }
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ModelConfig_MetricTagsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_metric_tags();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelConfig.MetricTagsEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelConfig.MetricTagsEntry.value");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_metric_tags().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_metric_tags().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_metric_tags().begin();
-          it != this->_internal_metric_tags().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelConfig_MetricTagsEntry_DoNotUse::Funcs::InternalSerialize(10, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(10, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
-          it = this->_internal_metric_tags().begin();
-          it != this->_internal_metric_tags().end(); ++it) {
-        target = ModelConfig_MetricTagsEntry_DoNotUse::Funcs::InternalSerialize(10, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(10, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // .hercules.proto.ModelDynamicBatching dynamic_batching = 11;
   if (_internal_has_dynamic_batching()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        11, _Internal::dynamic_batching(this), target, stream);
+      InternalWriteMessage(11, _Internal::dynamic_batching(this),
+        _Internal::dynamic_batching(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelOptimizationPolicy optimization = 12;
-  if (this->has_optimization()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_optimization()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        12, _Internal::optimization(this), target, stream);
+      InternalWriteMessage(12, _Internal::optimization(this),
+        _Internal::optimization(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelSequenceBatching sequence_batching = 13;
   if (_internal_has_sequence_batching()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        13, _Internal::sequence_batching(this), target, stream);
+      InternalWriteMessage(13, _Internal::sequence_batching(this),
+        _Internal::sequence_batching(this).GetCachedSize(), target, stream);
   }
 
   // map<string, .hercules.proto.ModelParameter> parameters = 14;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelConfig.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::ModelParameter>;
+    using WireHelper = ModelConfig_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelConfig.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelConfig_ParametersEntry_DoNotUse::Funcs::InternalSerialize(14, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(14, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelConfig_ParametersEntry_DoNotUse::Funcs::InternalSerialize(14, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(14, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // .hercules.proto.ModelEnsembling ensemble_scheduling = 15;
   if (_internal_has_ensemble_scheduling()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        15, _Internal::ensemble_scheduling(this), target, stream);
+      InternalWriteMessage(15, _Internal::ensemble_scheduling(this),
+        _Internal::ensemble_scheduling(this).GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelWarmup model_warmup = 16;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_model_warmup_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_model_warmup_size()); i < n; i++) {
+    const auto& repfield = this->_internal_model_warmup(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(16, this->_internal_model_warmup(i), target, stream);
+        InternalWriteMessage(16, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // string backend = 17;
-  if (this->backend().size() > 0) {
+  if (!this->_internal_backend().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_backend().data(), static_cast<int>(this->_internal_backend().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -14881,55 +13515,51 @@ failure:
   }
 
   // .hercules.proto.ModelOperations model_operations = 18;
-  if (this->has_model_operations()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_model_operations()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        18, _Internal::model_operations(this), target, stream);
+      InternalWriteMessage(18, _Internal::model_operations(this),
+        _Internal::model_operations(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelTransactionPolicy model_transaction_policy = 19;
-  if (this->has_model_transaction_policy()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_model_transaction_policy()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        19, _Internal::model_transaction_policy(this), target, stream);
+      InternalWriteMessage(19, _Internal::model_transaction_policy(this),
+        _Internal::model_transaction_policy(this).GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.BatchInput batch_input = 20;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_batch_input_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_batch_input_size()); i < n; i++) {
+    const auto& repfield = this->_internal_batch_input(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(20, this->_internal_batch_input(i), target, stream);
+        InternalWriteMessage(20, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.BatchOutput batch_output = 21;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_batch_output_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_batch_output_size()); i < n; i++) {
+    const auto& repfield = this->_internal_batch_output(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(21, this->_internal_batch_output(i), target, stream);
+        InternalWriteMessage(21, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelRepositoryAgents model_repository_agents = 23;
-  if (this->has_model_repository_agents()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_model_repository_agents()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        23, _Internal::model_repository_agents(this), target, stream);
+      InternalWriteMessage(23, _Internal::model_repository_agents(this),
+        _Internal::model_repository_agents(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.ModelResponseCache response_cache = 24;
-  if (this->has_response_cache()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_response_cache()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        24, _Internal::response_cache(this), target, stream);
+      InternalWriteMessage(24, _Internal::response_cache(this),
+        _Internal::response_cache(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelConfig)
@@ -14940,7 +13570,7 @@ size_t ModelConfig::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelConfig)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -15014,80 +13644,78 @@ size_t ModelConfig::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string platform = 2;
-  if (this->platform().size() > 0) {
+  if (!this->_internal_platform().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_platform());
   }
 
   // string default_model_filename = 8;
-  if (this->default_model_filename().size() > 0) {
+  if (!this->_internal_default_model_filename().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_default_model_filename());
   }
 
   // string backend = 17;
-  if (this->backend().size() > 0) {
+  if (!this->_internal_backend().empty()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_backend());
   }
 
   // .hercules.proto.ModelVersionPolicy version_policy = 3;
-  if (this->has_version_policy()) {
+  if (this->_internal_has_version_policy()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *version_policy_);
   }
 
   // .hercules.proto.ModelOptimizationPolicy optimization = 12;
-  if (this->has_optimization()) {
+  if (this->_internal_has_optimization()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *optimization_);
   }
 
   // .hercules.proto.ModelOperations model_operations = 18;
-  if (this->has_model_operations()) {
+  if (this->_internal_has_model_operations()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *model_operations_);
   }
 
   // .hercules.proto.ModelTransactionPolicy model_transaction_policy = 19;
-  if (this->has_model_transaction_policy()) {
+  if (this->_internal_has_model_transaction_policy()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *model_transaction_policy_);
   }
 
   // .hercules.proto.ModelRepositoryAgents model_repository_agents = 23;
-  if (this->has_model_repository_agents()) {
+  if (this->_internal_has_model_repository_agents()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *model_repository_agents_);
   }
 
   // .hercules.proto.ModelResponseCache response_cache = 24;
-  if (this->has_response_cache()) {
+  if (this->_internal_has_response_cache()) {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *response_cache_);
   }
 
   // int32 max_batch_size = 4;
-  if (this->max_batch_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_max_batch_size());
+  if (this->_internal_max_batch_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_max_batch_size());
   }
 
   switch (scheduling_choice_case()) {
@@ -15116,35 +13744,26 @@ size_t ModelConfig::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelConfig::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelConfig)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelConfig* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelConfig>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelConfig)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelConfig)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelConfig::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelConfig::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelConfig::GetClassData() const { return &_class_data_; }
+
+void ModelConfig::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelConfig *>(to)->MergeFrom(
+      static_cast<const ModelConfig &>(from));
 }
+
 
 void ModelConfig::MergeFrom(const ModelConfig& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelConfig)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   input_.MergeFrom(from.input_);
@@ -15156,37 +13775,37 @@ void ModelConfig::MergeFrom(const ModelConfig& from) {
   model_warmup_.MergeFrom(from.model_warmup_);
   batch_input_.MergeFrom(from.batch_input_);
   batch_output_.MergeFrom(from.batch_output_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.platform().size() > 0) {
+  if (!from._internal_platform().empty()) {
     _internal_set_platform(from._internal_platform());
   }
-  if (from.default_model_filename().size() > 0) {
+  if (!from._internal_default_model_filename().empty()) {
     _internal_set_default_model_filename(from._internal_default_model_filename());
   }
-  if (from.backend().size() > 0) {
+  if (!from._internal_backend().empty()) {
     _internal_set_backend(from._internal_backend());
   }
-  if (from.has_version_policy()) {
+  if (from._internal_has_version_policy()) {
     _internal_mutable_version_policy()->::hercules::proto::ModelVersionPolicy::MergeFrom(from._internal_version_policy());
   }
-  if (from.has_optimization()) {
+  if (from._internal_has_optimization()) {
     _internal_mutable_optimization()->::hercules::proto::ModelOptimizationPolicy::MergeFrom(from._internal_optimization());
   }
-  if (from.has_model_operations()) {
+  if (from._internal_has_model_operations()) {
     _internal_mutable_model_operations()->::hercules::proto::ModelOperations::MergeFrom(from._internal_model_operations());
   }
-  if (from.has_model_transaction_policy()) {
+  if (from._internal_has_model_transaction_policy()) {
     _internal_mutable_model_transaction_policy()->::hercules::proto::ModelTransactionPolicy::MergeFrom(from._internal_model_transaction_policy());
   }
-  if (from.has_model_repository_agents()) {
+  if (from._internal_has_model_repository_agents()) {
     _internal_mutable_model_repository_agents()->::hercules::proto::ModelRepositoryAgents::MergeFrom(from._internal_model_repository_agents());
   }
-  if (from.has_response_cache()) {
+  if (from._internal_has_response_cache()) {
     _internal_mutable_response_cache()->::hercules::proto::ModelResponseCache::MergeFrom(from._internal_response_cache());
   }
-  if (from.max_batch_size() != 0) {
+  if (from._internal_max_batch_size() != 0) {
     _internal_set_max_batch_size(from._internal_max_batch_size());
   }
   switch (from.scheduling_choice_case()) {
@@ -15206,13 +13825,7 @@ void ModelConfig::MergeFrom(const ModelConfig& from) {
       break;
     }
   }
-}
-
-void ModelConfig::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelConfig)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelConfig::CopyFrom(const ModelConfig& from) {
@@ -15228,20 +13841,34 @@ bool ModelConfig::IsInitialized() const {
 
 void ModelConfig::InternalSwap(ModelConfig* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   input_.InternalSwap(&other->input_);
   output_.InternalSwap(&other->output_);
   instance_group_.InternalSwap(&other->instance_group_);
-  cc_model_filenames_.Swap(&other->cc_model_filenames_);
-  metric_tags_.Swap(&other->metric_tags_);
-  parameters_.Swap(&other->parameters_);
+  cc_model_filenames_.InternalSwap(&other->cc_model_filenames_);
+  metric_tags_.InternalSwap(&other->metric_tags_);
+  parameters_.InternalSwap(&other->parameters_);
   model_warmup_.InternalSwap(&other->model_warmup_);
   batch_input_.InternalSwap(&other->batch_input_);
   batch_output_.InternalSwap(&other->batch_output_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  platform_.Swap(&other->platform_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  default_model_filename_.Swap(&other->default_model_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  backend_.Swap(&other->backend_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &platform_, lhs_arena,
+      &other->platform_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &default_model_filename_, lhs_arena,
+      &other->default_model_filename_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &backend_, lhs_arena,
+      &other->backend_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelConfig, max_batch_size_)
       + sizeof(ModelConfig::max_batch_size_)
@@ -15253,171 +13880,225 @@ void ModelConfig::InternalSwap(ModelConfig* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelConfig::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_getter, &descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fmodel_5fconfig_2eproto[52]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace proto
 }  // namespace hercules
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRateLimiter_Resource* Arena::CreateMaybeMessage< ::hercules::proto::ModelRateLimiter_Resource >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRateLimiter_Resource*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelRateLimiter_Resource >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelRateLimiter_Resource >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRateLimiter* Arena::CreateMaybeMessage< ::hercules::proto::ModelRateLimiter >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRateLimiter*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelRateLimiter >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelRateLimiter >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInstanceGroup_SecondaryDevice* Arena::CreateMaybeMessage< ::hercules::proto::ModelInstanceGroup_SecondaryDevice >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInstanceGroup_SecondaryDevice*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInstanceGroup_SecondaryDevice >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInstanceGroup_SecondaryDevice >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInstanceGroup* Arena::CreateMaybeMessage< ::hercules::proto::ModelInstanceGroup >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInstanceGroup*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInstanceGroup >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInstanceGroup >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelTensorReshape* Arena::CreateMaybeMessage< ::hercules::proto::ModelTensorReshape >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelTensorReshape*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelTensorReshape >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelTensorReshape >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInput* Arena::CreateMaybeMessage< ::hercules::proto::ModelInput >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInput*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInput >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInput >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOutput* Arena::CreateMaybeMessage< ::hercules::proto::ModelOutput >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOutput*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOutput >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOutput >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::BatchInput* Arena::CreateMaybeMessage< ::hercules::proto::BatchInput >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::BatchInput*
+Arena::CreateMaybeMessage< ::hercules::proto::BatchInput >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::BatchInput >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::BatchOutput* Arena::CreateMaybeMessage< ::hercules::proto::BatchOutput >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::BatchOutput*
+Arena::CreateMaybeMessage< ::hercules::proto::BatchOutput >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::BatchOutput >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy_Latest* Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy_Latest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy_Latest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy_Latest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelVersionPolicy_Latest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy_All* Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy_All >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy_All*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy_All >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelVersionPolicy_All >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy_Specific* Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy_Specific >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy_Specific*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy_Specific >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelVersionPolicy_Specific >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy* Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelVersionPolicy*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelVersionPolicy >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelVersionPolicy >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Graph* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Graph >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Graph*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Graph >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Graph >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_Shape >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound_InputEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_LowerBound >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec_InputEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Cuda_GraphSpec >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_Cuda*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_Cuda >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_Cuda >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators_Accelerator >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_ExecutionAccelerators >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy_PinnedMemoryBuffer >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy* Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOptimizationPolicy*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOptimizationPolicy >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOptimizationPolicy >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelQueuePolicy* Arena::CreateMaybeMessage< ::hercules::proto::ModelQueuePolicy >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelQueuePolicy*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelQueuePolicy >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelQueuePolicy >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelDynamicBatching_PriorityQueuePolicyEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelDynamicBatching* Arena::CreateMaybeMessage< ::hercules::proto::ModelDynamicBatching >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelDynamicBatching*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelDynamicBatching >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelDynamicBatching >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_Control* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_Control >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_Control*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_Control >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching_Control >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_ControlInput* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_ControlInput >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_ControlInput*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_ControlInput >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching_ControlInput >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_InitialState* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_InitialState >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_InitialState*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_InitialState >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching_InitialState >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_State* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_State >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_State*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_State >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching_State >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_StrategyDirect* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_StrategyDirect >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_StrategyDirect*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_StrategyDirect >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching_StrategyDirect >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_StrategyOldest* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_StrategyOldest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching_StrategyOldest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching_StrategyOldest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching_StrategyOldest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching* Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelSequenceBatching*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelSequenceBatching >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelSequenceBatching >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelEnsembling_Step_InputMapEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelEnsembling_Step_OutputMapEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling_Step* Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling_Step >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling_Step*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling_Step >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelEnsembling_Step >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling* Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelEnsembling*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelEnsembling >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelEnsembling >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelParameter* Arena::CreateMaybeMessage< ::hercules::proto::ModelParameter >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelParameter*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelParameter >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelParameter >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelWarmup_Input* Arena::CreateMaybeMessage< ::hercules::proto::ModelWarmup_Input >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelWarmup_Input*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelWarmup_Input >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelWarmup_Input >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelWarmup_InputsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelWarmup* Arena::CreateMaybeMessage< ::hercules::proto::ModelWarmup >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelWarmup*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelWarmup >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelWarmup >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOperations* Arena::CreateMaybeMessage< ::hercules::proto::ModelOperations >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelOperations*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelOperations >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelOperations >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelTransactionPolicy* Arena::CreateMaybeMessage< ::hercules::proto::ModelTransactionPolicy >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelTransactionPolicy*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelTransactionPolicy >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelTransactionPolicy >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelRepositoryAgents_Agent_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryAgents_Agent* Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryAgents_Agent >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryAgents_Agent*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryAgents_Agent >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelRepositoryAgents_Agent >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryAgents* Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryAgents >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryAgents*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryAgents >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelRepositoryAgents >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelResponseCache* Arena::CreateMaybeMessage< ::hercules::proto::ModelResponseCache >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelResponseCache*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelResponseCache >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelResponseCache >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelConfig_CcModelFilenamesEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelConfig_MetricTagsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelConfig_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig* Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfig*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelConfig >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelConfig >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

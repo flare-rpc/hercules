@@ -11,7 +11,7 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace hercules::backend { namespace tensorrt {
 

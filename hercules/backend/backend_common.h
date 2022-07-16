@@ -23,7 +23,7 @@
 #define TRITONJSON_STATUSRETURN(M) \
   return TRITONSERVER_ErrorNew(TRITONSERVER_ERROR_INTERNAL, (M).c_str())
 #define TRITONJSON_STATUSSUCCESS nullptr
-#include "hercules/common/triton_json.h"
+#include "hercules/common/json_parser.h"
 
 #ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
@@ -199,7 +199,7 @@ class BatchInput {
     BATCH_ITEM_SHAPE_FLATTEN
   };
   static TRITONSERVER_Error* ParseFromModelConfig(
-      hercules::common::TritonJson::Value& config,
+      hercules::common::json_parser::Value& config,
       std::vector<BatchInput>* batch_inputs);
   const std::vector<std::string>& TargetNames() const { return target_names_; }
   TRITONSERVER_DataType DataType() const { return data_type_; }
@@ -211,7 +211,7 @@ class BatchInput {
   }
 
  private:
-  TRITONSERVER_Error* Init(hercules::common::TritonJson::Value& bi_config);
+  TRITONSERVER_Error* Init(hercules::common::json_parser::Value& bi_config);
   Kind kind_;
   std::string kind_str_;
   std::vector<std::string> target_names_;
@@ -224,7 +224,7 @@ class BatchOutput {
  public:
   enum class Kind { BATCH_SCATTER_WITH_INPUT_SHAPE };
   static TRITONSERVER_Error* ParseFromModelConfig(
-      hercules::common::TritonJson::Value& config,
+      hercules::common::json_parser::Value& config,
       std::vector<BatchOutput>* batch_outputs);
   const std::vector<std::string>& TargetNames() const { return target_names_; }
   TRITONSERVER_DataType DataType() const { return data_type_; }
@@ -280,7 +280,7 @@ TRITONSERVER_Error_Code StatusCodeToTritonCode(
 /// \param shape Returns the shape.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* ParseShape(
-    common::TritonJson::Value& io, const std::string& name,
+    common::json_parser::Value& io, const std::string& name,
     std::vector<int64_t>* shape);
 
 /// Return the string representation of a shape.
@@ -371,7 +371,7 @@ TRITONSERVER_Error* ReadInputTensor(
 /// \return The error status. A non-OK status indicates the input
 /// is not valid.
 TRITONSERVER_Error* CheckAllowedModelInput(
-    common::TritonJson::Value& io, const std::set<std::string>& allowed);
+    common::json_parser::Value& io, const std::set<std::string>& allowed);
 
 /// Validate that an output matches one of the allowed output names.
 /// \param io The model output.
@@ -379,7 +379,7 @@ TRITONSERVER_Error* CheckAllowedModelInput(
 /// \return The error status. A non-OK status indicates the output
 /// is not valid.
 TRITONSERVER_Error* CheckAllowedModelOutput(
-    common::TritonJson::Value& io, const std::set<std::string>& allowed);
+    common::json_parser::Value& io, const std::set<std::string>& allowed);
 
 /// Get the tensor name, false value, and true value for a boolean
 /// sequence batcher control kind. If 'required' is true then must
@@ -407,7 +407,7 @@ TRITONSERVER_Error* CheckAllowedModelOutput(
 /// the tensor type is BOOL.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* GetBooleanSequenceControlProperties(
-    common::TritonJson::Value& batcher, const std::string& model_name,
+    common::json_parser::Value& batcher, const std::string& model_name,
     const std::string& control_kind, const bool required,
     std::string* tensor_name, std::string* tensor_datatype,
     float* fp32_false_value, float* fp32_true_value, int32_t* int32_false_value,
@@ -428,7 +428,7 @@ TRITONSERVER_Error* GetBooleanSequenceControlProperties(
 /// \param tensor_datatype Returns the data type of the tensor.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* GetTypedSequenceControlProperties(
-    common::TritonJson::Value& batcher, const std::string& model_name,
+    common::json_parser::Value& batcher, const std::string& model_name,
     const std::string& control_kind, const bool required,
     std::string* tensor_name, std::string* tensor_datatype);
 
@@ -579,7 +579,7 @@ TRITONSERVER_Error* ParseDoubleValue(
 /// \param value Returns the value.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* GetParameterValue(
-    hercules::common::TritonJson::Value& params, const std::string& key,
+    hercules::common::json_parser::Value& params, const std::string& key,
     std::string* value);
 
 /// Return the Triton server data type of the data type string specified
@@ -598,7 +598,7 @@ TRITONSERVER_DataType ModelConfigDataTypeToTritonServerDataType(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     std::string* value, const std::string& default_value);
 
 /// Try to parse the requested parameter.
@@ -609,7 +609,7 @@ TRITONSERVER_Error* TryParseModelStringParameter(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     int* value, const int& default_value);
 
 /// Try to parse the requested parameter.
@@ -620,7 +620,7 @@ TRITONSERVER_Error* TryParseModelStringParameter(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     bool* value, const bool& default_value);
 
 /// Try to parse the requested parameter.
@@ -631,7 +631,7 @@ TRITONSERVER_Error* TryParseModelStringParameter(
 /// \param default_value Default value to use when key is not found.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_Error* TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     uint64_t* value, const uint64_t& default_value);
 
 /// Get a string representation of a tensor buffer.

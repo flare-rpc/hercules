@@ -765,6 +765,45 @@ hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/backend/backend_output_responder.cc.s"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_output_responder.cc -o CMakeFiles/core.dir/backend/backend_output_responder.cc.s
 
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.o: hercules/CMakeFiles/core.dir/flags.make
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.o: ../hercules/backends/tf/tensorflow.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.o"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backends/tf/tensorflow.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow.cc
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/backends/tf/tensorflow.cc.i"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow.cc > CMakeFiles/core.dir/backends/tf/tensorflow.cc.i
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/backends/tf/tensorflow.cc.s"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow.cc -o CMakeFiles/core.dir/backends/tf/tensorflow.cc.s
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o: hercules/CMakeFiles/core.dir/flags.make
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o: ../hercules/backends/tf/tensorflow_backend_tf.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_backend_tf.cc
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.i"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_backend_tf.cc > CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.i
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.s"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_backend_tf.cc -o CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.s
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o: hercules/CMakeFiles/core.dir/flags.make
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o: ../hercules/backends/tf/tensorflow_utils.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o -c /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_utils.cc
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.i"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_utils.cc > CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.i
+
+hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.s"
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_utils.cc -o CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.s
+
 # Object files for target core
 core_OBJECTS = \
 "CMakeFiles/core.dir/core/backend_config.cc.o" \
@@ -819,7 +858,10 @@ core_OBJECTS = \
 "CMakeFiles/core.dir/backend/backend_memory.cc.o" \
 "CMakeFiles/core.dir/backend/backend_model.cc.o" \
 "CMakeFiles/core.dir/backend/backend_model_instance.cc.o" \
-"CMakeFiles/core.dir/backend/backend_output_responder.cc.o"
+"CMakeFiles/core.dir/backend/backend_output_responder.cc.o" \
+"CMakeFiles/core.dir/backends/tf/tensorflow.cc.o" \
+"CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o" \
+"CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o"
 
 # External object files for target core
 core_EXTERNAL_OBJECTS =
@@ -877,20 +919,23 @@ lib/libcore.dylib: hercules/CMakeFiles/core.dir/backend/backend_memory.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/backend/backend_model.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/backend/backend_model_instance.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.o
+lib/libcore.dylib: hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.o
+lib/libcore.dylib: hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o
+lib/libcore.dylib: hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/build.make
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libgflags.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libgflags.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libssl.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libflare.dylib
 lib/libcore.dylib: lib/libproto.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libgflags.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib
-lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libgflags.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libssl.dylib
+lib/libcore.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libflare.dylib
 lib/libcore.dylib: hercules/CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Linking CXX shared library ../lib/libcore.dylib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Linking CXX shared library ../lib/libcore.dylib"
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

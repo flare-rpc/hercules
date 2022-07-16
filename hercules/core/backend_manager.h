@@ -125,9 +125,9 @@ namespace hercules::core {
         void *state_;
     };
 
-//
-// Manage communication with Triton backends and their lifecycle.
-//
+    //
+    // Manage communication with Triton backends and their lifecycle.
+    //
     class TritonBackendManager {
     public:
         static Status Create(std::shared_ptr<TritonBackendManager> *manager);

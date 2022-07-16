@@ -16,7 +16,7 @@
 #include <sstream>
 #include <string>
 #include <unordered_map>
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

@@ -28,14 +28,14 @@
 #include "grpc++/server_builder.h"
 #include "grpc++/server_context.h"
 #include "grpc++/support/status.h"
-#include "triton/common/logging.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/common/logging.h"
+#include "hercules/core/tritonserver.h"
 
 #define TRITONJSON_STATUSTYPE TRITONSERVER_Error*
 #define TRITONJSON_STATUSRETURN(M) \
   return TRITONSERVER_ErrorNew(TRITONSERVER_ERROR_INTERNAL, (M).c_str())
 #define TRITONJSON_STATUSSUCCESS nullptr
-#include "triton/common/triton_json.h"
+#include "hercules/common/json_parser.h"
 
 #ifdef HERCULES_ENABLE_TRACING
 #include "tracer.h"
@@ -204,7 +204,7 @@ class CommonCallData : public GRPCServer::ICallData {
         async_(async), cq_(cq), responder_(&ctx_), step_(Steps::START)
   {
     OnRegister_(&ctx_, &request_, &responder_, this);
-    LOG_VERBOSE(1) << "Ready for RPC '" << name_ << "', " << id_;
+    FLARE_LOG(DEBUG) << "Ready for RPC '" << name_ << "', " << id_;
   }
 
   ~CommonCallData()
@@ -249,7 +249,7 @@ template <typename ResponderType, typename RequestType, typename ResponseType>
 bool
 CommonCallData<ResponderType, RequestType, ResponseType>::Process(bool rpc_ok)
 {
-  LOG_VERBOSE(1) << "Process for " << name_ << ", rpc_ok=" << rpc_ok << ", "
+  FLARE_LOG(DEBUG) << "Process for " << name_ << ", rpc_ok=" << rpc_ok << ", "
                  << id_ << " step " << step_;
 
   // If RPC failed on a new request then the server is shutting down
@@ -390,7 +390,7 @@ CommonHandler::Start()
       GRPCServer::ICallData* call_data =
           static_cast<GRPCServer::ICallData*>(tag);
       if (!call_data->Process(ok)) {
-        LOG_VERBOSE(1) << "Done for " << call_data->Name() << ", "
+        FLARE_LOG(DEBUG) << "Done for " << call_data->Name() << ", "
                        << call_data->Id();
         delete call_data;
       }
@@ -398,7 +398,7 @@ CommonHandler::Start()
   }));
 
   barrier->Wait();
-  LOG_VERBOSE(1) << "Thread started for " << Name();
+  FLARE_LOG(DEBUG) << "Thread started for " << Name();
 }
 
 void
@@ -408,7 +408,7 @@ CommonHandler::Stop()
     thread_->join();
   }
 
-  LOG_VERBOSE(1) << "Thread exited for " << Name();
+  FLARE_LOG(DEBUG) << "Thread exited for " << Name();
 }
 
 void
@@ -558,7 +558,7 @@ CommonHandler::SetUpAllRequests()
         GOTO_IF_ERR(err, earlyexit);
 
         {
-          hercules::common::TritonJson::Value server_metadata_json;
+          hercules::common::json_parser::Value server_metadata_json;
           err = server_metadata_json.Parse(buffer, byte_size);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -577,7 +577,7 @@ CommonHandler::SetUpAllRequests()
           response->set_version(std::string(version, versionlen));
 
           if (server_metadata_json.Find("extensions")) {
-            hercules::common::TritonJson::Value extensions_json;
+            hercules::common::json_parser::Value extensions_json;
             err = server_metadata_json.MemberAsArray(
                 "extensions", &extensions_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -639,7 +639,7 @@ CommonHandler::SetUpAllRequests()
           model_metadata_message, &buffer, &byte_size);
       GOTO_IF_ERR(err, earlyexit);
 
-      hercules::common::TritonJson::Value model_metadata_json;
+      hercules::common::json_parser::Value model_metadata_json;
       err = model_metadata_json.Parse(buffer, byte_size);
       GOTO_IF_ERR(err, earlyexit);
 
@@ -651,7 +651,7 @@ CommonHandler::SetUpAllRequests()
       response->set_name(std::string(name, namelen));
 
       if (model_metadata_json.Find("versions")) {
-        hercules::common::TritonJson::Value versions_json;
+        hercules::common::json_parser::Value versions_json;
         err = model_metadata_json.MemberAsArray("versions", &versions_json);
         GOTO_IF_ERR(err, earlyexit);
 
@@ -672,12 +672,12 @@ CommonHandler::SetUpAllRequests()
       response->set_platform(std::string(platform, platformlen));
 
       if (model_metadata_json.Find("inputs")) {
-        hercules::common::TritonJson::Value inputs_json;
+        hercules::common::json_parser::Value inputs_json;
         err = model_metadata_json.MemberAsArray("inputs", &inputs_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < inputs_json.ArraySize(); ++idx) {
-          hercules::common::TritonJson::Value io_json;
+          hercules::common::json_parser::Value io_json;
           err = inputs_json.IndexAsObject(idx, &io_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -698,7 +698,7 @@ CommonHandler::SetUpAllRequests()
           io->set_datatype(std::string(datatype, datatypelen));
 
           if (io_json.Find("shape")) {
-            hercules::common::TritonJson::Value shape_json;
+            hercules::common::json_parser::Value shape_json;
             err = io_json.MemberAsArray("shape", &shape_json);
             GOTO_IF_ERR(err, earlyexit);
 
@@ -714,12 +714,12 @@ CommonHandler::SetUpAllRequests()
       }
 
       if (model_metadata_json.Find("outputs")) {
-        hercules::common::TritonJson::Value outputs_json;
+        hercules::common::json_parser::Value outputs_json;
         err = model_metadata_json.MemberAsArray("outputs", &outputs_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < outputs_json.ArraySize(); ++idx) {
-          hercules::common::TritonJson::Value io_json;
+          hercules::common::json_parser::Value io_json;
           err = outputs_json.IndexAsObject(idx, &io_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -740,7 +740,7 @@ CommonHandler::SetUpAllRequests()
           io->set_datatype(std::string(datatype, datatypelen));
 
           if (io_json.Find("shape")) {
-            hercules::common::TritonJson::Value shape_json;
+            hercules::common::json_parser::Value shape_json;
             err = io_json.MemberAsArray("shape", &shape_json);
             GOTO_IF_ERR(err, earlyexit);
 
@@ -837,7 +837,7 @@ CommonHandler::SetUpAllRequests()
                                           response,
                                       grpc::Status* status) {
 #ifdef HERCULES_ENABLE_STATS
-    hercules::common::TritonJson::Value model_stats_json;
+    hercules::common::json_parser::Value model_stats_json;
 
     int64_t requested_model_version;
     auto err =
@@ -864,12 +864,12 @@ CommonHandler::SetUpAllRequests()
     }
 
     if (model_stats_json.Find("model_stats")) {
-      hercules::common::TritonJson::Value stats_json;
+      hercules::common::json_parser::Value stats_json;
       err = model_stats_json.MemberAsArray("model_stats", &stats_json);
       GOTO_IF_ERR(err, earlyexit);
 
       for (size_t idx = 0; idx < stats_json.ArraySize(); ++idx) {
-        hercules::common::TritonJson::Value model_stat;
+        hercules::common::json_parser::Value model_stat;
         err = stats_json.IndexAsObject(idx, &model_stat);
         GOTO_IF_ERR(err, earlyexit);
 
@@ -901,12 +901,12 @@ CommonHandler::SetUpAllRequests()
         GOTO_IF_ERR(err, earlyexit);
         statistics->set_execution_count(ucnt);
 
-        hercules::common::TritonJson::Value infer_stats_json;
+        hercules::common::json_parser::Value infer_stats_json;
         err = model_stat.MemberAsObject("inference_stats", &infer_stats_json);
         GOTO_IF_ERR(err, earlyexit);
 
         {
-          hercules::common::TritonJson::Value success_json;
+          hercules::common::json_parser::Value success_json;
           err = infer_stats_json.MemberAsObject("success", &success_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -921,7 +921,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value fail_json;
+          hercules::common::json_parser::Value fail_json;
           err = infer_stats_json.MemberAsObject("fail", &fail_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -935,7 +935,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value queue_json;
+          hercules::common::json_parser::Value queue_json;
           err = infer_stats_json.MemberAsObject("queue", &queue_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -949,7 +949,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value compute_input_json;
+          hercules::common::json_parser::Value compute_input_json;
           err = infer_stats_json.MemberAsObject(
               "compute_input", &compute_input_json);
           GOTO_IF_ERR(err, earlyexit);
@@ -967,7 +967,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value compute_infer_json;
+          hercules::common::json_parser::Value compute_infer_json;
           err = infer_stats_json.MemberAsObject(
               "compute_infer", &compute_infer_json);
           GOTO_IF_ERR(err, earlyexit);
@@ -985,7 +985,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value compute_output_json;
+          hercules::common::json_parser::Value compute_output_json;
           err = infer_stats_json.MemberAsObject(
               "compute_output", &compute_output_json);
           GOTO_IF_ERR(err, earlyexit);
@@ -1003,7 +1003,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value cache_hit_json;
+          hercules::common::json_parser::Value cache_hit_json;
           err = infer_stats_json.MemberAsObject("cache_hit", &cache_hit_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1018,7 +1018,7 @@ CommonHandler::SetUpAllRequests()
         }
 
         {
-          hercules::common::TritonJson::Value cache_miss_json;
+          hercules::common::json_parser::Value cache_miss_json;
           err = infer_stats_json.MemberAsObject("cache_miss", &cache_miss_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1034,12 +1034,12 @@ CommonHandler::SetUpAllRequests()
         }
 
 
-        hercules::common::TritonJson::Value batches_json;
+        hercules::common::json_parser::Value batches_json;
         err = model_stat.MemberAsArray("batch_stats", &batches_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < batches_json.ArraySize(); ++idx) {
-          hercules::common::TritonJson::Value batch_stat;
+          hercules::common::json_parser::Value batch_stat;
           err = batches_json.IndexAsObject(idx, &batch_stat);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1051,7 +1051,7 @@ CommonHandler::SetUpAllRequests()
           batch_statistics->set_batch_size(ucnt);
 
           {
-            hercules::common::TritonJson::Value compute_input_json;
+            hercules::common::json_parser::Value compute_input_json;
             err =
                 batch_stat.MemberAsObject("compute_input", &compute_input_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -1065,7 +1065,7 @@ CommonHandler::SetUpAllRequests()
           }
 
           {
-            hercules::common::TritonJson::Value compute_infer_json;
+            hercules::common::json_parser::Value compute_infer_json;
             err =
                 batch_stat.MemberAsObject("compute_infer", &compute_infer_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -1079,7 +1079,7 @@ CommonHandler::SetUpAllRequests()
           }
 
           {
-            hercules::common::TritonJson::Value compute_output_json;
+            hercules::common::json_parser::Value compute_output_json;
             err = batch_stat.MemberAsObject(
                 "compute_output", &compute_output_json);
             GOTO_IF_ERR(err, earlyexit);
@@ -1342,14 +1342,14 @@ CommonHandler::SetUpAllRequests()
           hercules::proto::SystemSharedMemoryStatusRequest& request,
           hercules::proto::SystemSharedMemoryStatusResponse* response,
           grpc::Status* status) {
-        hercules::common::TritonJson::Value shm_status_json(
-            hercules::common::TritonJson::ValueType::ARRAY);
+        hercules::common::json_parser::Value shm_status_json(
+            hercules::common::json_parser::ValueType::ARRAY);
         TRITONSERVER_Error* err = shm_manager_->GetStatus(
             request.name(), TRITONSERVER_MEMORY_CPU, &shm_status_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < shm_status_json.ArraySize(); ++idx) {
-          hercules::common::TritonJson::Value shm_region_json;
+          hercules::common::json_parser::Value shm_region_json;
           err = shm_status_json.IndexAsObject(idx, &shm_region_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1489,14 +1489,14 @@ CommonHandler::SetUpAllRequests()
           hercules::proto::CudaSharedMemoryStatusRequest& request,
           hercules::proto::CudaSharedMemoryStatusResponse* response,
           grpc::Status* status) {
-        hercules::common::TritonJson::Value shm_status_json(
-            hercules::common::TritonJson::ValueType::ARRAY);
+        hercules::common::json_parser::Value shm_status_json(
+            hercules::common::json_parser::ValueType::ARRAY);
         TRITONSERVER_Error* err = shm_manager_->GetStatus(
             request.name(), TRITONSERVER_MEMORY_GPU, &shm_status_json);
         GOTO_IF_ERR(err, earlyexit);
 
         for (size_t idx = 0; idx < shm_status_json.ArraySize(); ++idx) {
-          hercules::common::TritonJson::Value shm_region_json;
+          hercules::common::json_parser::Value shm_region_json;
           err = shm_status_json.IndexAsObject(idx, &shm_region_json);
           GOTO_IF_ERR(err, earlyexit);
 
@@ -1655,16 +1655,16 @@ CommonHandler::SetUpAllRequests()
               model_index_message, &buffer, &byte_size);
           GOTO_IF_ERR(err, earlyexit);
 
-          hercules::common::TritonJson::Value model_index_json;
+          hercules::common::json_parser::Value model_index_json;
           err = model_index_json.Parse(buffer, byte_size);
           GOTO_IF_ERR(err, earlyexit);
 
           err = model_index_json.AssertType(
-              hercules::common::TritonJson::ValueType::ARRAY);
+              hercules::common::json_parser::ValueType::ARRAY);
           GOTO_IF_ERR(err, earlyexit);
 
           for (size_t idx = 0; idx < model_index_json.ArraySize(); ++idx) {
-            hercules::common::TritonJson::Value index_json;
+            hercules::common::json_parser::Value index_json;
             err = model_index_json.IndexAsObject(idx, &index_json);
             GOTO_IF_ERR(err, earlyexit);
 
@@ -1956,7 +1956,7 @@ class ResponseQueue {
   {
     std::lock_guard<std::mutex> lock(mtx_);
     if (responses_.size() < alloc_count_) {
-      LOG_ERROR
+      FLARE_LOG(ERROR)
           << "[INTERNAL] Attempting to access the response not yet allocated";
       return nullptr;
     }
@@ -1968,7 +1968,7 @@ class ResponseQueue {
   {
     std::lock_guard<std::mutex> lock(mtx_);
     if (alloc_count_ <= ready_count_) {
-      LOG_ERROR
+      FLARE_LOG(ERROR)
           << "[INTERNAL] Attempting to mark an unallocated response complete";
       return false;
     }
@@ -1983,7 +1983,7 @@ class ResponseQueue {
   {
     std::lock_guard<std::mutex> lock(mtx_);
     if (current_index_ >= ready_count_) {
-      LOG_ERROR << "[INTERNAL] Attempting to access current response when it "
+      FLARE_LOG(ERROR) << "[INTERNAL] Attempting to access current response when it "
                    "is not ready";
       return nullptr;
     }
@@ -1995,7 +1995,7 @@ class ResponseQueue {
   {
     std::lock_guard<std::mutex> lock(mtx_);
     if (index >= alloc_count_) {
-      LOG_ERROR << "[INTERNAL] Attempting to access response which is not yet "
+      FLARE_LOG(ERROR) << "[INTERNAL] Attempting to access response which is not yet "
                    "allocated";
       return nullptr;
     }
@@ -2457,7 +2457,7 @@ InferHandler<ServiceType, ServerResponderType, RequestType, ResponseType>::
   }
   state_bucket_.clear();
 
-  LOG_VERBOSE(1) << "Destructed " << Name();
+  FLARE_LOG(DEBUG) << "Destructed " << Name();
 }
 
 template <
@@ -2481,14 +2481,14 @@ InferHandler<
     while (cq_->Next(&tag, &ok)) {
       State* state = static_cast<State*>(tag);
       if (!Process(state, ok)) {
-        LOG_VERBOSE(1) << "Done for " << Name() << ", " << state->unique_id_;
+        FLARE_LOG(DEBUG) << "Done for " << Name() << ", " << state->unique_id_;
         StateRelease(state);
       }
     }
   }));
 
   barrier->Wait();
-  LOG_VERBOSE(1) << "Thread started for " << Name();
+  FLARE_LOG(DEBUG) << "Thread started for " << Name();
 }
 
 template <
@@ -2502,7 +2502,7 @@ InferHandler<
     thread_->join();
   }
 
-  LOG_VERBOSE(1) << "Thread exited for " << Name();
+  FLARE_LOG(DEBUG) << "Thread exited for " << Name();
 }
 
 //
@@ -2549,7 +2549,7 @@ ResponseAllocatorHelper(
       *actual_memory_type = pr->second.memory_type_;
       *actual_memory_type_id = pr->second.memory_type_id_;
 
-      LOG_VERBOSE(1) << "GRPC: using shared-memory for '" << tensor_name
+      FLARE_LOG(DEBUG) << "GRPC: using shared-memory for '" << tensor_name
                      << "', size: " << byte_size << ", addr: " << *buffer;
       return nullptr;  // Success
     }
@@ -2560,7 +2560,7 @@ ResponseAllocatorHelper(
     //
     // FIXME we could use pinned CPU memory here.
     if (*actual_memory_type != TRITONSERVER_MEMORY_CPU) {
-      LOG_VERBOSE(1) << "GRPC: unable to provide '" << tensor_name << "' in "
+      FLARE_LOG(DEBUG) << "GRPC: unable to provide '" << tensor_name << "' in "
                      << TRITONSERVER_MemoryTypeString(*actual_memory_type)
                      << ", will use "
                      << TRITONSERVER_MemoryTypeString(TRITONSERVER_MEMORY_CPU);
@@ -2571,7 +2571,7 @@ ResponseAllocatorHelper(
     raw_output->resize(byte_size);
     *buffer = static_cast<void*>(&((*raw_output)[0]));
 
-    LOG_VERBOSE(1) << "GRPC: using buffer for '" << tensor_name
+    FLARE_LOG(DEBUG) << "GRPC: using buffer for '" << tensor_name
                    << "', size: " << byte_size << ", addr: " << *buffer;
   }
 
@@ -2691,7 +2691,7 @@ InferResponseFree(
     size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
-  LOG_VERBOSE(1) << "GRPC free: "
+  FLARE_LOG(DEBUG) << "GRPC free: "
                  << "size " << byte_size << ", addr " << buffer;
 
   // Don't do anything when releasing a buffer since InferResponseAlloc
@@ -3289,7 +3289,7 @@ void
 InferRequestComplete(
     TRITONSERVER_InferenceRequest* request, const uint32_t flags, void* userp)
 {
-  LOG_VERBOSE(1) << "ModelInferHandler::InferRequestComplete";
+  FLARE_LOG(DEBUG) << "ModelInferHandler::InferRequestComplete";
 
   if ((flags & TRITONSERVER_REQUEST_RELEASE_ALL) != 0) {
     LOG_TRITONSERVER_ERROR(
@@ -3564,14 +3564,14 @@ ModelInferHandler::StartNewRequest()
       state->context_->ctx_.get(), &state->request_,
       state->context_->responder_.get(), cq_, cq_, state);
 
-  LOG_VERBOSE(1) << "New request handler for " << Name() << ", "
+  FLARE_LOG(DEBUG) << "New request handler for " << Name() << ", "
                  << state->unique_id_;
 }
 
 bool
 ModelInferHandler::Process(InferHandler::State* state, bool rpc_ok)
 {
-  LOG_VERBOSE(1) << "Process for " << Name() << ", rpc_ok=" << rpc_ok << ", "
+  FLARE_LOG(DEBUG) << "Process for " << Name() << ", rpc_ok=" << rpc_ok << ", "
                  << state->unique_id_ << " step " << state->step_;
 
   // We need an explicit finish indicator. Can't use 'state->step_'
@@ -3688,7 +3688,7 @@ ModelInferHandler::Process(InferHandler::State* state, bool rpc_ok)
     // has initiated... completion callback will transition to
     // COMPLETE. If error go immediately to COMPLETE.
     if (err != nullptr) {
-      LOG_VERBOSE(1) << "[request id: " << request_id << "] "
+      FLARE_LOG(DEBUG) << "[request id: " << request_id << "] "
                      << "Infer failed: " << TRITONSERVER_ErrorMessage(err);
 
       LOG_TRITONSERVER_ERROR(
@@ -3732,12 +3732,12 @@ ModelInferHandler::InferResponseComplete(
   // Increment the callback index
   state->cb_count_++;
 
-  LOG_VERBOSE(1) << "ModelInferHandler::InferResponseComplete, "
+  FLARE_LOG(DEBUG) << "ModelInferHandler::InferResponseComplete, "
                  << state->unique_id_ << " step " << state->step_;
 
   // Defer to the callback with the final response
   if ((flags & TRITONSERVER_RESPONSE_COMPLETE_FINAL) == 0) {
-    LOG_ERROR << "[INTERNAL] ModelInfer received a response without FINAL flag";
+    FLARE_LOG(ERROR) << "[INTERNAL] ModelInfer received a response without FINAL flag";
     return;
   }
 
@@ -3754,7 +3754,7 @@ ModelInferHandler::InferResponseComplete(
       state->response_queue_->GetResponseAt(0);
   bool response_created = false;
   if (response == nullptr) {
-    LOG_ERROR << "expected allocator to have created a response object";
+    FLARE_LOG(ERROR) << "expected allocator to have created a response object";
     err = TRITONSERVER_ErrorNew(
         TRITONSERVER_ERROR_INTERNAL,
         "No response object found in the callback");
@@ -3957,14 +3957,14 @@ ModelStreamInferHandler::StartNewRequest()
       state->context_->ctx_.get(), state->context_->responder_.get(), cq_, cq_,
       state);
 
-  LOG_VERBOSE(1) << "New request handler for " << Name() << ", "
+  FLARE_LOG(DEBUG) << "New request handler for " << Name() << ", "
                  << state->unique_id_;
 }
 
 bool
 ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
 {
-  LOG_VERBOSE(1) << "Process for " << Name() << ", rpc_ok=" << rpc_ok
+  FLARE_LOG(DEBUG) << "Process for " << Name() << ", rpc_ok=" << rpc_ok
                  << ", context " << state->context_->unique_id_ << ", "
                  << state->unique_id_ << " step " << state->step_;
 
@@ -4125,7 +4125,7 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
       } else {
         response = state->response_queue_->GetNonDecoupledResponse();
       }
-      LOG_VERBOSE(1) << "[request id: " << request_id << "] "
+      FLARE_LOG(DEBUG) << "[request id: " << request_id << "] "
                      << "Infer failed: " << TRITONSERVER_ErrorMessage(err);
 
       LOG_TRITONSERVER_ERROR(
@@ -4196,7 +4196,7 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
       // cancel right away... need to wait for any pending reads,
       // inferences and writes to complete.
       if (!rpc_ok) {
-        LOG_VERBOSE(1) << "Write for " << Name() << ", rpc_ok=" << rpc_ok
+        FLARE_LOG(DEBUG) << "Write for " << Name() << ", rpc_ok=" << rpc_ok
                        << ", context " << state->context_->unique_id_ << ", "
                        << state->unique_id_ << " step " << state->step_
                        << ", failed";
@@ -4209,7 +4209,7 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
       // right away... need to wait for any pending reads, inferences
       // and writes to complete.
       if (!state->context_->PopCompletedResponse(state)) {
-        LOG_ERROR << "Unexpected response for " << Name()
+        FLARE_LOG(ERROR) << "Unexpected response for " << Name()
                   << ", rpc_ok=" << rpc_ok << ", context "
                   << state->context_->unique_id_ << ", " << state->unique_id_
                   << " step " << state->step_;
@@ -4244,7 +4244,7 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
       // cancel right away... need to wait for any pending reads,
       // inferences and writes to complete.
       if (!rpc_ok) {
-        LOG_VERBOSE(1) << "Write for " << Name() << ", rpc_ok=" << rpc_ok
+        FLARE_LOG(DEBUG) << "Write for " << Name() << ", rpc_ok=" << rpc_ok
                        << ", context " << state->context_->unique_id_ << ", "
                        << state->unique_id_ << " step " << state->step_
                        << ", failed";
@@ -4276,7 +4276,7 @@ ModelStreamInferHandler::Process(InferHandler::State* state, bool rpc_ok)
         // Will delay the write of the response by the specified time.
         // This can be used to test the flow where there are other
         // responses available to be written.
-        LOG_INFO << "Delaying the write of the response by "
+        FLARE_LOG(INFO) << "Delaying the write of the response by "
                  << state->delay_response_ms_ << " ms...";
         std::this_thread::sleep_for(
             std::chrono::milliseconds(state->delay_response_ms_));
@@ -4336,7 +4336,7 @@ ModelStreamInferHandler::StreamInferResponseComplete(
   // Increment the callback index
   uint32_t response_index = state->cb_count_++;
 
-  LOG_VERBOSE(1) << "ModelStreamInferHandler::StreamInferComplete, context "
+  FLARE_LOG(DEBUG) << "ModelStreamInferHandler::StreamInferComplete, context "
                  << state->context_->unique_id_ << ", " << state->unique_id_
                  << " step " << state->step_ << ", callback index "
                  << state->cb_count_ << ", flags " << flags;
@@ -4351,11 +4351,11 @@ ModelStreamInferHandler::StreamInferResponseComplete(
   // Log appropriate errors
   if (!state->is_decoupled_) {
     if ((flags & TRITONSERVER_RESPONSE_COMPLETE_FINAL) == 0) {
-      LOG_ERROR << "[INTERNAL] ModelStreamInfer received a response without "
+      FLARE_LOG(ERROR) << "[INTERNAL] ModelStreamInfer received a response without "
                    "FINAL flag for a model with one-to-one transaction";
     }
     if (iresponse == nullptr) {
-      LOG_ERROR << "[INTERNAL] ModelStreamInfer received a null response for a "
+      FLARE_LOG(ERROR) << "[INTERNAL] ModelStreamInfer received a null response for a "
                    "model with one-to-one transaction";
     }
   }
@@ -4365,7 +4365,7 @@ ModelStreamInferHandler::StreamInferResponseComplete(
   if (iresponse != nullptr) {
     auto response = response_queue->GetResponseAt(response_index);
     if (response == nullptr) {
-      LOG_ERROR << "expected the response allocator to have added the response";
+      FLARE_LOG(ERROR) << "expected the response allocator to have added the response";
     }
 
     TRITONSERVER_Error* err = nullptr;
@@ -4388,7 +4388,7 @@ ModelStreamInferHandler::StreamInferResponseComplete(
       LOG_TRITONSERVER_ERROR(
           TRITONSERVER_InferenceResponseId(iresponse, &id),
           "couldn't retrieve id for failed request");
-      LOG_VERBOSE(1) << "Failed for ID: " << id << std::endl;
+      FLARE_LOG(DEBUG) << "Failed for ID: " << id << std::endl;
       response->mutable_infer_response()->set_id(id);
     }
 
@@ -4528,21 +4528,21 @@ GRPCServer::Start()
       GRPC_ARG_HTTP2_MAX_PING_STRIKES,
       keepalive_options_.http2_max_ping_strikes);
 
-  LOG_VERBOSE(1) << "=== GRPC KeepAlive Options ===";
-  LOG_VERBOSE(1) << "keepalive_time_ms: "
+  FLARE_LOG(DEBUG) << "=== GRPC KeepAlive Options ===";
+  FLARE_LOG(DEBUG) << "keepalive_time_ms: "
                  << keepalive_options_.keepalive_time_ms;
-  LOG_VERBOSE(1) << "keepalive_timeout_ms: "
+  FLARE_LOG(DEBUG) << "keepalive_timeout_ms: "
                  << keepalive_options_.keepalive_timeout_ms;
-  LOG_VERBOSE(1) << "keepalive_permit_without_calls: "
+  FLARE_LOG(DEBUG) << "keepalive_permit_without_calls: "
                  << keepalive_options_.keepalive_permit_without_calls;
-  LOG_VERBOSE(1) << "http2_max_pings_without_data: "
+  FLARE_LOG(DEBUG) << "http2_max_pings_without_data: "
                  << keepalive_options_.http2_max_pings_without_data;
-  LOG_VERBOSE(1)
+  FLARE_LOG(DEBUG)
       << "http2_min_recv_ping_interval_without_data_ms: "
       << keepalive_options_.http2_min_recv_ping_interval_without_data_ms;
-  LOG_VERBOSE(1) << "http2_max_ping_strikes: "
+  FLARE_LOG(DEBUG) << "http2_max_ping_strikes: "
                  << keepalive_options_.http2_max_ping_strikes;
-  LOG_VERBOSE(1) << "==============================";
+  FLARE_LOG(DEBUG) << "==============================";
 
   common_cq_ = grpc_builder_.AddCompletionQueue();
   model_infer_cq_ = grpc_builder_.AddCompletionQueue();
@@ -4584,7 +4584,7 @@ GRPCServer::Start()
   model_stream_infer_handlers_.emplace_back(hmodelstreaminfer);
 
   running_ = true;
-  LOG_INFO << "Started GRPCInferenceService at " << server_addr_;
+  FLARE_LOG(INFO) << "Started GRPCInferenceService at " << server_addr_;
   return nullptr;  // success
 }
 

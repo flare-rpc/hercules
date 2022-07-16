@@ -38,8 +38,8 @@
 #include "common.h"
 #include "shared_memory_manager.h"
 #include "tracer.h"
-#include "triton/common/logging.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/common/logging.h"
+#include "hercules/core/tritonserver.h"
 
 #if defined(TRITON_ENABLE_HTTP) || defined(TRITON_ENABLE_METRICS)
 #include "http_server.h"
@@ -807,7 +807,7 @@ StartEndpoints(
   int wsa_ret = WSAStartup(MAKEWORD(2, 2), &wsaData);
 
   if (wsa_ret != 0) {
-    LOG_ERROR << "Error in WSAStartup " << wsa_ret;
+    FLARE_LOG(ERROR) << "Error in WSAStartup " << wsa_ret;
     return false;
   }
 #endif
@@ -944,7 +944,7 @@ StopEndpoints()
   int wsa_ret = WSACleanup();
 
   if (wsa_ret != 0) {
-    LOG_ERROR << "Error in WSACleanup " << wsa_ret;
+    FLARE_LOG(ERROR) << "Error in WSACleanup " << wsa_ret;
     ret = false;
   }
 #endif

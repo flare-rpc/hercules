@@ -32,7 +32,7 @@ namespace hercules::core {
                 local_model->MutableStatsAggregator(), server, model_config, &scheduler));
         RETURN_IF_ERROR(local_model->SetScheduler(std::move(scheduler)));
 
-        LOG_VERBOSE(1) << "ensemble model for " << local_model->Name() << std::endl;
+        FLARE_LOG(DEBUG) << "ensemble model for " << local_model->Name() << std::endl;
 
         *model = std::move(local_model);
         return Status::Success;

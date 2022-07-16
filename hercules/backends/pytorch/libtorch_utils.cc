@@ -139,7 +139,7 @@ ModelConfigDataTypeToTorchType(const std::string& data_type_str)
 
 TRITONSERVER_Error*
 ParseParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     bool* value)
 {
   std::string value_str;

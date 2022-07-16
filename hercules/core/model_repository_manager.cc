@@ -70,7 +70,7 @@ namespace hercules::core {
 
         static std::string file_prefix = "file:";
 
-// Internal repo agent used for model file override
+        // Internal repo agent used for model file override
         class LocalizeRepoAgent : public TritonRepoAgent {
         public:
             LocalizeRepoAgent()
@@ -284,8 +284,8 @@ namespace hercules::core {
                     continue;
                 }
                 if ((subdir.length() > 1) && (subdir.front() == '0')) {
-                    LOG_WARNING << "ignore version directory '" << subdir
-                                << "' which contains leading zeros in its directory name";
+                    FLARE_LOG(WARNING) << "ignore version directory '" << subdir
+                                       << "' which contains leading zeros in its directory name";
                     continue;
                 }
                 try {
@@ -293,8 +293,8 @@ namespace hercules::core {
                     existing_versions.insert(version);
                 }
                 catch (const std::invalid_argument &ia) {
-                    LOG_WARNING << "ignore version directory '" << subdir
-                                << "' which fails to convert to integral number";
+                    FLARE_LOG(WARNING) << "ignore version directory '" << subdir
+                                       << "' which fails to convert to integral number";
                 }
             }
 
@@ -305,8 +305,8 @@ namespace hercules::core {
                     if (!version_not_exist) {
                         versions->emplace(v);
                     } else {
-                        LOG_ERROR << "version " << v << " is specified for model '" << name
-                                  << "', but the version directory is not present";
+                        FLARE_LOG(ERROR) << "version " << v << " is specified for model '" << name
+                                         << "', but the version directory is not present";
                     }
                 }
             } else {
@@ -337,8 +337,8 @@ namespace hercules::core {
             bool path_is_dir;
             Status status = IsDirectory(path, &path_is_dir);
             if (!status.IsOk()) {
-                LOG_ERROR << "Failed to determine modification time for '" << path
-                          << "': " << status.AsString();
+                FLARE_LOG(ERROR) << "Failed to determine modification time for '" << path
+                                 << "': " << status.AsString();
                 return 0;
             }
 
@@ -347,8 +347,8 @@ namespace hercules::core {
             int64_t mtime = 0;
             status = FileModificationTime(path, &mtime);
             if (!status.IsOk()) {
-                LOG_ERROR << "Failed to determine modification time for '" << path
-                          << "': " << status.AsString();
+                FLARE_LOG(ERROR) << "Failed to determine modification time for '" << path
+                                 << "': " << status.AsString();
                 return 0;
             }
             if (!path_is_dir) {
@@ -360,8 +360,8 @@ namespace hercules::core {
             std::set<std::string> contents;
             status = GetDirectoryContents(path, &contents);
             if (!status.IsOk()) {
-                LOG_ERROR << "Failed to determine modification time for '" << path
-                          << "': " << status.AsString();
+                FLARE_LOG(ERROR) << "Failed to determine modification time for '" << path
+                                 << "': " << status.AsString();
                 return 0;
             }
 
@@ -594,7 +594,7 @@ namespace hercules::core {
 
     const ModelRepositoryManager::ModelStateMap
     ModelRepositoryManager::ModelLifeCycle::LiveModelStates(bool strict_readiness) {
-        LOG_VERBOSE(2) << "LiveModelStates()";
+        FLARE_VLOG(2) << "LiveModelStates()";
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         ModelStateMap live_model_states;
         for (auto &model_version : map_) {
@@ -629,7 +629,7 @@ namespace hercules::core {
 
     Status
     ModelRepositoryManager::ModelLifeCycle::StopAllModels() {
-        LOG_VERBOSE(2) << "StopAllModels()";
+        FLARE_VLOG(2) << "StopAllModels()";
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         for (auto &model_version : map_) {
             for (auto &version_model : model_version.second) {
@@ -647,7 +647,7 @@ namespace hercules::core {
 
     const std::set<std::tuple<std::string, int64_t, size_t>>
     ModelRepositoryManager::ModelLifeCycle::InflightStatus() {
-        LOG_VERBOSE(2) << "InflightStatus()";
+        FLARE_VLOG(2) << "InflightStatus()";
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         std::set<std::tuple<std::string, int64_t, size_t>> inflight_status;
         for (auto &model_version : map_) {
@@ -671,7 +671,7 @@ namespace hercules::core {
 
     const ModelRepositoryManager::ModelStateMap
     ModelRepositoryManager::ModelLifeCycle::ModelStates() {
-        LOG_VERBOSE(2) << "ModelStates()";
+        FLARE_VLOG(2) << "ModelStates()";
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         ModelStateMap model_states;
         for (auto &model_version : map_) {
@@ -694,7 +694,7 @@ namespace hercules::core {
     const ModelRepositoryManager::VersionStateMap
     ModelRepositoryManager::ModelLifeCycle::VersionStates(
             const std::string &model_name) {
-        LOG_VERBOSE(2) << "VersionStates() '" << model_name << "'";
+        FLARE_VLOG(2) << "VersionStates() '" << model_name << "'";
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         VersionStateMap version_map;
         auto mit = map_.find(model_name);
@@ -737,7 +737,7 @@ namespace hercules::core {
             const std::string &model_name, const int64_t version,
             std::shared_ptr<Model> *model) {
         do {
-            LOG_VERBOSE(2) << "GetModel() '" << model_name << "' version " << version;
+            FLARE_VLOG(2) << "GetModel() '" << model_name << "' version " << version;
             std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
             auto mit = map_.find(model_name);
             if (mit == map_.end()) {
@@ -821,7 +821,7 @@ namespace hercules::core {
     Status
     ModelRepositoryManager::ModelLifeCycle::AsyncUnload(
             const std::string &model_name) {
-        LOG_VERBOSE(2) << "AsyncUnload() '" << model_name << "'";
+        FLARE_VLOG(2) << "AsyncUnload() '" << model_name << "'";
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         auto it = map_.find(model_name);
         if (it == map_.end()) {
@@ -838,17 +838,17 @@ namespace hercules::core {
                 auto status = unloading_agent_model_list->InvokeAgentModels(
                         TRITONREPOAGENT_ACTION_UNLOAD);
                 if (!status.IsOk()) {
-                    LOG_ERROR
-                        << "Agent model returns error on TRITONREPOAGENT_ACTION_UNLOAD: "
-                        << status.AsString();
+                    FLARE_LOG(ERROR)
+                            << "Agent model returns error on TRITONREPOAGENT_ACTION_UNLOAD: "
+                            << status.AsString();
                 }
                 model_info->OnComplete_ = [this, unloading_agent_model_list]() {
                     auto status = unloading_agent_model_list->InvokeAgentModels(
                             TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE);
                     if (!status.IsOk()) {
-                        LOG_ERROR << "Agent model returns error on "
-                                     "TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE: "
-                                  << status.AsString();
+                        FLARE_LOG(ERROR) << "Agent model returns error on "
+                                            "TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE: "
+                                         << status.AsString();
                     }
                 };
                 break;
@@ -875,7 +875,7 @@ namespace hercules::core {
             const hercules::proto::ModelConfig &model_config,
             const std::shared_ptr<TritonRepoAgentModelList> &agent_model_list,
             std::function<void(Status)> OnComplete) {
-        LOG_VERBOSE(2) << "AsyncLoad() '" << model_name << "'";
+        FLARE_VLOG(2) << "AsyncLoad() '" << model_name << "'";
 
         std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
         auto it = map_.find(model_name);
@@ -978,9 +978,9 @@ namespace hercules::core {
                                 auto status = model_info->agent_model_list_->InvokeAgentModels(
                                         TRITONREPOAGENT_ACTION_LOAD_FAIL);
                                 if (!status.IsOk()) {
-                                    LOG_ERROR << "Agent model returns error on "
-                                                 "TRITONREPOAGENT_ACTION_LOAD_FAIL: "
-                                              << status.AsString();
+                                    FLARE_LOG(ERROR) << "Agent model returns error on "
+                                                        "TRITONREPOAGENT_ACTION_LOAD_FAIL: "
+                                                     << status.AsString();
                                 }
                             }
                             for (auto &loaded : load_tracker->load_set_) {
@@ -1009,9 +1009,9 @@ namespace hercules::core {
                                 auto status = model_info->agent_model_list_->InvokeAgentModels(
                                         TRITONREPOAGENT_ACTION_LOAD_COMPLETE);
                                 if (!status.IsOk()) {
-                                    LOG_ERROR << "Agent model returns error on "
-                                                 "TRITONREPOAGENT_ACTION_LOAD_COMPLETE: "
-                                              << status.AsString();
+                                    FLARE_LOG(ERROR) << "Agent model returns error on "
+                                                        "TRITONREPOAGENT_ACTION_LOAD_COMPLETE: "
+                                                     << status.AsString();
                                 }
                             }
                             bool notified_agent = false;
@@ -1032,18 +1032,18 @@ namespace hercules::core {
                                         auto status = unloading_agent_model_list->InvokeAgentModels(
                                                 TRITONREPOAGENT_ACTION_UNLOAD);
                                         if (!status.IsOk()) {
-                                            LOG_ERROR << "Agent model returns error on "
-                                                         "TRITONREPOAGENT_ACTION_UNLOAD: "
-                                                      << status.AsString();
+                                            FLARE_LOG(ERROR) << "Agent model returns error on "
+                                                                "TRITONREPOAGENT_ACTION_UNLOAD: "
+                                                             << status.AsString();
                                         }
                                         unload_model->OnComplete_ = [this, unload_model,
                                                 unloading_agent_model_list]() {
                                             auto status = unloading_agent_model_list->InvokeAgentModels(
                                                     TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE);
                                             if (!status.IsOk()) {
-                                                LOG_ERROR << "Agent model returns error on "
-                                                             "TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE: "
-                                                          << status.AsString();
+                                                FLARE_LOG(ERROR) << "Agent model returns error on "
+                                                                    "TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE: "
+                                                                 << status.AsString();
                                             }
                                             std::lock_guard<std::recursive_mutex> map_lock(map_mtx_);
                                             unloading_models_.erase((uintptr_t) unload_model);
@@ -1071,18 +1071,18 @@ namespace hercules::core {
                                     auto status = unloading_agent_model_list->InvokeAgentModels(
                                             TRITONREPOAGENT_ACTION_UNLOAD);
                                     if (!status.IsOk()) {
-                                        LOG_ERROR << "Agent model returns error on "
-                                                     "TRITONREPOAGENT_ACTION_UNLOAD: "
-                                                  << status.AsString();
+                                        FLARE_LOG(ERROR) << "Agent model returns error on "
+                                                            "TRITONREPOAGENT_ACTION_UNLOAD: "
+                                                         << status.AsString();
                                     }
                                     unload_model->OnComplete_ = [this,
                                             unloading_agent_model_list]() {
                                         auto status = unloading_agent_model_list->InvokeAgentModels(
                                                 TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE);
                                         if (!status.IsOk()) {
-                                            LOG_ERROR << "Agent model returns error on "
-                                                         "TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE: "
-                                                      << status.AsString();
+                                            FLARE_LOG(ERROR) << "Agent model returns error on "
+                                                                "TRITONREPOAGENT_ACTION_UNLOAD_COMPLETE: "
+                                                             << status.AsString();
                                         }
                                     };
                                     notified_agent = true;
@@ -1111,8 +1111,8 @@ namespace hercules::core {
     Status
     ModelRepositoryManager::ModelLifeCycle::TriggerNextAction(
             const std::string &model_name, const int64_t version, ModelInfo *model_info) {
-        LOG_VERBOSE(2) << "TriggerNextAction() '" << model_name << "' version "
-                       << version << ": " << std::to_string(model_info->next_action_);
+        FLARE_VLOG(2) << "TriggerNextAction() '" << model_name << "' version "
+                      << version << ": " << std::to_string(model_info->next_action_);
         ActionType next_action = model_info->next_action_;
         model_info->next_action_ = ActionType::NO_ACTION;
         Status status = Status::Success;
@@ -1125,7 +1125,7 @@ namespace hercules::core {
                 break;
             default:
                 if (model_info->OnComplete_ != nullptr) {
-                    LOG_VERBOSE(2) << "no next action, trigger OnComplete()";
+                    FLARE_VLOG(2) << "no next action, trigger OnComplete()";
                     model_info->OnComplete_();
                     model_info->OnComplete_ = nullptr;
                 }
@@ -1135,7 +1135,7 @@ namespace hercules::core {
         // If status is not ok, "next action" path ends here and thus need to
         // invoke callback by this point
         if ((!status.IsOk()) && (model_info->OnComplete_ != nullptr)) {
-            LOG_VERBOSE(2) << "failed to execute next action, trigger OnComplete()";
+            FLARE_VLOG(2) << "failed to execute next action, trigger OnComplete()";
             model_info->OnComplete_();
             model_info->OnComplete_ = nullptr;
         }
@@ -1146,14 +1146,14 @@ namespace hercules::core {
     Status
     ModelRepositoryManager::ModelLifeCycle::Load(
             const std::string &model_name, const int64_t version, ModelInfo *model_info) {
-        LOG_VERBOSE(2) << "Load() '" << model_name << "' version " << version;
+        FLARE_VLOG(2) << "Load() '" << model_name << "' version " << version;
         Status status = Status::Success;
 
         model_info->next_action_ = ActionType::NO_ACTION;
 
         switch (model_info->state_) {
             case ModelReadyState::READY:
-                LOG_INFO << "re-loading: " << model_name << ":" << version;
+                FLARE_LOG(INFO) << "re-loading: " << model_name << ":" << version;
                 model_info->state_ = ModelReadyState::UNLOADING;
                 model_info->state_reason_.clear();
                 model_info->next_action_ = ActionType::LOAD;
@@ -1165,7 +1165,7 @@ namespace hercules::core {
                 model_info->next_action_ = ActionType::LOAD;
                 break;
             default:
-                LOG_INFO << "loading: " << model_name << ":" << version;
+                FLARE_LOG(INFO) << "loading: " << model_name << ":" << version;
                 model_info->state_ = ModelReadyState::LOADING;
                 model_info->state_reason_.clear();
                 // Load model asynchronously via thread pool
@@ -1181,14 +1181,14 @@ namespace hercules::core {
     Status
     ModelRepositoryManager::ModelLifeCycle::Unload(
             const std::string &model_name, const int64_t version, ModelInfo *model_info) {
-        LOG_VERBOSE(2) << "Unload() '" << model_name << "' version " << version;
+        FLARE_VLOG(2) << "Unload() '" << model_name << "' version " << version;
         Status status = Status::Success;
 
         model_info->next_action_ = ActionType::NO_ACTION;
 
         switch (model_info->state_) {
             case ModelReadyState::READY:
-                LOG_INFO << "unloading: " << model_name << ":" << version;
+                FLARE_LOG(INFO) << "unloading: " << model_name << ":" << version;
                 model_info->state_ = ModelReadyState::UNLOADING;
                 model_info->state_reason_.clear();
                 model_info->model_.reset();
@@ -1213,7 +1213,7 @@ namespace hercules::core {
     Status
     ModelRepositoryManager::ModelLifeCycle::CreateModel(
             const std::string &model_name, const int64_t version, ModelInfo *model_info) {
-        LOG_VERBOSE(2) << "CreateModel() '" << model_name << "' version " << version;
+        FLARE_VLOG(2) << "CreateModel() '" << model_name << "' version " << version;
         // make copy of the current model config in case model config in model info
         // is updated (another poll) during the creation of the model
         hercules::proto::ModelConfig model_config;
@@ -1280,8 +1280,8 @@ namespace hercules::core {
         std::lock_guard<std::recursive_mutex> lock(model_info->mtx_);
         // Sanity check
         if (model_info->model_ != nullptr) {
-            LOG_ERROR << "trying to load model '" << model_name << "' version "
-                      << version << " while it is being served";
+            FLARE_LOG(ERROR) << "trying to load model '" << model_name << "' version "
+                             << version << " while it is being served";
         } else {
             if (status.IsOk()) {
                 // Unless the handle is nullptr, always reset handle out of the mutex,
@@ -1290,10 +1290,10 @@ namespace hercules::core {
                 model_info->model_.reset(
                         is.release(),
                         ModelDeleter([this, model_name, version, model_info]() mutable {
-                            LOG_VERBOSE(2) << "OnDestroy callback() '" << model_name
-                                           << "' version " << version;
-                            LOG_INFO << "successfully unloaded '" << model_name << "' version "
-                                     << version;
+                            FLARE_VLOG(2) << "OnDestroy callback() '" << model_name
+                                          << "' version " << version;
+                            FLARE_LOG(INFO) << "successfully unloaded '" << model_name << "' version "
+                                            << version;
                             // Use recursive mutex as this deleter is likely to to be called
                             // within ModelLifeCycle class where the same mutex is being hold.
                             // However, mutex acquisition is needed here for the case where
@@ -1309,11 +1309,11 @@ namespace hercules::core {
                         }));
                 model_info->state_ = ModelReadyState::READY;
                 model_info->state_reason_.clear();
-                LOG_INFO << "successfully loaded '" << model_name << "' version "
-                         << version;
+                FLARE_LOG(INFO) << "successfully loaded '" << model_name << "' version "
+                                << version;
             } else {
-                LOG_ERROR << "failed to load '" << model_name << "' version " << version
-                          << ": " << status.AsString();
+                FLARE_LOG(ERROR) << "failed to load '" << model_name << "' version " << version
+                                 << ": " << status.AsString();
                 model_info->state_ = ModelReadyState::UNAVAILABLE;
                 model_info->state_reason_ = status.AsString();
             }
@@ -1512,7 +1512,7 @@ namespace hercules::core {
             // Unload invalid models first
             for (auto &invalid_model : set_pair.second) {
                 model_life_cycle_->AsyncUnload(invalid_model->model_name_);
-                LOG_ERROR << invalid_model->status_.AsString();
+                FLARE_LOG(ERROR) << invalid_model->status_.AsString();
                 invalid_model->loaded_versions_ = std::set<int64_t>();
                 loaded_models.emplace(invalid_model);
             }
@@ -1532,8 +1532,8 @@ namespace hercules::core {
                 if (!status.IsOk()) {
                     model_state->status_ = status;
                     model_state->ready_.set_value();
-                    LOG_ERROR << "failed to load model '" << valid_model->model_name_
-                              << "': " << status.Message();
+                    FLARE_LOG(ERROR) << "failed to load model '" << valid_model->model_name_
+                                     << "': " << status.Message();
                 }
                 loaded_models.emplace(valid_model);
             }
@@ -1882,8 +1882,8 @@ namespace hercules::core {
                 std::set<std::string> subdirs;
                 Status status = GetDirectorySubdirs(repository_path, &subdirs);
                 if (!status.IsOk()) {
-                    LOG_ERROR << "failed to poll model repository '" << repository_path
-                              << "': " << status.Message();
+                    FLARE_LOG(ERROR) << "failed to poll model repository '" << repository_path
+                                     << "': " << status.Message();
                     *all_models_polled = false;
                 } else {
                     for (const auto &subdir : subdirs) {
@@ -1900,8 +1900,8 @@ namespace hercules::core {
             for (const auto &model : duplicated_models) {
                 model_to_path.erase(model);
                 deleted->insert(model);
-                LOG_ERROR << "failed to poll model '" << model
-                          << "': not unique across all model repositories";
+                FLARE_LOG(ERROR) << "failed to poll model '" << model
+                                 << "': not unique across all model repositories";
             }
         } else {
             for (const auto &model : models) {
@@ -1918,17 +1918,17 @@ namespace hercules::core {
                     auto full_path = model_it->second.second;
                     Status status = FileExists(full_path, &exists_in_this_repo);
                     if (!status.IsOk()) {
-                        LOG_ERROR << "failed to poll mapped path '" << full_path
-                                  << "' for model '" << model.first
-                                  << "': " << status.Message();
+                        FLARE_LOG(ERROR) << "failed to poll mapped path '" << full_path
+                                         << "' for model '" << model.first
+                                         << "': " << status.Message();
                         *all_models_polled = false;
                     }
                     if (exists_in_this_repo) {
                         model_to_path.emplace(model.first, model_it->second.second);
                         exists = true;
                     } else {
-                        LOG_ERROR << "mapped path '" << full_path
-                                  << "' does not exist for model '" << model.first << "'";
+                        FLARE_LOG(ERROR) << "mapped path '" << full_path
+                                         << "' does not exist for model '" << model.first << "'";
                         exists = false;
                         *all_models_polled = false;
                     }
@@ -1938,9 +1938,9 @@ namespace hercules::core {
                         const auto full_path = JoinPath({repository_path, model.first});
                         Status status = FileExists(full_path, &exists_in_this_repo);
                         if (!status.IsOk()) {
-                            LOG_ERROR << "failed to poll model repository '" << repository_path
-                                      << "' for model '" << model.first
-                                      << "': " << status.Message();
+                            FLARE_LOG(ERROR) << "failed to poll model repository '" << repository_path
+                                             << "' for model '" << model.first
+                                             << "': " << status.Message();
                             *all_models_polled = false;
                         } else if (exists_in_this_repo) {
                             // Check to make sure this directory is not mapped.
@@ -1963,8 +1963,8 @@ namespace hercules::core {
                             } else {
                                 exists = false;
                                 model_to_path.erase(res.first);
-                                LOG_ERROR << "failed to poll model '" << model.first
-                                          << "': not unique across all model repositories";
+                                FLARE_LOG(ERROR) << "failed to poll model '" << model.first
+                                                 << "': not unique across all model repositories";
                                 *all_models_polled = false;
                                 break;
                             }
@@ -2012,8 +2012,8 @@ namespace hercules::core {
             }
 
             if (!status.IsOk()) {
-                LOG_ERROR << "Poll failed for model directory '" << pair.first
-                          << "': " << status.Message();
+                FLARE_LOG(ERROR) << "Poll failed for model directory '" << pair.first
+                                 << "': " << status.Message();
                 *all_models_polled = false;
             }
         }
@@ -2376,7 +2376,7 @@ namespace hercules::core {
             }
         }
 
-        LOG_INFO << "Model repository registered: " << repository;
+        FLARE_LOG(INFO) << "Model repository registered: " << repository;
         return Status::Success;
     }
 
@@ -2407,7 +2407,7 @@ namespace hercules::core {
             }
         }
 
-        LOG_INFO << "Model repository unregistered: " << repository;
+        FLARE_LOG(INFO) << "Model repository unregistered: " << repository;
         return Status::Success;
     }
 

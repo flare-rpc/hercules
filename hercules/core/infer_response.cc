@@ -120,7 +120,7 @@ InferenceResponse::AddOutput(
 {
   outputs_.emplace_back(name, datatype, shape, allocator_, alloc_userp_);
 
-  LOG_VERBOSE(1) << "add response output: " << outputs_.back();
+  FLARE_LOG(DEBUG) << "add response output: " << outputs_.back();
 
   if (model_ != nullptr) {
     const hercules::proto::ModelOutput* output_config;
@@ -146,7 +146,7 @@ InferenceResponse::AddOutput(
   outputs_.emplace_back(
       name, datatype, std::move(shape), allocator_, alloc_userp_);
 
-  LOG_VERBOSE(1) << "add response output: " << outputs_.back();
+  FLARE_LOG(DEBUG) << "add response output: " << outputs_.back();
 
   if (model_ != nullptr) {
     const hercules::proto::ModelOutput* output_config;
@@ -264,7 +264,7 @@ InferenceResponse::Output::~Output()
 {
   Status status = ReleaseDataBuffer();
   if (!status.IsOk()) {
-    LOG_ERROR << "failed to release buffer for output '" << name_
+    FLARE_LOG(ERROR) << "failed to release buffer for output '" << name_
               << "': " << status.AsString();
   }
 }

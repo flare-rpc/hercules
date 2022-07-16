@@ -168,7 +168,7 @@ TRITONREPOAGENT_ModelRepositoryLocation(
     TRITONREPOAGENT_Agent* agent, TRITONREPOAGENT_AgentModel* model,
     TRITONREPOAGENT_ArtifactType* artifact_type, const char** location);
 
-/// Acquire a location where the agent can produce a new version of
+/// acquire a location where the agent can produce a new version of
 /// the model repository files. This is a convenience method to create
 /// a temporary directory for the agent. The agent is responsible for
 /// calling TRITONREPOAGENT_ModelRepositoryLocationDelete in

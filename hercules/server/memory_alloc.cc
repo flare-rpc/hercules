@@ -17,7 +17,7 @@
 #include <thread>
 #include <vector>
 #include "common.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 static_assert(
     TRITON_MIN_COMPUTE_CAPABILITY >= 1.0,

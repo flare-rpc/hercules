@@ -14,7 +14,7 @@
 #include "common.h"
 #include "dirent.h"
 #include "http_server.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

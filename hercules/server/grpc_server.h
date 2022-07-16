@@ -11,7 +11,7 @@
 #include "grpc_service.grpc.pb.h"
 #include "shared_memory_manager.h"
 #include "tracer.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

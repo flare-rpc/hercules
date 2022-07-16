@@ -35,7 +35,7 @@ SequenceBatchScheduler::Create(
   sched->backlog_delay_cnt_ = 0;
   if (dstr != nullptr) {
     sched->backlog_delay_cnt_ = atoi(dstr);
-    LOG_INFO << "Delaying scheduler until " << sched->backlog_delay_cnt_
+    FLARE_LOG(INFO) << "Delaying scheduler until " << sched->backlog_delay_cnt_
              << " backlog queued requests...";
   }
 
@@ -594,7 +594,7 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<inference_request>& irequest)
   // handled and then the new sequence will start.
   if (seq_start && ((sb_itr != sequence_to_batcherseqslot_map_.end()) ||
                     (bl_itr != sequence_to_backlog_map_.end()))) {
-    LOG_WARNING
+    FLARE_LOG(WARNING)
         << "sequence " << correlation_id << " for model '"
         << irequest->ModelName()
         << "' has a conflict. The previous sequence did not end before this "
@@ -607,7 +607,7 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<inference_request>& irequest)
   }
   // This request already has a queue in the backlog...
   else if (bl_itr != sequence_to_backlog_map_.end()) {
-    LOG_VERBOSE(1) << "Enqueuing CORRID " << correlation_id
+    FLARE_LOG(DEBUG) << "Enqueuing CORRID " << correlation_id
                    << " into existing backlog: " << irequest->ModelName();
 
     bl_itr->second->emplace_back(std::move(irequest));
@@ -631,7 +631,7 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<inference_request>& irequest)
   }
   // Last option is to assign this request to the backlog...
   else {
-    LOG_VERBOSE(1) << "Enqueuing CORRID " << correlation_id
+    FLARE_LOG(DEBUG) << "Enqueuing CORRID " << correlation_id
                    << " into new backlog: " << irequest->ModelName();
 
     auto backlog =
@@ -660,7 +660,7 @@ SequenceBatchScheduler::Enqueue(std::unique_ptr<inference_request>& irequest)
   // lock while enqueuing in a specific batcher.
   lock.unlock();
 
-  LOG_VERBOSE(1) << "Enqueuing CORRID " << correlation_id << " into batcher "
+  FLARE_LOG(DEBUG) << "Enqueuing CORRID " << correlation_id << " into batcher "
                  << batcher_idx << ", sequence slot " << seq_slot << ": "
                  << irequest->ModelName();
 
@@ -700,7 +700,7 @@ SequenceBatchScheduler::ReleaseSequenceSlot(
         // that same correlation ID that have an assigned slot.
         if (sequence_to_batcherseqslot_map_.find(correlation_id) !=
             sequence_to_batcherseqslot_map_.end()) {
-          LOG_ERROR << irequest->LogRequest() << "internal: backlog sequence "
+          FLARE_LOG(ERROR) << irequest->LogRequest() << "internal: backlog sequence "
                     << correlation_id
                     << " conflicts with in-flight sequence for model '"
                     << irequest->ModelName() << "'";
@@ -710,7 +710,7 @@ SequenceBatchScheduler::ReleaseSequenceSlot(
         sequence_to_batcherseqslot_map_[correlation_id] = batcher_seq_slot;
       }
 
-      LOG_VERBOSE(1) << irequest->LogRequest() << "CORRID " << correlation_id
+      FLARE_LOG(DEBUG) << irequest->LogRequest() << "CORRID " << correlation_id
                      << " reusing batcher " << batcher_seq_slot.batcher_idx_
                      << ", slot " << batcher_seq_slot.seq_slot_ << ": "
                      << irequest->ModelName();
@@ -719,7 +719,7 @@ SequenceBatchScheduler::ReleaseSequenceSlot(
   }
 
   // There is no backlogged sequence so just release the batch slot
-  LOG_VERBOSE(1) << "Freeing slot in batcher " << batcher_seq_slot.batcher_idx_
+  FLARE_LOG(DEBUG) << "Freeing slot in batcher " << batcher_seq_slot.batcher_idx_
                  << ", slot " << batcher_seq_slot.seq_slot_;
 
   ready_batcher_seq_slots_.push(batcher_seq_slot);
@@ -761,15 +761,15 @@ SequenceBatchScheduler::ReaperThread(const int nice)
 {
 #ifndef _WIN32
   if (setpriority(PRIO_PROCESS, syscall(SYS_gettid), nice) == 0) {
-    LOG_VERBOSE(1) << "Starting sequence-batch reaper thread at nice " << nice
+    FLARE_LOG(DEBUG) << "Starting sequence-batch reaper thread at nice " << nice
                    << "...";
   } else {
-    LOG_VERBOSE(1) << "Starting sequence-batch reaper thread at default nice "
+    FLARE_LOG(DEBUG) << "Starting sequence-batch reaper thread at default nice "
                       "(requested nice "
                    << nice << " failed)...";
   }
 #else
-  LOG_VERBOSE(1) << "Starting sequence-batch reaper thread at default nice...";
+  FLARE_LOG(DEBUG) << "Starting sequence-batch reaper thread at default nice...";
 #endif
 
   const uint64_t backlog_idle_wait_microseconds = 50 * 1000;
@@ -799,7 +799,7 @@ SequenceBatchScheduler::ReaperThread(const int nice)
 
         const inference_request::SequenceId& idle_correlation_id =
             cid_itr->first;
-        LOG_VERBOSE(1) << "Reaper: CORRID " << idle_correlation_id
+        FLARE_LOG(DEBUG) << "Reaper: CORRID " << idle_correlation_id
                        << ": max sequence idle exceeded";
 
         auto idle_sb_itr =
@@ -820,13 +820,13 @@ SequenceBatchScheduler::ReaperThread(const int nice)
           // the future to check if it is assigned to a sequence slot.
           auto idle_bl_itr = sequence_to_backlog_map_.find(idle_correlation_id);
           if (idle_bl_itr != sequence_to_backlog_map_.end()) {
-            LOG_VERBOSE(1) << "Reaper: found idle CORRID "
+            FLARE_LOG(DEBUG) << "Reaper: found idle CORRID "
                            << idle_correlation_id;
             wait_microseconds =
                 std::min(wait_microseconds, backlog_idle_wait_microseconds);
             ++cid_itr;
           } else {
-            LOG_VERBOSE(1) << "Reaper: ignoring stale idle CORRID "
+            FLARE_LOG(DEBUG) << "Reaper: ignoring stale idle CORRID "
                            << idle_correlation_id;
             cid_itr = correlation_id_timestamps_.erase(cid_itr);
           }
@@ -840,7 +840,7 @@ SequenceBatchScheduler::ReaperThread(const int nice)
       const size_t batcher_idx = pr.second.batcher_idx_;
       const uint32_t seq_slot = pr.second.seq_slot_;
 
-      LOG_VERBOSE(1) << "Reaper: force-ending CORRID " << idle_correlation_id
+      FLARE_LOG(DEBUG) << "Reaper: force-ending CORRID " << idle_correlation_id
                      << " in batcher " << batcher_idx << ", slot " << seq_slot;
 
       // A slot assignment is released by enqueuing a request with a
@@ -855,13 +855,13 @@ SequenceBatchScheduler::ReaperThread(const int nice)
     // Wait until the next idle timeout needs to be checked
     if (wait_microseconds > 0) {
       std::unique_lock<std::mutex> lock(mu_);
-      LOG_VERBOSE(2) << "Reaper: sleeping for " << wait_microseconds << "us...";
+      FLARE_VLOG(2) << "Reaper: sleeping for " << wait_microseconds << "us...";
       std::chrono::microseconds wait_timeout(wait_microseconds);
       reaper_cv_.wait_for(lock, wait_timeout);
     }
   }
 
-  LOG_VERBOSE(1) << "Stopping sequence-batch reaper thread...";
+  FLARE_LOG(DEBUG) << "Stopping sequence-batch reaper thread...";
 }
 
 SequenceBatch::SequenceBatch(
@@ -905,7 +905,7 @@ SequenceBatch::CreateCorrelationIDControl(const hercules::proto::ModelConfig& co
       false /* required */, &correlation_id_tensor_name,
       &correlation_id_datatype);
   if (!corrid_status.IsOk()) {
-    LOG_ERROR << "failed validating CORRID control for sequence-batch "
+    FLARE_LOG(ERROR) << "failed validating CORRID control for sequence-batch "
                  "scheduler thread "
               << batcher_idx_ << ": " << corrid_status.Message();
     return false;
@@ -917,7 +917,7 @@ SequenceBatch::CreateCorrelationIDControl(const hercules::proto::ModelConfig& co
         (correlation_id_datatype != hercules::proto::DataType::TYPE_UINT32) &&
         (correlation_id_datatype != hercules::proto::DataType::TYPE_INT32) &&
         (correlation_id_datatype != hercules::proto::DataType::TYPE_STRING)) {
-      LOG_ERROR << "unexpected control data type, expected TYPE_UINT64, "
+      FLARE_LOG(ERROR) << "unexpected control data type, expected TYPE_UINT64, "
                    "TYPE_INT64, TYPE_UINT32, TYPE_INT32, or TYPE_STRING for "
                 << hercules::proto::ModelSequenceBatching_Control_Kind_Name(
                        hercules::proto::ModelSequenceBatching::Control::
@@ -992,7 +992,7 @@ SequenceBatch::SetControlTensors(
         ((memory_type != TRITONSERVER_MEMORY_CPU) &&
          (memory_type != TRITONSERVER_MEMORY_CPU_PINNED)) ||
         (memory_type_id != 0)) {
-      LOG_ERROR << "failed to allocate sequence CORRID control signal in CPU "
+      FLARE_LOG(ERROR) << "failed to allocate sequence CORRID control signal in CPU "
                    "memory";
       return;
     }
@@ -1003,7 +1003,7 @@ SequenceBatch::SetControlTensors(
     *override->MutableShapeWithBatchDim() = seq_corr_id->ShapeWithBatchDim();
     Status corrid_status = override->SetData(corrid_p);
     if (!corrid_status.IsOk()) {
-      LOG_ERROR << "failed creating CORRID control for sequence-batch "
+      FLARE_LOG(ERROR) << "failed creating CORRID control for sequence-batch "
                    "scheduler thread "
                 << batcher_idx_ << " for " << seq_corr_id->Name();
       return;
@@ -1162,15 +1162,15 @@ DirectSequenceBatch::BatcherThread(const int nice)
 {
 #ifndef _WIN32
   if (setpriority(PRIO_PROCESS, syscall(SYS_gettid), nice) == 0) {
-    LOG_VERBOSE(1) << "Starting Direct sequence-batch scheduler thread "
+    FLARE_LOG(DEBUG) << "Starting Direct sequence-batch scheduler thread "
                    << batcher_idx_ << " at nice " << nice << "...";
   } else {
-    LOG_VERBOSE(1) << "Starting Direct sequence-batch scheduler thread "
+    FLARE_LOG(DEBUG) << "Starting Direct sequence-batch scheduler thread "
                    << batcher_idx_ << " at default nice (requested nice "
                    << nice << " failed)...";
   }
 #else
-  LOG_VERBOSE(1) << "Starting Direct sequence-batch scheduler thread "
+  FLARE_LOG(DEBUG) << "Starting Direct sequence-batch scheduler thread "
                  << batcher_idx_ << " at default nice...";
 #endif
 
@@ -1181,7 +1181,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
   size_t delay_cnt = 0;
   if (dstr != nullptr) {
     delay_cnt = atoi(dstr);
-    LOG_VERBOSE(1) << "Delaying scheduler thread " << batcher_idx_ << " until "
+    FLARE_LOG(DEBUG) << "Delaying scheduler thread " << batcher_idx_ << " until "
                    << delay_cnt << " queued requests...";
   }
 
@@ -1219,7 +1219,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
         if (!base_->DelayScheduler(batcher_idx_, total_size, delay_cnt)) {
           delay_cnt = 0;
         }
-        LOG_VERBOSE(1) << "Delaying scheduler thread " << batcher_idx_
+        FLARE_LOG(DEBUG) << "Delaying scheduler thread " << batcher_idx_
                        << " until " << delay_cnt
                        << " queued requests, current total = " << total_size;
       } else {
@@ -1284,7 +1284,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
                   queue.front(), enforce_equal_shape_tensors_,
                   has_optional_input_, &required_equal_inputs);
               if (!status.IsOk()) {
-                LOG_ERROR
+                FLARE_LOG(ERROR)
                     << "internal: unexpecting failure initializing shape: "
                     << status.Message();
                 required_equal_inputs.clear();
@@ -1318,7 +1318,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
                 (((float)ready_cnt) / max_batch_size_ >=
                  minimum_slot_utilization_)) {
               wait_microseconds = 0;
-              LOG_VERBOSE(1)
+              FLARE_LOG(DEBUG)
                   << "start sequence batch execution. "
                   << "current batch delay: " << current_batch_delay_ns
                   << "; maximum delay allowed: " << pending_batch_delay_ns_
@@ -1330,7 +1330,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
               // reset 'max_seq_slot' so that not request is pulled from the
               // queues
               max_seq_slot = -1;
-              LOG_VERBOSE(1)
+              FLARE_LOG(DEBUG)
                   << "defer sequence batch execution. "
                   << "current batch delay: " << current_batch_delay_ns
                   << "; maximum delay allowed: " << pending_batch_delay_ns_
@@ -1420,7 +1420,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
           // there is no backlog show that the slot is no longer
           // active.
           if (end_of_sequence) {
-            LOG_VERBOSE(1) << "End sequence CORRID "
+            FLARE_LOG(DEBUG) << "End sequence CORRID "
                            << seq_slot_correlation_ids_[seq_slot]
                            << " in batcher " << batcher_idx_ << ", slot "
                            << seq_slot;
@@ -1430,7 +1430,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
             // that request if/when we swap in a backlog sequence
             // in ReleaseSequenceSlot below.
             if (!queue.empty()) {
-              LOG_ERROR << "internal: unexpected requests after sequence "
+              FLARE_LOG(ERROR) << "internal: unexpected requests after sequence "
                            "end in slot "
                         << seq_slot;
             }
@@ -1479,7 +1479,7 @@ DirectSequenceBatch::BatcherThread(const int nice)
     }
   }  // end runner loop
 
-  LOG_VERBOSE(1) << "Stopping Direct sequence-batch scheduler thread "
+  FLARE_LOG(DEBUG) << "Stopping Direct sequence-batch scheduler thread "
                  << batcher_idx_ << "...";
 }
 
@@ -1525,7 +1525,7 @@ OldestSequenceBatch::OldestSequenceBatch(
 
   // TODO: Provide appropriate request_cache_enable flag when caching
   // is enabled for sequence models.
-  Status status = DynamicBatchScheduler::Create(
+  Status status = dynamic_batch_scheduler::Create(
       model_instance->Model(), model_instance,
       hercules::common::GetCpuNiceLevel(config),
       true /* dynamic_batching_enabled */, config.max_batch_size(),
@@ -1534,7 +1534,7 @@ OldestSequenceBatch::OldestSequenceBatch(
       config.sequence_batching().oldest().max_queue_delay_microseconds(),
       &dynamic_batcher_);
   if (!status.IsOk()) {
-    LOG_ERROR << "failed creating dynamic sequence batcher for OldestFirst "
+    FLARE_LOG(ERROR) << "failed creating dynamic sequence batcher for OldestFirst "
               << batcher_idx_ << ": " << status.Message();
     *is_initialized = false;
     return;
@@ -1575,7 +1575,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
       // the sequence slot should be released but otherwise do
       // nothing.
       if (irequest == nullptr) {
-        LOG_VERBOSE(1) << irequest->LogRequest()
+        FLARE_LOG(DEBUG) << irequest->LogRequest()
                        << "force-end sequence in batcher " << batcher_idx_
                        << ", slot " << seq_slot;
         release_seq_slot = true;
@@ -1587,7 +1587,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
         // release the sequence slot to make it available to another
         // sequence.
         if ((irequest->Flags() & TRITONSERVER_REQUEST_FLAG_SEQUENCE_END) != 0) {
-          LOG_VERBOSE(1) << irequest->LogRequest() << "end sequence CORRID "
+          FLARE_LOG(DEBUG) << irequest->LogRequest() << "end sequence CORRID "
                          << correlation_id << " in batcher " << batcher_idx_
                          << ", slot " << seq_slot;
           release_seq_slot = true;
@@ -1599,7 +1599,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
         // Update the implicit state and set the input state tensors.
         UpdateImplicitState(irequest, seq_slot);
 
-        LOG_VERBOSE(1) << irequest->LogRequest()
+        FLARE_LOG(DEBUG) << irequest->LogRequest()
                        << "issue to dynamic batcher CORRID " << correlation_id
                        << " in batcher " << batcher_idx_ << ", slot "
                        << seq_slot;
@@ -1622,7 +1622,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
       // happens that means we will clobber that request if/when we swap
       // in a backlog sequence in ReleaseSequenceSlot below.
       if (!queue.empty()) {
-        LOG_ERROR << "internal: unexpected requests after sequence end in slot "
+        FLARE_LOG(ERROR) << "internal: unexpected requests after sequence end in slot "
                   << seq_slot;
       }
 
@@ -1632,7 +1632,7 @@ OldestSequenceBatch::CompleteAndNext(const uint32_t seq_slot)
           base_->ReleaseSequenceSlot(batcher_seq_slot, &queue);
 
       if (released_cid.InSequence()) {
-        LOG_VERBOSE(1) << "Enqueued new sequence containing " << queue.size()
+        FLARE_LOG(DEBUG) << "Enqueued new sequence containing " << queue.size()
                        << " requests into OldestFirst batcher " << batcher_idx_
                        << ", slot " << seq_slot;
 

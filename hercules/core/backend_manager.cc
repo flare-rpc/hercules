@@ -36,11 +36,11 @@ namespace hercules::core {
             const hercules::common::BackendCmdlineConfig &backend_cmdline_config,
             std::shared_ptr<hercules_backend> *backend) {
         // Create the JSON representation of the backend configuration.
-        hercules::common::TritonJson::Value backend_config_json(
-                hercules::common::TritonJson::ValueType::OBJECT);
+        hercules::common::json_parser::Value backend_config_json(
+                hercules::common::json_parser::ValueType::OBJECT);
         if (!backend_cmdline_config.empty()) {
-            hercules::common::TritonJson::Value cmdline_json(
-                    backend_config_json, hercules::common::TritonJson::ValueType::OBJECT);
+            hercules::common::json_parser::Value cmdline_json(
+                    backend_config_json, hercules::common::json_parser::ValueType::OBJECT);
             for (const auto &pr : backend_cmdline_config) {
                 RETURN_IF_ERROR(cmdline_json.AddString(pr.first.c_str(), pr.second));
             }
@@ -62,14 +62,14 @@ namespace hercules::core {
         // library path to point to the backend directory in case the
         // backend library attempts to load additional shared libaries.
         if (local_backend->backend_init_fn_ != nullptr) {
-            std::unique_ptr<SharedLibrary> slib;
-            RETURN_IF_ERROR(SharedLibrary::Acquire(&slib));
-            RETURN_IF_ERROR(slib->SetLibraryDirectory(local_backend->dir_));
+            std::unique_ptr<shared_library> slib;
+            RETURN_IF_ERROR(shared_library::acquire(&slib));
+            RETURN_IF_ERROR(slib->set_library_directory(local_backend->dir_));
 
             TRITONSERVER_Error *err = local_backend->backend_init_fn_(
                     reinterpret_cast<TRITONBACKEND_Backend *>(local_backend.get()));
 
-            RETURN_IF_ERROR(slib->ResetLibraryDirectory());
+            RETURN_IF_ERROR(slib->reset_library_directory());
             RETURN_IF_TRITONSERVER_ERROR(err);
         }
 
@@ -87,7 +87,7 @@ namespace hercules::core {
     }
 
     hercules_backend::~hercules_backend() {
-        LOG_VERBOSE(1) << "unloading backend '" << name_ << "'";
+        FLARE_LOG(DEBUG) << "unloading backend '" << name_ << "'";
 
         // Backend finalization is optional... The TRITONBACKEND_Backend
         // object is this hercules_backend object.
@@ -123,37 +123,37 @@ namespace hercules::core {
         hercules_model_instance_exec_func iefn;
 
         {
-            std::unique_ptr<SharedLibrary> slib;
-            RETURN_IF_ERROR(SharedLibrary::Acquire(&slib));
+            std::unique_ptr<shared_library> slib;
+            RETURN_IF_ERROR(shared_library::acquire(&slib));
 
-            RETURN_IF_ERROR(slib->OpenLibraryHandle(libpath_, &dlhandle_));
+            RETURN_IF_ERROR(slib->open_library_handle(libpath_, &dlhandle_));
 
             // Backend initialize and finalize functions, optional
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_Initialize", true /* optional */,
                     reinterpret_cast<void **>(&bifn)));
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_Finalize", true /* optional */,
                     reinterpret_cast<void **>(&bffn)));
 
             // Model initialize and finalize functions, optional
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_ModelInitialize", true /* optional */,
                     reinterpret_cast<void **>(&mifn)));
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_ModelFinalize", true /* optional */,
                     reinterpret_cast<void **>(&mffn)));
 
             // Model instance initialize and finalize functions, optional
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_ModelInstanceInitialize", true /* optional */,
                     reinterpret_cast<void **>(&iifn)));
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_ModelInstanceFinalize", true /* optional */,
                     reinterpret_cast<void **>(&iffn)));
 
             // Model instance execute function, required
-            RETURN_IF_ERROR(slib->GetEntrypoint(
+            RETURN_IF_ERROR(slib->get_entrypoint(
                     dlhandle_, "TRITONBACKEND_ModelInstanceExecute", false /* optional */,
                     reinterpret_cast<void **>(&iefn)));
         }

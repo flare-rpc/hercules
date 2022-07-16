@@ -85,7 +85,7 @@ VertexAiAPIServer::GetInferenceHeaderLength(
 void
 VertexAiAPIServer::Handle(evhtp_request_t* req)
 {
-  LOG_VERBOSE(1) << "Vertex AI request: " << req->method << " "
+  FLARE_LOG(DEBUG) << "Vertex AI request: " << req->method << " "
                  << req->uri->path->full;
 
   if (RE2::FullMatch(std::string(req->uri->path->full), health_regex_)) {
@@ -107,7 +107,7 @@ VertexAiAPIServer::Handle(evhtp_request_t* req)
       // Triton endpoints
       std::string redirect_endpoint("/");
       redirect_endpoint += redirect_c_str;
-      LOG_VERBOSE(1) << "Redirecting Vertex AI request: " << redirect_endpoint;
+      FLARE_LOG(DEBUG) << "Redirecting Vertex AI request: " << redirect_endpoint;
 
       // The endpoint handlers in base class expects specific HTTP methods
       // while the Vertex AI endpoint only accepts "POST", so the method will
@@ -204,7 +204,7 @@ VertexAiAPIServer::Handle(evhtp_request_t* req)
     }
   }
 
-  LOG_VERBOSE(1) << "Vertex AI error: " << req->method << " "
+  FLARE_LOG(DEBUG) << "Vertex AI error: " << req->method << " "
                  << req->uri->path->full << " - "
                  << static_cast<int>(EVHTP_RES_BADREQ);
 
@@ -279,7 +279,7 @@ VertexAiAPIServer::Create(
     RETURN_IF_ERR(TRITONSERVER_MessageSerializeToJson(
         model_index_message, &buffer, &byte_size));
 
-    hercules::common::TritonJson::Value model_index_json;
+    hercules::common::json_parser::Value model_index_json;
     RETURN_IF_ERR(model_index_json.Parse(buffer, byte_size));
 
     if (default_model_name.empty()) {
@@ -290,7 +290,7 @@ VertexAiAPIServer::Create(
             "default model is not specified");
       }
 
-      hercules::common::TritonJson::Value index_json;
+      hercules::common::json_parser::Value index_json;
       RETURN_IF_ERR(model_index_json.IndexAsObject(0, &index_json));
       const char* name;
       size_t namelen;
@@ -301,7 +301,7 @@ VertexAiAPIServer::Create(
     else {
       bool found = false;
       for (size_t idx = 0; idx < model_index_json.ArraySize(); ++idx) {
-        hercules::common::TritonJson::Value index_json;
+        hercules::common::json_parser::Value index_json;
         RETURN_IF_ERR(model_index_json.IndexAsObject(idx, &index_json));
 
         const char* name;
@@ -327,7 +327,7 @@ VertexAiAPIServer::Create(
       predict_route, health_route, default_model_name));
 
   const std::string addr = address + ":" + std::to_string(port);
-  LOG_INFO << "Started Vertex AI HTTPService at " << addr;
+  FLARE_LOG(INFO) << "Started Vertex AI HTTPService at " << addr;
 
   return nullptr;
 }

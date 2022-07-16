@@ -87,7 +87,7 @@ RequestResponseCache::RequestResponseCache(const uint64_t size)
   managed_buffer_ = boost::interprocess::managed_external_buffer(
       boost::interprocess::create_only_t{}, buffer_, size);
 
-  LOG_INFO << "Response Cache is created at '" << PointerToString(buffer_)
+  FLARE_LOG(INFO) << "Response Cache is created at '" << PointerToString(buffer_)
            << "' with size " << size;
 }
 
@@ -106,7 +106,7 @@ RequestResponseCache::~RequestResponseCache()
   // Validate we freed all underlying memory managed by cache
   if (!managed_buffer_.all_memory_deallocated()) {
     // Destructors can't throw exceptions
-    LOG_ERROR << "failed to free managed cache memory";
+    FLARE_LOG(ERROR) << "failed to free managed cache memory";
   }
 
   // Free total cache buffer
@@ -138,14 +138,14 @@ RequestResponseCache::Lookup(
   const uint64_t key = request->CacheKey();
 
   num_lookups_++;
-  LOG_VERBOSE(1) << request->LogRequest()
+  FLARE_LOG(DEBUG) << request->LogRequest()
                  << "Looking up key [" + std::to_string(key) + "] in cache.";
 
   // Search cache for request hash key
   auto iter = cache_.find(key);
   if (iter == cache_.end()) {
     num_misses_++;
-    LOG_VERBOSE(1) << request->LogRequest()
+    FLARE_LOG(DEBUG) << request->LogRequest()
                    << "MISS for key [" + std::to_string(key) + "] in cache.";
     return Status(
         Status::Code::INTERNAL,
@@ -154,7 +154,7 @@ RequestResponseCache::Lookup(
 
   // If find succeeds, it's a cache hit
   num_hits_++;
-  LOG_VERBOSE(1) << request->LogRequest()
+  FLARE_LOG(DEBUG) << request->LogRequest()
                  << "HIT for key [" + std::to_string(key) + "] in cache.";
 
   // Populate passed-in "response" from cache entry
@@ -164,7 +164,7 @@ RequestResponseCache::Lookup(
 
   // Update this key to front of LRU list
   UpdateLRU(iter);
-  LOG_VERBOSE(1) << request->LogRequest()
+  FLARE_LOG(DEBUG) << request->LogRequest()
                  << "Using cached response for key [" + std::to_string(key) +
                         "].";
   return Status::Success;
@@ -206,12 +206,12 @@ RequestResponseCache::Insert(
   RETURN_IF_ERROR(BuildCacheEntry(response, &entry));
 
   // Insert entry into cache
-  LOG_VERBOSE(1) << request->LogRequest()
+  FLARE_LOG(DEBUG) << request->LogRequest()
                  << "Inserting key [" + std::to_string(key) + "] into cache.";
   auto cache_pair = cache_.insert({key, entry});
   // Exit early if cache insertion failed
   if (!cache_pair.second) {
-    LOG_ERROR << request->LogRequest() << "Failed to insert key into map.";
+    FLARE_LOG(ERROR) << request->LogRequest() << "Failed to insert key into map.";
     return Status(
         Status::Code::INTERNAL,
         request->LogRequest() + "Cache insertion failed");
@@ -237,7 +237,7 @@ RequestResponseCache::Evict()
 
   // Least recently used key in back of LRU list
   uint64_t lru_key = lru_.back();
-  LOG_VERBOSE(1) << "Evicting key [" + std::to_string(lru_key) +
+  FLARE_LOG(DEBUG) << "Evicting key [" + std::to_string(lru_key) +
                         "] from cache.";
 
   // Find cache entry for least recently used key
@@ -338,7 +338,7 @@ RequestResponseCache::BuildCacheEntry(
       // NOTE: FreeBytes() doesn't account for allocator overhead so allocation
       //       may fail even if response_byte_size is less than FreeBytes()
       while (response_byte_size > FreeBytes()) {
-        LOG_VERBOSE(1) << "EVICT: Response larger than remaining available "
+        FLARE_LOG(DEBUG) << "EVICT: Response larger than remaining available "
                           "memory, attempting to evict from cache.";
         RETURN_IF_ERROR(Evict());
       }
@@ -350,7 +350,7 @@ RequestResponseCache::BuildCacheEntry(
             managed_buffer_.allocate(response_byte_size, std::nothrow_t{});
         // Attempt to evict if allocation fails
         if (cache_output.buffer_ == nullptr) {
-          LOG_VERBOSE(1) << "FAILED to allocate buffer in cache. Attempting to "
+          FLARE_LOG(DEBUG) << "FAILED to allocate buffer in cache. Attempting to "
                             "evict an entry.";
           // Exit out if Eviction fails
           RETURN_IF_ERROR(Evict());

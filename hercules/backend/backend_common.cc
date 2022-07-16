@@ -100,10 +100,10 @@ CommonErrorToTritonError(hercules::common::Error error)
 
 TRITONSERVER_Error*
 ParseShape(
-    common::TritonJson::Value& io, const std::string& name,
+    common::json_parser::Value& io, const std::string& name,
     std::vector<int64_t>* shape)
 {
-  common::TritonJson::Value shape_array;
+  common::json_parser::Value shape_array;
   RETURN_IF_ERROR(io.MemberAsArray(name.c_str(), &shape_array));
   for (size_t i = 0; i < shape_array.ArraySize(); ++i) {
     int64_t d = 0;
@@ -244,7 +244,7 @@ ReadInputTensor(
 
 TRITONSERVER_Error*
 CheckAllowedModelInput(
-    common::TritonJson::Value& io, const std::set<std::string>& allowed)
+    common::json_parser::Value& io, const std::set<std::string>& allowed)
 {
   std::string io_name;
   RETURN_IF_ERROR(io.MemberAsString("name", &io_name));
@@ -269,7 +269,7 @@ CheckAllowedModelInput(
 
 TRITONSERVER_Error*
 CheckAllowedModelOutput(
-    common::TritonJson::Value& io, const std::set<std::string>& allowed)
+    common::json_parser::Value& io, const std::set<std::string>& allowed)
 {
   std::string io_name;
   RETURN_IF_ERROR(io.MemberAsString("name", &io_name));
@@ -295,7 +295,7 @@ CheckAllowedModelOutput(
 
 TRITONSERVER_Error*
 GetBooleanSequenceControlProperties(
-    common::TritonJson::Value& batcher, const std::string& model_name,
+    common::json_parser::Value& batcher, const std::string& model_name,
     const std::string& control_kind, const bool required,
     std::string* tensor_name, std::string* tensor_datatype,
     float* fp32_false_value, float* fp32_true_value, int32_t* int32_false_value,
@@ -307,10 +307,10 @@ GetBooleanSequenceControlProperties(
   // Make sure the control kind is not mentioned multiple times.
   bool seen_control = false;
 
-  common::TritonJson::Value control_inputs;
+  common::json_parser::Value control_inputs;
   if (batcher.Find("control_input", &control_inputs)) {
     for (size_t ci_idx = 0; ci_idx < control_inputs.ArraySize(); ci_idx++) {
-      common::TritonJson::Value control_input;
+      common::json_parser::Value control_input;
       RETURN_IF_ERROR(control_inputs.IndexAsObject(ci_idx, &control_input));
       std::string input_name;
       RETURN_IF_ERROR(control_input.MemberAsString("name", &input_name));
@@ -332,10 +332,10 @@ GetBooleanSequenceControlProperties(
       }
 
       seen_tensors.insert(input_name);
-      common::TritonJson::Value controls;
+      common::json_parser::Value controls;
       if (control_input.Find("control", &controls)) {
         for (size_t c_idx = 0; c_idx < controls.ArraySize(); c_idx++) {
-          common::TritonJson::Value c;
+          common::json_parser::Value c;
           RETURN_IF_ERROR(controls.IndexAsObject(c_idx, &c));
           std::string kind_str;
           RETURN_IF_ERROR(c.MemberAsString("kind", &kind_str));
@@ -352,7 +352,7 @@ GetBooleanSequenceControlProperties(
             *tensor_name = input_name;
             seen_control = true;
 
-            common::TritonJson::Value int32_false_true, fp32_false_true,
+            common::json_parser::Value int32_false_true, fp32_false_true,
                 bool_false_true;
             bool found_int32 =
                 (c.Find("int32_false_true", &int32_false_true) &&
@@ -484,7 +484,7 @@ GetBooleanSequenceControlProperties(
 
 TRITONSERVER_Error*
 GetTypedSequenceControlProperties(
-    common::TritonJson::Value& batcher, const std::string& model_name,
+    common::json_parser::Value& batcher, const std::string& model_name,
     const std::string& control_kind, const bool required,
     std::string* tensor_name, std::string* tensor_datatype)
 {
@@ -494,10 +494,10 @@ GetTypedSequenceControlProperties(
   // Make sure the control kind is not mentioned multiple times.
   bool seen_control = false;
 
-  common::TritonJson::Value control_inputs;
+  common::json_parser::Value control_inputs;
   if (batcher.Find("control_input", &control_inputs)) {
     for (size_t ci_idx = 0; ci_idx < control_inputs.ArraySize(); ci_idx++) {
-      common::TritonJson::Value control_input;
+      common::json_parser::Value control_input;
       RETURN_IF_ERROR(control_inputs.IndexAsObject(ci_idx, &control_input));
       std::string input_name;
       RETURN_IF_ERROR(control_input.MemberAsString("name", &input_name));
@@ -518,10 +518,10 @@ GetTypedSequenceControlProperties(
       }
 
       seen_tensors.insert(input_name);
-      common::TritonJson::Value controls;
+      common::json_parser::Value controls;
       if (control_input.Find("control", &controls)) {
         for (size_t c_idx = 0; c_idx < controls.ArraySize(); c_idx++) {
-          common::TritonJson::Value c;
+          common::json_parser::Value c;
           RETURN_IF_ERROR(controls.IndexAsObject(c_idx, &c));
           std::string kind_str;
           RETURN_IF_ERROR(c.MemberAsString("kind", &kind_str));
@@ -542,7 +542,7 @@ GetTypedSequenceControlProperties(
 
             seen_control = true;
 
-            common::TritonJson::Value int32_false_true, fp32_false_true,
+            common::json_parser::Value int32_false_true, fp32_false_true,
                 bool_false_true;
             bool found_int32 =
                 (c.Find("int32_false_true", &int32_false_true) &&
@@ -1005,10 +1005,10 @@ ParseDoubleValue(const std::string& value, double* parsed_value)
 
 TRITONSERVER_Error*
 GetParameterValue(
-    hercules::common::TritonJson::Value& params, const std::string& key,
+    hercules::common::json_parser::Value& params, const std::string& key,
     std::string* value)
 {
-  hercules::common::TritonJson::Value json_value;
+  hercules::common::json_parser::Value json_value;
   RETURN_ERROR_IF_FALSE(
       params.Find(key.c_str(), &json_value), TRITONSERVER_ERROR_NOT_FOUND,
       std::string("model configuration is missing the parameter ") + key);
@@ -1018,14 +1018,14 @@ GetParameterValue(
 
 TRITONSERVER_Error*
 BatchInput::ParseFromModelConfig(
-    hercules::common::TritonJson::Value& config,
+    hercules::common::json_parser::Value& config,
     std::vector<BatchInput>* batch_inputs)
 {
   batch_inputs->clear();
-  hercules::common::TritonJson::Value bis;
+  hercules::common::json_parser::Value bis;
   RETURN_IF_ERROR(config.MemberAsArray("batch_input", &bis));
   for (size_t i = 0; i < bis.ArraySize(); ++i) {
-    hercules::common::TritonJson::Value bi;
+    hercules::common::json_parser::Value bi;
     RETURN_IF_ERROR(bis.IndexAsObject(i, &bi));
     batch_inputs->emplace_back();
     RETURN_IF_ERROR(batch_inputs->back().Init(bi));
@@ -1035,10 +1035,10 @@ BatchInput::ParseFromModelConfig(
 }
 
 TRITONSERVER_Error*
-BatchInput::Init(hercules::common::TritonJson::Value& bi_config)
+BatchInput::Init(hercules::common::json_parser::Value& bi_config)
 {
   {
-    hercules::common::TritonJson::Value bi_target_names;
+    hercules::common::json_parser::Value bi_target_names;
     RETURN_IF_ERROR(bi_config.MemberAsArray("target_name", &bi_target_names));
     for (size_t i = 0; i < bi_target_names.ArraySize(); ++i) {
       std::string tn;
@@ -1075,7 +1075,7 @@ BatchInput::Init(hercules::common::TritonJson::Value& bi_config)
         std::string("unexpected batch input data type '" + bi_dtype + "'"));
   }
   {
-    hercules::common::TritonJson::Value bi_source_inputs;
+    hercules::common::json_parser::Value bi_source_inputs;
     RETURN_IF_ERROR(bi_config.MemberAsArray("source_input", &bi_source_inputs));
     for (size_t i = 0; i < bi_source_inputs.ArraySize(); ++i) {
       std::string si;
@@ -1131,19 +1131,19 @@ ModelConfigDataTypeToTritonServerDataType(const std::string& data_type_str)
 
 TRITONSERVER_Error*
 BatchOutput::ParseFromModelConfig(
-    hercules::common::TritonJson::Value& config,
+    hercules::common::json_parser::Value& config,
     std::vector<BatchOutput>* batch_outputs)
 {
   batch_outputs->clear();
-  hercules::common::TritonJson::Value bos;
+  hercules::common::json_parser::Value bos;
   RETURN_IF_ERROR(config.MemberAsArray("batch_output", &bos));
   for (size_t i = 0; i < bos.ArraySize(); ++i) {
     batch_outputs->emplace_back();
     auto& batch_output = batch_outputs->back();
-    hercules::common::TritonJson::Value bo;
+    hercules::common::json_parser::Value bo;
     RETURN_IF_ERROR(bos.IndexAsObject(i, &bo));
     {
-      hercules::common::TritonJson::Value bo_target_names;
+      hercules::common::json_parser::Value bo_target_names;
       RETURN_IF_ERROR(bo.MemberAsArray("target_name", &bo_target_names));
       for (size_t i = 0; i < bo_target_names.ArraySize(); ++i) {
         std::string tn;
@@ -1162,10 +1162,10 @@ BatchOutput::ParseFromModelConfig(
         if (mbs != 0) {
           batch_output.shape_.push_back(-1);
         }
-        hercules::common::TritonJson::Value ios;
+        hercules::common::json_parser::Value ios;
         RETURN_IF_ERROR(config.MemberAsArray("output", &ios));
         for (size_t i = 0; i < ios.ArraySize(); i++) {
-          hercules::common::TritonJson::Value io;
+          hercules::common::json_parser::Value io;
           RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
           std::string io_name;
           RETURN_IF_ERROR(io.MemberAsString("name", &io_name));
@@ -1176,7 +1176,7 @@ BatchOutput::ParseFromModelConfig(
                 ModelConfigDataTypeToTritonServerDataType(io_dtype);
             // If a reshape is provided for the input then use that when
             // validating that the model matches what is expected.
-            hercules::common::TritonJson::Value reshape;
+            hercules::common::json_parser::Value reshape;
             if (io.Find("reshape", &reshape)) {
               RETURN_IF_ERROR(
                   ParseShape(reshape, "shape", &batch_output.shape_));
@@ -1193,7 +1193,7 @@ BatchOutput::ParseFromModelConfig(
       }
     }
     {
-      hercules::common::TritonJson::Value bo_source_inputs;
+      hercules::common::json_parser::Value bo_source_inputs;
       RETURN_IF_ERROR(bo.MemberAsArray("source_input", &bo_source_inputs));
       for (size_t i = 0; i < bo_source_inputs.ArraySize(); ++i) {
         std::string si;
@@ -1208,10 +1208,10 @@ BatchOutput::ParseFromModelConfig(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     std::string* value, const std::string& default_value)
 {
-  hercules::common::TritonJson::Value json_value;
+  hercules::common::json_parser::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", value));
   } else {
@@ -1223,10 +1223,10 @@ TryParseModelStringParameter(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     int* value, const int& default_value)
 {
-  hercules::common::TritonJson::Value json_value;
+  hercules::common::json_parser::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     std::string string_value;
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", &string_value));
@@ -1239,10 +1239,10 @@ TryParseModelStringParameter(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     bool* value, const bool& default_value)
 {
-  hercules::common::TritonJson::Value json_value;
+  hercules::common::json_parser::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     std::string string_value;
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", &string_value));
@@ -1255,10 +1255,10 @@ TryParseModelStringParameter(
 
 TRITONSERVER_Error*
 TryParseModelStringParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     uint64_t* value, const uint64_t& default_value)
 {
-  hercules::common::TritonJson::Value json_value;
+  hercules::common::json_parser::Value json_value;
   if (params.Find(mkey.c_str(), &json_value)) {
     std::string string_value;
     RETURN_IF_ERROR(json_value.MemberAsString("string_value", &string_value));

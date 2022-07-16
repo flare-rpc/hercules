@@ -9,7 +9,7 @@
 
 #include <condition_variable>
 #include <mutex>
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

@@ -31,8 +31,8 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "triton/backend/backend_common.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/core/tritonserver.h"
 
 namespace hercules::backend { namespace onnxruntime {
 

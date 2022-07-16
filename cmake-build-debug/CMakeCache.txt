@@ -189,7 +189,7 @@ CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 CMAKE_LINKER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
 
 //Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=/Users/liyinbin/miniconda3/envs/flare-dev/bin/make
+CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -232,7 +232,7 @@ CMAKE_OSX_DEPLOYMENT_TARGET:STRING=
 CMAKE_OSX_SYSROOT:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk
 
 //No help, variable specified on the command line.
-CMAKE_PREFIX_PATH:UNINITIALIZED=~/miniconda3/envs/hercules-dev
+CMAKE_PREFIX_PATH:UNINITIALIZED=~/miniconda3/envs/hercules_d
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -324,25 +324,25 @@ ENABLE_SUMMARY_CXX_FLAG:BOOL=OFF
 ENABLE_TESTING:BOOL=OFF
 
 //Path to a file.
-FLARE_INCLUDE_PATH:PATH=/Users/liyinbin/miniconda3/envs/hercules-dev/include
+FLARE_INCLUDE_PATH:PATH=/Users/liyinbin/miniconda3/envs/hercules_d/include
 
 //Path to a library.
-FLARE_LIB:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib
+FLARE_LIB:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libflare.dylib
 
 //Path to a file.
-GFLAGS_INCLUDE_PATH:PATH=/Users/liyinbin/miniconda3/envs/hercules-dev/include
+GFLAGS_INCLUDE_PATH:PATH=/Users/liyinbin/miniconda3/envs/hercules_d/include
 
 //Path to a library.
-GFLAGS_LIBRARY:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libgflags.dylib
+GFLAGS_LIBRARY:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libgflags.dylib
 
 //Path to a library.
-OPENSSL_CRYPTO_LIBRARY:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib
+OPENSSL_CRYPTO_LIBRARY:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib
 
 //Path to a file.
-OPENSSL_INCLUDE_DIR:PATH=/Users/liyinbin/miniconda3/envs/hercules-dev/include
+OPENSSL_INCLUDE_DIR:PATH=/Users/liyinbin/miniconda3/envs/hercules_d/include
 
 //Path to a library.
-OPENSSL_SSL_LIBRARY:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib
+OPENSSL_SSL_LIBRARY:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libssl.dylib
 
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/bin/pkg-config
@@ -351,49 +351,34 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/bin/pkg-config
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 
 //Path to a file.
-Protobuf_INCLUDE_DIR:PATH=/Users/liyinbin/miniconda3/envs/hercules-dev/include
+Protobuf_INCLUDE_DIR:PATH=/Users/liyinbin/miniconda3/envs/hercules_d/include
 
 //Path to a library.
-Protobuf_LIBRARY_DEBUG:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib
+Protobuf_LIBRARY_DEBUG:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib
 
 //Path to a library.
-Protobuf_LIBRARY_RELEASE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib
+Protobuf_LIBRARY_RELEASE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib
 
 //Path to a library.
-Protobuf_LITE_LIBRARY_DEBUG:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf-lite.dylib
+Protobuf_LITE_LIBRARY_DEBUG:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf-lite.dylib
 
 //Path to a library.
-Protobuf_LITE_LIBRARY_RELEASE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf-lite.dylib
+Protobuf_LITE_LIBRARY_RELEASE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf-lite.dylib
 
 //The Google Protocol Buffers Compiler
-Protobuf_PROTOC_EXECUTABLE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/bin/protoc
+Protobuf_PROTOC_EXECUTABLE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/bin/protoc
 
 //Path to a library.
-Protobuf_PROTOC_LIBRARY_DEBUG:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotoc.dylib
+Protobuf_PROTOC_LIBRARY_DEBUG:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotoc.dylib
 
 //Path to a library.
-Protobuf_PROTOC_LIBRARY_RELEASE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotoc.dylib
-
-//Path to a library.
-TF_CC_LIB:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libtensorflow_cc.dylib
-
-//Path to a library.
-TF_FR_LIB:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libtensorflow_framework.dylib
-
-//Path to a file.
-TF_INCLUDE_PATH:PATH=/Users/liyinbin/miniconda3/envs/hercules-dev/include
+Protobuf_PROTOC_LIBRARY_RELEASE:FILEPATH=/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotoc.dylib
 
 //Value Computed by CMake
 hercules_BINARY_DIR:STATIC=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug
 
 //Value Computed by CMake
 hercules_SOURCE_DIR:STATIC=/Users/liyinbin/github/flare-rpc/hercules
-
-//Path to a library.
-pkgcfg_lib__OPENSSL_crypto:FILEPATH=/Users/liyinbin/miniconda3/envs/flare-dev/lib/libcrypto.dylib
-
-//Path to a library.
-pkgcfg_lib__OPENSSL_ssl:FILEPATH=/Users/liyinbin/miniconda3/envs/flare-dev/lib/libssl.dylib
 
 
 ########################
@@ -595,11 +580,9 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenSSL
-FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib][/Users/liyinbin/miniconda3/envs/hercules-dev/include][c ][v1.1.1q()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib][/Users/liyinbin/miniconda3/envs/hercules_d/include][c ][v1.1.1q()]
 //Details about finding Protobuf
-FIND_PACKAGE_MESSAGE_DETAILS_Protobuf:INTERNAL=[/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib][/Users/liyinbin/miniconda3/envs/hercules-dev/include][v3.12.4()]
-//Details about finding Threads
-FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_Protobuf:INTERNAL=[/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib][/Users/liyinbin/miniconda3/envs/hercules_d/include][v3.20.1()]
 //ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
 OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_INCLUDE_DIR
@@ -626,48 +609,58 @@ Protobuf_PROTOC_EXECUTABLE-ADVANCED:INTERNAL=1
 Protobuf_PROTOC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Protobuf_PROTOC_LIBRARY_RELEASE
 Protobuf_PROTOC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+TensorFlow_CFLAGS:INTERNAL=
+TensorFlow_CFLAGS_I:INTERNAL=
+TensorFlow_CFLAGS_OTHER:INTERNAL=
+TensorFlow_FOUND:INTERNAL=
+TensorFlow_INCLUDEDIR:INTERNAL=
+TensorFlow_LIBDIR:INTERNAL=
+TensorFlow_LIBS:INTERNAL=
+TensorFlow_LIBS_L:INTERNAL=
+TensorFlow_LIBS_OTHER:INTERNAL=
+TensorFlow_LIBS_PATHS:INTERNAL=
+TensorFlow_MODULE_NAME:INTERNAL=
+TensorFlow_PREFIX:INTERNAL=
+TensorFlow_STATIC_CFLAGS:INTERNAL=
+TensorFlow_STATIC_CFLAGS_I:INTERNAL=
+TensorFlow_STATIC_CFLAGS_OTHER:INTERNAL=
+TensorFlow_STATIC_LIBDIR:INTERNAL=
+TensorFlow_STATIC_LIBS:INTERNAL=
+TensorFlow_STATIC_LIBS_L:INTERNAL=
+TensorFlow_STATIC_LIBS_OTHER:INTERNAL=
+TensorFlow_STATIC_LIBS_PATHS:INTERNAL=
+TensorFlow_VERSION:INTERNAL=
+TensorFlow_tensorflow_INCLUDEDIR:INTERNAL=
+TensorFlow_tensorflow_LIBDIR:INTERNAL=
+TensorFlow_tensorflow_PREFIX:INTERNAL=
+TensorFlow_tensorflow_VERSION:INTERNAL=
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
-_OPENSSL_CFLAGS:INTERNAL=-I/Users/liyinbin/miniconda3/envs/flare-dev/include
+_OPENSSL_CFLAGS:INTERNAL=
 _OPENSSL_CFLAGS_I:INTERNAL=
 _OPENSSL_CFLAGS_OTHER:INTERNAL=
-_OPENSSL_FOUND:INTERNAL=1
-_OPENSSL_INCLUDEDIR:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/include
-_OPENSSL_INCLUDE_DIRS:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/include
-_OPENSSL_LDFLAGS:INTERNAL=-L/Users/liyinbin/miniconda3/envs/flare-dev/lib;-lssl;-lcrypto
-_OPENSSL_LDFLAGS_OTHER:INTERNAL=
-_OPENSSL_LIBDIR:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/lib
-_OPENSSL_LIBRARIES:INTERNAL=ssl;crypto
-_OPENSSL_LIBRARY_DIRS:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/lib
+_OPENSSL_FOUND:INTERNAL=
+_OPENSSL_INCLUDEDIR:INTERNAL=
+_OPENSSL_LIBDIR:INTERNAL=
 _OPENSSL_LIBS:INTERNAL=
 _OPENSSL_LIBS_L:INTERNAL=
 _OPENSSL_LIBS_OTHER:INTERNAL=
 _OPENSSL_LIBS_PATHS:INTERNAL=
-_OPENSSL_MODULE_NAME:INTERNAL=openssl
-_OPENSSL_PREFIX:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev
-_OPENSSL_STATIC_CFLAGS:INTERNAL=-I/Users/liyinbin/miniconda3/envs/flare-dev/include
+_OPENSSL_MODULE_NAME:INTERNAL=
+_OPENSSL_PREFIX:INTERNAL=
+_OPENSSL_STATIC_CFLAGS:INTERNAL=
 _OPENSSL_STATIC_CFLAGS_I:INTERNAL=
 _OPENSSL_STATIC_CFLAGS_OTHER:INTERNAL=
-_OPENSSL_STATIC_INCLUDE_DIRS:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/include
-_OPENSSL_STATIC_LDFLAGS:INTERNAL=-L/Users/liyinbin/miniconda3/envs/flare-dev/lib;-lssl;-lcrypto
-_OPENSSL_STATIC_LDFLAGS_OTHER:INTERNAL=
 _OPENSSL_STATIC_LIBDIR:INTERNAL=
-_OPENSSL_STATIC_LIBRARIES:INTERNAL=ssl;crypto
-_OPENSSL_STATIC_LIBRARY_DIRS:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/lib
 _OPENSSL_STATIC_LIBS:INTERNAL=
 _OPENSSL_STATIC_LIBS_L:INTERNAL=
 _OPENSSL_STATIC_LIBS_OTHER:INTERNAL=
 _OPENSSL_STATIC_LIBS_PATHS:INTERNAL=
-_OPENSSL_VERSION:INTERNAL=3.0.5
+_OPENSSL_VERSION:INTERNAL=
 _OPENSSL_openssl_INCLUDEDIR:INTERNAL=
 _OPENSSL_openssl_LIBDIR:INTERNAL=
 _OPENSSL_openssl_PREFIX:INTERNAL=
 _OPENSSL_openssl_VERSION:INTERNAL=
-__pkg_config_arguments__OPENSSL:INTERNAL=QUIET;openssl
+__pkg_config_checked_TensorFlow:INTERNAL=1
 __pkg_config_checked__OPENSSL:INTERNAL=1
-//ADVANCED property for variable: pkgcfg_lib__OPENSSL_crypto
-pkgcfg_lib__OPENSSL_crypto-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: pkgcfg_lib__OPENSSL_ssl
-pkgcfg_lib__OPENSSL_ssl-ADVANCED:INTERNAL=1
-prefix_result:INTERNAL=/Users/liyinbin/miniconda3/envs/flare-dev/lib
 

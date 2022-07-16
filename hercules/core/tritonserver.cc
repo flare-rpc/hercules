@@ -28,7 +28,7 @@
 #include "hercules/common/model_config.h"
 #include "hercules/common/nvtx.h"
 #include "hercules/common/table_printer.h"
-#include "hercules/common/triton_json.h"
+#include "hercules/common/json_parser.h"
 #include "tritonserver_apis.h"
 
 // For unknown reason, windows will not export some functions declared
@@ -402,8 +402,8 @@ TritonServerOptions::SetHostPolicy(
 
 #define SetDurationStat(DOC, PARENT, STAT_NAME, COUNT, NS)   \
   do {                                                       \
-    hercules::common::TritonJson::Value dstat(                 \
-        DOC, hercules::common::TritonJson::ValueType::OBJECT); \
+    hercules::common::json_parser::Value dstat(                 \
+        DOC, hercules::common::json_parser::ValueType::OBJECT); \
     dstat.AddUInt("count", (COUNT));                         \
     dstat.AddUInt("ns", (NS));                               \
     PARENT.Add(STAT_NAME, std::move(dstat));                 \
@@ -613,13 +613,13 @@ TRITONSERVER_LogIsEnabled(TRITONSERVER_LogLevel level)
 {
   switch (level) {
     case TRITONSERVER_LOG_INFO:
-      return LOG_INFO_IS_ON;
+      return FLAGS_flare_minloglevel >= 3;
     case TRITONSERVER_LOG_WARN:
-      return LOG_WARNING_IS_ON;
+      return FLAGS_flare_minloglevel >= 4;
     case TRITONSERVER_LOG_ERROR:
-      return LOG_ERROR_IS_ON;
+      return FLAGS_flare_minloglevel >= 5;
     case TRITONSERVER_LOG_VERBOSE:
-      return LOG_VERBOSE_IS_ON(1);
+      return FLARE_VLOG_IS_ON(1);
   }
 
   return false;
@@ -630,6 +630,7 @@ TRITONSERVER_LogMessage(
     TRITONSERVER_LogLevel level, const char* filename, const int line,
     const char* msg)
 {
+    /*
   switch (level) {
     case TRITONSERVER_LOG_INFO:
       LOG_INFO_FL(filename, line) << msg;
@@ -649,6 +650,7 @@ TRITONSERVER_LogMessage(
           std::string("unknown logging level '" + std::to_string(level) + "'")
               .c_str());
   }
+     */
 }
 
 //
@@ -2155,7 +2157,7 @@ TRITONSERVER_ServerNew(
       "exit_timeout", std::to_string(lserver->ExitTimeoutSeconds())});
 
   std::string options_table_string = options_table.PrintTable();
-  LOG_INFO << options_table_string;
+  FLARE_LOG(INFO) << options_table_string;
 
   if (!status.IsOk()) {
     if (loptions->ExitOnError()) {
@@ -2164,7 +2166,7 @@ TRITONSERVER_ServerNew(
       RETURN_IF_STATUS_ERROR(status);
     }
 
-    LOG_ERROR << status.AsString();
+    FLARE_LOG(ERROR) << status.AsString();
   }
 
   *server = reinterpret_cast<TRITONSERVER_Server*>(lserver);
@@ -2338,8 +2340,8 @@ TRITONSERVER_ServerMetadata(
 {
   tc::inference_server* lserver = reinterpret_cast<tc::inference_server*>(server);
 
-  hercules::common::TritonJson::Value metadata(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value metadata(
+      hercules::common::json_parser::ValueType::OBJECT);
 
   // Just store string reference in JSON object since it will be
   // serialized to another buffer before lserver->Id() or
@@ -2348,8 +2350,8 @@ TRITONSERVER_ServerMetadata(
   RETURN_IF_STATUS_ERROR(
       metadata.AddStringRef("version", lserver->Version().c_str()));
 
-  hercules::common::TritonJson::Value extensions(
-      metadata, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value extensions(
+      metadata, hercules::common::json_parser::ValueType::ARRAY);
   const std::vector<const char*>& exts = lserver->Extensions();
   for (const auto ext : exts) {
     RETURN_IF_STATUS_ERROR(extensions.AppendStringRef(ext));
@@ -2376,16 +2378,16 @@ TRITONSERVER_ServerModelMetadata(
   RETURN_IF_STATUS_ERROR(
       lserver->ModelReadyVersions(model_name, &ready_versions));
 
-  hercules::common::TritonJson::Value metadata(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value metadata(
+      hercules::common::json_parser::ValueType::OBJECT);
 
   // Can use string ref in this function even though model can be
   // unloaded and config becomes invalid, because TritonServeMessage
   // serializes the json when it is constructed below.
   RETURN_IF_STATUS_ERROR(metadata.AddStringRef("name", model_name));
 
-  hercules::common::TritonJson::Value versions(
-      metadata, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value versions(
+      metadata, hercules::common::json_parser::ValueType::ARRAY);
   if (model_version != -1) {
     RETURN_IF_STATUS_ERROR(
         versions.AppendString(std::move(std::to_string(model_version))));
@@ -2407,19 +2409,19 @@ TRITONSERVER_ServerModelMetadata(
         metadata.AddStringRef("platform", model_config.backend().c_str()));
   }
 
-  hercules::common::TritonJson::Value inputs(
-      metadata, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value inputs(
+      metadata, hercules::common::json_parser::ValueType::ARRAY);
   for (const auto& io : model_config.input()) {
-    hercules::common::TritonJson::Value io_metadata(
-        metadata, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value io_metadata(
+        metadata, hercules::common::json_parser::ValueType::OBJECT);
     RETURN_IF_STATUS_ERROR(io_metadata.AddStringRef("name", io.name().c_str()));
     RETURN_IF_STATUS_ERROR(io_metadata.AddStringRef(
         "datatype", hercules::common::DataTypeToProtocolString(io.data_type())));
 
     // Input shape. If the model supports batching then must include
     // '-1' for the batch dimension.
-    hercules::common::TritonJson::Value io_metadata_shape(
-        metadata, hercules::common::TritonJson::ValueType::ARRAY);
+    hercules::common::json_parser::Value io_metadata_shape(
+        metadata, hercules::common::json_parser::ValueType::ARRAY);
     if (model_config.max_batch_size() >= 1) {
       RETURN_IF_STATUS_ERROR(io_metadata_shape.AppendInt(-1));
     }
@@ -2433,19 +2435,19 @@ TRITONSERVER_ServerModelMetadata(
   }
   RETURN_IF_STATUS_ERROR(metadata.Add("inputs", std::move(inputs)));
 
-  hercules::common::TritonJson::Value outputs(
-      metadata, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value outputs(
+      metadata, hercules::common::json_parser::ValueType::ARRAY);
   for (const auto& io : model_config.output()) {
-    hercules::common::TritonJson::Value io_metadata(
-        metadata, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value io_metadata(
+        metadata, hercules::common::json_parser::ValueType::OBJECT);
     RETURN_IF_STATUS_ERROR(io_metadata.AddStringRef("name", io.name().c_str()));
     RETURN_IF_STATUS_ERROR(io_metadata.AddStringRef(
         "datatype", hercules::common::DataTypeToProtocolString(io.data_type())));
 
     // Output shape. If the model supports batching then must include
     // '-1' for the batch dimension.
-    hercules::common::TritonJson::Value io_metadata_shape(
-        metadata, hercules::common::TritonJson::ValueType::ARRAY);
+    hercules::common::json_parser::Value io_metadata_shape(
+        metadata, hercules::common::json_parser::ValueType::ARRAY);
     if (model_config.max_batch_size() >= 1) {
       RETURN_IF_STATUS_ERROR(io_metadata_shape.AppendInt(-1));
     }
@@ -2519,11 +2521,11 @@ TRITONSERVER_ServerModelStatistics(
 
   // Can use string ref in this function because TritonServeMessage
   // serializes the json when it is constructed below.
-  hercules::common::TritonJson::Value metadata(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value metadata(
+      hercules::common::json_parser::ValueType::OBJECT);
 
-  hercules::common::TritonJson::Value model_stats_json(
-      metadata, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value model_stats_json(
+      metadata, hercules::common::json_parser::ValueType::ARRAY);
   for (const auto& mv_pair : ready_model_versions) {
     for (const auto& version : mv_pair.second) {
       std::shared_ptr<tc::Model> model;
@@ -2532,8 +2534,8 @@ TRITONSERVER_ServerModelStatistics(
       const auto& infer_batch_stats =
           model->StatsAggregator().ImmutableInferBatchStats();
 
-      hercules::common::TritonJson::Value inference_stats(
-          metadata, hercules::common::TritonJson::ValueType::OBJECT);
+      hercules::common::json_parser::Value inference_stats(
+          metadata, hercules::common::json_parser::ValueType::OBJECT);
       // Compute figures only calculated when not going through cache, so
       // subtract cache_hit count from success count. Cache hit count will
       // simply be 0 when cache is disabled.
@@ -2567,11 +2569,11 @@ TRITONSERVER_ServerModelStatistics(
           infer_stats.cache_miss_lookup_duration_ns_ +
               infer_stats.cache_miss_insertion_duration_ns_);
 
-      hercules::common::TritonJson::Value batch_stats(
-          metadata, hercules::common::TritonJson::ValueType::ARRAY);
+      hercules::common::json_parser::Value batch_stats(
+          metadata, hercules::common::json_parser::ValueType::ARRAY);
       for (const auto& batch : infer_batch_stats) {
-        hercules::common::TritonJson::Value batch_stat(
-            metadata, hercules::common::TritonJson::ValueType::OBJECT);
+        hercules::common::json_parser::Value batch_stat(
+            metadata, hercules::common::json_parser::ValueType::OBJECT);
         RETURN_IF_STATUS_ERROR(batch_stat.AddUInt("batch_size", batch.first));
         SetDurationStat(
             metadata, batch_stat, "compute_input", batch.second.count_,
@@ -2585,8 +2587,8 @@ TRITONSERVER_ServerModelStatistics(
         RETURN_IF_STATUS_ERROR(batch_stats.Append(std::move(batch_stat)));
       }
 
-      hercules::common::TritonJson::Value model_stat(
-          metadata, hercules::common::TritonJson::ValueType::OBJECT);
+      hercules::common::json_parser::Value model_stat(
+          metadata, hercules::common::json_parser::ValueType::OBJECT);
       RETURN_IF_STATUS_ERROR(
           model_stat.AddStringRef("name", mv_pair.first.c_str()));
       RETURN_IF_STATUS_ERROR(
@@ -2652,12 +2654,12 @@ TRITONSERVER_ServerModelIndex(
 
   // Can use string ref in this function because TritonServerMessage
   // serializes the json when it is constructed below.
-  hercules::common::TritonJson::Value repository_index_json(
-      hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value repository_index_json(
+      hercules::common::json_parser::ValueType::ARRAY);
 
   for (const auto& in : index) {
-    hercules::common::TritonJson::Value model_index(
-        repository_index_json, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value model_index(
+        repository_index_json, hercules::common::json_parser::ValueType::OBJECT);
     RETURN_IF_STATUS_ERROR(model_index.AddStringRef("name", in.name_.c_str()));
     if (!in.name_only_) {
       if (in.version_ >= 0) {

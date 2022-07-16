@@ -42,7 +42,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcore.dylib" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcore.dylib")
     execute_process(COMMAND /usr/bin/install_name_tool
-      -delete_rpath "/Users/liyinbin/miniconda3/envs/hercules-dev/lib"
+      -delete_rpath "/Users/liyinbin/miniconda3/envs/hercules_d/lib"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libcore.dylib")
     execute_process(COMMAND /usr/bin/install_name_tool
       -delete_rpath "/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/lib"

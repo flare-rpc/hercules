@@ -107,7 +107,7 @@ SetNumaMemoryPolicy(const hercules::common::HostPolicyCmdlineConfig& host_policy
     int node_id;
     RETURN_IF_ERROR(
         ParseIntOption("Parsing 'numa-node' value", it->second, &node_id));
-    LOG_VERBOSE(1) << "Thread is binding to NUMA node " << it->second
+    FLARE_LOG(DEBUG) << "Thread is binding to NUMA node " << it->second
                    << ". Max NUMA node count: " << (numa_max_node() + 1);
     numa_set = true;
     unsigned long node_mask = 1UL << node_id;
@@ -197,7 +197,7 @@ SetNumaThreadAffinity(
       }
     }
 
-    LOG_VERBOSE(1) << "Thread is binding to one of the CPUs: "
+    FLARE_LOG(DEBUG) << "Thread is binding to one of the CPUs: "
                    << VectorToString(cpus);
     numa_set = true;
     cpu_set_t cpuset;

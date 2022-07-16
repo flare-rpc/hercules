@@ -343,7 +343,7 @@ inference_request::CopyAsNull(const inference_request& from)
         &from_data_memory_id);
 
     if (from_data_byte_size != byte_size) {
-      LOG_WARNING
+      FLARE_LOG(WARNING)
           << lrequest->LogRequest()
           << "The byte size of shape tensor to be copied does not match";
     }
@@ -594,7 +594,7 @@ Status
 inference_request::AddOverrideInput(
     const std::shared_ptr<inference_request::Input>& input)
 {
-  LOG_VERBOSE(1) << LogRequest() << "adding input override for "
+  FLARE_LOG(DEBUG) << LogRequest() << "adding input override for "
                  << input->Name() << ": " << *this;
 
   const auto& pr =
@@ -609,7 +609,7 @@ inference_request::AddOverrideInput(
     res.first->second = input.get();
   }
 
-  LOG_VERBOSE(1) << LogRequest() << "added input override for " << input->Name()
+  FLARE_LOG(DEBUG) << LogRequest() << "added input override for " << input->Name()
                  << ": " << *this;
 
   return Status::Success;
@@ -692,7 +692,7 @@ inference_request::PrepareForInference()
   request_start_ns_ = 0;
 #endif  // HERCULES_ENABLE_STATS
 
-  LOG_VERBOSE(1) << LogRequest() << "prepared: " << *this;
+  FLARE_LOG(DEBUG) << LogRequest() << "prepared: " << *this;
 
   return Status::Success;
 }
@@ -1068,7 +1068,7 @@ inference_request::ReportStatisticsCacheHit(metric_model_reporter* metric_report
   INFER_STATS_DECL_TIMESTAMP(request_end_ns);
 
   if (cache_lookup_start_ns_ >= cache_lookup_end_ns_) {
-    LOG_WARNING << LogRequest()
+    FLARE_LOG(WARNING) << LogRequest()
                 << "Cache lookup timestamps were not set correctly. Cache "
                    "lookup duration stats may be incorrect.";
   }
@@ -1093,12 +1093,12 @@ inference_request::ReportStatisticsCacheMiss(
     metric_model_reporter* metric_reporter)
 {
   if (cache_lookup_start_ns_ >= cache_lookup_end_ns_) {
-    LOG_WARNING << LogRequest()
+    FLARE_LOG(WARNING) << LogRequest()
                 << "Cache lookup timestamps were not set correctly. Cache "
                    "lookup duration stats may be incorrect.";
   }
   if (cache_insertion_start_ns_ >= cache_insertion_end_ns_) {
-    LOG_WARNING << LogRequest()
+    FLARE_LOG(WARNING) << LogRequest()
                 << "Cache insertion timestamps were not set correctly. Cache "
                    "insertion duration stats may be incorrect.";
   }

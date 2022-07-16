@@ -18,7 +18,7 @@
 #include <unordered_map>
 #include <vector>
 #include "common.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 #ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>

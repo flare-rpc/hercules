@@ -22,7 +22,7 @@ class Semaphore {
     cv_.notify_one();
   }
 
-  void Acquire()
+  void acquire()
   {
     std::unique_lock<std::mutex> lck(mtx_);
     cv_.wait(lck, [this]() { return (count_ > 0); });

@@ -12,8 +12,8 @@
 #include <string>
 #include <vector>
 
-#include "triton/backend/backend_common.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/core/tritonserver.h"
 
 namespace hercules::backend { namespace tensorrt {
 
@@ -44,7 +44,7 @@ TRITONSERVER_Error* ValidateDimension(
 
 TRITONSERVER_Error* CompareDimsSupported(
     const std::string& model_name, const std::string& tensor_name,
-    const nvinfer1::Dims& model_dims, common::TritonJson::Value& dims,
+    const nvinfer1::Dims& model_dims, common::json_parser::Value& dims,
     const bool supports_batching, const bool contains_explicit_batch,
     const bool compare_exact);
 
@@ -56,7 +56,7 @@ TRITONSERVER_Error* CompareDimsSupported(
 
 TRITONSERVER_Error* CompareShapeDimsSupported(
     const std::string& model_name, const std::string& tensor_name,
-    const nvinfer1::Dims& model_dims, common::TritonJson::Value& dims,
+    const nvinfer1::Dims& model_dims, common::json_parser::Value& dims,
     const bool supports_batching);
 
 TRITONSERVER_Error* ValidateControlDimsDynamic(
@@ -75,7 +75,7 @@ TRITONSERVER_Error* MaximumDims(
 void DimsToDimVec(const nvinfer1::Dims& model_dims, std::vector<int64_t>* dims);
 
 TRITONSERVER_Error* DimsJsonToDimVec(
-    common::TritonJson::Value& dims_json, std::vector<int64_t>* dims);
+    common::json_parser::Value& dims_json, std::vector<int64_t>* dims);
 
 bool DimVecToDims(const std::vector<int64_t>& dim_vec, nvinfer1::Dims* dims);
 
@@ -87,7 +87,7 @@ bool ContainsWildcardAtExplicitBatchDim(const nvinfer1::Dims& dims);
 
 const std::string DimsDebugString(const nvinfer1::Dims& dims);
 
-const std::string DimsJsonToString(common::TritonJson::Value& dims);
+const std::string DimsJsonToString(common::json_parser::Value& dims);
 //
 // Templates
 //

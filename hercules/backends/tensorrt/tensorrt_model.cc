@@ -52,7 +52,7 @@ TensorRTModel::SetTensorRTModelConfig()
 void
 TensorRTModel::ParseModelConfig()
 {
-  hercules::common::TritonJson::Value optimization;
+  hercules::common::json_parser::Value optimization;
   if (model_config_.Find("optimization", &optimization)) {
     optimization.MemberAsUInt(
         "gather_kernel_buffer_threshold", &gather_kernel_buffer_threshold_);
@@ -60,7 +60,7 @@ TensorRTModel::ParseModelConfig()
     std::string priority;
     optimization.MemberAsString("priority", &priority);
     priority_ = ParsePriority(priority);
-    hercules::common::TritonJson::Value cuda;
+    hercules::common::json_parser::Value cuda;
     if (optimization.Find("cuda", &cuda)) {
       cuda.MemberAsBool("graphs", &use_cuda_graphs_);
       cuda.MemberAsBool("busy_wait_events", &busy_wait_events_);

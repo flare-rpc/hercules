@@ -9,14 +9,14 @@
 #include <stdint.h>
 #include <exception>
 #include "libtorch_utils.h"
-#include "triton/backend/backend_common.h"
-#include "triton/backend/backend_input_collector.h"
-#include "triton/backend/backend_memory.h"
-#include "triton/backend/backend_model.h"
-#include "triton/backend/backend_model_instance.h"
-#include "triton/backend/backend_output_responder.h"
-#include "triton/common/nvtx.h"
-#include "triton/core/tritonbackend.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/backend/backend_input_collector.h"
+#include "hercules/backend/backend_memory.h"
+#include "hercules/backend/backend_model.h"
+#include "hercules/backend/backend_model_instance.h"
+#include "hercules/backend/backend_output_responder.h"
+#include "hercules/common/nvtx.h"
+#include "hercules/core/tritonbackend.h"
 
 #ifdef TRITON_PYTORCH_ENABLE_TORCHVISION
 // Suppress warnings in torch headers
@@ -253,7 +253,7 @@ ModelState::AutoCompleteConfig()
 TRITONSERVER_Error*
 ModelState::ParseParameters()
 {
-  hercules::common::TritonJson::Value params;
+  hercules::common::json_parser::Value params;
   bool status = model_config_.Find("parameters", &params);
   if (status) {
     // If 'DISABLE_OPTIMIZED_EXECUTION' is not present in 'parameters' then no
@@ -459,10 +459,10 @@ class ModelInstanceState : public BackendModelInstance {
       ModelState* model_state,
       TRITONBACKEND_ModelInstance* triton_model_instance);
   TRITONSERVER_Error* ValidateBooleanSequenceControl(
-      hercules::common::TritonJson::Value& sequence_batching,
+      hercules::common::json_parser::Value& sequence_batching,
       const std::string& control_kind, bool required, bool* have_control);
   TRITONSERVER_Error* ValidateTypedSequenceControl(
-      hercules::common::TritonJson::Value& sequence_batching,
+      hercules::common::json_parser::Value& sequence_batching,
       const std::string& control_kind, bool required, bool* have_control);
   TRITONSERVER_Error* ValidateInputs(const size_t expected_input_cnt);
   TRITONSERVER_Error* ValidateOutputs();
@@ -546,7 +546,7 @@ ModelInstanceState::ModelInstanceState(
 
   size_t expected_input_cnt = 0;
   {
-    hercules::common::TritonJson::Value inputs;
+    hercules::common::json_parser::Value inputs;
     if (model_state->ModelConfig().Find("input", &inputs)) {
       expected_input_cnt = inputs.ArraySize();
     }
@@ -555,7 +555,7 @@ ModelInstanceState::ModelInstanceState(
   // If this is a sequence model then make sure that the required
   // inputs are present in the model and have the correct shape and
   // datatype.
-  hercules::common::TritonJson::Value sequence_batching;
+  hercules::common::json_parser::Value sequence_batching;
   if (model_state->ModelConfig().Find(
           "sequence_batching", &sequence_batching)) {
     bool have_start, have_end, have_ready, have_corrid;
@@ -607,7 +607,7 @@ ModelInstanceState::~ModelInstanceState()
 
 TRITONSERVER_Error*
 ModelInstanceState::ValidateBooleanSequenceControl(
-    hercules::common::TritonJson::Value& sequence_batching,
+    hercules::common::json_parser::Value& sequence_batching,
     const std::string& control_kind, bool required, bool* have_control)
 {
   std::string tensor_name;
@@ -650,7 +650,7 @@ ModelInstanceState::ValidateBooleanSequenceControl(
 
 TRITONSERVER_Error*
 ModelInstanceState::ValidateTypedSequenceControl(
-    hercules::common::TritonJson::Value& sequence_batching,
+    hercules::common::json_parser::Value& sequence_batching,
     const std::string& control_kind, bool required, bool* have_control)
 {
   std::string tensor_name;
@@ -753,7 +753,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
     }
   }
 
-  hercules::common::TritonJson::Value ios;
+  hercules::common::json_parser::Value ios;
   RETURN_IF_ERROR(model_state_->ModelConfig().MemberAsArray("input", &ios));
   std::string deliminator = "__";
   int ip_index = 0;
@@ -769,7 +769,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
   RETURN_IF_ERROR(GetNamingConvention(&naming_convention, allowed_inputs));
 
   for (size_t i = 0; i < ios.ArraySize(); i++) {
-    hercules::common::TritonJson::Value io;
+    hercules::common::json_parser::Value io;
     RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
     // Validate name
@@ -819,7 +819,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
       // If a reshape is provided for the input then use that when
       // validating the model shapes.
       std::vector<int64_t> dims;
-      hercules::common::TritonJson::Value reshape;
+      hercules::common::json_parser::Value reshape;
       if (io.Find("reshape", &reshape)) {
         RETURN_IF_ERROR(ParseShape(reshape, "shape", &dims));
       } else {
@@ -844,7 +844,7 @@ ModelInstanceState::ValidateInputs(const size_t expected_input_cnt)
 TRITONSERVER_Error*
 ModelInstanceState::ValidateOutputs()
 {
-  hercules::common::TritonJson::Value ios;
+  hercules::common::json_parser::Value ios;
   RETURN_IF_ERROR(model_state_->ModelConfig().MemberAsArray("output", &ios));
   std::string deliminator = "__";
   int op_index = 0;
@@ -860,7 +860,7 @@ ModelInstanceState::ValidateOutputs()
   RETURN_IF_ERROR(GetNamingConvention(&naming_convention, {}));
 
   for (size_t i = 0; i < ios.ArraySize(); i++) {
-    hercules::common::TritonJson::Value io;
+    hercules::common::json_parser::Value io;
     RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
     // Validate name
@@ -897,7 +897,7 @@ ModelInstanceState::ValidateOutputs()
       // If a reshape is provided for the output then use that when
       // validating the model shapes.
       std::vector<int64_t> dims;
-      hercules::common::TritonJson::Value reshape;
+      hercules::common::json_parser::Value reshape;
       if (io.Find("reshape", &reshape)) {
         RETURN_IF_ERROR(ParseShape(reshape, "shape", &dims));
       } else {
@@ -1058,12 +1058,12 @@ ModelInstanceState::ProcessRequests(
   std::vector<const char*> output_names;
   std::vector<torch::jit::IValue> output_tensors;
   if (!all_response_failed) {
-    hercules::common::TritonJson::Value ios;
+    hercules::common::json_parser::Value ios;
     TRITONSERVER_Error* err =
         model_state_->ModelConfig().MemberAsArray("output", &ios);
     if (err == nullptr) {
       for (size_t i = 0; i < ios.ArraySize(); i++) {
-        hercules::common::TritonJson::Value io;
+        hercules::common::json_parser::Value io;
         err = ios.IndexAsObject(i, &io);
         if (err != nullptr) {
           break;
@@ -1328,13 +1328,13 @@ ModelInstanceState::GetNamingConvention(
     *naming_convention = NamingConvention::NAMED_INDEX;
   }
 
-  hercules::common::TritonJson::Value ios;
+  hercules::common::json_parser::Value ios;
   RETURN_IF_ERROR(
       model_state_->ModelConfig().MemberAsArray(io_kind.c_str(), &ios));
 
   if (io_kind == "input") {
     for (size_t i = 0; i < ios.ArraySize(); i++) {
-      hercules::common::TritonJson::Value io;
+      hercules::common::json_parser::Value io;
       RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
       // Validate name
@@ -1351,7 +1351,7 @@ ModelInstanceState::GetNamingConvention(
   // If not, check if inputs follow INDEX
   if (*naming_convention == NamingConvention::NAMED_INDEX) {
     for (size_t i = 0; i < ios.ArraySize(); i++) {
-      hercules::common::TritonJson::Value io;
+      hercules::common::json_parser::Value io;
       RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
 
       // Validate name

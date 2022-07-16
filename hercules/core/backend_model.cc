@@ -140,14 +140,14 @@ TritonModel::Create(
   // path to point to the backend directory in case the backend
   // library attempts to load additional shared libaries.
   if (backend->ModelInitFn() != nullptr) {
-    std::unique_ptr<SharedLibrary> slib;
-    RETURN_IF_ERROR(SharedLibrary::Acquire(&slib));
-    RETURN_IF_ERROR(slib->SetLibraryDirectory(backend->Directory()));
+    std::unique_ptr<shared_library> slib;
+    RETURN_IF_ERROR(shared_library::acquire(&slib));
+    RETURN_IF_ERROR(slib->set_library_directory(backend->Directory()));
 
     TRITONSERVER_Error* err = backend->ModelInitFn()(
         reinterpret_cast<TRITONBACKEND_Model*>(raw_local_model));
 
-    RETURN_IF_ERROR(slib->ResetLibraryDirectory());
+    RETURN_IF_ERROR(slib->reset_library_directory());
     RETURN_IF_TRITONSERVER_ERROR(err);
   }
 
@@ -158,7 +158,7 @@ TritonModel::Create(
   if (local_model->backend_->ExecutionPolicy() ==
       TRITONBACKEND_EXECUTION_DEVICE_BLOCKING) {
     if (model_config.has_sequence_batching()) {
-      LOG_INFO << "Overriding execution policy to "
+      FLARE_LOG(INFO) << "Overriding execution policy to "
                   "\"TRITONBACKEND_EXECUTION_BLOCKING\" for sequence model \""
                << model_config.name() << "\"";
     } else {
@@ -259,7 +259,7 @@ TritonModel::SetBackendConfigDefaults(
 
   for (auto& setting : config) {
     if (setting.first.compare("default-max-batch-size") == 0) {
-      LOG_VERBOSE(1) << "Found overwritten default setting: " << setting.first
+      FLARE_LOG(DEBUG) << "Found overwritten default setting: " << setting.first
                      << "," << setting.second;
       backend_config_defaults_copy.erase(setting.first);
     }
@@ -271,7 +271,7 @@ TritonModel::SetBackendConfigDefaults(
 
   // Anything left should be added to the config
   for (const auto& default_setting : backend_config_defaults_copy) {
-    LOG_VERBOSE(1) << "Adding default backend config setting: "
+    FLARE_LOG(DEBUG) << "Adding default backend config setting: "
                    << default_setting.first << "," << default_setting.second;
     config.push_back(
         std::make_pair(default_setting.first, default_setting.second));
@@ -366,14 +366,14 @@ TritonModel::SetConfiguredScheduler()
   }
 
   // If 'sequence_batching' is configured, then use the SequenceBatchScheduler,
-  // otherwise use the default DynamicBatchScheduler.
+  // otherwise use the default dynamic_batch_scheduler.
   if (config_.has_sequence_batching()) {
     // Sequence batcher
     RETURN_IF_ERROR(SequenceBatchScheduler::Create(
         this, enforce_equal_shape_tensors, &scheduler));
   } else if (config_.has_dynamic_batching()) {
     // Dynamic batcher
-    RETURN_IF_ERROR(DynamicBatchScheduler::Create(
+    RETURN_IF_ERROR(dynamic_batch_scheduler::Create(
         this, nullptr, 0 /*nice*/, true /* dynamic_batching_enabled */,
         config_.max_batch_size(), enforce_equal_shape_tensors,
         config_.dynamic_batching(),
@@ -382,7 +382,7 @@ TritonModel::SetConfiguredScheduler()
   } else {
     // Default scheduler. Use dynamic batch scheduler (with batching
     // disabled) as the default scheduler.
-    RETURN_IF_ERROR(DynamicBatchScheduler::Create(
+    RETURN_IF_ERROR(dynamic_batch_scheduler::Create(
         this, nullptr, 0 /*nice*/, false /* dynamic_batching_enabled */,
         1 /* max_batch_size */,
         std::unordered_map<

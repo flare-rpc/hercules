@@ -78,14 +78,14 @@ include CMakeFiles/proto.dir/flags.make
 
 hercules/proto/model_config.pb.h: ../hercules/proto/model_config.proto
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating hercules/proto/model_config.pb.h, hercules/proto/model_config.pb.cc"
-	/Users/liyinbin/miniconda3/envs/hercules-dev/bin/protoc -I/Users/liyinbin/miniconda3/envs/hercules-dev/include -I/Users/liyinbin/github/flare-rpc/hercules -I/Users/liyinbin/github/flare-rpc/hercules --cpp_out=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug /Users/liyinbin/github/flare-rpc/hercules/hercules/proto/model_config.proto
+	/Users/liyinbin/miniconda3/envs/hercules_d/bin/protoc -I/Users/liyinbin/miniconda3/envs/hercules_d/include -I/Users/liyinbin/github/flare-rpc/hercules -I/Users/liyinbin/github/flare-rpc/hercules --cpp_out=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug /Users/liyinbin/github/flare-rpc/hercules/hercules/proto/model_config.proto
 
 hercules/proto/model_config.pb.cc: hercules/proto/model_config.pb.h
 	@$(CMAKE_COMMAND) -E touch_nocreate hercules/proto/model_config.pb.cc
 
 hercules/proto/hercules_service.pb.h: ../hercules/proto/hercules_service.proto
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating hercules/proto/hercules_service.pb.h, hercules/proto/hercules_service.pb.cc"
-	/Users/liyinbin/miniconda3/envs/hercules-dev/bin/protoc -I/Users/liyinbin/miniconda3/envs/hercules-dev/include -I/Users/liyinbin/github/flare-rpc/hercules -I/Users/liyinbin/github/flare-rpc/hercules --cpp_out=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug /Users/liyinbin/github/flare-rpc/hercules/hercules/proto/hercules_service.proto
+	/Users/liyinbin/miniconda3/envs/hercules_d/bin/protoc -I/Users/liyinbin/miniconda3/envs/hercules_d/include -I/Users/liyinbin/github/flare-rpc/hercules -I/Users/liyinbin/github/flare-rpc/hercules --cpp_out=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug /Users/liyinbin/github/flare-rpc/hercules/hercules/proto/hercules_service.proto
 
 hercules/proto/hercules_service.pb.cc: hercules/proto/hercules_service.pb.h
 	@$(CMAKE_COMMAND) -E touch_nocreate hercules/proto/hercules_service.pb.cc
@@ -127,11 +127,11 @@ proto_EXTERNAL_OBJECTS =
 lib/libproto.dylib: CMakeFiles/proto.dir/hercules/proto/model_config.pb.cc.o
 lib/libproto.dylib: CMakeFiles/proto.dir/hercules/proto/hercules_service.pb.cc.o
 lib/libproto.dylib: CMakeFiles/proto.dir/build.make
-lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libgflags.dylib
-lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib
-lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib
-lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib
-lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib
+lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libgflags.dylib
+lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib
+lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib
+lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libssl.dylib
+lib/libproto.dylib: /Users/liyinbin/miniconda3/envs/hercules_d/lib/libflare.dylib
 lib/libproto.dylib: CMakeFiles/proto.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library lib/libproto.dylib"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/proto.dir/link.txt --verbose=$(VERBOSE)

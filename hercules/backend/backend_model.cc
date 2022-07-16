@@ -59,7 +59,7 @@ BackendModel::ParseModelConfig()
       triton_model_, 1 /* config_version */, &config_message));
 
   // Get the model configuration as a json string from
-  // config_message. We use TritonJson, which is a wrapper that
+  // config_message. We use json_parser, which is a wrapper that
   // returns nice errors (currently the underlying implementation is
   // rapidjson... but others could be added).
   const char* buffer;
@@ -78,9 +78,9 @@ BackendModel::ParseModelConfig()
   enable_pinned_input_ = false;
   enable_pinned_output_ = false;
   {
-    common::TritonJson::Value optimization;
+    common::json_parser::Value optimization;
     if (model_config_.Find("optimization", &optimization)) {
-      common::TritonJson::Value pinned_memory;
+      common::json_parser::Value pinned_memory;
       if (optimization.Find("input_pinned_memory", &pinned_memory)) {
         RETURN_IF_ERROR(
             pinned_memory.MemberAsBool("enable", &enable_pinned_input_));
@@ -101,14 +101,14 @@ BackendModel::ParseModelConfig()
       batch_output_map_.emplace(name, &batch_output);
     }
   }
-  hercules::common::TritonJson::Value config_inputs;
+  hercules::common::json_parser::Value config_inputs;
   RETURN_IF_ERROR(model_config_.MemberAsArray("input", &config_inputs));
   for (size_t i = 0; i < config_inputs.ArraySize(); i++) {
-    hercules::common::TritonJson::Value io;
+    hercules::common::json_parser::Value io;
     RETURN_IF_ERROR(config_inputs.IndexAsObject(i, &io));
     std::string io_name;
     RETURN_IF_ERROR(io.MemberAsString("name", &io_name));
-    hercules::common::TritonJson::Value input_property_json;
+    hercules::common::json_parser::Value input_property_json;
     bool allow_ragged_batch = false;
     if (io.Find("allow_ragged_batch", &input_property_json)) {
       RETURN_IF_ERROR(input_property_json.AsBool(&allow_ragged_batch));
@@ -139,7 +139,7 @@ BackendModel::ParseModelConfig()
 TRITONSERVER_Error*
 BackendModel::SetModelConfig()
 {
-  hercules::common::TritonJson::WriteBuffer json_buffer;
+  hercules::common::json_parser::WriteBuffer json_buffer;
   RETURN_IF_ERROR(ModelConfig().Write(&json_buffer));
 
   TRITONSERVER_Message* message;

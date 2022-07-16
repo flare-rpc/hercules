@@ -1,7 +1,8 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=~/miniconda3/envs/hercules-dev -G "CodeBlocks - Unix Makefiles" /Users/liyinbin/github/flare-rpc/hercules
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=~/miniconda3/envs/hercules_d -G "CodeBlocks - Unix Makefiles" /Users/liyinbin/github/flare-rpc/hercules
 bash: /Users/liyinbin/github/flare-rpc/hercules/tools/get_project_version.sh: No such file or directory
 -- [32m[carbin] /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug[m
 -- [32m[carbin] /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug;/Users/liyinbin/github/flare-rpc/hercules[m
+-- Tensorflow could not be located and will be skipped. It can be specified with TENSORFLOW_DIR CMAKE variable or env variable 
 -----------------------------------
 [33mCreate Library[m:                [36mhercules::proto[m
 -----------------------------------
@@ -22,7 +23,7 @@ bash: /Users/liyinbin/github/flare-rpc/hercules/tools/get_project_version.sh: No
  - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes[m
  - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes[m
 [33mCMAKE_PREFIX_PATH[m:
- - [36m~/miniconda3/envs/hercules-dev[m
+ - [36m~/miniconda3/envs/hercules_d[m
  - [36m/Users/liyinbin/miniconda3/envs/flare-dev[m
 [33mCARBIN_INCLUDE_DIRS[m:
  - [36m/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug[m

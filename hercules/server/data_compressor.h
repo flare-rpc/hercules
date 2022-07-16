@@ -17,7 +17,7 @@
 #include <event2/buffer.h>
 #include <zlib.h>
 #include "common.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

@@ -8,7 +8,7 @@
 
 #include "common.h"
 
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

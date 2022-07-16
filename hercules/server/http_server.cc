@@ -23,7 +23,7 @@
 #define TRITONJSON_STATUSRETURN(M) \
   return TRITONSERVER_ErrorNew(TRITONSERVER_ERROR_INTERNAL, (M).c_str())
 #define TRITONJSON_STATUSSUCCESS nullptr
-#include "triton/common/triton_json.h"
+#include "hercules/common/json_parser.h"
 
 extern "C" {
 #include <b64/cdecode.h>
@@ -114,7 +114,7 @@ HTTPServer::Dispatch(evhtp_request_t* req, void* arg)
 void
 HTTPMetricsServer::Handle(evhtp_request_t* req)
 {
-  LOG_VERBOSE(1) << "HTTP request: " << req->method << " "
+  FLARE_LOG(DEBUG) << "HTTP request: " << req->method << " "
                  << req->uri->path->full;
 
   if (req->method != htp_method_GET) {
@@ -157,7 +157,7 @@ HTTPMetricsServer::Create(
       new HTTPMetricsServer(server, port, address, thread_cnt));
 
   const std::string addr = address + ":" + std::to_string(port);
-  LOG_INFO << "Started Metrics Service at " << addr;
+  FLARE_LOG(INFO) << "Started Metrics Service at " << addr;
 
   return nullptr;
 }
@@ -223,17 +223,17 @@ AllocEVBuffer(const size_t byte_size, evbuffer** evb, void** base)
 
 TRITONSERVER_Error*
 JsonBytesArrayByteSize(
-    hercules::common::TritonJson::Value& tensor_data, size_t* byte_size)
+    hercules::common::json_parser::Value& tensor_data, size_t* byte_size)
 {
   *byte_size = 0;
 
   for (size_t i = 0; i < tensor_data.ArraySize(); i++) {
-    hercules::common::TritonJson::Value el;
+    hercules::common::json_parser::Value el;
     RETURN_IF_ERR(tensor_data.At(i, &el));
 
     // Recurse if not last dimension...
     TRITONSERVER_Error* assert_err =
-        el.AssertType(hercules::common::TritonJson::ValueType::ARRAY);
+        el.AssertType(hercules::common::json_parser::ValueType::ARRAY);
     if (assert_err == nullptr) {
       RETURN_IF_ERR(JsonBytesArrayByteSize(el, byte_size));
     } else {
@@ -254,18 +254,18 @@ JsonBytesArrayByteSize(
 TRITONSERVER_Error*
 ReadDataFromJsonHelper(
     char* base, const TRITONSERVER_DataType dtype,
-    hercules::common::TritonJson::Value& tensor_data, int* counter,
+    hercules::common::json_parser::Value& tensor_data, int* counter,
     int64_t expected_cnt)
 {
   // FIXME should invert loop and switch so don't have to do a switch
   // each iteration.
   for (size_t i = 0; i < tensor_data.ArraySize(); i++) {
-    hercules::common::TritonJson::Value el;
+    hercules::common::json_parser::Value el;
     RETURN_IF_ERR(tensor_data.At(i, &el));
 
     // Recurse if not last dimension...
     TRITONSERVER_Error* assert_err =
-        el.AssertType(hercules::common::TritonJson::ValueType::ARRAY);
+        el.AssertType(hercules::common::json_parser::ValueType::ARRAY);
     if (assert_err == nullptr) {
       RETURN_IF_ERR(
           ReadDataFromJsonHelper(base, dtype, el, counter, expected_cnt));
@@ -399,7 +399,7 @@ ReadDataFromJsonHelper(
 
 TRITONSERVER_Error*
 ReadDataFromJson(
-    const char* tensor_name, hercules::common::TritonJson::Value& tensor_data,
+    const char* tensor_name, hercules::common::json_parser::Value& tensor_data,
     char* base, const TRITONSERVER_DataType dtype, int64_t expected_cnt)
 {
   int counter = 0;
@@ -468,7 +468,7 @@ WriteDataToJsonCheck(
 
 TRITONSERVER_Error*
 WriteDataToJson(
-    hercules::common::TritonJson::Value* data_json,
+    hercules::common::json_parser::Value* data_json,
     const std::string& output_name, const TRITONSERVER_DataType datatype,
     const void* base, const size_t byte_size, const size_t element_count)
 {
@@ -651,11 +651,11 @@ EVBufferAddErrorJson(evbuffer* buffer, TRITONSERVER_Error* err)
 {
   const char* message = TRITONSERVER_ErrorMessage(err);
 
-  hercules::common::TritonJson::Value response(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value response(
+      hercules::common::json_parser::ValueType::OBJECT);
   response.AddStringRef("error", message, strlen(message));
 
-  hercules::common::TritonJson::WriteBuffer buffer_json;
+  hercules::common::json_parser::WriteBuffer buffer_json;
   response.Write(&buffer_json);
 
   evbuffer_add(buffer, buffer_json.Base(), buffer_json.Size());
@@ -663,14 +663,14 @@ EVBufferAddErrorJson(evbuffer* buffer, TRITONSERVER_Error* err)
 
 TRITONSERVER_Error*
 CheckBinaryInputData(
-    hercules::common::TritonJson::Value& request_input, bool* is_binary,
+    hercules::common::json_parser::Value& request_input, bool* is_binary,
     size_t* byte_size)
 {
   *is_binary = false;
 
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (request_input.Find("parameters", &params_json)) {
-    hercules::common::TritonJson::Value binary_data_size_json;
+    hercules::common::json_parser::Value binary_data_size_json;
     if (params_json.Find("binary_data_size", &binary_data_size_json)) {
       RETURN_MSG_IF_ERR(
           binary_data_size_json.AsUInt(byte_size),
@@ -684,13 +684,13 @@ CheckBinaryInputData(
 
 TRITONSERVER_Error*
 CheckBinaryOutputData(
-    hercules::common::TritonJson::Value& request_output, bool* is_binary)
+    hercules::common::json_parser::Value& request_output, bool* is_binary)
 {
   *is_binary = false;
 
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (request_output.Find("parameters", &params_json)) {
-    hercules::common::TritonJson::Value binary_data_json;
+    hercules::common::json_parser::Value binary_data_json;
     if (params_json.Find("binary_data", &binary_data_json)) {
       RETURN_MSG_IF_ERR(
           binary_data_json.AsBool(is_binary), "Unable to parse 'binary_data'");
@@ -702,17 +702,17 @@ CheckBinaryOutputData(
 
 TRITONSERVER_Error*
 CheckSharedMemoryData(
-    hercules::common::TritonJson::Value& request_input, bool* use_shm,
+    hercules::common::json_parser::Value& request_input, bool* use_shm,
     const char** shm_region, uint64_t* offset, uint64_t* byte_size)
 {
   *use_shm = false;
   *offset = 0;
   *byte_size = 0;
 
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (request_input.Find("parameters", &params_json)) {
     {
-      hercules::common::TritonJson::Value region_json;
+      hercules::common::json_parser::Value region_json;
       if (params_json.Find("shared_memory_region", &region_json)) {
         *use_shm = true;
         size_t len;
@@ -723,7 +723,7 @@ CheckSharedMemoryData(
     }
 
     {
-      hercules::common::TritonJson::Value offset_json;
+      hercules::common::json_parser::Value offset_json;
       if (params_json.Find("shared_memory_offset", &offset_json)) {
         RETURN_MSG_IF_ERR(
             offset_json.AsUInt(offset),
@@ -732,7 +732,7 @@ CheckSharedMemoryData(
     }
 
     {
-      hercules::common::TritonJson::Value size_json;
+      hercules::common::json_parser::Value size_json;
       if (params_json.Find("shared_memory_byte_size", &size_json)) {
         RETURN_MSG_IF_ERR(
             size_json.AsUInt(byte_size),
@@ -746,13 +746,13 @@ CheckSharedMemoryData(
 
 TRITONSERVER_Error*
 CheckClassificationOutput(
-    hercules::common::TritonJson::Value& request_output, uint64_t* num_classes)
+    hercules::common::json_parser::Value& request_output, uint64_t* num_classes)
 {
   *num_classes = 0;
 
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (request_output.Find("parameters", &params_json)) {
-    hercules::common::TritonJson::Value cls_json;
+    hercules::common::json_parser::Value cls_json;
     if (params_json.Find("classification", &cls_json)) {
       RETURN_MSG_IF_ERR(
           cls_json.AsUInt(num_classes), "Unable to set 'classification'");
@@ -763,7 +763,7 @@ CheckClassificationOutput(
 }
 
 TRITONSERVER_Error*
-ValidateInputContentType(hercules::common::TritonJson::Value& io)
+ValidateInputContentType(hercules::common::json_parser::Value& io)
 {
   bool has_data = false;
   bool has_binary = false;
@@ -771,7 +771,7 @@ ValidateInputContentType(hercules::common::TritonJson::Value& io)
 
   has_data = io.Find("data");
 
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (io.Find("parameters", &params_json)) {
     has_binary = params_json.Find("binary_data_size");
     has_shared_memory = params_json.Find("shared_memory_region");
@@ -805,9 +805,9 @@ ValidateInputContentType(hercules::common::TritonJson::Value& io)
 }
 
 TRITONSERVER_Error*
-ValidateOutputParameter(hercules::common::TritonJson::Value& io)
+ValidateOutputParameter(hercules::common::json_parser::Value& io)
 {
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (io.Find("parameters", &params_json)) {
     const bool has_shared_memory = params_json.Find("shared_memory_region");
     if (has_shared_memory) {
@@ -821,7 +821,7 @@ ValidateOutputParameter(hercules::common::TritonJson::Value& io)
             "'classification'");
       }
 
-      hercules::common::TritonJson::Value binary_data_json;
+      hercules::common::json_parser::Value binary_data_json;
       if (params_json.Find("binary_data", &binary_data_json)) {
         bool is_binary = false;
         RETURN_MSG_IF_ERR(
@@ -840,7 +840,7 @@ ValidateOutputParameter(hercules::common::TritonJson::Value& io)
 
 TRITONSERVER_Error*
 EVBufferToJson(
-    hercules::common::TritonJson::Value* document, evbuffer_iovec* v, int* v_idx,
+    hercules::common::json_parser::Value* document, evbuffer_iovec* v, int* v_idx,
     const size_t length, int n)
 {
   size_t offset = 0, remaining_length = length;
@@ -1057,7 +1057,7 @@ HTTPAPIServer::InferResponseAlloc(
     *actual_memory_type_id = info->device_id_;
     *buffer_userp = reinterpret_cast<void*>(info);
 
-    LOG_VERBOSE(1) << "HTTP: using shared-memory for '" << tensor_name
+    FLARE_LOG(DEBUG) << "HTTP: using shared-memory for '" << tensor_name
                    << "', size: " << byte_size << ", addr: " << *buffer;
     return nullptr;  // Success
   }
@@ -1067,7 +1067,7 @@ HTTPAPIServer::InferResponseAlloc(
     // Can't allocate for any memory type other than CPU. If asked to
     // allocate on GPU memory then force allocation on CPU instead.
     if (*actual_memory_type != TRITONSERVER_MEMORY_CPU) {
-      LOG_VERBOSE(1) << "HTTP: unable to provide '" << tensor_name << "' in "
+      FLARE_LOG(DEBUG) << "HTTP: unable to provide '" << tensor_name << "' in "
                      << TRITONSERVER_MemoryTypeString(*actual_memory_type)
                      << ", will use "
                      << TRITONSERVER_MemoryTypeString(TRITONSERVER_MEMORY_CPU);
@@ -1087,7 +1087,7 @@ HTTPAPIServer::InferResponseAlloc(
     // as the buffer itself.
     info->evbuffer_ = evhttp_buffer;
 
-    LOG_VERBOSE(1) << "HTTP using buffer for: '" << tensor_name
+    FLARE_LOG(DEBUG) << "HTTP using buffer for: '" << tensor_name
                    << "', size: " << byte_size << ", addr: " << *buffer;
   }
 
@@ -1161,7 +1161,7 @@ HTTPAPIServer::InferResponseFree(
     size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
-  LOG_VERBOSE(1) << "HTTP release: "
+  FLARE_LOG(DEBUG) << "HTTP release: "
                  << "size " << byte_size << ", addr " << buffer;
 
   // 'buffer' is backed by shared memory or evbuffer so we don't
@@ -1225,10 +1225,10 @@ HTTPAPIServer::HandleRepositoryIndex(
     // If no request json then just use all default values.
     size_t buffer_len = evbuffer_get_length(req->buffer_in);
     if (buffer_len > 0) {
-      hercules::common::TritonJson::Value index_request;
+      hercules::common::json_parser::Value index_request;
       err = EVBufferToJson(&index_request, v, &v_idx, buffer_len, n);
       if (err == nullptr) {
-        hercules::common::TritonJson::Value ready_json;
+        hercules::common::json_parser::Value ready_json;
         if (index_request.Find("ready", &ready_json)) {
           err = ready_json.AsBool(&ready);
         }
@@ -1321,12 +1321,12 @@ HTTPAPIServer::HandleRepositoryControl(
       std::vector<const TRITONSERVER_Parameter*> const_params;
       size_t buffer_len = evbuffer_get_length(req->buffer_in);
       if (buffer_len > 0) {
-        hercules::common::TritonJson::Value request;
+        hercules::common::json_parser::Value request;
         HTTP_RESPOND_IF_ERR(
             req, EVBufferToJson(&request, v, &v_idx, buffer_len, n));
 
         // Parse request body for parameters
-        hercules::common::TritonJson::Value param_json;
+        hercules::common::json_parser::Value param_json;
         if (request.Find("parameters", &param_json)) {
           // Iterate over each member in 'param_json'
           std::vector<std::string> members;
@@ -1390,12 +1390,12 @@ HTTPAPIServer::HandleRepositoryControl(
 
         size_t buffer_len = evbuffer_get_length(req->buffer_in);
         if (buffer_len > 0) {
-          hercules::common::TritonJson::Value control_request;
+          hercules::common::json_parser::Value control_request;
           err = EVBufferToJson(&control_request, v, &v_idx, buffer_len, n);
           if (err == nullptr) {
-            hercules::common::TritonJson::Value params_json;
+            hercules::common::json_parser::Value params_json;
             if (control_request.Find("parameters", &params_json)) {
-              hercules::common::TritonJson::Value ud_json;
+              hercules::common::json_parser::Value ud_json;
               if (params_json.Find("unload_dependents", &ud_json)) {
                 auto parse_err = ud_json.AsBool(&unload_dependents);
                 if (parse_err != nullptr) {
@@ -1645,14 +1645,14 @@ HTTPAPIServer::HandleTrace(evhtp_request_t* req, const std::string& model_name)
       }
     }
 
-    hercules::common::TritonJson::Value request;
+    hercules::common::json_parser::Value request;
     size_t buffer_len = evbuffer_get_length(req->buffer_in);
     HTTP_RESPOND_IF_ERR(
         req, EVBufferToJson(&request, v, &v_idx, buffer_len, n));
 
     TraceManager::NewSetting new_setting;
 
-    hercules::common::TritonJson::Value setting_json;
+    hercules::common::json_parser::Value setting_json;
     if (request.Find("trace_file", &setting_json)) {
       if (setting_json.IsNull()) {
         new_setting.clear_filepath_ = true;
@@ -1665,7 +1665,7 @@ HTTPAPIServer::HandleTrace(evhtp_request_t* req, const std::string& model_name)
       if (setting_json.IsNull()) {
         new_setting.clear_level_ = true;
       } else {
-        hercules::common::TritonJson::Value level_array;
+        hercules::common::json_parser::Value level_array;
         HTTP_RESPOND_IF_ERR(
             req, request.MemberAsArray("trace_level", &level_array));
         for (size_t i = 0; i < level_array.ArraySize(); ++i) {
@@ -1761,12 +1761,12 @@ HTTPAPIServer::HandleTrace(evhtp_request_t* req, const std::string& model_name)
   // has been updated above as some values may not be provided in the request.
   trace_manager_->GetTraceSetting(
       model_name, &level, &rate, &count, &log_frequency, &filepath);
-  hercules::common::TritonJson::Value trace_response(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value trace_response(
+      hercules::common::json_parser::ValueType::OBJECT);
   // level
   {
-    hercules::common::TritonJson::Value level_array(
-        hercules::common::TritonJson::ValueType::ARRAY);
+    hercules::common::json_parser::Value level_array(
+        hercules::common::json_parser::ValueType::ARRAY);
     if (level == TRITONSERVER_TRACE_LEVEL_DISABLED) {
       HTTP_RESPOND_IF_ERR(req, level_array.AppendString("OFF"));
     } else {
@@ -1789,7 +1789,7 @@ HTTPAPIServer::HandleTrace(evhtp_request_t* req, const std::string& model_name)
       trace_response.AddString("log_frequency", std::to_string(log_frequency)));
   HTTP_RESPOND_IF_ERR(req, trace_response.AddString("trace_file", filepath));
 
-  hercules::common::TritonJson::WriteBuffer buffer;
+  hercules::common::json_parser::WriteBuffer buffer;
   HTTP_RESPOND_IF_ERR(req, trace_response.Write(&buffer));
   evbuffer_add(req->buffer_out, buffer.Base(), buffer.Size());
   evhtp_send_reply(req, EVHTP_RES_OK);
@@ -1842,12 +1842,12 @@ HTTPAPIServer::HandleSystemSharedMemory(
 
   TRITONSERVER_Error* err = nullptr;
   if (action == "status") {
-    hercules::common::TritonJson::Value shm_status(
-        hercules::common::TritonJson::ValueType::ARRAY);
+    hercules::common::json_parser::Value shm_status(
+        hercules::common::json_parser::ValueType::ARRAY);
     err = shm_manager_->GetStatus(
         region_name, TRITONSERVER_MEMORY_CPU, &shm_status);
     if (err == nullptr) {
-      hercules::common::TritonJson::WriteBuffer buffer;
+      hercules::common::json_parser::WriteBuffer buffer;
       err = shm_status.Write(&buffer);
       if (err == nullptr) {
         evbuffer_add(req->buffer_out, buffer.Base(), buffer.Size());
@@ -1873,11 +1873,11 @@ HTTPAPIServer::HandleSystemSharedMemory(
       }
 
       if (err == nullptr) {
-        hercules::common::TritonJson::Value register_request;
+        hercules::common::json_parser::Value register_request;
         size_t buffer_len = evbuffer_get_length(req->buffer_in);
         err = EVBufferToJson(&register_request, v, &v_idx, buffer_len, n);
         if (err == nullptr) {
-          hercules::common::TritonJson::Value key_json;
+          hercules::common::json_parser::Value key_json;
           if (!register_request.Find("key", &key_json)) {
             err = TRITONSERVER_ErrorNew(
                 TRITONSERVER_ERROR_INVALID_ARG,
@@ -1892,7 +1892,7 @@ HTTPAPIServer::HandleSystemSharedMemory(
 
           uint64_t offset = 0;
           if (err == nullptr) {
-            hercules::common::TritonJson::Value offset_json;
+            hercules::common::json_parser::Value offset_json;
             if (register_request.Find("offset", &offset_json)) {
               err = offset_json.AsUInt(&offset);
             }
@@ -1900,7 +1900,7 @@ HTTPAPIServer::HandleSystemSharedMemory(
 
           uint64_t byte_size = 0;
           if (err == nullptr) {
-            hercules::common::TritonJson::Value byte_size_json;
+            hercules::common::json_parser::Value byte_size_json;
             if (!register_request.Find("byte_size", &byte_size_json)) {
               err = TRITONSERVER_ErrorNew(
                   TRITONSERVER_ERROR_INVALID_ARG,
@@ -1953,12 +1953,12 @@ HTTPAPIServer::HandleCudaSharedMemory(
 
   TRITONSERVER_Error* err = nullptr;
   if (action == "status") {
-    hercules::common::TritonJson::Value shm_status(
-        hercules::common::TritonJson::ValueType::ARRAY);
+    hercules::common::json_parser::Value shm_status(
+        hercules::common::json_parser::ValueType::ARRAY);
     err = shm_manager_->GetStatus(
         region_name, TRITONSERVER_MEMORY_GPU, &shm_status);
     if (err == nullptr) {
-      hercules::common::TritonJson::WriteBuffer buffer;
+      hercules::common::json_parser::WriteBuffer buffer;
       err = shm_status.Write(&buffer);
       if (err == nullptr) {
         evbuffer_add(req->buffer_out, buffer.Base(), buffer.Size());
@@ -1984,13 +1984,13 @@ HTTPAPIServer::HandleCudaSharedMemory(
         }
       }
       if (err == nullptr) {
-        hercules::common::TritonJson::Value register_request;
+        hercules::common::json_parser::Value register_request;
         size_t buffer_len = evbuffer_get_length(req->buffer_in);
         err = EVBufferToJson(&register_request, v, &v_idx, buffer_len, n);
         if (err == nullptr) {
           const char* b64_handle = nullptr;
           size_t b64_handle_len = 0;
-          hercules::common::TritonJson::Value raw_handle_json;
+          hercules::common::json_parser::Value raw_handle_json;
           if (!register_request.Find("raw_handle", &raw_handle_json)) {
             err = TRITONSERVER_ErrorNew(
                 TRITONSERVER_ERROR_INVALID_ARG,
@@ -2157,12 +2157,12 @@ HTTPAPIServer::EVBufferToInput(
 
   // Extract just the json header from the HTTP body. 'header_length == 0' means
   // that the entire HTTP body should be input data for a raw binary request.
-  hercules::common::TritonJson::Value request_json;
+  hercules::common::json_parser::Value request_json;
 
   RETURN_IF_ERR(EVBufferToJson(&request_json, v, &v_idx, header_length, n));
 
   // Set inference_request request_id
-  hercules::common::TritonJson::Value id_json;
+  hercules::common::json_parser::Value id_json;
   if (request_json.Find("id", &id_json)) {
     const char* id;
     size_t id_len;
@@ -2176,9 +2176,9 @@ HTTPAPIServer::EVBufferToInput(
       AllocPayload::OutputInfo::JSON;
 
   // Set sequence correlation ID and flags if any
-  hercules::common::TritonJson::Value params_json;
+  hercules::common::json_parser::Value params_json;
   if (request_json.Find("parameters", &params_json)) {
-    hercules::common::TritonJson::Value seq_json;
+    hercules::common::json_parser::Value seq_json;
     if (params_json.Find("sequence_id", &seq_json)) {
       // Try to parse sequence_id as uint64_t
       uint64_t seq_id;
@@ -2198,7 +2198,7 @@ HTTPAPIServer::EVBufferToInput(
     uint32_t flags = 0;
 
     {
-      hercules::common::TritonJson::Value start_json;
+      hercules::common::json_parser::Value start_json;
       if (params_json.Find("sequence_start", &start_json)) {
         bool start;
         RETURN_MSG_IF_ERR(
@@ -2208,7 +2208,7 @@ HTTPAPIServer::EVBufferToInput(
         }
       }
 
-      hercules::common::TritonJson::Value end_json;
+      hercules::common::json_parser::Value end_json;
       if (params_json.Find("sequence_end", &end_json)) {
         bool end;
         RETURN_MSG_IF_ERR(
@@ -2222,7 +2222,7 @@ HTTPAPIServer::EVBufferToInput(
     RETURN_IF_ERR(TRITONSERVER_InferenceRequestSetFlags(irequest, flags));
 
     {
-      hercules::common::TritonJson::Value priority_json;
+      hercules::common::json_parser::Value priority_json;
       if (params_json.Find("priority", &priority_json)) {
         uint64_t p;
         RETURN_MSG_IF_ERR(
@@ -2232,7 +2232,7 @@ HTTPAPIServer::EVBufferToInput(
     }
 
     {
-      hercules::common::TritonJson::Value timeout_json;
+      hercules::common::json_parser::Value timeout_json;
       if (params_json.Find("timeout", &timeout_json)) {
         uint64_t t;
         RETURN_MSG_IF_ERR(timeout_json.AsUInt(&t), "Unable to parse 'timeout'");
@@ -2242,7 +2242,7 @@ HTTPAPIServer::EVBufferToInput(
     }
 
     {
-      hercules::common::TritonJson::Value bdo_json;
+      hercules::common::json_parser::Value bdo_json;
       if (params_json.Find("binary_data_output", &bdo_json)) {
         bool bdo;
         RETURN_MSG_IF_ERR(
@@ -2255,13 +2255,13 @@ HTTPAPIServer::EVBufferToInput(
 
   // Get the byte-size for each input and from that get the blocks
   // holding the data for that input
-  hercules::common::TritonJson::Value inputs_json;
+  hercules::common::json_parser::Value inputs_json;
   RETURN_MSG_IF_ERR(
       request_json.MemberAsArray("inputs", &inputs_json),
       "Unable to parse 'inputs'");
 
   for (size_t i = 0; i < inputs_json.ArraySize(); i++) {
-    hercules::common::TritonJson::Value request_input;
+    hercules::common::json_parser::Value request_input;
     RETURN_IF_ERR(inputs_json.At(i, &request_input));
     RETURN_IF_ERR(ValidateInputContentType(request_input));
 
@@ -2278,7 +2278,7 @@ HTTPAPIServer::EVBufferToInput(
         "Unable to parse 'datatype'");
     const TRITONSERVER_DataType dtype = TRITONSERVER_StringToDataType(datatype);
 
-    hercules::common::TritonJson::Value shape_json;
+    hercules::common::json_parser::Value shape_json;
     RETURN_MSG_IF_ERR(
         request_input.MemberAsArray("shape", &shape_json),
         "Unable to parse 'shape'");
@@ -2397,7 +2397,7 @@ HTTPAPIServer::EVBufferToInput(
           // JSON... presence of "data" already validated but still
           // checking here. Flow in this endpoint needs to be
           // reworked...
-          hercules::common::TritonJson::Value tensor_data;
+          hercules::common::json_parser::Value tensor_data;
           RETURN_MSG_IF_ERR(
               request_input.MemberAsArray("data", &tensor_data),
               "Unable to parse 'data'");
@@ -2433,12 +2433,12 @@ HTTPAPIServer::EVBufferToInput(
 
   // outputs is optional
   if (request_json.Find("outputs")) {
-    hercules::common::TritonJson::Value outputs_json;
+    hercules::common::json_parser::Value outputs_json;
     RETURN_MSG_IF_ERR(
         request_json.MemberAsArray("outputs", &outputs_json),
         "Unable to parse 'outputs'");
     for (size_t i = 0; i < outputs_json.ArraySize(); i++) {
-      hercules::common::TritonJson::Value request_output;
+      hercules::common::json_parser::Value request_output;
       RETURN_IF_ERR(outputs_json.At(i, &request_output));
       RETURN_IF_ERR(ValidateOutputParameter(request_output));
 
@@ -2727,7 +2727,7 @@ HTTPAPIServer::HandleInfer(
   }
 
   if (err != nullptr) {
-    LOG_VERBOSE(1) << "[request id: " << request_id << "] "
+    FLARE_LOG(DEBUG) << "[request id: " << request_id << "] "
                    << "Infer failed: " << TRITONSERVER_ErrorMessage(err);
     evhtp_headers_add_header(
         req->headers_out,
@@ -2843,7 +2843,7 @@ HTTPAPIServer::InferRequestClass::InferResponseComplete(
 
   // Defer to the callback with the final response
   if ((flags & TRITONSERVER_RESPONSE_COMPLETE_FINAL) == 0) {
-    LOG_ERROR << "[INTERNAL] received a response without FINAL flag";
+    FLARE_LOG(ERROR) << "[INTERNAL] received a response without FINAL flag";
     return;
   }
 
@@ -2887,8 +2887,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
 {
   RETURN_IF_ERR(TRITONSERVER_InferenceResponseError(response));
 
-  hercules::common::TritonJson::Value response_json(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value response_json(
+      hercules::common::json_parser::ValueType::OBJECT);
 
   const char* request_id = nullptr;
   RETURN_IF_ERR(TRITONSERVER_InferenceResponseId(response, &request_id));
@@ -2909,8 +2909,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
   RETURN_IF_ERR(
       TRITONSERVER_InferenceResponseParameterCount(response, &parameter_count));
   if (parameter_count > 0) {
-    hercules::common::TritonJson::Value params_json(
-        response_json, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value params_json(
+        response_json, hercules::common::json_parser::ValueType::OBJECT);
 
     for (uint32_t pidx = 0; pidx < parameter_count; ++pidx) {
       const char* name;
@@ -2951,8 +2951,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
   std::vector<evbuffer*> ordered_buffers;
   ordered_buffers.reserve(output_count);
 
-  hercules::common::TritonJson::Value response_outputs(
-      response_json, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value response_outputs(
+      response_json, hercules::common::json_parser::ValueType::ARRAY);
 
   for (uint32_t idx = 0; idx < output_count; ++idx) {
     const char* cname;
@@ -2969,8 +2969,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
         response, idx, &cname, &datatype, &shape, &dim_count, &base, &byte_size,
         &memory_type, &memory_type_id, &userp));
 
-    hercules::common::TritonJson::Value output_json(
-        response_json, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value output_json(
+        response_json, hercules::common::json_parser::ValueType::OBJECT);
     RETURN_IF_ERR(output_json.AddStringRef("name", cname));
 
     // Handle data. SHM outputs will not have an info.
@@ -3035,8 +3035,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
           TRITONSERVER_DataTypeString(TRITONSERVER_TYPE_BYTES);
       RETURN_IF_ERR(output_json.AddStringRef("datatype", datatype_str));
 
-      hercules::common::TritonJson::Value shape_json(
-          response_json, hercules::common::TritonJson::ValueType::ARRAY);
+      hercules::common::json_parser::Value shape_json(
+          response_json, hercules::common::json_parser::ValueType::ARRAY);
       if (batch_size > 0) {
         RETURN_IF_ERR(shape_json.AppendUInt(batch_size));
         element_count *= batch_size;
@@ -3060,8 +3060,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
       const char* datatype_str = TRITONSERVER_DataTypeString(datatype);
       RETURN_IF_ERR(output_json.AddStringRef("datatype", datatype_str));
 
-      hercules::common::TritonJson::Value shape_json(
-          response_json, hercules::common::TritonJson::ValueType::ARRAY);
+      hercules::common::json_parser::Value shape_json(
+          response_json, hercules::common::json_parser::ValueType::ARRAY);
       for (size_t j = 0; j < dim_count; j++) {
         RETURN_IF_ERR(shape_json.AppendUInt(shape[j]));
         element_count *= shape[j];
@@ -3072,10 +3072,10 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
 
     // Add JSON data, or collect binary data.
     if (info->kind_ == AllocPayload::OutputInfo::BINARY) {
-      hercules::common::TritonJson::Value parameters_json;
+      hercules::common::json_parser::Value parameters_json;
       if (!output_json.Find("parameters", &parameters_json)) {
-        parameters_json = hercules::common::TritonJson::Value(
-            response_json, hercules::common::TritonJson::ValueType::OBJECT);
+        parameters_json = hercules::common::json_parser::Value(
+            response_json, hercules::common::json_parser::ValueType::OBJECT);
         RETURN_IF_ERR(parameters_json.AddUInt("binary_data_size", byte_size));
         RETURN_IF_ERR(
             output_json.Add("parameters", std::move(parameters_json)));
@@ -3086,8 +3086,8 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
         ordered_buffers.push_back(info->evbuffer_);
       }
     } else if (info->kind_ == AllocPayload::OutputInfo::JSON) {
-      hercules::common::TritonJson::Value data_json(
-          response_json, hercules::common::TritonJson::ValueType::ARRAY);
+      hercules::common::json_parser::Value data_json(
+          response_json, hercules::common::json_parser::ValueType::ARRAY);
       RETURN_IF_ERR(WriteDataToJson(
           &data_json, cname, datatype, base, byte_size, element_count));
       RETURN_IF_ERR(output_json.Add("data", std::move(data_json)));
@@ -3100,7 +3100,7 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
 
   evbuffer* response_placeholder = evbuffer_new();
   // Write json metadata into response evbuffer
-  hercules::common::TritonJson::WriteBuffer buffer;
+  hercules::common::json_parser::WriteBuffer buffer;
   RETURN_IF_ERR(response_json.Write(&buffer));
   evbuffer_add(response_placeholder, buffer.Base(), buffer.Size());
 
@@ -3124,7 +3124,7 @@ HTTPAPIServer::InferRequestClass::FinalizeResponse(
         evbuffer_free(response_placeholder);
       } else {
         // just log the compression error and return the uncompressed data
-        LOG_VERBOSE(1) << "unable to compress response: "
+        FLARE_LOG(DEBUG) << "unable to compress response: "
                        << TRITONSERVER_ErrorMessage(err);
         TRITONSERVER_ErrorDelete(err);
         evbuffer_free(compressed_buffer);
@@ -3191,7 +3191,7 @@ HTTPAPIServer::InferRequestClass::IncrementResponseCount()
 void
 HTTPAPIServer::Handle(evhtp_request_t* req)
 {
-  LOG_VERBOSE(1) << "HTTP request: " << req->method << " "
+  FLARE_LOG(DEBUG) << "HTTP request: " << req->method << " "
                  << req->uri->path->full;
 
   if (std::string(req->uri->path->full) == "/v2/models/stats") {
@@ -3273,7 +3273,7 @@ HTTPAPIServer::Handle(evhtp_request_t* req)
     return;
   }
 
-  LOG_VERBOSE(1) << "HTTP error: " << req->method << " " << req->uri->path->full
+  FLARE_LOG(DEBUG) << "HTTP error: " << req->method << " " << req->uri->path->full
                  << " - " << static_cast<int>(EVHTP_RES_BADREQ);
 
   evhtp_send_reply(req, EVHTP_RES_BADREQ);
@@ -3291,7 +3291,7 @@ HTTPAPIServer::Create(
       server, trace_manager, shm_manager, port, address, thread_cnt));
 
   const std::string addr = address + ":" + std::to_string(port);
-  LOG_INFO << "Started HTTPService at " << addr;
+  FLARE_LOG(INFO) << "Started HTTPService at " << addr;
 
   return nullptr;
 }

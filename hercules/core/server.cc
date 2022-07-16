@@ -188,14 +188,14 @@ inference_server::Init()
   // If CUDA memory manager can't be created, just log error as the
   // server can still function properly
   if (!status.IsOk()) {
-    LOG_ERROR << status.Message();
+    FLARE_LOG(ERROR) << status.Message();
   }
 #endif  // HERCULES_ENABLE_GPU
 
   status = EnablePeerAccess(min_supported_compute_capability_);
   if (!status.IsOk()) {
     // failed to enable peer access is not critical, just inefficient.
-    LOG_WARNING << status.Message();
+    FLARE_LOG(WARNING) << status.Message();
   }
 
   // Create the model manager for the repository. Unless model control
@@ -236,15 +236,15 @@ inference_server::Stop(const bool force)
   ready_state_ = ServerReadyState::SERVER_EXITING;
 
   if (model_repository_manager_ == nullptr) {
-    LOG_INFO << "No server context available. Exiting immediately.";
+    FLARE_LOG(INFO) << "No server context available. Exiting immediately.";
     return Status::Success;
   } else {
-    LOG_INFO << "Waiting for in-flight requests to complete.";
+    FLARE_LOG(INFO) << "Waiting for in-flight requests to complete.";
   }
 
   Status status = model_repository_manager_->StopAllModels();
   if (!status.IsOk()) {
-    LOG_ERROR << status.Message();
+    FLARE_LOG(ERROR) << status.Message();
   }
 
   // Wait for all in-flight non-inference requests to complete and all
@@ -255,11 +255,11 @@ inference_server::Stop(const bool force)
     if (!unloading_model) {
       // Check if all in-flight inference requests / sequences are completed
       const auto& inflight_status = model_repository_manager_->InflightStatus();
-      LOG_INFO << "Timeout " << exit_timeout_iters << ": Found "
+      FLARE_LOG(INFO) << "Timeout " << exit_timeout_iters << ": Found "
                << inflight_status.size()
                << " model versions that have in-flight inferences";
       for (const auto& inflight : inflight_status) {
-        LOG_INFO << "Model '" << std::get<0>(inflight) << "' "
+        FLARE_LOG(INFO) << "Model '" << std::get<0>(inflight) << "' "
                  << "(version " << std::get<1>(inflight) << ") has "
                  << std::get<2>(inflight) << " in-flight inferences";
       }
@@ -268,23 +268,23 @@ inference_server::Stop(const bool force)
         unloading_model = true;
         status = model_repository_manager_->UnloadAllModels();
         if (!status.IsOk()) {
-          LOG_ERROR << status.Message();
+          FLARE_LOG(ERROR) << status.Message();
         } else {
-          LOG_INFO << "All models are stopped, unloading models";
+          FLARE_LOG(INFO) << "All models are stopped, unloading models";
           continue;
         }
       }
     } else {
       const auto& live_models = model_repository_manager_->LiveModelStates();
 
-      LOG_INFO << "Timeout " << exit_timeout_iters << ": Found "
+      FLARE_LOG(INFO) << "Timeout " << exit_timeout_iters << ": Found "
                << live_models.size() << " live models and "
                << inflight_request_counter_
                << " in-flight non-inference requests";
-      if (LOG_VERBOSE_IS_ON(1)) {
+      if (FLARE_VLOG_IS_ON(1)) {
         for (const auto& m : live_models) {
           for (const auto& v : m.second) {
-            LOG_VERBOSE(1) << m.first << " v" << v.first << ": "
+            FLARE_LOG(DEBUG) << m.first << " v" << v.first << ": "
                            << ModelReadyStateString(v.second.first);
           }
         }
@@ -309,7 +309,7 @@ inference_server::Stop(const bool force)
 Status
 inference_server::PollModelRepository()
 {
-  LOG_VERBOSE(1) << "Polling model repository";
+  FLARE_LOG(DEBUG) << "Polling model repository";
 
   // Look for changes and update the loaded model configurations
   // appropriately.
@@ -538,7 +538,7 @@ inference_server::PrintBackendAndModelSummary()
     repoagents_table.InsertRow(repoagent_record);
   }
   std::string repoagents_table_string = repoagents_table.PrintTable();
-  LOG_INFO << repoagents_table_string;
+  FLARE_LOG(INFO) << repoagents_table_string;
 
   // Backends Summary
   std::vector<std::string> backend_headers;
@@ -565,7 +565,7 @@ inference_server::PrintBackendAndModelSummary()
     backends_table.InsertRow(backend_record);
   }
   std::string backends_table_string = backends_table.PrintTable();
-  LOG_INFO << backends_table_string;
+  FLARE_LOG(INFO) << backends_table_string;
 
   // Models Summary
   auto model_states = model_repository_manager_->ModelStates();
@@ -608,7 +608,7 @@ inference_server::PrintBackendAndModelSummary()
     }
   }
   std::string models_table_string = models_table.PrintTable();
-  LOG_INFO << models_table_string;
+  FLARE_LOG(INFO) << models_table_string;
 
   return Status::Success;
 }

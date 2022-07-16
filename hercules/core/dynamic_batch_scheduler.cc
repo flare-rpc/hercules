@@ -29,7 +29,7 @@ IsStaleState(Payload::State payload_state)
       (payload_state == Payload::State::RELEASED));
 }
 
-DynamicBatchScheduler::DynamicBatchScheduler(
+dynamic_batch_scheduler::dynamic_batch_scheduler(
     TritonModel* model, TritonModelInstance* model_instance,
     const bool dynamic_batching_enabled, const int32_t max_batch_size,
     const std::unordered_map<std::string, bool>& enforce_equal_shape_tensors,
@@ -77,7 +77,7 @@ DynamicBatchScheduler::DynamicBatchScheduler(
 }
 
 Status
-DynamicBatchScheduler::Create(
+dynamic_batch_scheduler::Create(
     TritonModel* model, TritonModelInstance* model_instance, const int nice,
     const bool dynamic_batching_enabled, const int32_t max_batch_size,
     const std::unordered_map<std::string, bool>& enforce_equal_shape_tensors,
@@ -100,7 +100,7 @@ DynamicBatchScheduler::Create(
 }
 
 Status
-DynamicBatchScheduler::Create(
+dynamic_batch_scheduler::Create(
     TritonModel* model, TritonModelInstance* model_instance, const int nice,
     const bool dynamic_batching_enabled, const int32_t max_batch_size,
     const std::unordered_map<std::string, bool>& enforce_equal_shape_tensors,
@@ -112,14 +112,14 @@ DynamicBatchScheduler::Create(
     preferred_batch_sizes.insert(size);
   }
 
-  DynamicBatchScheduler* dyna_sched = new DynamicBatchScheduler(
+  dynamic_batch_scheduler* dyna_sched = new dynamic_batch_scheduler(
       model, model_instance, dynamic_batching_enabled, max_batch_size,
       enforce_equal_shape_tensors, batcher_config.preserve_ordering(),
       response_cache_enable, preferred_batch_sizes,
       batcher_config.max_queue_delay_microseconds(),
       batcher_config.default_queue_policy(), batcher_config.priority_levels(),
       batcher_config.priority_queue_policy());
-  std::unique_ptr<DynamicBatchScheduler> sched(dyna_sched);
+  std::unique_ptr<dynamic_batch_scheduler> sched(dyna_sched);
 
   sched->scheduler_thread_exit_.store(false);
   if (dynamic_batching_enabled) {
@@ -132,7 +132,7 @@ DynamicBatchScheduler::Create(
   return Status::Success;
 }
 
-DynamicBatchScheduler::~DynamicBatchScheduler()
+dynamic_batch_scheduler::~dynamic_batch_scheduler()
 {
   // Signal the scheduler thread to exit and then wait for it..
   scheduler_thread_exit_.store(true);
@@ -143,7 +143,7 @@ DynamicBatchScheduler::~DynamicBatchScheduler()
 }
 
 Status
-DynamicBatchScheduler::Enqueue(std::unique_ptr<inference_request>& request)
+dynamic_batch_scheduler::Enqueue(std::unique_ptr<inference_request>& request)
 {
   if (stop_) {
     return Status(
@@ -163,7 +163,7 @@ DynamicBatchScheduler::Enqueue(std::unique_ptr<inference_request>& request)
         request->QueueStartNs());
 #ifdef HERCULES_ENABLE_TRACING
     request->TraceInputTensors(
-        TRITONSERVER_TRACE_TENSOR_QUEUE_INPUT, "DynamicBatchScheduler Enqueue");
+        TRITONSERVER_TRACE_TENSOR_QUEUE_INPUT, "dynamic_batch_scheduler Enqueue");
 #endif  // HERCULES_ENABLE_TRACING
   }
 
@@ -248,7 +248,7 @@ DynamicBatchScheduler::Enqueue(std::unique_ptr<inference_request>& request)
 }
 
 void
-DynamicBatchScheduler::NewPayload()
+dynamic_batch_scheduler::NewPayload()
 {
   curr_payload_ = model_->Server()->GetRateLimiter()->GetPayload(
       Payload::Operation::INFER_RUN, model_instance_);
@@ -256,19 +256,19 @@ DynamicBatchScheduler::NewPayload()
 }
 
 void
-DynamicBatchScheduler::BatcherThread(const int nice)
+dynamic_batch_scheduler::BatcherThread(const int nice)
 {
 #ifndef _WIN32
   if (setpriority(PRIO_PROCESS, syscall(SYS_gettid), nice) == 0) {
-    LOG_VERBOSE(1) << "Starting dynamic-batcher thread for " << model_->Name()
+    FLARE_LOG(DEBUG) << "Starting dynamic-batcher thread for " << model_->Name()
                    << " at nice " << nice << "...";
   } else {
-    LOG_VERBOSE(1) << "Starting dynamic-batcher thread for " << model_->Name()
+    FLARE_LOG(DEBUG) << "Starting dynamic-batcher thread for " << model_->Name()
                    << " at default nice (requested nice " << nice
                    << " failed)...";
   }
 #else
-  LOG_VERBOSE(1) << "Starting dynamic-batcher thread for " << model_->Name()
+  FLARE_LOG(DEBUG) << "Starting dynamic-batcher thread for " << model_->Name()
                  << " at default nice...";
 #endif
   // For debugging/testing, delay start of threads until the queue
@@ -278,7 +278,7 @@ DynamicBatchScheduler::BatcherThread(const int nice)
     const char* dstr = getenv("TRITONSERVER_DELAY_SCHEDULER");
     if (dstr != nullptr) {
       delay_cnt = atoi(dstr);
-      LOG_VERBOSE(1) << "Delaying batcher thread for " << model_->Name()
+      FLARE_LOG(DEBUG) << "Delaying batcher thread for " << model_->Name()
                      << " until " << delay_cnt << " queued requests...";
     }
   }
@@ -316,7 +316,7 @@ DynamicBatchScheduler::BatcherThread(const int nice)
         if (queue_.Size() >= delay_cnt) {
           delay_cnt = 0;
         }
-        LOG_VERBOSE(1) << "Delaying batcher thread " << model_->Name()
+        FLARE_LOG(DEBUG) << "Delaying batcher thread " << model_->Name()
                        << " until " << delay_cnt
                        << " queued requests, current total = " << queue_.Size();
       } else if (queue_.Empty()) {
@@ -357,7 +357,7 @@ DynamicBatchScheduler::BatcherThread(const int nice)
                 // The queue is empty which conflicts with pending batch
                 // count. Send the current batch if any and reset related
                 // variables.
-                LOG_ERROR << request->LogRequest()
+                FLARE_LOG(ERROR) << request->LogRequest()
                           << "Failed to retrieve request from scheduler queue: "
                           << status.Message();
                 queue_.ResetCursor();
@@ -404,12 +404,12 @@ DynamicBatchScheduler::BatcherThread(const int nice)
     }
   }  // end runner loop
 
-  LOG_VERBOSE(1) << "Stopping dynamic-batcher thread for " << model_->Name()
+  FLARE_LOG(DEBUG) << "Stopping dynamic-batcher thread for " << model_->Name()
                  << "...";
 }
 
 uint64_t
-DynamicBatchScheduler::GetDynamicBatch()
+dynamic_batch_scheduler::GetDynamicBatch()
 {
   // 'mu_' mutex must be held when this function is called. queue_
   // must not be empty.
@@ -576,7 +576,7 @@ DynamicBatchScheduler::GetDynamicBatch()
 }
 
 void
-DynamicBatchScheduler::DelegateResponse(
+dynamic_batch_scheduler::DelegateResponse(
     std::unique_ptr<inference_request>& request)
 {
   std::lock_guard<std::mutex> lock(completion_queue_mtx_);
@@ -604,7 +604,7 @@ DynamicBatchScheduler::DelegateResponse(
 #endif  // HERCULES_ENABLE_STATS
 
             if (!status.IsOk()) {
-              LOG_ERROR << raw_request_ptr->LogRequest()
+              FLARE_LOG(ERROR) << raw_request_ptr->LogRequest()
                         << "Failed to insert request_hash ["
                         << raw_request_ptr->CacheKey()
                         << "] into response cache: " << status.Message();
@@ -625,7 +625,7 @@ DynamicBatchScheduler::DelegateResponse(
 }
 
 void
-DynamicBatchScheduler::CacheLookUp(
+dynamic_batch_scheduler::CacheLookUp(
     std::unique_ptr<inference_request>& request,
     std::unique_ptr<InferenceResponse>& cached_response)
 {
@@ -645,7 +645,7 @@ DynamicBatchScheduler::CacheLookUp(
 }
 
 void
-DynamicBatchScheduler::FinalizeResponses()
+dynamic_batch_scheduler::FinalizeResponses()
 {
   // Need exclusive access of the function to ensure responses are sent
   // in order

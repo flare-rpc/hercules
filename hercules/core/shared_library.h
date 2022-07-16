@@ -14,41 +14,42 @@
 
 namespace hercules::core {
 
-// SharedLibrary
-//
-// Utility functions for shared libraries. Because some operations
-// require serialization, this object cannot be directly constructed
-// and must instead be accessed using Acquire().
-class SharedLibrary {
- public:
-  // Acquire a SharedLibrary object exclusively. Any other attempts to
-  // concurrently acquire a SharedLibrary object will block.
-  // object. Ownership is released by destroying the SharedLibrary
-  // object.
-  static Status Acquire(std::unique_ptr<SharedLibrary>* slib);
+    // shared_library
+    //
+    // Utility functions for shared libraries. Because some operations
+    // require serialization, this object cannot be directly constructed
+    // and must instead be accessed using acquire().
+    class shared_library {
+    public:
+        // acquire a shared_library object exclusively. Any other attempts to
+        // concurrently acquire a shared_library object will block.
+        // object. Ownership is released by destroying the shared_library
+        // object.
+        static Status acquire(std::unique_ptr<shared_library> *slib);
 
-  ~SharedLibrary();
+        ~shared_library();
 
-  // Configuration so that dependent libraries will be searched for in
-  // 'path' during OpenLibraryHandle.
-  Status SetLibraryDirectory(const std::string& path);
+        // Configuration so that dependent libraries will be searched for in
+        // 'path' during open_library_handle.
+        Status set_library_directory(const std::string &path);
 
-  // Reset any configuration done by SetLibraryDirectory.
-  Status ResetLibraryDirectory();
+        // Reset any configuration done by set_library_directory.
+        Status reset_library_directory();
 
-  // Open shared library and return generic handle.
-  Status OpenLibraryHandle(const std::string& path, void** handle);
+        // Open shared library and return generic handle.
+        Status open_library_handle(const std::string &path, void **handle);
 
-  // Close shared library.
-  Status CloseLibraryHandle(void* handle);
+        // Close shared library.
+        Status close_library_handle(void *handle);
 
-  // Get a generic pointer for an entrypoint into a shared library.
-  Status GetEntrypoint(
-      void* handle, const std::string& name, const bool optional, void** befn);
+        // Get a generic pointer for an entrypoint into a shared library.
+        Status get_entrypoint(
+                void *handle, const std::string &name, const bool optional, void **befn);
 
- private:
-  FLARE_DISALLOW_COPY_AND_ASSIGN(SharedLibrary);
-  explicit SharedLibrary() = default;
-};
+    private:
+        FLARE_DISALLOW_COPY_AND_ASSIGN(shared_library);
+
+        explicit shared_library() = default;
+    };
 
 }  // namespace hercules::core

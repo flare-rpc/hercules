@@ -200,7 +200,7 @@ Metrics::~Metrics()
       derr = dcgmGroupDestroy(
           dcgm_metadata_.dcgm_handle_, dcgm_metadata_.groupId_);
       if (derr != DCGM_ST_OK) {
-        LOG_WARNING << "Unable to destroy DCGM group: " << errorString(derr);
+        FLARE_LOG(WARNING) << "Unable to destroy DCGM group: " << errorString(derr);
       }
 
       // Stop and shutdown DCGM
@@ -210,11 +210,11 @@ Metrics::~Metrics()
         derr = dcgmStopEmbedded(dcgm_metadata_.dcgm_handle_);
       }
       if (derr != DCGM_ST_OK) {
-        LOG_WARNING << "Unable to stop DCGM: " << errorString(derr);
+        FLARE_LOG(WARNING) << "Unable to stop DCGM: " << errorString(derr);
       }
       derr = dcgmShutdown();
       if (derr != DCGM_ST_OK) {
-        LOG_WARNING << "Unable to shutdown DCGM: " << errorString(derr);
+        FLARE_LOG(WARNING) << "Unable to shutdown DCGM: " << errorString(derr);
       }
     }
 #endif  // TRITON_ENABLE_METRICS_GPU
@@ -303,7 +303,7 @@ Metrics::StartPollingThread(
 {
   // Nothing to poll if no polling metrics enabled, don't spawn a thread
   if (!cache_metrics_enabled_ && !gpu_metrics_enabled_) {
-    LOG_WARNING << "Neither cache metrics nor gpu metrics are enabled. Not "
+    FLARE_LOG(WARNING) << "Neither cache metrics nor gpu metrics are enabled. Not "
                    "polling for them.";
     return false;
   }
@@ -339,7 +339,7 @@ bool
 Metrics::PollCacheMetrics(std::shared_ptr<RequestResponseCache> response_cache)
 {
   if (response_cache == nullptr) {
-    LOG_WARNING << "error polling cache metrics, cache metrics will not be "
+    FLARE_LOG(WARNING) << "error polling cache metrics, cache metrics will not be "
                 << "available: cache was nullptr";
     return false;
   }
@@ -366,7 +366,7 @@ Metrics::PollDcgmMetrics()
 #else
 
   if (dcgm_metadata_.available_cuda_gpu_ids_.size() == 0) {
-    LOG_WARNING << "error polling GPU metrics, GPU metrics will not be "
+    FLARE_LOG(WARNING) << "error polling GPU metrics, GPU metrics will not be "
                 << "available: no available gpus to poll";
     return false;
   }
@@ -376,7 +376,7 @@ Metrics::PollDcgmMetrics()
        didx < dcgm_metadata_.available_cuda_gpu_ids_.size(); ++didx) {
     uint32_t cuda_id = dcgm_metadata_.available_cuda_gpu_ids_[didx];
     if (dcgm_metadata_.cuda_ids_to_dcgm_ids_.count(cuda_id) <= 0) {
-      LOG_WARNING << "Cannot find DCGM id for CUDA id " << cuda_id;
+      FLARE_LOG(WARNING) << "Cannot find DCGM id for CUDA id " << cuda_id;
       continue;
     }
     uint32_t dcgm_id = dcgm_metadata_.cuda_ids_to_dcgm_ids_.at(cuda_id);
@@ -391,7 +391,7 @@ Metrics::PollDcgmMetrics()
       dcgm_metadata_.energy_fail_cnt_[didx]++;
       dcgm_metadata_.util_fail_cnt_[didx]++;
       dcgm_metadata_.mem_fail_cnt_[didx]++;
-      LOG_WARNING << "Unable to get field values for GPU ID " << cuda_id << ": "
+      FLARE_LOG(WARNING) << "Unable to get field values for GPU ID " << cuda_id << ": "
                   << errorString(dcgmerr);
     } else {
       // Power limit
@@ -405,7 +405,7 @@ Metrics::PollDcgmMetrics()
           dcgm_metadata_.power_limit_fail_cnt_[didx]++;
           power_limit = 0;
           dcgmReturn_t status = dcgmReturn_t(field_values[0].status);
-          LOG_WARNING << "Unable to get power limit for GPU " << cuda_id
+          FLARE_LOG(WARNING) << "Unable to get power limit for GPU " << cuda_id
                       << ". Status:" << errorString(status)
                       << ", value:" << dcgmValueToErrorMessage(power_limit);
         }
@@ -423,7 +423,7 @@ Metrics::PollDcgmMetrics()
           dcgm_metadata_.power_usage_fail_cnt_[didx]++;
           power_usage = 0;
           dcgmReturn_t status = dcgmReturn_t(field_values[1].status);
-          LOG_WARNING << "Unable to get power usage for GPU " << cuda_id
+          FLARE_LOG(WARNING) << "Unable to get power usage for GPU " << cuda_id
                       << ". Status:" << errorString(status)
                       << ", value:" << dcgmValueToErrorMessage(power_usage);
         }
@@ -447,7 +447,7 @@ Metrics::PollDcgmMetrics()
           dcgm_metadata_.energy_fail_cnt_[didx]++;
           energy = 0;
           dcgmReturn_t status = dcgmReturn_t(field_values[2].status);
-          LOG_WARNING << "Unable to get energy consumption for "
+          FLARE_LOG(WARNING) << "Unable to get energy consumption for "
                       << "GPU " << cuda_id << ". Status:" << errorString(status)
                       << ", value:" << dcgmValueToErrorMessage(energy);
         }
@@ -464,7 +464,7 @@ Metrics::PollDcgmMetrics()
           dcgm_metadata_.util_fail_cnt_[didx]++;
           util = 0;
           dcgmReturn_t status = dcgmReturn_t(field_values[3].status);
-          LOG_WARNING << "Unable to get GPU utilization for GPU " << cuda_id
+          FLARE_LOG(WARNING) << "Unable to get GPU utilization for GPU " << cuda_id
                       << ". Status:" << errorString(status)
                       << ", value:" << dcgmValueToErrorMessage(util);
         }
@@ -486,7 +486,7 @@ Metrics::PollDcgmMetrics()
           dcgm_metadata_.mem_fail_cnt_[didx]++;
           dcgmReturn_t usageStatus = dcgmReturn_t(field_values[4].status);
           dcgmReturn_t memoryTotaltatus = dcgmReturn_t(field_values[5].status);
-          LOG_WARNING << "Unable to get memory usage for GPU " << cuda_id
+          FLARE_LOG(WARNING) << "Unable to get memory usage for GPU " << cuda_id
                       << ". Memory usage status:" << errorString(usageStatus)
                       << ", value:" << dcgmValueToErrorMessage(memory_used)
                       << ". Memory total status:"
@@ -507,7 +507,7 @@ Metrics::InitializeCacheMetrics(
     std::shared_ptr<RequestResponseCache> response_cache)
 {
   if (response_cache == nullptr) {
-    LOG_WARNING
+    FLARE_LOG(WARNING)
         << "error initializing cache metrics, cache metrics will not be "
         << "available: cache was nullptr";
     return false;
@@ -535,7 +535,7 @@ Metrics::InitializeDcgmMetrics()
 #else
   dcgmReturn_t dcgmerr = dcgmInit();
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_WARNING << "error initializing DCGM, GPU metrics will not be "
+    FLARE_LOG(WARNING) << "error initializing DCGM, GPU metrics will not be "
                 << "available: " << errorString(dcgmerr);
     return false;
   }
@@ -550,7 +550,7 @@ Metrics::InitializeDcgmMetrics()
         DCGM_OPERATION_MODE_MANUAL, &dcgm_metadata_.dcgm_handle_);
   }
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_WARNING << "DCGM unable to start: " << errorString(dcgmerr);
+    FLARE_LOG(WARNING) << "DCGM unable to start: " << errorString(dcgmerr);
     return false;
   } else {
     // Set this flag to signal DCGM cleanup in destructor
@@ -560,7 +560,7 @@ Metrics::InitializeDcgmMetrics()
   if (dcgm_metadata_.standalone_) {
     dcgmerr = dcgmUpdateAllFields(dcgm_metadata_.dcgm_handle_, 1);
     if (dcgmerr != DCGM_ST_OK) {
-      LOG_WARNING << "DCGM unable to update all fields, GPU metrics will "
+      FLARE_LOG(WARNING) << "DCGM unable to update all fields, GPU metrics will "
                      "not be available: "
                   << errorString(dcgmerr);
       return false;
@@ -572,7 +572,7 @@ Metrics::InitializeDcgmMetrics()
   dcgmerr = dcgmGetAllDevices(
       dcgm_metadata_.dcgm_handle_, dcgm_gpu_ids, &dcgm_gpu_count);
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_WARNING << "DCGM unable to get device info and count, GPU "
+    FLARE_LOG(WARNING) << "DCGM unable to get device info and count, GPU "
                    "metrics will not be available: "
                 << errorString(dcgmerr);
     return false;
@@ -591,7 +591,7 @@ Metrics::InitializeDcgmMetrics()
     dcgmerr = dcgmGetDeviceAttributes(
         dcgm_metadata_.dcgm_handle_, dcgm_gpu_ids[i], &gpu_attributes[i]);
     if (dcgmerr != DCGM_ST_OK) {
-      LOG_WARNING << "DCGM unable to get device properties for DCGM device "
+      FLARE_LOG(WARNING) << "DCGM unable to get device properties for DCGM device "
                   << dcgm_gpu_ids[i]
                   << ", GPU metrics will not be available for this device: "
                   << errorString(dcgmerr);
@@ -613,7 +613,7 @@ Metrics::InitializeDcgmMetrics()
   int cuda_gpu_count;
   cudaError_t cudaerr = cudaGetDeviceCount(&cuda_gpu_count);
   if (cudaerr != cudaSuccess) {
-    LOG_WARNING
+    FLARE_LOG(WARNING)
         << "Cannot get CUDA device count, GPU metrics will not be available";
     return false;
   }
@@ -624,12 +624,12 @@ Metrics::InitializeDcgmMetrics()
     if (cudaerr == cudaSuccess) {
       pci_bus_id.append(pcibusid_str);
       if (pci_bus_id_to_dcgm_id.count(pci_bus_id) <= 0) {
-        LOG_INFO << "Skipping GPU:" << i
+        FLARE_LOG(INFO) << "Skipping GPU:" << i
                  << " since it's not CUDA enabled. This should never happen!";
         continue;
       }
       // Filter out CUDA visible GPUs from GPUs found by DCGM
-      LOG_INFO << "Collecting metrics for GPU " << i << ": "
+      FLARE_LOG(INFO) << "Collecting metrics for GPU " << i << ": "
                << pci_bus_id_to_device_name[pci_bus_id];
       auto& gpu_labels = pci_bus_id_to_gpu_labels[pci_bus_id];
       gpu_utilization_.push_back(&gpu_utilization_family_.Add(gpu_labels));
@@ -643,7 +643,7 @@ Metrics::InitializeDcgmMetrics()
       dcgm_metadata_.cuda_ids_to_dcgm_ids_[i] = dcgm_id;
       dcgm_metadata_.available_cuda_gpu_ids_.emplace_back(i);
     } else {
-      LOG_WARNING << "GPU metrics will not be available for device:" << i;
+      FLARE_LOG(WARNING) << "GPU metrics will not be available for device:" << i;
     }
   }
 
@@ -653,7 +653,7 @@ Metrics::InitializeDcgmMetrics()
       dcgm_metadata_.dcgm_handle_, DCGM_GROUP_DEFAULT, groupName,
       &dcgm_metadata_.groupId_);
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_WARNING << "Cannot make GPU group: " << errorString(dcgmerr);
+    FLARE_LOG(WARNING) << "Cannot make GPU group: " << errorString(dcgmerr);
   }
 
   // Initialize tracking vectors
@@ -687,7 +687,7 @@ Metrics::InitializeDcgmMetrics()
       dcgm_metadata_.dcgm_handle_, dcgm_metadata_.field_count_,
       dcgm_metadata_.fields_.data(), fieldName, &fieldGroupId);
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_WARNING << "Cannot make field group: " << errorString(dcgmerr);
+    FLARE_LOG(WARNING) << "Cannot make field group: " << errorString(dcgmerr);
   }
 
   dcgmerr = dcgmWatchFields(
@@ -695,7 +695,7 @@ Metrics::InitializeDcgmMetrics()
       metrics_interval_ms_ * 1000 /*update period, usec*/,
       5.0 /*maxKeepAge, sec*/, 5 /*maxKeepSamples*/);
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_WARNING << "Cannot start watching fields: " << errorString(dcgmerr);
+    FLARE_LOG(WARNING) << "Cannot start watching fields: " << errorString(dcgmerr);
     return false;
   }
 
@@ -767,7 +767,7 @@ Metrics::UUIDForCudaDevice(int cuda_device, std::string* uuid)
   dcgmReturn_t dcgmerr = dcgmGetDeviceAttributes(
       singleton->dcgm_metadata_.dcgm_handle_, cuda_device, &gpu_attributes);
   if (dcgmerr != DCGM_ST_OK) {
-    LOG_ERROR << "Unable to get device UUID: " << errorString(dcgmerr);
+    FLARE_LOG(ERROR) << "Unable to get device UUID: " << errorString(dcgmerr);
     return false;
   }
 

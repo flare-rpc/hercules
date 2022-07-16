@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "triton/backend/backend_model.h"
+#include "hercules/backend/backend_model.h"
 
 namespace hercules::backend { namespace tensorrt {
 
@@ -21,7 +21,7 @@ class TensorRTModel : public BackendModel {
   void ParseModelConfig();
 
   // The model configuration.
-  common::TritonJson::Value& GraphSpecs() { return graph_specs_; }
+  common::json_parser::Value& GraphSpecs() { return graph_specs_; }
 
   enum Priority { DEFAULT = 0, MIN = 1, MAX = 2 };
   Priority ModelPriority() { return priority_; }
@@ -35,7 +35,7 @@ class TensorRTModel : public BackendModel {
   bool BusyWaitEvents() { return busy_wait_events_; }
 
  protected:
-  common::TritonJson::Value graph_specs_;
+  common::json_parser::Value graph_specs_;
   Priority priority_;
   bool use_cuda_graphs_;
   size_t gather_kernel_buffer_threshold_;

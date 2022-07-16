@@ -1,161 +1,25 @@
-
-/****************************************************************
- * Copyright (c) 2022, liyinbin
- * All rights reserved.
- * Author by liyinbin (jeff.li) lijippy@163.com
- *****************************************************************/
+//
+// Created by liyinbin on 2022/7/16.
+//
 
 #pragma once
 
-#include <mutex>
-#include <sstream>
-#include <string>
-#include <vector>
-
-namespace hercules::common {
-
-// A log message.
-class LogMessage {
- public:
-  // Log levels.
-  enum Level { kERROR = 0, kWARNING = 1, kINFO = 2 };
-
-  LogMessage(const char* file, int line, uint32_t level);
-  ~LogMessage();
-
-  std::stringstream& stream() { return stream_; }
-
- private:
-  static const std::vector<char> level_name_;
-  std::stringstream stream_;
-};
-
-// Global logger for messages. Controls how log messages are reported.
-class Logger {
- public:
-  enum class Format { kDEFAULT, kISO8601 };
-
-  Logger();
-
-  // Is a log level enabled.
-  bool IsEnabled(LogMessage::Level level) const { return enables_[level]; }
-
-  // Set enable for a log Level.
-  void SetEnabled(LogMessage::Level level, bool enable)
-  {
-    enables_[level] = enable;
-  }
-
-  // Get the current verbose logging level.
-  uint32_t VerboseLevel() const { return vlevel_; }
-
-  // Set the current verbose logging level.
-  void SetVerboseLevel(uint32_t vlevel) { vlevel_ = vlevel; }
-
-  // Get the logging format.
-  Format LogFormat() { return format_; }
-
-  // Set the logging format.
-  void SetLogFormat(Format format) { format_ = format; }
-
-  // Log a message.
-  void Log(const std::string& msg);
-
-  // Flush the log.
-  void Flush();
-
- private:
-  std::vector<bool> enables_;
-  uint32_t vlevel_;
-  Format format_;
-  std::mutex mutex_;
-};
-
-extern Logger gLogger_;
-
-#define LOG_ENABLE_INFO(E)             \
-  hercules::common::gLogger_.SetEnabled( \
-      hercules::common::LogMessage::Level::kINFO, (E))
-#define LOG_ENABLE_WARNING(E)          \
-  hercules::common::gLogger_.SetEnabled( \
-      hercules::common::LogMessage::Level::kWARNING, (E))
-#define LOG_ENABLE_ERROR(E)            \
-  hercules::common::gLogger_.SetEnabled( \
-      hercules::common::LogMessage::Level::kERROR, (E))
-#define LOG_SET_VERBOSE(L)                  \
-  hercules::common::gLogger_.SetVerboseLevel( \
-      static_cast<uint32_t>(std::max(0, (L))))
-#define LOG_SET_FORMAT(F) \
-  hercules::common::gLogger_.SetLogFormat((F))
-
-#ifdef TRITON_ENABLE_LOGGING
-
-#define LOG_INFO_IS_ON \
-  hercules::common::gLogger_.IsEnabled(hercules::common::LogMessage::Level::kINFO)
-#define LOG_WARNING_IS_ON             \
-  hercules::common::gLogger_.IsEnabled( \
-      hercules::common::LogMessage::Level::kWARNING)
-#define LOG_ERROR_IS_ON \
-  hercules::common::gLogger_.IsEnabled(hercules::common::LogMessage::Level::kERROR)
-#define LOG_VERBOSE_IS_ON(L) (hercules::common::gLogger_.VerboseLevel() >= (L))
-
-#else
-
-// If logging is disabled, define macro to be false to avoid further evaluation
-#define LOG_INFO_IS_ON false
-#define LOG_WARNING_IS_ON false
-#define LOG_ERROR_IS_ON false
-#define LOG_VERBOSE_IS_ON(L) false
-
-#endif  // TRITON_ENABLE_LOGGING
-
-// Macros that use explicitly given filename and line number.
-#define LOG_INFO_FL(FN, LN)                                      \
-  if (LOG_INFO_IS_ON)                                            \
-  hercules::common::LogMessage(                                    \
-      (char*)(FN), LN, hercules::common::LogMessage::Level::kINFO) \
-      .stream()
-#define LOG_WARNING_FL(FN, LN)                                      \
-  if (LOG_WARNING_IS_ON)                                            \
-  hercules::common::LogMessage(                                       \
-      (char*)(FN), LN, hercules::common::LogMessage::Level::kWARNING) \
-      .stream()
-#define LOG_ERROR_FL(FN, LN)                                      \
-  if (LOG_ERROR_IS_ON)                                            \
-  hercules::common::LogMessage(                                     \
-      (char*)(FN), LN, hercules::common::LogMessage::Level::kERROR) \
-      .stream()
-#define LOG_VERBOSE_FL(L, FN, LN)                                \
-  if (LOG_VERBOSE_IS_ON(L))                                      \
-  hercules::common::LogMessage(                                    \
-      (char*)(FN), LN, hercules::common::LogMessage::Level::kINFO) \
-      .stream()
-
-// Macros that use current filename and line number.
-#define LOG_INFO LOG_INFO_FL(__FILE__, __LINE__)
-#define LOG_WARNING LOG_WARNING_FL(__FILE__, __LINE__)
-#define LOG_ERROR LOG_ERROR_FL(__FILE__, __LINE__)
-#define LOG_VERBOSE(L) LOG_VERBOSE_FL(L, __FILE__, __LINE__)
-
-
-#define LOG_STATUS_ERROR(X, MSG)                         \
-  do {                                                   \
-    const Status& status__ = (X);                        \
-    if (!status__.IsOk()) {                              \
-      LOG_ERROR << (MSG) << ": " << status__.AsString(); \
-    }                                                    \
-  } while (false)
+#include "flare/log/logging.h"
 
 #define LOG_TRITONSERVER_ERROR(X, MSG)                                  \
   do {                                                                  \
     TRITONSERVER_Error* err__ = (X);                                    \
     if (err__ != nullptr) {                                             \
-      LOG_ERROR << (MSG) << ": " << TRITONSERVER_ErrorCodeString(err__) \
+      FLARE_LOG(ERROR) << (MSG) << ": " << TRITONSERVER_ErrorCodeString(err__) \
                 << " - " << TRITONSERVER_ErrorMessage(err__);           \
       TRITONSERVER_ErrorDelete(err__);                                  \
     }                                                                   \
   } while (false)
 
-#define LOG_FLUSH hercules::common::gLogger_.Flush()
-
-}  // namespace hercules::common
+#define LOG_STATUS_ERROR(X, MSG)                         \
+  do {                                                   \
+    const Status& status__ = (X);                        \
+    if (!status__.IsOk()) {                              \
+      FLARE_LOG(ERROR) << (MSG) << ": " << status__.AsString(); \
+    }                                                    \
+  } while (false)

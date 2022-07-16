@@ -48,7 +48,7 @@ namespace hercules::backend {
         const std::string &RepositoryPath() const { return repository_path_; }
 
         // The model configuration.
-        common::TritonJson::Value &ModelConfig() { return model_config_; }
+        common::json_parser::Value &ModelConfig() { return model_config_; }
 
         // Sets the updated model configuration to the core.
         TRITONSERVER_Error *SetModelConfig();
@@ -99,7 +99,7 @@ namespace hercules::backend {
         std::string repository_path_;
         bool allow_optional_;
 
-        common::TritonJson::Value model_config_;
+        common::json_parser::Value model_config_;
         int max_batch_size_;
         bool enable_pinned_input_;
         bool enable_pinned_output_;

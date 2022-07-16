@@ -55,7 +55,7 @@ add_library(hercules::proto SHARED IMPORTED)
 
 set_target_properties(hercules::proto PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework;pthread;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libgflags.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib;dl"
+  INTERFACE_LINK_LIBRARIES "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework;pthread;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libgflags.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libssl.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libflare.dylib;dl"
 )
 
 # Create imported target hercules::core
@@ -63,7 +63,7 @@ add_library(hercules::core SHARED IMPORTED)
 
 set_target_properties(hercules::core PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework;pthread;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libgflags.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libprotobuf.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libcrypto.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libssl.dylib;/Users/liyinbin/miniconda3/envs/hercules-dev/lib/libflare.dylib;dl;hercules::proto"
+  INTERFACE_LINK_LIBRARIES "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreFoundation.framework;pthread;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libgflags.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libprotobuf.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libcrypto.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libssl.dylib;/Users/liyinbin/miniconda3/envs/hercules_d/lib/libflare.dylib;dl;hercules::proto"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

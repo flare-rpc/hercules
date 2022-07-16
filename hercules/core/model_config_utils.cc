@@ -21,7 +21,7 @@
 #define TRITONJSON_STATUSRETURN(M) \
   return hercules::core::Status(hercules::core::Status::Code::INTERNAL, (M))
 #define TRITONJSON_STATUSSUCCESS hercules::core::Status::Success
-#include "hercules/common/triton_json.h"
+#include "hercules/common/json_parser.h"
 
 #ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
@@ -624,7 +624,7 @@ GetNormalizedModelConfig(
   // to auto-complete.
   RETURN_IF_ERROR(
       AutoCompleteBackendFields(model_name, std::string(path), config));
-  LOG_VERBOSE(1) << "Server side auto-completed config: "
+  FLARE_LOG(DEBUG) << "Server side auto-completed config: "
                  << config->DebugString();
 
   RETURN_IF_ERROR(NormalizeModelConfig(min_compute_capability, config));
@@ -1635,9 +1635,9 @@ ValidateModelConfigInt64()
   std::set<std::string> int64_fields;
   RETURN_IF_ERROR(CollectInt64Fields(&config, "ModelConfig", &int64_fields));
 
-  LOG_VERBOSE(1) << "ModelConfig 64-bit fields:";
+  FLARE_LOG(DEBUG) << "ModelConfig 64-bit fields:";
   for (const auto& f : int64_fields) {
-    LOG_VERBOSE(1) << "\t" << f;
+    FLARE_LOG(DEBUG) << "\t" << f;
   }
 
   // We expect to find exactly the following fields. If we get an
@@ -1676,10 +1676,10 @@ ValidateModelConfigInt64()
 
 Status
 FixInt(
-    hercules::common::TritonJson::Value& document,
-    hercules::common::TritonJson::Value& io, const std::string& name)
+    hercules::common::json_parser::Value& document,
+    hercules::common::json_parser::Value& io, const std::string& name)
 {
-  hercules::common::TritonJson::Value str_value;
+  hercules::common::json_parser::Value str_value;
   if (!io.Find(name.c_str(), &str_value)) {
     return Status::Success;
   }
@@ -1704,17 +1704,17 @@ FixInt(
 
 Status
 FixIntArray(
-    hercules::common::TritonJson::Value& document,
-    hercules::common::TritonJson::Value& io, const std::string& name)
+    hercules::common::json_parser::Value& document,
+    hercules::common::json_parser::Value& io, const std::string& name)
 {
-  hercules::common::TritonJson::Value fixed_shape_array(
-      document, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value fixed_shape_array(
+      document, hercules::common::json_parser::ValueType::ARRAY);
 
   if (!io.Find(name.c_str())) {
     return Status::Success;
   }
 
-  hercules::common::TritonJson::Value shape_array;
+  hercules::common::json_parser::Value shape_array;
   RETURN_IF_ERROR(io.MemberAsArray(name.c_str(), &shape_array));
   for (size_t i = 0; i < shape_array.ArraySize(); ++i) {
     std::string str;
@@ -1741,11 +1741,11 @@ FixIntArray(
 
 Status
 FixObjectArray(
-    hercules::common::TritonJson::Value& document,
-    hercules::common::TritonJson::Value& arr, const std::string& name)
+    hercules::common::json_parser::Value& document,
+    hercules::common::json_parser::Value& arr, const std::string& name)
 {
   for (size_t i = 0; i < arr.ArraySize(); ++i) {
-    hercules::common::TritonJson::Value obj;
+    hercules::common::json_parser::Value obj;
     RETURN_IF_ERROR(arr.IndexAsObject(i, &obj));
     RETURN_IF_ERROR(FixInt(document, obj, name));
   }
@@ -1803,20 +1803,20 @@ ModelConfigToJson(
   // represented as strings. Protobuf doesn't provide an option to
   // disable this (sigh) so we need to fix it up here as we want the
   // json representation of the config to be reasonable json...
-  hercules::common::TritonJson::Value config_json;
+  hercules::common::json_parser::Value config_json;
   config_json.Parse(config_json_str);
 
   // Fix input::dims, input::reshape::shape, output::dims,
   // output::reshape::shape
   for (std::string name : {"input", "output"}) {
-    hercules::common::TritonJson::Value ios;
+    hercules::common::json_parser::Value ios;
     RETURN_IF_ERROR(config_json.MemberAsArray(name.c_str(), &ios));
     for (size_t i = 0; i < ios.ArraySize(); ++i) {
-      hercules::common::TritonJson::Value io;
+      hercules::common::json_parser::Value io;
       RETURN_IF_ERROR(ios.IndexAsObject(i, &io));
       RETURN_IF_ERROR(FixIntArray(config_json, io, "dims"));
 
-      hercules::common::TritonJson::Value reshape;
+      hercules::common::json_parser::Value reshape;
       if (io.Find("reshape", &reshape)) {
         RETURN_IF_ERROR(FixIntArray(config_json, reshape, "shape"));
       }
@@ -1825,9 +1825,9 @@ ModelConfigToJson(
 
   // Fix version_policy::specific::versions
   {
-    hercules::common::TritonJson::Value vp;
+    hercules::common::json_parser::Value vp;
     if (config_json.Find("version_policy", &vp)) {
-      hercules::common::TritonJson::Value specific;
+      hercules::common::json_parser::Value specific;
       if (vp.Find("specific", &specific)) {
         RETURN_IF_ERROR(FixIntArray(config_json, specific, "versions"));
       }
@@ -1838,21 +1838,21 @@ ModelConfigToJson(
   // dynamic_batching::default_queue_policy::default_timeout_microseconds,
   // dynamic_batching::priority_queue_policy::value::default_timeout_microseconds
   {
-    hercules::common::TritonJson::Value db;
+    hercules::common::json_parser::Value db;
     if (config_json.Find("dynamic_batching", &db)) {
       RETURN_IF_ERROR(FixInt(config_json, db, "max_queue_delay_microseconds"));
-      hercules::common::TritonJson::Value dqp;
+      hercules::common::json_parser::Value dqp;
       if (db.Find("default_queue_policy", &dqp)) {
         RETURN_IF_ERROR(
             FixInt(config_json, dqp, "default_timeout_microseconds"));
       }
-      hercules::common::TritonJson::Value pqp;
+      hercules::common::json_parser::Value pqp;
       if (db.Find("priority_queue_policy", &pqp)) {
         // Iterate over each member in 'pqp' and fix...
         std::vector<std::string> members;
         RETURN_IF_ERROR(pqp.Members(&members));
         for (const auto& m : members) {
-          hercules::common::TritonJson::Value el;
+          hercules::common::json_parser::Value el;
           RETURN_IF_ERROR(pqp.MemberAsObject(m.c_str(), &el));
           RETURN_IF_ERROR(
               FixInt(config_json, el, "default_timeout_microseconds"));
@@ -1865,29 +1865,29 @@ ModelConfigToJson(
   // sequence_batching::direct::max_queue_delay_microseconds,
   // sequence_batching::max_sequence_idle_microseconds
   {
-    hercules::common::TritonJson::Value sb;
+    hercules::common::json_parser::Value sb;
     if (config_json.Find("sequence_batching", &sb)) {
       RETURN_IF_ERROR(
           FixInt(config_json, sb, "max_sequence_idle_microseconds"));
-      hercules::common::TritonJson::Value oldest;
+      hercules::common::json_parser::Value oldest;
       if (sb.Find("oldest", &oldest)) {
         RETURN_IF_ERROR(
             FixInt(config_json, oldest, "max_queue_delay_microseconds"));
       }
-      hercules::common::TritonJson::Value direct;
+      hercules::common::json_parser::Value direct;
       if (sb.Find("direct", &direct)) {
         RETURN_IF_ERROR(
             FixInt(config_json, direct, "max_queue_delay_microseconds"));
       }
 
-      hercules::common::TritonJson::Value states;
+      hercules::common::json_parser::Value states;
       if (sb.Find("state", &states)) {
         for (size_t i = 0; i < states.ArraySize(); ++i) {
-          hercules::common::TritonJson::Value state;
+          hercules::common::json_parser::Value state;
           RETURN_IF_ERROR(states.IndexAsObject(i, &state));
           RETURN_IF_ERROR(FixIntArray(config_json, state, "dims"));
 
-          hercules::common::TritonJson::Value initial_state;
+          hercules::common::json_parser::Value initial_state;
           if (sb.Find("initial_state", &initial_state)) {
             RETURN_IF_ERROR(FixIntArray(config_json, initial_state, "dims"));
           }
@@ -1898,9 +1898,9 @@ ModelConfigToJson(
 
   // Fix ensemble_scheduling::step::model_version.
   {
-    hercules::common::TritonJson::Value ens;
+    hercules::common::json_parser::Value ens;
     if (config_json.Find("ensemble_scheduling", &ens)) {
-      hercules::common::TritonJson::Value step;
+      hercules::common::json_parser::Value step;
       if (ens.Find("step", &step)) {
         RETURN_IF_ERROR(FixObjectArray(config_json, step, "model_version"));
       }
@@ -1909,17 +1909,17 @@ ModelConfigToJson(
 
   // Fix model_warmup::inputs::value::dims.
   {
-    hercules::common::TritonJson::Value warmups;
+    hercules::common::json_parser::Value warmups;
     if (config_json.Find("model_warmup", &warmups)) {
       for (size_t i = 0; i < warmups.ArraySize(); ++i) {
-        hercules::common::TritonJson::Value warmup;
+        hercules::common::json_parser::Value warmup;
         RETURN_IF_ERROR(warmups.IndexAsObject(i, &warmup));
-        hercules::common::TritonJson::Value inputs;
+        hercules::common::json_parser::Value inputs;
         if (warmup.Find("inputs", &inputs)) {
           std::vector<std::string> members;
           RETURN_IF_ERROR(inputs.Members(&members));
           for (const auto& m : members) {
-            hercules::common::TritonJson::Value input;
+            hercules::common::json_parser::Value input;
             RETURN_IF_ERROR(inputs.MemberAsObject(m.c_str(), &input));
             RETURN_IF_ERROR(FixIntArray(config_json, input, "dims"));
           }
@@ -1929,7 +1929,7 @@ ModelConfigToJson(
   }
 
   // Convert fixed json back the string...
-  hercules::common::TritonJson::WriteBuffer buffer;
+  hercules::common::json_parser::WriteBuffer buffer;
   config_json.Write(&buffer);
   *json_str = std::move(buffer.MutableContents());
 

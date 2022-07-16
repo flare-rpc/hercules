@@ -9,9 +9,9 @@
 #include <atomic>
 #include <memory>
 #include <thread>
-#include "triton/backend/backend_common.h"
-#include "triton/backend/backend_model.h"
-#include "triton/backend/backend_model_instance.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/backend/backend_model.h"
+#include "hercules/backend/backend_model_instance.h"
 
 namespace hercules::backend { namespace distributed_addsub {
 
@@ -99,13 +99,13 @@ TRITONSERVER_Error*
 ModelState::ValidateModelConfig()
 {
   // We have the json DOM for the model configuration...
-  common::TritonJson::WriteBuffer buffer;
+  common::json_parser::WriteBuffer buffer;
   RETURN_IF_ERROR(model_config_.PrettyWrite(&buffer));
   LOG_MESSAGE(
       TRITONSERVER_LOG_INFO,
       (std::string("model configuration:\n") + buffer.Contents()).c_str());
 
-  common::TritonJson::Value inputs, outputs;
+  common::json_parser::Value inputs, outputs;
   RETURN_IF_ERROR(model_config_.MemberAsArray("input", &inputs));
   RETURN_IF_ERROR(model_config_.MemberAsArray("output", &outputs));
 
@@ -121,7 +121,7 @@ ModelState::ValidateModelConfig()
 
   int64_t dim_value = 0;
   for (size_t idx = 0; idx < 2; ++idx) {
-    common::TritonJson::Value input;
+    common::json_parser::Value input;
     RETURN_IF_ERROR(inputs.IndexAsObject(idx, &input));
 
     std::vector<int64_t> input_shape;
@@ -155,7 +155,7 @@ ModelState::ValidateModelConfig()
         std::string("model input must be named '") + expected_name +
             "' at index " + std::to_string(idx));
 
-    common::TritonJson::Value output;
+    common::json_parser::Value output;
     RETURN_IF_ERROR(outputs.IndexAsObject(idx, &output));
 
     std::vector<int64_t> output_shape;

@@ -46,7 +46,7 @@ OnnxLoader::~OnnxLoader()
 }
 
 TRITONSERVER_Error*
-OnnxLoader::Init(common::TritonJson::Value& backend_config)
+OnnxLoader::Init(common::json_parser::Value& backend_config)
 {
   if (loader == nullptr) {
     OrtEnv* env;
@@ -67,9 +67,9 @@ OnnxLoader::Init(common::TritonJson::Value& backend_config)
     OrtThreadingOptions* threading_options = nullptr;
 
     // Read backend config
-    hercules::common::TritonJson::Value cmdline;
+    hercules::common::json_parser::Value cmdline;
     if (backend_config.Find("cmdline", &cmdline)) {
-      hercules::common::TritonJson::Value value;
+      hercules::common::json_parser::Value value;
       std::string value_str;
       if (cmdline.Find("enable-global-threadpool", &value)) {
         RETURN_IF_ERROR(value.AsString(&value_str));

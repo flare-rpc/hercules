@@ -82,7 +82,7 @@ inference_request::PrepareForInference()
   request_start_ns_ = 0;
 #endif  // HERCULES_ENABLE_STATS
 
-  // LOG_VERBOSE(1) << "prepared: " << *this;
+  // FLARE_LOG(DEBUG) << "prepared: " << *this;
 
   return Status::Success;
 }
@@ -168,7 +168,7 @@ InferenceResponse::Output::~Output()
 {
   Status status = ReleaseDataBuffer();
   /*if (!status.IsOk()) {
-    LOG_ERROR << "failed to release buffer for output '" << name_
+    FLARE_LOG(ERROR) << "failed to release buffer for output '" << name_
               << "': " << status.AsString();
   }*/
 }
@@ -245,7 +245,7 @@ InferenceResponse::AddOutput(
 {
   outputs_.emplace_back(name, datatype, shape, allocator_, alloc_userp_);
 
-  // LOG_VERBOSE(1) << "add response output: " << outputs_.back();
+  // FLARE_LOG(DEBUG) << "add response output: " << outputs_.back();
 
   /*if (model_ != nullptr) {
     const hercules::proto::ModelOutput* output_config;

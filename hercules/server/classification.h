@@ -9,7 +9,7 @@
 
 #include <string>
 #include <vector>
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonserver.h"
 
 namespace triton { namespace server {
 

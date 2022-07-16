@@ -14,1255 +14,885 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fmodel_5fconfig_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<18> scc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferResponse_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TraceSettingRequest_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hercules_2fproto_2fhercules_5fservice_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TraceSettingResponse_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto;
+
+PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace hercules {
 namespace proto {
-class ServerLiveRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ServerLiveRequest> _instance;
-} _ServerLiveRequest_default_instance_;
-class ServerLiveResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ServerLiveResponse> _instance;
-} _ServerLiveResponse_default_instance_;
-class ServerReadyRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ServerReadyRequest> _instance;
-} _ServerReadyRequest_default_instance_;
-class ServerReadyResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ServerReadyResponse> _instance;
-} _ServerReadyResponse_default_instance_;
-class ModelReadyRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelReadyRequest> _instance;
-} _ModelReadyRequest_default_instance_;
-class ModelReadyResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelReadyResponse> _instance;
-} _ModelReadyResponse_default_instance_;
-class ServerMetadataRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ServerMetadataRequest> _instance;
-} _ServerMetadataRequest_default_instance_;
-class ServerMetadataResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ServerMetadataResponse> _instance;
-} _ServerMetadataResponse_default_instance_;
-class ModelMetadataRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelMetadataRequest> _instance;
-} _ModelMetadataRequest_default_instance_;
-class ModelMetadataResponse_TensorMetadataDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelMetadataResponse_TensorMetadata> _instance;
-} _ModelMetadataResponse_TensorMetadata_default_instance_;
-class ModelMetadataResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelMetadataResponse> _instance;
-} _ModelMetadataResponse_default_instance_;
-class InferParameterDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InferParameter> _instance;
-  bool bool_param_;
-  ::PROTOBUF_NAMESPACE_ID::int64 int64_param_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr string_param_;
-} _InferParameter_default_instance_;
-class InferTensorContentsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InferTensorContents> _instance;
-} _InferTensorContents_default_instance_;
-class ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse> _instance;
-} _ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_default_instance_;
-class ModelInferRequest_InferInputTensorDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferRequest_InferInputTensor> _instance;
-} _ModelInferRequest_InferInputTensor_default_instance_;
-class ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse> _instance;
-} _ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_default_instance_;
-class ModelInferRequest_InferRequestedOutputTensorDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferRequest_InferRequestedOutputTensor> _instance;
-} _ModelInferRequest_InferRequestedOutputTensor_default_instance_;
-class ModelInferRequest_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferRequest_ParametersEntry_DoNotUse> _instance;
-} _ModelInferRequest_ParametersEntry_DoNotUse_default_instance_;
-class ModelInferRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferRequest> _instance;
-} _ModelInferRequest_default_instance_;
-class ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse> _instance;
-} _ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_default_instance_;
-class ModelInferResponse_InferOutputTensorDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferResponse_InferOutputTensor> _instance;
-} _ModelInferResponse_InferOutputTensor_default_instance_;
-class ModelInferResponse_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferResponse_ParametersEntry_DoNotUse> _instance;
-} _ModelInferResponse_ParametersEntry_DoNotUse_default_instance_;
-class ModelInferResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelInferResponse> _instance;
-} _ModelInferResponse_default_instance_;
-class ModelStreamInferResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelStreamInferResponse> _instance;
-} _ModelStreamInferResponse_default_instance_;
-class ModelConfigRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelConfigRequest> _instance;
-} _ModelConfigRequest_default_instance_;
-class ModelConfigResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelConfigResponse> _instance;
-} _ModelConfigResponse_default_instance_;
-class ModelStatisticsRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelStatisticsRequest> _instance;
-} _ModelStatisticsRequest_default_instance_;
-class StatisticDurationDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StatisticDuration> _instance;
-} _StatisticDuration_default_instance_;
-class InferStatisticsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InferStatistics> _instance;
-} _InferStatistics_default_instance_;
-class InferBatchStatisticsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InferBatchStatistics> _instance;
-} _InferBatchStatistics_default_instance_;
-class ModelStatisticsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelStatistics> _instance;
-} _ModelStatistics_default_instance_;
-class ModelStatisticsResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelStatisticsResponse> _instance;
-} _ModelStatisticsResponse_default_instance_;
-class ModelRepositoryParameterDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ModelRepositoryParameter> _instance;
-  bool bool_param_;
-  ::PROTOBUF_NAMESPACE_ID::int64 int64_param_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr string_param_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr bytes_param_;
-} _ModelRepositoryParameter_default_instance_;
-class RepositoryIndexRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryIndexRequest> _instance;
-} _RepositoryIndexRequest_default_instance_;
-class RepositoryIndexResponse_ModelIndexDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryIndexResponse_ModelIndex> _instance;
-} _RepositoryIndexResponse_ModelIndex_default_instance_;
-class RepositoryIndexResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryIndexResponse> _instance;
-} _RepositoryIndexResponse_default_instance_;
-class RepositoryModelLoadRequest_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryModelLoadRequest_ParametersEntry_DoNotUse> _instance;
-} _RepositoryModelLoadRequest_ParametersEntry_DoNotUse_default_instance_;
-class RepositoryModelLoadRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryModelLoadRequest> _instance;
-} _RepositoryModelLoadRequest_default_instance_;
-class RepositoryModelLoadResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryModelLoadResponse> _instance;
-} _RepositoryModelLoadResponse_default_instance_;
-class RepositoryModelUnloadRequest_ParametersEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryModelUnloadRequest_ParametersEntry_DoNotUse> _instance;
-} _RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_default_instance_;
-class RepositoryModelUnloadRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryModelUnloadRequest> _instance;
-} _RepositoryModelUnloadRequest_default_instance_;
-class RepositoryModelUnloadResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RepositoryModelUnloadResponse> _instance;
-} _RepositoryModelUnloadResponse_default_instance_;
-class SystemSharedMemoryStatusRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryStatusRequest> _instance;
-} _SystemSharedMemoryStatusRequest_default_instance_;
-class SystemSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryStatusResponse_RegionStatus> _instance;
-} _SystemSharedMemoryStatusResponse_RegionStatus_default_instance_;
-class SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse> _instance;
-} _SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_;
-class SystemSharedMemoryStatusResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryStatusResponse> _instance;
-} _SystemSharedMemoryStatusResponse_default_instance_;
-class SystemSharedMemoryRegisterRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryRegisterRequest> _instance;
-} _SystemSharedMemoryRegisterRequest_default_instance_;
-class SystemSharedMemoryRegisterResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryRegisterResponse> _instance;
-} _SystemSharedMemoryRegisterResponse_default_instance_;
-class SystemSharedMemoryUnregisterRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryUnregisterRequest> _instance;
-} _SystemSharedMemoryUnregisterRequest_default_instance_;
-class SystemSharedMemoryUnregisterResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SystemSharedMemoryUnregisterResponse> _instance;
-} _SystemSharedMemoryUnregisterResponse_default_instance_;
-class CudaSharedMemoryStatusRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryStatusRequest> _instance;
-} _CudaSharedMemoryStatusRequest_default_instance_;
-class CudaSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryStatusResponse_RegionStatus> _instance;
-} _CudaSharedMemoryStatusResponse_RegionStatus_default_instance_;
-class CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse> _instance;
-} _CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_;
-class CudaSharedMemoryStatusResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryStatusResponse> _instance;
-} _CudaSharedMemoryStatusResponse_default_instance_;
-class CudaSharedMemoryRegisterRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryRegisterRequest> _instance;
-} _CudaSharedMemoryRegisterRequest_default_instance_;
-class CudaSharedMemoryRegisterResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryRegisterResponse> _instance;
-} _CudaSharedMemoryRegisterResponse_default_instance_;
-class CudaSharedMemoryUnregisterRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryUnregisterRequest> _instance;
-} _CudaSharedMemoryUnregisterRequest_default_instance_;
-class CudaSharedMemoryUnregisterResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<CudaSharedMemoryUnregisterResponse> _instance;
-} _CudaSharedMemoryUnregisterResponse_default_instance_;
-class TraceSettingRequest_SettingValueDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TraceSettingRequest_SettingValue> _instance;
-} _TraceSettingRequest_SettingValue_default_instance_;
-class TraceSettingRequest_SettingsEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TraceSettingRequest_SettingsEntry_DoNotUse> _instance;
-} _TraceSettingRequest_SettingsEntry_DoNotUse_default_instance_;
-class TraceSettingRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TraceSettingRequest> _instance;
-} _TraceSettingRequest_default_instance_;
-class TraceSettingResponse_SettingValueDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TraceSettingResponse_SettingValue> _instance;
-} _TraceSettingResponse_SettingValue_default_instance_;
-class TraceSettingResponse_SettingsEntry_DoNotUseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TraceSettingResponse_SettingsEntry_DoNotUse> _instance;
-} _TraceSettingResponse_SettingsEntry_DoNotUse_default_instance_;
-class TraceSettingResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<TraceSettingResponse> _instance;
-} _TraceSettingResponse_default_instance_;
+PROTOBUF_CONSTEXPR ServerLiveRequest::ServerLiveRequest(
+    ::_pbi::ConstantInitialized){}
+struct ServerLiveRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerLiveRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerLiveRequestDefaultTypeInternal() {}
+  union {
+    ServerLiveRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerLiveRequestDefaultTypeInternal _ServerLiveRequest_default_instance_;
+PROTOBUF_CONSTEXPR ServerLiveResponse::ServerLiveResponse(
+    ::_pbi::ConstantInitialized)
+  : live_(false){}
+struct ServerLiveResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerLiveResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerLiveResponseDefaultTypeInternal() {}
+  union {
+    ServerLiveResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerLiveResponseDefaultTypeInternal _ServerLiveResponse_default_instance_;
+PROTOBUF_CONSTEXPR ServerReadyRequest::ServerReadyRequest(
+    ::_pbi::ConstantInitialized){}
+struct ServerReadyRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerReadyRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerReadyRequestDefaultTypeInternal() {}
+  union {
+    ServerReadyRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerReadyRequestDefaultTypeInternal _ServerReadyRequest_default_instance_;
+PROTOBUF_CONSTEXPR ServerReadyResponse::ServerReadyResponse(
+    ::_pbi::ConstantInitialized)
+  : ready_(false){}
+struct ServerReadyResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerReadyResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerReadyResponseDefaultTypeInternal() {}
+  union {
+    ServerReadyResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerReadyResponseDefaultTypeInternal _ServerReadyResponse_default_instance_;
+PROTOBUF_CONSTEXPR ModelReadyRequest::ModelReadyRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelReadyRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelReadyRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelReadyRequestDefaultTypeInternal() {}
+  union {
+    ModelReadyRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelReadyRequestDefaultTypeInternal _ModelReadyRequest_default_instance_;
+PROTOBUF_CONSTEXPR ModelReadyResponse::ModelReadyResponse(
+    ::_pbi::ConstantInitialized)
+  : ready_(false){}
+struct ModelReadyResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelReadyResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelReadyResponseDefaultTypeInternal() {}
+  union {
+    ModelReadyResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelReadyResponseDefaultTypeInternal _ModelReadyResponse_default_instance_;
+PROTOBUF_CONSTEXPR ServerMetadataRequest::ServerMetadataRequest(
+    ::_pbi::ConstantInitialized){}
+struct ServerMetadataRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerMetadataRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerMetadataRequestDefaultTypeInternal() {}
+  union {
+    ServerMetadataRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerMetadataRequestDefaultTypeInternal _ServerMetadataRequest_default_instance_;
+PROTOBUF_CONSTEXPR ServerMetadataResponse::ServerMetadataResponse(
+    ::_pbi::ConstantInitialized)
+  : extensions_()
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ServerMetadataResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ServerMetadataResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ServerMetadataResponseDefaultTypeInternal() {}
+  union {
+    ServerMetadataResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ServerMetadataResponseDefaultTypeInternal _ServerMetadataResponse_default_instance_;
+PROTOBUF_CONSTEXPR ModelMetadataRequest::ModelMetadataRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelMetadataRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelMetadataRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelMetadataRequestDefaultTypeInternal() {}
+  union {
+    ModelMetadataRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelMetadataRequestDefaultTypeInternal _ModelMetadataRequest_default_instance_;
+PROTOBUF_CONSTEXPR ModelMetadataResponse_TensorMetadata::ModelMetadataResponse_TensorMetadata(
+    ::_pbi::ConstantInitialized)
+  : shape_()
+  , _shape_cached_byte_size_(0)
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , datatype_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelMetadataResponse_TensorMetadataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelMetadataResponse_TensorMetadataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelMetadataResponse_TensorMetadataDefaultTypeInternal() {}
+  union {
+    ModelMetadataResponse_TensorMetadata _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelMetadataResponse_TensorMetadataDefaultTypeInternal _ModelMetadataResponse_TensorMetadata_default_instance_;
+PROTOBUF_CONSTEXPR ModelMetadataResponse::ModelMetadataResponse(
+    ::_pbi::ConstantInitialized)
+  : versions_()
+  , inputs_()
+  , outputs_()
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , platform_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelMetadataResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelMetadataResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelMetadataResponseDefaultTypeInternal() {}
+  union {
+    ModelMetadataResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelMetadataResponseDefaultTypeInternal _ModelMetadataResponse_default_instance_;
+PROTOBUF_CONSTEXPR InferParameter::InferParameter(
+    ::_pbi::ConstantInitialized)
+  : _oneof_case_{}{}
+struct InferParameterDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InferParameterDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InferParameterDefaultTypeInternal() {}
+  union {
+    InferParameter _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InferParameterDefaultTypeInternal _InferParameter_default_instance_;
+PROTOBUF_CONSTEXPR InferTensorContents::InferTensorContents(
+    ::_pbi::ConstantInitialized)
+  : bool_contents_()
+  , int_contents_()
+  , _int_contents_cached_byte_size_(0)
+  , int64_contents_()
+  , _int64_contents_cached_byte_size_(0)
+  , uint_contents_()
+  , _uint_contents_cached_byte_size_(0)
+  , uint64_contents_()
+  , _uint64_contents_cached_byte_size_(0)
+  , fp32_contents_()
+  , fp64_contents_()
+  , bytes_contents_(){}
+struct InferTensorContentsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InferTensorContentsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InferTensorContentsDefaultTypeInternal() {}
+  union {
+    InferTensorContents _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InferTensorContentsDefaultTypeInternal _InferTensorContents_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUseDefaultTypeInternal _ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferRequest_InferInputTensor::ModelInferRequest_InferInputTensor(
+    ::_pbi::ConstantInitialized)
+  : shape_()
+  , _shape_cached_byte_size_(0)
+  , parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , datatype_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , contents_(nullptr){}
+struct ModelInferRequest_InferInputTensorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferRequest_InferInputTensorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferRequest_InferInputTensorDefaultTypeInternal() {}
+  union {
+    ModelInferRequest_InferInputTensor _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferRequest_InferInputTensorDefaultTypeInternal _ModelInferRequest_InferInputTensor_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal _ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferRequest_InferRequestedOutputTensor::ModelInferRequest_InferRequestedOutputTensor(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelInferRequest_InferRequestedOutputTensorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferRequest_InferRequestedOutputTensorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferRequest_InferRequestedOutputTensorDefaultTypeInternal() {}
+  union {
+    ModelInferRequest_InferRequestedOutputTensor _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferRequest_InferRequestedOutputTensorDefaultTypeInternal _ModelInferRequest_InferRequestedOutputTensor_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferRequest_ParametersEntry_DoNotUse::ModelInferRequest_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelInferRequest_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferRequest_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferRequest_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelInferRequest_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferRequest_ParametersEntry_DoNotUseDefaultTypeInternal _ModelInferRequest_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferRequest::ModelInferRequest(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , inputs_()
+  , outputs_()
+  , raw_input_contents_()
+  , model_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , model_version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , id_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelInferRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferRequestDefaultTypeInternal() {}
+  union {
+    ModelInferRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferRequestDefaultTypeInternal _ModelInferRequest_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUseDefaultTypeInternal _ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferResponse_InferOutputTensor::ModelInferResponse_InferOutputTensor(
+    ::_pbi::ConstantInitialized)
+  : shape_()
+  , _shape_cached_byte_size_(0)
+  , parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , datatype_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , contents_(nullptr){}
+struct ModelInferResponse_InferOutputTensorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferResponse_InferOutputTensorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferResponse_InferOutputTensorDefaultTypeInternal() {}
+  union {
+    ModelInferResponse_InferOutputTensor _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferResponse_InferOutputTensorDefaultTypeInternal _ModelInferResponse_InferOutputTensor_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferResponse_ParametersEntry_DoNotUse::ModelInferResponse_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct ModelInferResponse_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferResponse_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferResponse_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ModelInferResponse_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferResponse_ParametersEntry_DoNotUseDefaultTypeInternal _ModelInferResponse_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ModelInferResponse::ModelInferResponse(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , outputs_()
+  , raw_output_contents_()
+  , model_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , model_version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , id_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelInferResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelInferResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelInferResponseDefaultTypeInternal() {}
+  union {
+    ModelInferResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelInferResponseDefaultTypeInternal _ModelInferResponse_default_instance_;
+PROTOBUF_CONSTEXPR ModelStreamInferResponse::ModelStreamInferResponse(
+    ::_pbi::ConstantInitialized)
+  : error_message_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , infer_response_(nullptr){}
+struct ModelStreamInferResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelStreamInferResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelStreamInferResponseDefaultTypeInternal() {}
+  union {
+    ModelStreamInferResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelStreamInferResponseDefaultTypeInternal _ModelStreamInferResponse_default_instance_;
+PROTOBUF_CONSTEXPR ModelConfigRequest::ModelConfigRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelConfigRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelConfigRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelConfigRequestDefaultTypeInternal() {}
+  union {
+    ModelConfigRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelConfigRequestDefaultTypeInternal _ModelConfigRequest_default_instance_;
+PROTOBUF_CONSTEXPR ModelConfigResponse::ModelConfigResponse(
+    ::_pbi::ConstantInitialized)
+  : config_(nullptr){}
+struct ModelConfigResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelConfigResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelConfigResponseDefaultTypeInternal() {}
+  union {
+    ModelConfigResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelConfigResponseDefaultTypeInternal _ModelConfigResponse_default_instance_;
+PROTOBUF_CONSTEXPR ModelStatisticsRequest::ModelStatisticsRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct ModelStatisticsRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelStatisticsRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelStatisticsRequestDefaultTypeInternal() {}
+  union {
+    ModelStatisticsRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelStatisticsRequestDefaultTypeInternal _ModelStatisticsRequest_default_instance_;
+PROTOBUF_CONSTEXPR StatisticDuration::StatisticDuration(
+    ::_pbi::ConstantInitialized)
+  : count_(uint64_t{0u})
+  , ns_(uint64_t{0u}){}
+struct StatisticDurationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR StatisticDurationDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~StatisticDurationDefaultTypeInternal() {}
+  union {
+    StatisticDuration _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StatisticDurationDefaultTypeInternal _StatisticDuration_default_instance_;
+PROTOBUF_CONSTEXPR InferStatistics::InferStatistics(
+    ::_pbi::ConstantInitialized)
+  : success_(nullptr)
+  , fail_(nullptr)
+  , queue_(nullptr)
+  , compute_input_(nullptr)
+  , compute_infer_(nullptr)
+  , compute_output_(nullptr)
+  , cache_hit_(nullptr)
+  , cache_miss_(nullptr){}
+struct InferStatisticsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InferStatisticsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InferStatisticsDefaultTypeInternal() {}
+  union {
+    InferStatistics _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InferStatisticsDefaultTypeInternal _InferStatistics_default_instance_;
+PROTOBUF_CONSTEXPR InferBatchStatistics::InferBatchStatistics(
+    ::_pbi::ConstantInitialized)
+  : compute_input_(nullptr)
+  , compute_infer_(nullptr)
+  , compute_output_(nullptr)
+  , batch_size_(uint64_t{0u}){}
+struct InferBatchStatisticsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR InferBatchStatisticsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~InferBatchStatisticsDefaultTypeInternal() {}
+  union {
+    InferBatchStatistics _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 InferBatchStatisticsDefaultTypeInternal _InferBatchStatistics_default_instance_;
+PROTOBUF_CONSTEXPR ModelStatistics::ModelStatistics(
+    ::_pbi::ConstantInitialized)
+  : batch_stats_()
+  , name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , inference_stats_(nullptr)
+  , last_inference_(uint64_t{0u})
+  , inference_count_(uint64_t{0u})
+  , execution_count_(uint64_t{0u}){}
+struct ModelStatisticsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelStatisticsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelStatisticsDefaultTypeInternal() {}
+  union {
+    ModelStatistics _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelStatisticsDefaultTypeInternal _ModelStatistics_default_instance_;
+PROTOBUF_CONSTEXPR ModelStatisticsResponse::ModelStatisticsResponse(
+    ::_pbi::ConstantInitialized)
+  : model_stats_(){}
+struct ModelStatisticsResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelStatisticsResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelStatisticsResponseDefaultTypeInternal() {}
+  union {
+    ModelStatisticsResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelStatisticsResponseDefaultTypeInternal _ModelStatisticsResponse_default_instance_;
+PROTOBUF_CONSTEXPR ModelRepositoryParameter::ModelRepositoryParameter(
+    ::_pbi::ConstantInitialized)
+  : _oneof_case_{}{}
+struct ModelRepositoryParameterDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModelRepositoryParameterDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModelRepositoryParameterDefaultTypeInternal() {}
+  union {
+    ModelRepositoryParameter _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModelRepositoryParameterDefaultTypeInternal _ModelRepositoryParameter_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryIndexRequest::RepositoryIndexRequest(
+    ::_pbi::ConstantInitialized)
+  : repository_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , ready_(false){}
+struct RepositoryIndexRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryIndexRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryIndexRequestDefaultTypeInternal() {}
+  union {
+    RepositoryIndexRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryIndexRequestDefaultTypeInternal _RepositoryIndexRequest_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryIndexResponse_ModelIndex::RepositoryIndexResponse_ModelIndex(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , version_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , state_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , reason_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct RepositoryIndexResponse_ModelIndexDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryIndexResponse_ModelIndexDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryIndexResponse_ModelIndexDefaultTypeInternal() {}
+  union {
+    RepositoryIndexResponse_ModelIndex _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryIndexResponse_ModelIndexDefaultTypeInternal _RepositoryIndexResponse_ModelIndex_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryIndexResponse::RepositoryIndexResponse(
+    ::_pbi::ConstantInitialized)
+  : models_(){}
+struct RepositoryIndexResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryIndexResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryIndexResponseDefaultTypeInternal() {}
+  union {
+    RepositoryIndexResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryIndexResponseDefaultTypeInternal _RepositoryIndexResponse_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryModelLoadRequest_ParametersEntry_DoNotUse::RepositoryModelLoadRequest_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct RepositoryModelLoadRequest_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryModelLoadRequest_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryModelLoadRequest_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    RepositoryModelLoadRequest_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryModelLoadRequest_ParametersEntry_DoNotUseDefaultTypeInternal _RepositoryModelLoadRequest_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryModelLoadRequest::RepositoryModelLoadRequest(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , repository_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , model_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct RepositoryModelLoadRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryModelLoadRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryModelLoadRequestDefaultTypeInternal() {}
+  union {
+    RepositoryModelLoadRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryModelLoadRequestDefaultTypeInternal _RepositoryModelLoadRequest_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryModelLoadResponse::RepositoryModelLoadResponse(
+    ::_pbi::ConstantInitialized){}
+struct RepositoryModelLoadResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryModelLoadResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryModelLoadResponseDefaultTypeInternal() {}
+  union {
+    RepositoryModelLoadResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryModelLoadResponseDefaultTypeInternal _RepositoryModelLoadResponse_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct RepositoryModelUnloadRequest_ParametersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryModelUnloadRequest_ParametersEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryModelUnloadRequest_ParametersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    RepositoryModelUnloadRequest_ParametersEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryModelUnloadRequest_ParametersEntry_DoNotUseDefaultTypeInternal _RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryModelUnloadRequest::RepositoryModelUnloadRequest(
+    ::_pbi::ConstantInitialized)
+  : parameters_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , repository_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , model_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct RepositoryModelUnloadRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryModelUnloadRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryModelUnloadRequestDefaultTypeInternal() {}
+  union {
+    RepositoryModelUnloadRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryModelUnloadRequestDefaultTypeInternal _RepositoryModelUnloadRequest_default_instance_;
+PROTOBUF_CONSTEXPR RepositoryModelUnloadResponse::RepositoryModelUnloadResponse(
+    ::_pbi::ConstantInitialized){}
+struct RepositoryModelUnloadResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RepositoryModelUnloadResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RepositoryModelUnloadResponseDefaultTypeInternal() {}
+  union {
+    RepositoryModelUnloadResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RepositoryModelUnloadResponseDefaultTypeInternal _RepositoryModelUnloadResponse_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryStatusRequest::SystemSharedMemoryStatusRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct SystemSharedMemoryStatusRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryStatusRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryStatusRequestDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryStatusRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryStatusRequestDefaultTypeInternal _SystemSharedMemoryStatusRequest_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryStatusResponse_RegionStatus::SystemSharedMemoryStatusResponse_RegionStatus(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , key_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , offset_(uint64_t{0u})
+  , byte_size_(uint64_t{0u}){}
+struct SystemSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryStatusResponse_RegionStatus _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal _SystemSharedMemoryStatusResponse_RegionStatus_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal _SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryStatusResponse::SystemSharedMemoryStatusResponse(
+    ::_pbi::ConstantInitialized)
+  : regions_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
+struct SystemSharedMemoryStatusResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryStatusResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryStatusResponseDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryStatusResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryStatusResponseDefaultTypeInternal _SystemSharedMemoryStatusResponse_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryRegisterRequest::SystemSharedMemoryRegisterRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , key_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , offset_(uint64_t{0u})
+  , byte_size_(uint64_t{0u}){}
+struct SystemSharedMemoryRegisterRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryRegisterRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryRegisterRequestDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryRegisterRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryRegisterRequestDefaultTypeInternal _SystemSharedMemoryRegisterRequest_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryRegisterResponse::SystemSharedMemoryRegisterResponse(
+    ::_pbi::ConstantInitialized){}
+struct SystemSharedMemoryRegisterResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryRegisterResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryRegisterResponseDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryRegisterResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryRegisterResponseDefaultTypeInternal _SystemSharedMemoryRegisterResponse_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryUnregisterRequest::SystemSharedMemoryUnregisterRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct SystemSharedMemoryUnregisterRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryUnregisterRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryUnregisterRequestDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryUnregisterRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryUnregisterRequestDefaultTypeInternal _SystemSharedMemoryUnregisterRequest_default_instance_;
+PROTOBUF_CONSTEXPR SystemSharedMemoryUnregisterResponse::SystemSharedMemoryUnregisterResponse(
+    ::_pbi::ConstantInitialized){}
+struct SystemSharedMemoryUnregisterResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SystemSharedMemoryUnregisterResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~SystemSharedMemoryUnregisterResponseDefaultTypeInternal() {}
+  union {
+    SystemSharedMemoryUnregisterResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SystemSharedMemoryUnregisterResponseDefaultTypeInternal _SystemSharedMemoryUnregisterResponse_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryStatusRequest::CudaSharedMemoryStatusRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct CudaSharedMemoryStatusRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryStatusRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryStatusRequestDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryStatusRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryStatusRequestDefaultTypeInternal _CudaSharedMemoryStatusRequest_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryStatusResponse_RegionStatus::CudaSharedMemoryStatusResponse_RegionStatus(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , device_id_(uint64_t{0u})
+  , byte_size_(uint64_t{0u}){}
+struct CudaSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryStatusResponse_RegionStatus _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryStatusResponse_RegionStatusDefaultTypeInternal _CudaSharedMemoryStatusResponse_RegionStatus_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUseDefaultTypeInternal _CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryStatusResponse::CudaSharedMemoryStatusResponse(
+    ::_pbi::ConstantInitialized)
+  : regions_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
+struct CudaSharedMemoryStatusResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryStatusResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryStatusResponseDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryStatusResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryStatusResponseDefaultTypeInternal _CudaSharedMemoryStatusResponse_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryRegisterRequest::CudaSharedMemoryRegisterRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , raw_handle_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{})
+  , device_id_(int64_t{0})
+  , byte_size_(uint64_t{0u}){}
+struct CudaSharedMemoryRegisterRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryRegisterRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryRegisterRequestDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryRegisterRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryRegisterRequestDefaultTypeInternal _CudaSharedMemoryRegisterRequest_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryRegisterResponse::CudaSharedMemoryRegisterResponse(
+    ::_pbi::ConstantInitialized){}
+struct CudaSharedMemoryRegisterResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryRegisterResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryRegisterResponseDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryRegisterResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryRegisterResponseDefaultTypeInternal _CudaSharedMemoryRegisterResponse_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryUnregisterRequest::CudaSharedMemoryUnregisterRequest(
+    ::_pbi::ConstantInitialized)
+  : name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct CudaSharedMemoryUnregisterRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryUnregisterRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryUnregisterRequestDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryUnregisterRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryUnregisterRequestDefaultTypeInternal _CudaSharedMemoryUnregisterRequest_default_instance_;
+PROTOBUF_CONSTEXPR CudaSharedMemoryUnregisterResponse::CudaSharedMemoryUnregisterResponse(
+    ::_pbi::ConstantInitialized){}
+struct CudaSharedMemoryUnregisterResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CudaSharedMemoryUnregisterResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CudaSharedMemoryUnregisterResponseDefaultTypeInternal() {}
+  union {
+    CudaSharedMemoryUnregisterResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CudaSharedMemoryUnregisterResponseDefaultTypeInternal _CudaSharedMemoryUnregisterResponse_default_instance_;
+PROTOBUF_CONSTEXPR TraceSettingRequest_SettingValue::TraceSettingRequest_SettingValue(
+    ::_pbi::ConstantInitialized)
+  : value_(){}
+struct TraceSettingRequest_SettingValueDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceSettingRequest_SettingValueDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceSettingRequest_SettingValueDefaultTypeInternal() {}
+  union {
+    TraceSettingRequest_SettingValue _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceSettingRequest_SettingValueDefaultTypeInternal _TraceSettingRequest_SettingValue_default_instance_;
+PROTOBUF_CONSTEXPR TraceSettingRequest_SettingsEntry_DoNotUse::TraceSettingRequest_SettingsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct TraceSettingRequest_SettingsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceSettingRequest_SettingsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceSettingRequest_SettingsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    TraceSettingRequest_SettingsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceSettingRequest_SettingsEntry_DoNotUseDefaultTypeInternal _TraceSettingRequest_SettingsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR TraceSettingRequest::TraceSettingRequest(
+    ::_pbi::ConstantInitialized)
+  : settings_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , model_name_(&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}){}
+struct TraceSettingRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceSettingRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceSettingRequestDefaultTypeInternal() {}
+  union {
+    TraceSettingRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceSettingRequestDefaultTypeInternal _TraceSettingRequest_default_instance_;
+PROTOBUF_CONSTEXPR TraceSettingResponse_SettingValue::TraceSettingResponse_SettingValue(
+    ::_pbi::ConstantInitialized)
+  : value_(){}
+struct TraceSettingResponse_SettingValueDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceSettingResponse_SettingValueDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceSettingResponse_SettingValueDefaultTypeInternal() {}
+  union {
+    TraceSettingResponse_SettingValue _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceSettingResponse_SettingValueDefaultTypeInternal _TraceSettingResponse_SettingValue_default_instance_;
+PROTOBUF_CONSTEXPR TraceSettingResponse_SettingsEntry_DoNotUse::TraceSettingResponse_SettingsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized){}
+struct TraceSettingResponse_SettingsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceSettingResponse_SettingsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceSettingResponse_SettingsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    TraceSettingResponse_SettingsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceSettingResponse_SettingsEntry_DoNotUseDefaultTypeInternal _TraceSettingResponse_SettingsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR TraceSettingResponse::TraceSettingResponse(
+    ::_pbi::ConstantInitialized)
+  : settings_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
+struct TraceSettingResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TraceSettingResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TraceSettingResponseDefaultTypeInternal() {}
+  union {
+    TraceSettingResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TraceSettingResponseDefaultTypeInternal _TraceSettingResponse_default_instance_;
 }  // namespace proto
 }  // namespace hercules
-static void InitDefaultsscc_info_CudaSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryRegisterRequest_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryRegisterRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryRegisterRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CudaSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryRegisterResponse_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryRegisterResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryRegisterResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CudaSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryStatusRequest_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryStatusRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryStatusRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CudaSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryStatusResponse_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryStatusResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryStatusResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CudaSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CudaSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryStatusResponse_RegionStatus_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse();
-  }
-  ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryUnregisterRequest_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryUnregisterRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryUnregisterRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CudaSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_CudaSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_CudaSharedMemoryUnregisterResponse_default_instance_;
-    new (ptr) ::hercules::proto::CudaSharedMemoryUnregisterResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::CudaSharedMemoryUnregisterResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_CudaSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_CudaSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_InferBatchStatistics_default_instance_;
-    new (ptr) ::hercules::proto::InferBatchStatistics();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::InferBatchStatistics::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_InferParameter_default_instance_;
-    new (ptr) ::hercules::proto::InferParameter();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::InferParameter::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_InferStatistics_default_instance_;
-    new (ptr) ::hercules::proto::InferStatistics();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::InferStatistics::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_InferTensorContents_default_instance_;
-    new (ptr) ::hercules::proto::InferTensorContents();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::InferTensorContents::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelConfigRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelConfigRequest_default_instance_;
-    new (ptr) ::hercules::proto::ModelConfigRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelConfigRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelConfigRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelConfigRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelConfigResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelConfigResponse_default_instance_;
-    new (ptr) ::hercules::proto::ModelConfigResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelConfigResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelConfigResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelConfigResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelConfig_hercules_2fproto_2fmodel_5fconfig_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferRequest_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInferRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<3> scc_info_ModelInferRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 3, 0, InitDefaultsscc_info_ModelInferRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelInferRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-      &scc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-      &scc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferRequest_InferInputTensor_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferRequest_InferInputTensor();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInferRequest_InferInputTensor::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-      &scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferRequest_InferRequestedOutputTensor_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferRequest_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInferRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferResponse_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInferResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelInferResponse_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-      &scc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferResponse_InferOutputTensor_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferResponse_InferOutputTensor();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelInferResponse_InferOutputTensor::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-      &scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelInferResponse_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelInferResponse_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelInferResponse_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelInferResponse_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelMetadataRequest_default_instance_;
-    new (ptr) ::hercules::proto::ModelMetadataRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelMetadataRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelMetadataResponse_default_instance_;
-    new (ptr) ::hercules::proto::ModelMetadataResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelMetadataResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelMetadataResponse_TensorMetadata_default_instance_;
-    new (ptr) ::hercules::proto::ModelMetadataResponse_TensorMetadata();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelMetadataResponse_TensorMetadata::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelReadyRequest_default_instance_;
-    new (ptr) ::hercules::proto::ModelReadyRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelReadyRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelReadyResponse_default_instance_;
-    new (ptr) ::hercules::proto::ModelReadyResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelReadyResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelRepositoryParameter_default_instance_;
-    new (ptr) ::hercules::proto::ModelRepositoryParameter();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelRepositoryParameter::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelStatistics_default_instance_;
-    new (ptr) ::hercules::proto::ModelStatistics();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelStatistics::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-      &scc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelStatisticsRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelStatisticsRequest_default_instance_;
-    new (ptr) ::hercules::proto::ModelStatisticsRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelStatisticsRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ModelStatisticsRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ModelStatisticsRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ModelStatisticsResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelStatisticsResponse_default_instance_;
-    new (ptr) ::hercules::proto::ModelStatisticsResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelStatisticsResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelStatisticsResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelStatisticsResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_ModelStreamInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ModelStreamInferResponse_default_instance_;
-    new (ptr) ::hercules::proto::ModelStreamInferResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ModelStreamInferResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ModelStreamInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ModelStreamInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_RepositoryIndexRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryIndexRequest_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryIndexRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryIndexRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RepositoryIndexRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RepositoryIndexRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_RepositoryIndexResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryIndexResponse_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryIndexResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryIndexResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryIndexResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_RepositoryIndexResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryIndexResponse_ModelIndex_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryIndexResponse_ModelIndex();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryIndexResponse_ModelIndex::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_RepositoryModelLoadRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryModelLoadRequest_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryModelLoadRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryModelLoadRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryModelLoadRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_RepositoryModelLoadRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_RepositoryModelLoadResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryModelLoadResponse_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryModelLoadResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryModelLoadResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RepositoryModelLoadResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RepositoryModelLoadResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_RepositoryModelUnloadRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryModelUnloadRequest_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryModelUnloadRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryModelUnloadRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryModelUnloadRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_RepositoryModelUnloadRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse();
-  }
-  ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_RepositoryModelUnloadResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_RepositoryModelUnloadResponse_default_instance_;
-    new (ptr) ::hercules::proto::RepositoryModelUnloadResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::RepositoryModelUnloadResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RepositoryModelUnloadResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RepositoryModelUnloadResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ServerLiveRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ServerLiveRequest_default_instance_;
-    new (ptr) ::hercules::proto::ServerLiveRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ServerLiveRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ServerLiveRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ServerLiveRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ServerLiveResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ServerLiveResponse_default_instance_;
-    new (ptr) ::hercules::proto::ServerLiveResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ServerLiveResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ServerLiveResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ServerLiveResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ServerMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ServerMetadataRequest_default_instance_;
-    new (ptr) ::hercules::proto::ServerMetadataRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ServerMetadataRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ServerMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ServerMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ServerMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ServerMetadataResponse_default_instance_;
-    new (ptr) ::hercules::proto::ServerMetadataResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ServerMetadataResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ServerMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ServerMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ServerReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ServerReadyRequest_default_instance_;
-    new (ptr) ::hercules::proto::ServerReadyRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ServerReadyRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ServerReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ServerReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_ServerReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_ServerReadyResponse_default_instance_;
-    new (ptr) ::hercules::proto::ServerReadyResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::ServerReadyResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ServerReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ServerReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_StatisticDuration_default_instance_;
-    new (ptr) ::hercules::proto::StatisticDuration();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::StatisticDuration::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryRegisterRequest_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryRegisterRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryRegisterRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SystemSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryRegisterResponse_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryRegisterResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryRegisterResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SystemSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryStatusRequest_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryStatusRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryStatusRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SystemSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryStatusResponse_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryStatusResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryStatusResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SystemSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SystemSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryStatusResponse_RegionStatus_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse();
-  }
-  ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryUnregisterRequest_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryUnregisterRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryUnregisterRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SystemSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_SystemSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_SystemSharedMemoryUnregisterResponse_default_instance_;
-    new (ptr) ::hercules::proto::SystemSharedMemoryUnregisterResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::SystemSharedMemoryUnregisterResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_SystemSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_SystemSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_TraceSettingRequest_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_TraceSettingRequest_default_instance_;
-    new (ptr) ::hercules::proto::TraceSettingRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::TraceSettingRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TraceSettingRequest_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TraceSettingRequest_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_TraceSettingRequest_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_TraceSettingRequest_SettingValue_default_instance_;
-    new (ptr) ::hercules::proto::TraceSettingRequest_SettingValue();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::TraceSettingRequest_SettingValue::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_TraceSettingRequest_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_TraceSettingRequest_SettingsEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse();
-  }
-  ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TraceSettingRequest_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TraceSettingRequest_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_TraceSettingResponse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_TraceSettingResponse_default_instance_;
-    new (ptr) ::hercules::proto::TraceSettingResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::TraceSettingResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TraceSettingResponse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TraceSettingResponse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_TraceSettingResponse_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static void InitDefaultsscc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_TraceSettingResponse_SettingValue_default_instance_;
-    new (ptr) ::hercules::proto::TraceSettingResponse_SettingValue();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::hercules::proto::TraceSettingResponse_SettingValue::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto}, {}};
-
-static void InitDefaultsscc_info_TraceSettingResponse_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::hercules::proto::_TraceSettingResponse_SettingsEntry_DoNotUse_default_instance_;
-    new (ptr) ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse();
-  }
-  ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_TraceSettingResponse_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_TraceSettingResponse_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto}, {
-      &scc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[64];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto = nullptr;
-
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5fservice_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static ::_pb::Metadata file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[64];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto = nullptr;
+
+const uint32_t TableStruct_hercules_2fproto_2fhercules_5fservice_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerLiveRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerLiveResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerLiveResponse, live_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerReadyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerReadyResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerReadyResponse, ready_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelReadyRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelReadyRequest, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelReadyRequest, version_),
   ~0u,  // no _has_bits_
@@ -1270,17 +900,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelReadyResponse, ready_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerMetadataRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerMetadataResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerMetadataResponse, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerMetadataResponse, version_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ServerMetadataResponse, extensions_),
@@ -1289,6 +922,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataRequest, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataRequest, version_),
   ~0u,  // no _has_bits_
@@ -1296,6 +930,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataResponse_TensorMetadata, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataResponse_TensorMetadata, datatype_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataResponse_TensorMetadata, shape_),
@@ -1304,6 +939,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataResponse, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataResponse, versions_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelMetadataResponse, platform_),
@@ -1314,15 +950,17 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferParameter, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::hercules::proto::InferParameterDefaultTypeInternal, bool_param_),
-  offsetof(::hercules::proto::InferParameterDefaultTypeInternal, int64_param_),
-  offsetof(::hercules::proto::InferParameterDefaultTypeInternal, string_param_),
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferParameter, parameter_choice_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferTensorContents, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferTensorContents, bool_contents_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferTensorContents, int_contents_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferTensorContents, int64_contents_),
@@ -1336,6 +974,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse, value_),
   0,
@@ -1345,6 +984,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferInputTensor, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferInputTensor, datatype_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferInputTensor, shape_),
@@ -1355,6 +995,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse, value_),
   0,
@@ -1364,6 +1005,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor, parameters_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse, _has_bits_),
@@ -1371,6 +1013,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse, value_),
   0,
@@ -1380,6 +1023,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest, model_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest, model_version_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferRequest, id_),
@@ -1392,6 +1036,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse, value_),
   0,
@@ -1401,6 +1046,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_InferOutputTensor, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_InferOutputTensor, datatype_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_InferOutputTensor, shape_),
@@ -1411,6 +1057,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse, value_),
   0,
@@ -1420,6 +1067,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse, model_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse, model_version_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelInferResponse, id_),
@@ -1431,6 +1079,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStreamInferResponse, error_message_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStreamInferResponse, infer_response_),
   ~0u,  // no _has_bits_
@@ -1438,6 +1087,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfigRequest, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfigRequest, version_),
   ~0u,  // no _has_bits_
@@ -1445,12 +1095,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelConfigResponse, config_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatisticsRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatisticsRequest, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatisticsRequest, version_),
   ~0u,  // no _has_bits_
@@ -1458,6 +1110,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::StatisticDuration, count_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::StatisticDuration, ns_),
   ~0u,  // no _has_bits_
@@ -1465,6 +1118,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferStatistics, success_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferStatistics, fail_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferStatistics, queue_),
@@ -1478,6 +1132,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferBatchStatistics, batch_size_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferBatchStatistics, compute_input_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::InferBatchStatistics, compute_infer_),
@@ -1487,6 +1142,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatistics, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatistics, version_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatistics, last_inference_),
@@ -1499,22 +1155,25 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelStatisticsResponse, model_stats_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryParameter, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryParameter, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::hercules::proto::ModelRepositoryParameterDefaultTypeInternal, bool_param_),
-  offsetof(::hercules::proto::ModelRepositoryParameterDefaultTypeInternal, int64_param_),
-  offsetof(::hercules::proto::ModelRepositoryParameterDefaultTypeInternal, string_param_),
-  offsetof(::hercules::proto::ModelRepositoryParameterDefaultTypeInternal, bytes_param_),
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::hercules::proto::ModelRepositoryParameter, parameter_choice_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexRequest, repository_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexRequest, ready_),
   ~0u,  // no _has_bits_
@@ -1522,6 +1181,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexResponse_ModelIndex, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexResponse_ModelIndex, version_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexResponse_ModelIndex, state_),
@@ -1531,12 +1191,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryIndexResponse, models_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse, value_),
   0,
@@ -1546,6 +1208,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest, repository_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest, model_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelLoadRequest, parameters_),
@@ -1554,11 +1217,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse, value_),
   0,
@@ -1568,6 +1233,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest, repository_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest, model_name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::RepositoryModelUnloadRequest, parameters_),
@@ -1576,17 +1242,20 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusRequest, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus, offset_),
@@ -1596,6 +1265,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse, value_),
   0,
@@ -1605,12 +1275,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryStatusResponse, regions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryRegisterRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryRegisterRequest, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryRegisterRequest, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryRegisterRequest, offset_),
@@ -1620,28 +1292,33 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryUnregisterRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryUnregisterRequest, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::SystemSharedMemoryUnregisterResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusRequest, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus, device_id_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus, byte_size_),
@@ -1650,6 +1327,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse, value_),
   0,
@@ -1659,12 +1337,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryStatusResponse, regions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryRegisterRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryRegisterRequest, name_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryRegisterRequest, raw_handle_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryRegisterRequest, device_id_),
@@ -1674,28 +1354,33 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryUnregisterRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryUnregisterRequest, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::CudaSharedMemoryUnregisterResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest_SettingValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest_SettingValue, value_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse, value_),
   0,
@@ -1705,6 +1390,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest, settings_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingRequest, model_name_),
   ~0u,  // no _has_bits_
@@ -1712,12 +1398,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingResponse_SettingValue, value_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse, key_),
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse, value_),
   0,
@@ -1727,140 +1415,141 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hercules_2fproto_2fhercules_5f
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::hercules::proto::TraceSettingResponse, settings_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::hercules::proto::ServerLiveRequest)},
-  { 5, -1, sizeof(::hercules::proto::ServerLiveResponse)},
-  { 11, -1, sizeof(::hercules::proto::ServerReadyRequest)},
-  { 16, -1, sizeof(::hercules::proto::ServerReadyResponse)},
-  { 22, -1, sizeof(::hercules::proto::ModelReadyRequest)},
-  { 29, -1, sizeof(::hercules::proto::ModelReadyResponse)},
-  { 35, -1, sizeof(::hercules::proto::ServerMetadataRequest)},
-  { 40, -1, sizeof(::hercules::proto::ServerMetadataResponse)},
-  { 48, -1, sizeof(::hercules::proto::ModelMetadataRequest)},
-  { 55, -1, sizeof(::hercules::proto::ModelMetadataResponse_TensorMetadata)},
-  { 63, -1, sizeof(::hercules::proto::ModelMetadataResponse)},
-  { 73, -1, sizeof(::hercules::proto::InferParameter)},
-  { 82, -1, sizeof(::hercules::proto::InferTensorContents)},
-  { 95, 102, sizeof(::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse)},
-  { 104, -1, sizeof(::hercules::proto::ModelInferRequest_InferInputTensor)},
-  { 114, 121, sizeof(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse)},
-  { 123, -1, sizeof(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor)},
-  { 130, 137, sizeof(::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse)},
-  { 139, -1, sizeof(::hercules::proto::ModelInferRequest)},
-  { 151, 158, sizeof(::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse)},
-  { 160, -1, sizeof(::hercules::proto::ModelInferResponse_InferOutputTensor)},
-  { 170, 177, sizeof(::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse)},
-  { 179, -1, sizeof(::hercules::proto::ModelInferResponse)},
-  { 190, -1, sizeof(::hercules::proto::ModelStreamInferResponse)},
-  { 197, -1, sizeof(::hercules::proto::ModelConfigRequest)},
-  { 204, -1, sizeof(::hercules::proto::ModelConfigResponse)},
-  { 210, -1, sizeof(::hercules::proto::ModelStatisticsRequest)},
-  { 217, -1, sizeof(::hercules::proto::StatisticDuration)},
-  { 224, -1, sizeof(::hercules::proto::InferStatistics)},
-  { 237, -1, sizeof(::hercules::proto::InferBatchStatistics)},
-  { 246, -1, sizeof(::hercules::proto::ModelStatistics)},
-  { 258, -1, sizeof(::hercules::proto::ModelStatisticsResponse)},
-  { 264, -1, sizeof(::hercules::proto::ModelRepositoryParameter)},
-  { 274, -1, sizeof(::hercules::proto::RepositoryIndexRequest)},
-  { 281, -1, sizeof(::hercules::proto::RepositoryIndexResponse_ModelIndex)},
-  { 290, -1, sizeof(::hercules::proto::RepositoryIndexResponse)},
-  { 296, 303, sizeof(::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse)},
-  { 305, -1, sizeof(::hercules::proto::RepositoryModelLoadRequest)},
-  { 313, -1, sizeof(::hercules::proto::RepositoryModelLoadResponse)},
-  { 318, 325, sizeof(::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse)},
-  { 327, -1, sizeof(::hercules::proto::RepositoryModelUnloadRequest)},
-  { 335, -1, sizeof(::hercules::proto::RepositoryModelUnloadResponse)},
-  { 340, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusRequest)},
-  { 346, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus)},
-  { 355, 362, sizeof(::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse)},
-  { 364, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusResponse)},
-  { 370, -1, sizeof(::hercules::proto::SystemSharedMemoryRegisterRequest)},
-  { 379, -1, sizeof(::hercules::proto::SystemSharedMemoryRegisterResponse)},
-  { 384, -1, sizeof(::hercules::proto::SystemSharedMemoryUnregisterRequest)},
-  { 390, -1, sizeof(::hercules::proto::SystemSharedMemoryUnregisterResponse)},
-  { 395, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusRequest)},
-  { 401, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus)},
-  { 409, 416, sizeof(::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse)},
-  { 418, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusResponse)},
-  { 424, -1, sizeof(::hercules::proto::CudaSharedMemoryRegisterRequest)},
-  { 433, -1, sizeof(::hercules::proto::CudaSharedMemoryRegisterResponse)},
-  { 438, -1, sizeof(::hercules::proto::CudaSharedMemoryUnregisterRequest)},
-  { 444, -1, sizeof(::hercules::proto::CudaSharedMemoryUnregisterResponse)},
-  { 449, -1, sizeof(::hercules::proto::TraceSettingRequest_SettingValue)},
-  { 455, 462, sizeof(::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse)},
-  { 464, -1, sizeof(::hercules::proto::TraceSettingRequest)},
-  { 471, -1, sizeof(::hercules::proto::TraceSettingResponse_SettingValue)},
-  { 477, 484, sizeof(::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse)},
-  { 486, -1, sizeof(::hercules::proto::TraceSettingResponse)},
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, -1, sizeof(::hercules::proto::ServerLiveRequest)},
+  { 6, -1, -1, sizeof(::hercules::proto::ServerLiveResponse)},
+  { 13, -1, -1, sizeof(::hercules::proto::ServerReadyRequest)},
+  { 19, -1, -1, sizeof(::hercules::proto::ServerReadyResponse)},
+  { 26, -1, -1, sizeof(::hercules::proto::ModelReadyRequest)},
+  { 34, -1, -1, sizeof(::hercules::proto::ModelReadyResponse)},
+  { 41, -1, -1, sizeof(::hercules::proto::ServerMetadataRequest)},
+  { 47, -1, -1, sizeof(::hercules::proto::ServerMetadataResponse)},
+  { 56, -1, -1, sizeof(::hercules::proto::ModelMetadataRequest)},
+  { 64, -1, -1, sizeof(::hercules::proto::ModelMetadataResponse_TensorMetadata)},
+  { 73, -1, -1, sizeof(::hercules::proto::ModelMetadataResponse)},
+  { 84, -1, -1, sizeof(::hercules::proto::InferParameter)},
+  { 94, -1, -1, sizeof(::hercules::proto::InferTensorContents)},
+  { 108, 116, -1, sizeof(::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse)},
+  { 118, -1, -1, sizeof(::hercules::proto::ModelInferRequest_InferInputTensor)},
+  { 129, 137, -1, sizeof(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse)},
+  { 139, -1, -1, sizeof(::hercules::proto::ModelInferRequest_InferRequestedOutputTensor)},
+  { 147, 155, -1, sizeof(::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse)},
+  { 157, -1, -1, sizeof(::hercules::proto::ModelInferRequest)},
+  { 170, 178, -1, sizeof(::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse)},
+  { 180, -1, -1, sizeof(::hercules::proto::ModelInferResponse_InferOutputTensor)},
+  { 191, 199, -1, sizeof(::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse)},
+  { 201, -1, -1, sizeof(::hercules::proto::ModelInferResponse)},
+  { 213, -1, -1, sizeof(::hercules::proto::ModelStreamInferResponse)},
+  { 221, -1, -1, sizeof(::hercules::proto::ModelConfigRequest)},
+  { 229, -1, -1, sizeof(::hercules::proto::ModelConfigResponse)},
+  { 236, -1, -1, sizeof(::hercules::proto::ModelStatisticsRequest)},
+  { 244, -1, -1, sizeof(::hercules::proto::StatisticDuration)},
+  { 252, -1, -1, sizeof(::hercules::proto::InferStatistics)},
+  { 266, -1, -1, sizeof(::hercules::proto::InferBatchStatistics)},
+  { 276, -1, -1, sizeof(::hercules::proto::ModelStatistics)},
+  { 289, -1, -1, sizeof(::hercules::proto::ModelStatisticsResponse)},
+  { 296, -1, -1, sizeof(::hercules::proto::ModelRepositoryParameter)},
+  { 307, -1, -1, sizeof(::hercules::proto::RepositoryIndexRequest)},
+  { 315, -1, -1, sizeof(::hercules::proto::RepositoryIndexResponse_ModelIndex)},
+  { 325, -1, -1, sizeof(::hercules::proto::RepositoryIndexResponse)},
+  { 332, 340, -1, sizeof(::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse)},
+  { 342, -1, -1, sizeof(::hercules::proto::RepositoryModelLoadRequest)},
+  { 351, -1, -1, sizeof(::hercules::proto::RepositoryModelLoadResponse)},
+  { 357, 365, -1, sizeof(::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse)},
+  { 367, -1, -1, sizeof(::hercules::proto::RepositoryModelUnloadRequest)},
+  { 376, -1, -1, sizeof(::hercules::proto::RepositoryModelUnloadResponse)},
+  { 382, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusRequest)},
+  { 389, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus)},
+  { 399, 407, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse)},
+  { 409, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryStatusResponse)},
+  { 416, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryRegisterRequest)},
+  { 426, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryRegisterResponse)},
+  { 432, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryUnregisterRequest)},
+  { 439, -1, -1, sizeof(::hercules::proto::SystemSharedMemoryUnregisterResponse)},
+  { 445, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusRequest)},
+  { 452, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus)},
+  { 461, 469, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse)},
+  { 471, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryStatusResponse)},
+  { 478, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryRegisterRequest)},
+  { 488, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryRegisterResponse)},
+  { 494, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryUnregisterRequest)},
+  { 501, -1, -1, sizeof(::hercules::proto::CudaSharedMemoryUnregisterResponse)},
+  { 507, -1, -1, sizeof(::hercules::proto::TraceSettingRequest_SettingValue)},
+  { 514, 522, -1, sizeof(::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse)},
+  { 524, -1, -1, sizeof(::hercules::proto::TraceSettingRequest)},
+  { 532, -1, -1, sizeof(::hercules::proto::TraceSettingResponse_SettingValue)},
+  { 539, 547, -1, sizeof(::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse)},
+  { 549, -1, -1, sizeof(::hercules::proto::TraceSettingResponse)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ServerLiveRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ServerLiveResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ServerReadyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ServerReadyResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelReadyRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelReadyResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ServerMetadataRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ServerMetadataResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelMetadataRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelMetadataResponse_TensorMetadata_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelMetadataResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_InferParameter_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_InferTensorContents_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferRequest_InferInputTensor_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferRequest_InferRequestedOutputTensor_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferRequest_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferResponse_InferOutputTensor_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferResponse_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelInferResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelStreamInferResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelConfigRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelConfigResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelStatisticsRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_StatisticDuration_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_InferStatistics_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_InferBatchStatistics_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelStatistics_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelStatisticsResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_ModelRepositoryParameter_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryIndexRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryIndexResponse_ModelIndex_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryIndexResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryModelLoadRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryModelLoadResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryModelUnloadRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_RepositoryModelUnloadResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryStatusRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryStatusResponse_RegionStatus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryStatusResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryRegisterRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryRegisterResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryUnregisterRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_SystemSharedMemoryUnregisterResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryStatusRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryStatusResponse_RegionStatus_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryStatusResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryRegisterRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryRegisterResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryUnregisterRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_CudaSharedMemoryUnregisterResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_TraceSettingRequest_SettingValue_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_TraceSettingRequest_SettingsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_TraceSettingRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_TraceSettingResponse_SettingValue_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_TraceSettingResponse_SettingsEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hercules::proto::_TraceSettingResponse_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::hercules::proto::_ServerLiveRequest_default_instance_._instance,
+  &::hercules::proto::_ServerLiveResponse_default_instance_._instance,
+  &::hercules::proto::_ServerReadyRequest_default_instance_._instance,
+  &::hercules::proto::_ServerReadyResponse_default_instance_._instance,
+  &::hercules::proto::_ModelReadyRequest_default_instance_._instance,
+  &::hercules::proto::_ModelReadyResponse_default_instance_._instance,
+  &::hercules::proto::_ServerMetadataRequest_default_instance_._instance,
+  &::hercules::proto::_ServerMetadataResponse_default_instance_._instance,
+  &::hercules::proto::_ModelMetadataRequest_default_instance_._instance,
+  &::hercules::proto::_ModelMetadataResponse_TensorMetadata_default_instance_._instance,
+  &::hercules::proto::_ModelMetadataResponse_default_instance_._instance,
+  &::hercules::proto::_InferParameter_default_instance_._instance,
+  &::hercules::proto::_InferTensorContents_default_instance_._instance,
+  &::hercules::proto::_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelInferRequest_InferInputTensor_default_instance_._instance,
+  &::hercules::proto::_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelInferRequest_InferRequestedOutputTensor_default_instance_._instance,
+  &::hercules::proto::_ModelInferRequest_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelInferRequest_default_instance_._instance,
+  &::hercules::proto::_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelInferResponse_InferOutputTensor_default_instance_._instance,
+  &::hercules::proto::_ModelInferResponse_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_ModelInferResponse_default_instance_._instance,
+  &::hercules::proto::_ModelStreamInferResponse_default_instance_._instance,
+  &::hercules::proto::_ModelConfigRequest_default_instance_._instance,
+  &::hercules::proto::_ModelConfigResponse_default_instance_._instance,
+  &::hercules::proto::_ModelStatisticsRequest_default_instance_._instance,
+  &::hercules::proto::_StatisticDuration_default_instance_._instance,
+  &::hercules::proto::_InferStatistics_default_instance_._instance,
+  &::hercules::proto::_InferBatchStatistics_default_instance_._instance,
+  &::hercules::proto::_ModelStatistics_default_instance_._instance,
+  &::hercules::proto::_ModelStatisticsResponse_default_instance_._instance,
+  &::hercules::proto::_ModelRepositoryParameter_default_instance_._instance,
+  &::hercules::proto::_RepositoryIndexRequest_default_instance_._instance,
+  &::hercules::proto::_RepositoryIndexResponse_ModelIndex_default_instance_._instance,
+  &::hercules::proto::_RepositoryIndexResponse_default_instance_._instance,
+  &::hercules::proto::_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_RepositoryModelLoadRequest_default_instance_._instance,
+  &::hercules::proto::_RepositoryModelLoadResponse_default_instance_._instance,
+  &::hercules::proto::_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_RepositoryModelUnloadRequest_default_instance_._instance,
+  &::hercules::proto::_RepositoryModelUnloadResponse_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryStatusRequest_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryStatusResponse_RegionStatus_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryStatusResponse_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryRegisterRequest_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryRegisterResponse_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryUnregisterRequest_default_instance_._instance,
+  &::hercules::proto::_SystemSharedMemoryUnregisterResponse_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryStatusRequest_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryStatusResponse_RegionStatus_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryStatusResponse_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryRegisterRequest_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryRegisterResponse_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryUnregisterRequest_default_instance_._instance,
+  &::hercules::proto::_CudaSharedMemoryUnregisterResponse_default_instance_._instance,
+  &::hercules::proto::_TraceSettingRequest_SettingValue_default_instance_._instance,
+  &::hercules::proto::_TraceSettingRequest_SettingsEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_TraceSettingRequest_default_instance_._instance,
+  &::hercules::proto::_TraceSettingResponse_SettingValue_default_instance_._instance,
+  &::hercules::proto::_TraceSettingResponse_SettingsEntry_DoNotUse_default_instance_._instance,
+  &::hercules::proto::_TraceSettingResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_hercules_2fproto_2fhercules_5fservice_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -2081,265 +1770,76 @@ const char descriptor_table_protodef_hercules_2fproto_2fhercules_5fservice_2epro
   "st\032$.hercules.proto.TraceSettingResponse"
   "\"\000b\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_deps[1] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_deps[1] = {
   &::descriptor_table_hercules_2fproto_2fmodel_5fconfig_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_sccs[64] = {
-  &scc_info_CudaSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_CudaSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelConfigRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelConfigResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelInferResponse_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelStatisticsRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelStatisticsResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ModelStreamInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryIndexRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryIndexResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryModelLoadRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryModelLoadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryModelLoadResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryModelUnloadRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryModelUnloadRequest_ParametersEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_RepositoryModelUnloadResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ServerLiveRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ServerLiveResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ServerMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ServerMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ServerReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_ServerReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_SystemSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_TraceSettingRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_TraceSettingRequest_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_TraceSettingResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base,
-  &scc_info_TraceSettingResponse_SettingsEntry_DoNotUse_hercules_2fproto_2fhercules_5fservice_2eproto.base,
+static ::_pbi::once_flag descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto = {
+    false, false, 8610, descriptor_table_protodef_hercules_2fproto_2fhercules_5fservice_2eproto,
+    "hercules/proto/hercules_service.proto",
+    &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once, descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_deps, 1, 64,
+    schemas, file_default_instances, TableStruct_hercules_2fproto_2fhercules_5fservice_2eproto::offsets,
+    file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto, file_level_enum_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto,
+    file_level_service_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto = {
-  false, false, descriptor_table_protodef_hercules_2fproto_2fhercules_5fservice_2eproto, "hercules/proto/hercules_service.proto", 8610,
-  &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once, descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_sccs, descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_deps, 64, 1,
-  schemas, file_default_instances, TableStruct_hercules_2fproto_2fhercules_5fservice_2eproto::offsets,
-  file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto, 64, file_level_enum_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto, file_level_service_descriptors_hercules_2fproto_2fhercules_5fservice_2eproto,
-};
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter() {
+  return &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto;
+}
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_hercules_2fproto_2fhercules_5fservice_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_hercules_2fproto_2fhercules_5fservice_2eproto(&descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto);
 namespace hercules {
 namespace proto {
 
 // ===================================================================
 
-void ServerLiveRequest::InitAsDefaultInstance() {
-}
 class ServerLiveRequest::_Internal {
  public:
 };
 
-ServerLiveRequest::ServerLiveRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ServerLiveRequest::ServerLiveRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ServerLiveRequest)
 }
 ServerLiveRequest::ServerLiveRequest(const ServerLiveRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ServerLiveRequest)
 }
 
-void ServerLiveRequest::SharedCtor() {
-}
-
-ServerLiveRequest::~ServerLiveRequest() {
-  // @@protoc_insertion_point(destructor:hercules.proto.ServerLiveRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ServerLiveRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ServerLiveRequest::ArenaDtor(void* object) {
-  ServerLiveRequest* _this = reinterpret_cast< ServerLiveRequest* >(object);
-  (void)_this;
-}
-void ServerLiveRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ServerLiveRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ServerLiveRequest& ServerLiveRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ServerLiveRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void ServerLiveRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.ServerLiveRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* ServerLiveRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerLiveRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerLiveRequest::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ServerLiveRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ServerLiveRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ServerLiveRequest)
-  return target;
-}
 
-size_t ServerLiveRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.ServerLiveRequest)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void ServerLiveRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ServerLiveRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ServerLiveRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ServerLiveRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ServerLiveRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ServerLiveRequest)
-    MergeFrom(*source);
-  }
-}
-
-void ServerLiveRequest::MergeFrom(const ServerLiveRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ServerLiveRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void ServerLiveRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ServerLiveRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ServerLiveRequest::CopyFrom(const ServerLiveRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.ServerLiveRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ServerLiveRequest::IsInitialized() const {
-  return true;
-}
-
-void ServerLiveRequest::InternalSwap(ServerLiveRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerLiveRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[0]);
 }
-
 
 // ===================================================================
 
-void ServerLiveResponse::InitAsDefaultInstance() {
-}
 class ServerLiveResponse::_Internal {
  public:
 };
 
-ServerLiveResponse::ServerLiveResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ServerLiveResponse::ServerLiveResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ServerLiveResponse)
 }
 ServerLiveResponse::ServerLiveResponse(const ServerLiveResponse& from)
@@ -2349,38 +1849,30 @@ ServerLiveResponse::ServerLiveResponse(const ServerLiveResponse& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ServerLiveResponse)
 }
 
-void ServerLiveResponse::SharedCtor() {
-  live_ = false;
+inline void ServerLiveResponse::SharedCtor() {
+live_ = false;
 }
 
 ServerLiveResponse::~ServerLiveResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ServerLiveResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ServerLiveResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ServerLiveResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ServerLiveResponse::ArenaDtor(void* object) {
-  ServerLiveResponse* _this = reinterpret_cast< ServerLiveResponse* >(object);
-  (void)_this;
-}
-void ServerLiveResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ServerLiveResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ServerLiveResponse& ServerLiveResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ServerLiveResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ServerLiveResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ServerLiveResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2388,57 +1880,57 @@ void ServerLiveResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ServerLiveResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ServerLiveResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool live = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           live_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ServerLiveResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ServerLiveResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ServerLiveResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool live = 1;
-  if (this->live() != 0) {
+  if (this->_internal_live() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_live(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_live(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ServerLiveResponse)
@@ -2449,56 +1941,41 @@ size_t ServerLiveResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ServerLiveResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool live = 1;
-  if (this->live() != 0) {
+  if (this->_internal_live() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ServerLiveResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ServerLiveResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ServerLiveResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ServerLiveResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ServerLiveResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ServerLiveResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerLiveResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ServerLiveResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerLiveResponse::GetClassData() const { return &_class_data_; }
+
+void ServerLiveResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ServerLiveResponse *>(to)->MergeFrom(
+      static_cast<const ServerLiveResponse &>(from));
 }
+
 
 void ServerLiveResponse::MergeFrom(const ServerLiveResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ServerLiveResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.live() != 0) {
+  if (from._internal_live() != 0) {
     _internal_set_live(from._internal_live());
   }
-}
-
-void ServerLiveResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ServerLiveResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ServerLiveResponse::CopyFrom(const ServerLiveResponse& from) {
@@ -2514,192 +1991,65 @@ bool ServerLiveResponse::IsInitialized() const {
 
 void ServerLiveResponse::InternalSwap(ServerLiveResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(live_, other->live_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerLiveResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[1]);
 }
-
 
 // ===================================================================
 
-void ServerReadyRequest::InitAsDefaultInstance() {
-}
 class ServerReadyRequest::_Internal {
  public:
 };
 
-ServerReadyRequest::ServerReadyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ServerReadyRequest::ServerReadyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ServerReadyRequest)
 }
 ServerReadyRequest::ServerReadyRequest(const ServerReadyRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ServerReadyRequest)
 }
 
-void ServerReadyRequest::SharedCtor() {
-}
-
-ServerReadyRequest::~ServerReadyRequest() {
-  // @@protoc_insertion_point(destructor:hercules.proto.ServerReadyRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ServerReadyRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ServerReadyRequest::ArenaDtor(void* object) {
-  ServerReadyRequest* _this = reinterpret_cast< ServerReadyRequest* >(object);
-  (void)_this;
-}
-void ServerReadyRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ServerReadyRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ServerReadyRequest& ServerReadyRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ServerReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void ServerReadyRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.ServerReadyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* ServerReadyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerReadyRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerReadyRequest::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ServerReadyRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ServerReadyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ServerReadyRequest)
-  return target;
-}
 
-size_t ServerReadyRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.ServerReadyRequest)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void ServerReadyRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ServerReadyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ServerReadyRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ServerReadyRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ServerReadyRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ServerReadyRequest)
-    MergeFrom(*source);
-  }
-}
-
-void ServerReadyRequest::MergeFrom(const ServerReadyRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ServerReadyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void ServerReadyRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ServerReadyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ServerReadyRequest::CopyFrom(const ServerReadyRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.ServerReadyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ServerReadyRequest::IsInitialized() const {
-  return true;
-}
-
-void ServerReadyRequest::InternalSwap(ServerReadyRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerReadyRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[2]);
 }
-
 
 // ===================================================================
 
-void ServerReadyResponse::InitAsDefaultInstance() {
-}
 class ServerReadyResponse::_Internal {
  public:
 };
 
-ServerReadyResponse::ServerReadyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ServerReadyResponse::ServerReadyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ServerReadyResponse)
 }
 ServerReadyResponse::ServerReadyResponse(const ServerReadyResponse& from)
@@ -2709,38 +2059,30 @@ ServerReadyResponse::ServerReadyResponse(const ServerReadyResponse& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ServerReadyResponse)
 }
 
-void ServerReadyResponse::SharedCtor() {
-  ready_ = false;
+inline void ServerReadyResponse::SharedCtor() {
+ready_ = false;
 }
 
 ServerReadyResponse::~ServerReadyResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ServerReadyResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ServerReadyResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ServerReadyResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ServerReadyResponse::ArenaDtor(void* object) {
-  ServerReadyResponse* _this = reinterpret_cast< ServerReadyResponse* >(object);
-  (void)_this;
-}
-void ServerReadyResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ServerReadyResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ServerReadyResponse& ServerReadyResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ServerReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ServerReadyResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ServerReadyResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -2748,57 +2090,57 @@ void ServerReadyResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ServerReadyResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ServerReadyResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool ready = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           ready_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ServerReadyResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ServerReadyResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ServerReadyResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool ready = 1;
-  if (this->ready() != 0) {
+  if (this->_internal_ready() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_ready(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_ready(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ServerReadyResponse)
@@ -2809,56 +2151,41 @@ size_t ServerReadyResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ServerReadyResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool ready = 1;
-  if (this->ready() != 0) {
+  if (this->_internal_ready() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ServerReadyResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ServerReadyResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ServerReadyResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ServerReadyResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ServerReadyResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ServerReadyResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerReadyResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ServerReadyResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerReadyResponse::GetClassData() const { return &_class_data_; }
+
+void ServerReadyResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ServerReadyResponse *>(to)->MergeFrom(
+      static_cast<const ServerReadyResponse &>(from));
 }
+
 
 void ServerReadyResponse::MergeFrom(const ServerReadyResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ServerReadyResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.ready() != 0) {
+  if (from._internal_ready() != 0) {
     _internal_set_ready(from._internal_ready());
   }
-}
-
-void ServerReadyResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ServerReadyResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ServerReadyResponse::CopyFrom(const ServerReadyResponse& from) {
@@ -2874,145 +2201,148 @@ bool ServerReadyResponse::IsInitialized() const {
 
 void ServerReadyResponse::InternalSwap(ServerReadyResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(ready_, other->ready_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerReadyResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[3]);
 }
-
 
 // ===================================================================
 
-void ModelReadyRequest::InitAsDefaultInstance() {
-}
 class ModelReadyRequest::_Internal {
  public:
 };
 
-ModelReadyRequest::ModelReadyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelReadyRequest::ModelReadyRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelReadyRequest)
 }
 ModelReadyRequest::ModelReadyRequest(const ModelReadyRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelReadyRequest)
 }
 
-void ModelReadyRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelReadyRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelReadyRequest::~ModelReadyRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelReadyRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelReadyRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelReadyRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
 }
 
-void ModelReadyRequest::ArenaDtor(void* object) {
-  ModelReadyRequest* _this = reinterpret_cast< ModelReadyRequest* >(object);
-  (void)_this;
-}
-void ModelReadyRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelReadyRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelReadyRequest& ModelReadyRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelReadyRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelReadyRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelReadyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelReadyRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelReadyRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelReadyRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelReadyRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelReadyRequest.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelReadyRequest.version"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelReadyRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelReadyRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelReadyRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3022,7 +2352,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3032,7 +2362,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelReadyRequest)
@@ -3043,68 +2373,53 @@ size_t ModelReadyRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelReadyRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelReadyRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelReadyRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelReadyRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelReadyRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelReadyRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelReadyRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelReadyRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelReadyRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelReadyRequest::GetClassData() const { return &_class_data_; }
+
+void ModelReadyRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelReadyRequest *>(to)->MergeFrom(
+      static_cast<const ModelReadyRequest &>(from));
 }
+
 
 void ModelReadyRequest::MergeFrom(const ModelReadyRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelReadyRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-}
-
-void ModelReadyRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelReadyRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelReadyRequest::CopyFrom(const ModelReadyRequest& from) {
@@ -3120,28 +2435,35 @@ bool ModelReadyRequest::IsInitialized() const {
 
 void ModelReadyRequest::InternalSwap(ModelReadyRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelReadyRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[4]);
 }
-
 
 // ===================================================================
 
-void ModelReadyResponse::InitAsDefaultInstance() {
-}
 class ModelReadyResponse::_Internal {
  public:
 };
 
-ModelReadyResponse::ModelReadyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelReadyResponse::ModelReadyResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelReadyResponse)
 }
 ModelReadyResponse::ModelReadyResponse(const ModelReadyResponse& from)
@@ -3151,38 +2473,30 @@ ModelReadyResponse::ModelReadyResponse(const ModelReadyResponse& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelReadyResponse)
 }
 
-void ModelReadyResponse::SharedCtor() {
-  ready_ = false;
+inline void ModelReadyResponse::SharedCtor() {
+ready_ = false;
 }
 
 ModelReadyResponse::~ModelReadyResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelReadyResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelReadyResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelReadyResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelReadyResponse::ArenaDtor(void* object) {
-  ModelReadyResponse* _this = reinterpret_cast< ModelReadyResponse* >(object);
-  (void)_this;
-}
-void ModelReadyResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelReadyResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelReadyResponse& ModelReadyResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelReadyResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelReadyResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelReadyResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3190,57 +2504,57 @@ void ModelReadyResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelReadyResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelReadyResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool ready = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           ready_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelReadyResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelReadyResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelReadyResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool ready = 1;
-  if (this->ready() != 0) {
+  if (this->_internal_ready() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_ready(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_ready(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelReadyResponse)
@@ -3251,56 +2565,41 @@ size_t ModelReadyResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelReadyResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bool ready = 1;
-  if (this->ready() != 0) {
+  if (this->_internal_ready() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelReadyResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelReadyResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelReadyResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelReadyResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelReadyResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelReadyResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelReadyResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelReadyResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelReadyResponse::GetClassData() const { return &_class_data_; }
+
+void ModelReadyResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelReadyResponse *>(to)->MergeFrom(
+      static_cast<const ModelReadyResponse &>(from));
 }
+
 
 void ModelReadyResponse::MergeFrom(const ModelReadyResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelReadyResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.ready() != 0) {
+  if (from._internal_ready() != 0) {
     _internal_set_ready(from._internal_ready());
   }
-}
-
-void ModelReadyResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelReadyResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelReadyResponse::CopyFrom(const ModelReadyResponse& from) {
@@ -3316,327 +2615,205 @@ bool ModelReadyResponse::IsInitialized() const {
 
 void ModelReadyResponse::InternalSwap(ModelReadyResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(ready_, other->ready_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelReadyResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[5]);
 }
-
 
 // ===================================================================
 
-void ServerMetadataRequest::InitAsDefaultInstance() {
-}
 class ServerMetadataRequest::_Internal {
  public:
 };
 
-ServerMetadataRequest::ServerMetadataRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+ServerMetadataRequest::ServerMetadataRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ServerMetadataRequest)
 }
 ServerMetadataRequest::ServerMetadataRequest(const ServerMetadataRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ServerMetadataRequest)
 }
 
-void ServerMetadataRequest::SharedCtor() {
-}
-
-ServerMetadataRequest::~ServerMetadataRequest() {
-  // @@protoc_insertion_point(destructor:hercules.proto.ServerMetadataRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ServerMetadataRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void ServerMetadataRequest::ArenaDtor(void* object) {
-  ServerMetadataRequest* _this = reinterpret_cast< ServerMetadataRequest* >(object);
-  (void)_this;
-}
-void ServerMetadataRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ServerMetadataRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ServerMetadataRequest& ServerMetadataRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ServerMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void ServerMetadataRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.ServerMetadataRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* ServerMetadataRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerMetadataRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerMetadataRequest::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ServerMetadataRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ServerMetadataRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ServerMetadataRequest)
-  return target;
-}
 
-size_t ServerMetadataRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.ServerMetadataRequest)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void ServerMetadataRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ServerMetadataRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ServerMetadataRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ServerMetadataRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ServerMetadataRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ServerMetadataRequest)
-    MergeFrom(*source);
-  }
-}
-
-void ServerMetadataRequest::MergeFrom(const ServerMetadataRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ServerMetadataRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void ServerMetadataRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ServerMetadataRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ServerMetadataRequest::CopyFrom(const ServerMetadataRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.ServerMetadataRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ServerMetadataRequest::IsInitialized() const {
-  return true;
-}
-
-void ServerMetadataRequest::InternalSwap(ServerMetadataRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerMetadataRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[6]);
 }
-
 
 // ===================================================================
 
-void ServerMetadataResponse::InitAsDefaultInstance() {
-}
 class ServerMetadataResponse::_Internal {
  public:
 };
 
-ServerMetadataResponse::ServerMetadataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ServerMetadataResponse::ServerMetadataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   extensions_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ServerMetadataResponse)
 }
 ServerMetadataResponse::ServerMetadataResponse(const ServerMetadataResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       extensions_(from.extensions_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ServerMetadataResponse)
 }
 
-void ServerMetadataResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ServerMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ServerMetadataResponse::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ServerMetadataResponse::~ServerMetadataResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ServerMetadataResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ServerMetadataResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ServerMetadataResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
 }
 
-void ServerMetadataResponse::ArenaDtor(void* object) {
-  ServerMetadataResponse* _this = reinterpret_cast< ServerMetadataResponse* >(object);
-  (void)_this;
-}
-void ServerMetadataResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ServerMetadataResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ServerMetadataResponse& ServerMetadataResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ServerMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ServerMetadataResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ServerMetadataResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   extensions_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ServerMetadataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ServerMetadataResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ServerMetadataResponse.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ServerMetadataResponse.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ServerMetadataResponse.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ServerMetadataResponse.version"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated string extensions = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_extensions();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ServerMetadataResponse.extensions"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ServerMetadataResponse.extensions"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ServerMetadataResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ServerMetadataResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ServerMetadataResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3646,7 +2823,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3666,7 +2843,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ServerMetadataResponse)
@@ -3677,7 +2854,7 @@ size_t ServerMetadataResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ServerMetadataResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -3690,64 +2867,49 @@ size_t ServerMetadataResponse::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ServerMetadataResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ServerMetadataResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ServerMetadataResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ServerMetadataResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ServerMetadataResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ServerMetadataResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ServerMetadataResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ServerMetadataResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ServerMetadataResponse::GetClassData() const { return &_class_data_; }
+
+void ServerMetadataResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ServerMetadataResponse *>(to)->MergeFrom(
+      static_cast<const ServerMetadataResponse &>(from));
 }
+
 
 void ServerMetadataResponse::MergeFrom(const ServerMetadataResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ServerMetadataResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   extensions_.MergeFrom(from.extensions_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-}
-
-void ServerMetadataResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ServerMetadataResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ServerMetadataResponse::CopyFrom(const ServerMetadataResponse& from) {
@@ -3763,147 +2925,158 @@ bool ServerMetadataResponse::IsInitialized() const {
 
 void ServerMetadataResponse::InternalSwap(ServerMetadataResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   extensions_.InternalSwap(&other->extensions_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ServerMetadataResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[7]);
 }
-
 
 // ===================================================================
 
-void ModelMetadataRequest::InitAsDefaultInstance() {
-}
 class ModelMetadataRequest::_Internal {
  public:
 };
 
-ModelMetadataRequest::ModelMetadataRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelMetadataRequest::ModelMetadataRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelMetadataRequest)
 }
 ModelMetadataRequest::ModelMetadataRequest(const ModelMetadataRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelMetadataRequest)
 }
 
-void ModelMetadataRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelMetadataRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelMetadataRequest::~ModelMetadataRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelMetadataRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelMetadataRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelMetadataRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
 }
 
-void ModelMetadataRequest::ArenaDtor(void* object) {
-  ModelMetadataRequest* _this = reinterpret_cast< ModelMetadataRequest* >(object);
-  (void)_this;
-}
-void ModelMetadataRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelMetadataRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelMetadataRequest& ModelMetadataRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelMetadataRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelMetadataRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelMetadataRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelMetadataRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelMetadataRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataRequest.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataRequest.version"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelMetadataRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelMetadataRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelMetadataRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3913,7 +3086,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -3923,7 +3096,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelMetadataRequest)
@@ -3934,68 +3107,53 @@ size_t ModelMetadataRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelMetadataRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelMetadataRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelMetadataRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelMetadataRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelMetadataRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelMetadataRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelMetadataRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelMetadataRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelMetadataRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelMetadataRequest::GetClassData() const { return &_class_data_; }
+
+void ModelMetadataRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelMetadataRequest *>(to)->MergeFrom(
+      static_cast<const ModelMetadataRequest &>(from));
 }
+
 
 void ModelMetadataRequest::MergeFrom(const ModelMetadataRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelMetadataRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-}
-
-void ModelMetadataRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelMetadataRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelMetadataRequest::CopyFrom(const ModelMetadataRequest& from) {
@@ -4011,159 +3169,171 @@ bool ModelMetadataRequest::IsInitialized() const {
 
 void ModelMetadataRequest::InternalSwap(ModelMetadataRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelMetadataRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[8]);
 }
-
 
 // ===================================================================
 
-void ModelMetadataResponse_TensorMetadata::InitAsDefaultInstance() {
-}
 class ModelMetadataResponse_TensorMetadata::_Internal {
  public:
 };
 
-ModelMetadataResponse_TensorMetadata::ModelMetadataResponse_TensorMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelMetadataResponse_TensorMetadata::ModelMetadataResponse_TensorMetadata(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   shape_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelMetadataResponse.TensorMetadata)
 }
 ModelMetadataResponse_TensorMetadata::ModelMetadataResponse_TensorMetadata(const ModelMetadataResponse_TensorMetadata& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       shape_(from.shape_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  datatype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  datatype_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    datatype_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_datatype().empty()) {
-    datatype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_datatype(),
-      GetArena());
+    datatype_.Set(from._internal_datatype(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelMetadataResponse.TensorMetadata)
 }
 
-void ModelMetadataResponse_TensorMetadata::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  datatype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelMetadataResponse_TensorMetadata::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+datatype_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  datatype_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelMetadataResponse_TensorMetadata::~ModelMetadataResponse_TensorMetadata() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelMetadataResponse.TensorMetadata)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelMetadataResponse_TensorMetadata::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  datatype_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelMetadataResponse_TensorMetadata::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  datatype_.Destroy();
 }
 
-void ModelMetadataResponse_TensorMetadata::ArenaDtor(void* object) {
-  ModelMetadataResponse_TensorMetadata* _this = reinterpret_cast< ModelMetadataResponse_TensorMetadata* >(object);
-  (void)_this;
-}
-void ModelMetadataResponse_TensorMetadata::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelMetadataResponse_TensorMetadata::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelMetadataResponse_TensorMetadata& ModelMetadataResponse_TensorMetadata::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelMetadataResponse_TensorMetadata_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelMetadataResponse_TensorMetadata::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelMetadataResponse.TensorMetadata)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   shape_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  datatype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  datatype_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelMetadataResponse_TensorMetadata::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelMetadataResponse_TensorMetadata::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.TensorMetadata.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.TensorMetadata.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string datatype = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_datatype();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.TensorMetadata.datatype"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.TensorMetadata.datatype"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 shape = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_shape(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<uint8_t>(tag) == 24) {
           _internal_add_shape(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelMetadataResponse_TensorMetadata::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelMetadataResponse_TensorMetadata::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelMetadataResponse.TensorMetadata)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4173,7 +3343,7 @@ failure:
   }
 
   // string datatype = 2;
-  if (this->datatype().size() > 0) {
+  if (!this->_internal_datatype().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_datatype().data(), static_cast<int>(this->_internal_datatype().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4192,7 +3362,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelMetadataResponse.TensorMetadata)
@@ -4203,84 +3373,68 @@ size_t ModelMetadataResponse_TensorMetadata::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelMetadataResponse.TensorMetadata)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 shape = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->shape_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _shape_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string datatype = 2;
-  if (this->datatype().size() > 0) {
+  if (!this->_internal_datatype().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_datatype());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelMetadataResponse_TensorMetadata::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelMetadataResponse.TensorMetadata)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelMetadataResponse_TensorMetadata* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelMetadataResponse_TensorMetadata>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelMetadataResponse.TensorMetadata)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelMetadataResponse.TensorMetadata)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelMetadataResponse_TensorMetadata::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelMetadataResponse_TensorMetadata::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelMetadataResponse_TensorMetadata::GetClassData() const { return &_class_data_; }
+
+void ModelMetadataResponse_TensorMetadata::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelMetadataResponse_TensorMetadata *>(to)->MergeFrom(
+      static_cast<const ModelMetadataResponse_TensorMetadata &>(from));
 }
+
 
 void ModelMetadataResponse_TensorMetadata::MergeFrom(const ModelMetadataResponse_TensorMetadata& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelMetadataResponse.TensorMetadata)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   shape_.MergeFrom(from.shape_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.datatype().size() > 0) {
+  if (!from._internal_datatype().empty()) {
     _internal_set_datatype(from._internal_datatype());
   }
-}
-
-void ModelMetadataResponse_TensorMetadata::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelMetadataResponse.TensorMetadata)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelMetadataResponse_TensorMetadata::CopyFrom(const ModelMetadataResponse_TensorMetadata& from) {
@@ -4296,32 +3450,39 @@ bool ModelMetadataResponse_TensorMetadata::IsInitialized() const {
 
 void ModelMetadataResponse_TensorMetadata::InternalSwap(ModelMetadataResponse_TensorMetadata* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   shape_.InternalSwap(&other->shape_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  datatype_.Swap(&other->datatype_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &datatype_, lhs_arena,
+      &other->datatype_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelMetadataResponse_TensorMetadata::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[9]);
 }
-
 
 // ===================================================================
 
-void ModelMetadataResponse::InitAsDefaultInstance() {
-}
 class ModelMetadataResponse::_Internal {
  public:
 };
 
-ModelMetadataResponse::ModelMetadataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelMetadataResponse::ModelMetadataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   versions_(arena),
   inputs_(arena),
   outputs_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelMetadataResponse)
 }
 ModelMetadataResponse::ModelMetadataResponse(const ModelMetadataResponse& from)
@@ -4330,109 +3491,113 @@ ModelMetadataResponse::ModelMetadataResponse(const ModelMetadataResponse& from)
       inputs_(from.inputs_),
       outputs_(from.outputs_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  platform_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    platform_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_platform().empty()) {
-    platform_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_platform(),
-      GetArena());
+    platform_.Set(from._internal_platform(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelMetadataResponse)
 }
 
-void ModelMetadataResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelMetadataResponse::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+platform_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  platform_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelMetadataResponse::~ModelMetadataResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelMetadataResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelMetadataResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  platform_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelMetadataResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  platform_.Destroy();
 }
 
-void ModelMetadataResponse::ArenaDtor(void* object) {
-  ModelMetadataResponse* _this = reinterpret_cast< ModelMetadataResponse* >(object);
-  (void)_this;
-}
-void ModelMetadataResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelMetadataResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelMetadataResponse& ModelMetadataResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelMetadataResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelMetadataResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelMetadataResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   versions_.Clear();
   inputs_.Clear();
   outputs_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  platform_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  platform_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelMetadataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelMetadataResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.name"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated string versions = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_versions();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.versions"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.versions"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string platform = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_platform();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.platform"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelMetadataResponse.platform"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelMetadataResponse.TensorMetadata inputs = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -4440,11 +3605,12 @@ const char* ModelMetadataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelMetadataResponse.TensorMetadata outputs = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -4452,38 +3618,40 @@ const char* ModelMetadataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NA
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelMetadataResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelMetadataResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelMetadataResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4503,7 +3671,7 @@ failure:
   }
 
   // string platform = 3;
-  if (this->platform().size() > 0) {
+  if (!this->_internal_platform().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_platform().data(), static_cast<int>(this->_internal_platform().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4513,23 +3681,23 @@ failure:
   }
 
   // repeated .hercules.proto.ModelMetadataResponse.TensorMetadata inputs = 4;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_inputs_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_inputs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_inputs(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, this->_internal_inputs(i), target, stream);
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelMetadataResponse.TensorMetadata outputs = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_outputs_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_outputs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_outputs(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_outputs(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelMetadataResponse)
@@ -4540,7 +3708,7 @@ size_t ModelMetadataResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelMetadataResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4567,66 +3735,51 @@ size_t ModelMetadataResponse::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string platform = 3;
-  if (this->platform().size() > 0) {
+  if (!this->_internal_platform().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_platform());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelMetadataResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelMetadataResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelMetadataResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelMetadataResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelMetadataResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelMetadataResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelMetadataResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelMetadataResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelMetadataResponse::GetClassData() const { return &_class_data_; }
+
+void ModelMetadataResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelMetadataResponse *>(to)->MergeFrom(
+      static_cast<const ModelMetadataResponse &>(from));
 }
+
 
 void ModelMetadataResponse::MergeFrom(const ModelMetadataResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelMetadataResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   versions_.MergeFrom(from.versions_);
   inputs_.MergeFrom(from.inputs_);
   outputs_.MergeFrom(from.outputs_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.platform().size() > 0) {
+  if (!from._internal_platform().empty()) {
     _internal_set_platform(from._internal_platform());
   }
-}
-
-void ModelMetadataResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelMetadataResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelMetadataResponse::CopyFrom(const ModelMetadataResponse& from) {
@@ -4642,35 +3795,38 @@ bool ModelMetadataResponse::IsInitialized() const {
 
 void ModelMetadataResponse::InternalSwap(ModelMetadataResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   versions_.InternalSwap(&other->versions_);
   inputs_.InternalSwap(&other->inputs_);
   outputs_.InternalSwap(&other->outputs_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  platform_.Swap(&other->platform_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &platform_, lhs_arena,
+      &other->platform_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelMetadataResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[10]);
 }
-
 
 // ===================================================================
 
-void InferParameter::InitAsDefaultInstance() {
-  ::hercules::proto::_InferParameter_default_instance_.bool_param_ = false;
-  ::hercules::proto::_InferParameter_default_instance_.int64_param_ = PROTOBUF_LONGLONG(0);
-  ::hercules::proto::_InferParameter_default_instance_.string_param_.UnsafeSetDefault(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
 class InferParameter::_Internal {
  public:
 };
 
-InferParameter::InferParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+InferParameter::InferParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.InferParameter)
 }
 InferParameter::InferParameter(const InferParameter& from)
@@ -4697,38 +3853,29 @@ InferParameter::InferParameter(const InferParameter& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.InferParameter)
 }
 
-void InferParameter::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  clear_has_parameter_choice();
+inline void InferParameter::SharedCtor() {
+clear_has_parameter_choice();
 }
 
 InferParameter::~InferParameter() {
   // @@protoc_insertion_point(destructor:hercules.proto.InferParameter)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void InferParameter::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void InferParameter::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (has_parameter_choice()) {
     clear_parameter_choice();
   }
 }
 
-void InferParameter::ArenaDtor(void* object) {
-  InferParameter* _this = reinterpret_cast< InferParameter* >(object);
-  (void)_this;
-}
-void InferParameter::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void InferParameter::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const InferParameter& InferParameter::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InferParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void InferParameter::clear_parameter_choice() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.InferParameter)
@@ -4742,7 +3889,7 @@ void InferParameter::clear_parameter_choice() {
       break;
     }
     case kStringParam: {
-      parameter_choice_.string_param_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+      parameter_choice_.string_param_.Destroy();
       break;
     }
     case PARAMETER_CHOICE_NOT_SET: {
@@ -4755,7 +3902,7 @@ void InferParameter::clear_parameter_choice() {
 
 void InferParameter::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.InferParameter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4763,75 +3910,77 @@ void InferParameter::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* InferParameter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* InferParameter::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool bool_param = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _internal_set_bool_param(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int64 int64_param = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _internal_set_int64_param(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string string_param = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_string_param();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.InferParameter.string_param"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.InferParameter.string_param"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* InferParameter::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* InferParameter::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.InferParameter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool bool_param = 1;
   if (_internal_has_bool_param()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_bool_param(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_bool_param(), target);
   }
 
   // int64 int64_param = 2;
   if (_internal_has_int64_param()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_int64_param(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_int64_param(), target);
   }
 
   // string string_param = 3;
@@ -4845,7 +3994,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.InferParameter)
@@ -4856,7 +4005,7 @@ size_t InferParameter::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.InferParameter)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -4868,9 +4017,7 @@ size_t InferParameter::ByteSizeLong() const {
     }
     // int64 int64_param = 2;
     case kInt64Param: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-          this->_internal_int64_param());
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_int64_param());
       break;
     }
     // string string_param = 3;
@@ -4884,35 +4031,26 @@ size_t InferParameter::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void InferParameter::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.InferParameter)
-  GOOGLE_DCHECK_NE(&from, this);
-  const InferParameter* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InferParameter>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.InferParameter)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.InferParameter)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData InferParameter::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    InferParameter::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*InferParameter::GetClassData() const { return &_class_data_; }
+
+void InferParameter::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<InferParameter *>(to)->MergeFrom(
+      static_cast<const InferParameter &>(from));
 }
+
 
 void InferParameter::MergeFrom(const InferParameter& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.InferParameter)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.parameter_choice_case()) {
@@ -4932,13 +4070,7 @@ void InferParameter::MergeFrom(const InferParameter& from) {
       break;
     }
   }
-}
-
-void InferParameter::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.InferParameter)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void InferParameter::CopyFrom(const InferParameter& from) {
@@ -4954,26 +4086,26 @@ bool InferParameter::IsInitialized() const {
 
 void InferParameter::InternalSwap(InferParameter* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(parameter_choice_, other->parameter_choice_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InferParameter::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[11]);
 }
-
 
 // ===================================================================
 
-void InferTensorContents::InitAsDefaultInstance() {
-}
 class InferTensorContents::_Internal {
  public:
 };
 
-InferTensorContents::InferTensorContents(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+InferTensorContents::InferTensorContents(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   bool_contents_(arena),
   int_contents_(arena),
   int64_contents_(arena),
@@ -4983,7 +4115,6 @@ InferTensorContents::InferTensorContents(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   fp64_contents_(arena),
   bytes_contents_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.InferTensorContents)
 }
 InferTensorContents::InferTensorContents(const InferTensorContents& from)
@@ -5000,38 +4131,29 @@ InferTensorContents::InferTensorContents(const InferTensorContents& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.InferTensorContents)
 }
 
-void InferTensorContents::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void InferTensorContents::SharedCtor() {
 }
 
 InferTensorContents::~InferTensorContents() {
   // @@protoc_insertion_point(destructor:hercules.proto.InferTensorContents)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void InferTensorContents::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void InferTensorContents::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void InferTensorContents::ArenaDtor(void* object) {
-  InferTensorContents* _this = reinterpret_cast< InferTensorContents* >(object);
-  (void)_this;
-}
-void InferTensorContents::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void InferTensorContents::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const InferTensorContents& InferTensorContents::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InferTensorContents_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void InferTensorContents::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.InferTensorContents)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5046,123 +4168,130 @@ void InferTensorContents::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* InferTensorContents::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* InferTensorContents::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated bool bool_contents = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedBoolParser(_internal_mutable_bool_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+        } else if (static_cast<uint8_t>(tag) == 8) {
           _internal_add_bool_contents(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int32 int_contents = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_int_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
-          _internal_add_int_contents(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+        } else if (static_cast<uint8_t>(tag) == 16) {
+          _internal_add_int_contents(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 int64_contents = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_int64_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<uint8_t>(tag) == 24) {
           _internal_add_int64_contents(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint32 uint_contents = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_uint_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32) {
+        } else if (static_cast<uint8_t>(tag) == 32) {
           _internal_add_uint_contents(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated uint64 uint64_contents = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_uint64_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40) {
+        } else if (static_cast<uint8_t>(tag) == 40) {
           _internal_add_uint64_contents(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated float fp32_contents = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_fp32_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53) {
+        } else if (static_cast<uint8_t>(tag) == 53) {
           _internal_add_fp32_contents(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated double fp64_contents = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedDoubleParser(_internal_mutable_fp64_contents(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57) {
+        } else if (static_cast<uint8_t>(tag) == 57) {
           _internal_add_fp64_contents(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
           ptr += sizeof(double);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated bytes bytes_contents = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_bytes_contents();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* InferTensorContents::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* InferTensorContents::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.InferTensorContents)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated bool bool_contents = 1;
@@ -5223,7 +4352,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.InferTensorContents)
@@ -5234,7 +4363,7 @@ size_t InferTensorContents::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.InferTensorContents)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -5244,25 +4373,20 @@ size_t InferTensorContents::ByteSizeLong() const {
     size_t data_size = 1UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _bool_contents_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
     total_size += data_size;
   }
 
   // repeated int32 int_contents = 2;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int32Size(this->int_contents_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _int_contents_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -5270,14 +4394,13 @@ size_t InferTensorContents::ByteSizeLong() const {
 
   // repeated int64 int64_contents = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->int64_contents_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _int64_contents_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -5285,14 +4408,13 @@ size_t InferTensorContents::ByteSizeLong() const {
 
   // repeated uint32 uint_contents = 4;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       UInt32Size(this->uint_contents_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _uint_contents_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -5300,14 +4422,13 @@ size_t InferTensorContents::ByteSizeLong() const {
 
   // repeated uint64 uint64_contents = 5;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       UInt64Size(this->uint64_contents_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _uint64_contents_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -5319,12 +4440,8 @@ size_t InferTensorContents::ByteSizeLong() const {
     size_t data_size = 4UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _fp32_contents_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
     total_size += data_size;
   }
 
@@ -5334,12 +4451,8 @@ size_t InferTensorContents::ByteSizeLong() const {
     size_t data_size = 8UL * count;
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _fp64_contents_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
     total_size += data_size;
   }
 
@@ -5351,35 +4464,26 @@ size_t InferTensorContents::ByteSizeLong() const {
       bytes_contents_.Get(i));
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void InferTensorContents::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.InferTensorContents)
-  GOOGLE_DCHECK_NE(&from, this);
-  const InferTensorContents* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InferTensorContents>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.InferTensorContents)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.InferTensorContents)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData InferTensorContents::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    InferTensorContents::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*InferTensorContents::GetClassData() const { return &_class_data_; }
+
+void InferTensorContents::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<InferTensorContents *>(to)->MergeFrom(
+      static_cast<const InferTensorContents &>(from));
 }
+
 
 void InferTensorContents::MergeFrom(const InferTensorContents& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.InferTensorContents)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   bool_contents_.MergeFrom(from.bool_contents_);
@@ -5390,13 +4494,7 @@ void InferTensorContents::MergeFrom(const InferTensorContents& from) {
   fp32_contents_.MergeFrom(from.fp32_contents_);
   fp64_contents_.MergeFrom(from.fp64_contents_);
   bytes_contents_.MergeFrom(from.bytes_contents_);
-}
-
-void InferTensorContents::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.InferTensorContents)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void InferTensorContents::CopyFrom(const InferTensorContents& from) {
@@ -5412,7 +4510,7 @@ bool InferTensorContents::IsInitialized() const {
 
 void InferTensorContents::InternalSwap(InferTensorContents* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   bool_contents_.InternalSwap(&other->bool_contents_);
   int_contents_.InternalSwap(&other->int_contents_);
   int64_contents_.InternalSwap(&other->int64_contents_);
@@ -5424,9 +4522,10 @@ void InferTensorContents::InternalSwap(InferTensorContents* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InferTensorContents::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[12]);
 }
-
 
 // ===================================================================
 
@@ -5437,20 +4536,13 @@ void ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::MergeFrom(cons
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[13]);
 }
-void ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelInferRequest_InferInputTensor::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelInferRequest_InferInputTensor_default_instance_._instance.get_mutable()->contents_ = const_cast< ::hercules::proto::InferTensorContents*>(
-      ::hercules::proto::InferTensorContents::internal_default_instance());
-}
 class ModelInferRequest_InferInputTensor::_Internal {
  public:
   static const ::hercules::proto::InferTensorContents& contents(const ModelInferRequest_InferInputTensor* msg);
@@ -5460,12 +4552,15 @@ const ::hercules::proto::InferTensorContents&
 ModelInferRequest_InferInputTensor::_Internal::contents(const ModelInferRequest_InferInputTensor* msg) {
   return *msg->contents_;
 }
-ModelInferRequest_InferInputTensor::ModelInferRequest_InferInputTensor(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInferRequest_InferInputTensor::ModelInferRequest_InferInputTensor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   shape_(arena),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelInferRequest_InferInputTensor::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInferRequest.InferInputTensor)
 }
 ModelInferRequest_InferInputTensor::ModelInferRequest_InferInputTensor(const ModelInferRequest_InferInputTensor& from)
@@ -5473,15 +4568,21 @@ ModelInferRequest_InferInputTensor::ModelInferRequest_InferInputTensor(const Mod
       shape_(from.shape_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  datatype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  datatype_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    datatype_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_datatype().empty()) {
-    datatype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_datatype(),
-      GetArena());
+    datatype_.Set(from._internal_datatype(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_contents()) {
     contents_ = new ::hercules::proto::InferTensorContents(*from.contents_);
@@ -5491,97 +4592,101 @@ ModelInferRequest_InferInputTensor::ModelInferRequest_InferInputTensor(const Mod
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInferRequest.InferInputTensor)
 }
 
-void ModelInferRequest_InferInputTensor::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  datatype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  contents_ = nullptr;
+inline void ModelInferRequest_InferInputTensor::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+datatype_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  datatype_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+contents_ = nullptr;
 }
 
 ModelInferRequest_InferInputTensor::~ModelInferRequest_InferInputTensor() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInferRequest.InferInputTensor)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInferRequest_InferInputTensor::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  datatype_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferRequest_InferInputTensor::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  name_.Destroy();
+  datatype_.Destroy();
   if (this != internal_default_instance()) delete contents_;
 }
 
 void ModelInferRequest_InferInputTensor::ArenaDtor(void* object) {
   ModelInferRequest_InferInputTensor* _this = reinterpret_cast< ModelInferRequest_InferInputTensor* >(object);
-  (void)_this;
-}
-void ModelInferRequest_InferInputTensor::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelInferRequest_InferInputTensor::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInferRequest_InferInputTensor& ModelInferRequest_InferInputTensor::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInferRequest_InferInputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInferRequest_InferInputTensor::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInferRequest.InferInputTensor)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   shape_.Clear();
   parameters_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  datatype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && contents_ != nullptr) {
+  name_.ClearToEmpty();
+  datatype_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && contents_ != nullptr) {
     delete contents_;
   }
   contents_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInferRequest_InferInputTensor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInferRequest_InferInputTensor::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferRequest.InferInputTensor.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferRequest.InferInputTensor.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string datatype = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_datatype();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferRequest.InferInputTensor.datatype"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferRequest.InferInputTensor.datatype"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 shape = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_shape(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<uint8_t>(tag) == 24) {
           _internal_add_shape(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.InferParameter> parameters = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -5589,45 +4694,48 @@ const char* ModelInferRequest_InferInputTensor::_InternalParse(const char* ptr, 
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.InferTensorContents contents = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_contents(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInferRequest_InferInputTensor::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInferRequest_InferInputTensor::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInferRequest.InferInputTensor)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -5637,7 +4745,7 @@ failure:
   }
 
   // string datatype = 2;
-  if (this->datatype().size() > 0) {
+  if (!this->_internal_datatype().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_datatype().data(), static_cast<int>(this->_internal_datatype().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -5657,55 +4765,39 @@ failure:
 
   // map<string, .hercules.proto.InferParameter> parameters = 4;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelInferRequest.InferInputTensor.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::InferParameter>;
+    using WireHelper = ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelInferRequest.InferInputTensor.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // .hercules.proto.InferTensorContents contents = 5;
-  if (this->has_contents()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_contents()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::contents(this), target, stream);
+      InternalWriteMessage(5, _Internal::contents(this),
+        _Internal::contents(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInferRequest.InferInputTensor)
@@ -5716,20 +4808,19 @@ size_t ModelInferRequest_InferInputTensor::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInferRequest.InferInputTensor)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 shape = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->shape_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _shape_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -5745,75 +4836,60 @@ size_t ModelInferRequest_InferInputTensor::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string datatype = 2;
-  if (this->datatype().size() > 0) {
+  if (!this->_internal_datatype().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_datatype());
   }
 
   // .hercules.proto.InferTensorContents contents = 5;
-  if (this->has_contents()) {
+  if (this->_internal_has_contents()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *contents_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInferRequest_InferInputTensor::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInferRequest.InferInputTensor)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInferRequest_InferInputTensor* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInferRequest_InferInputTensor>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInferRequest.InferInputTensor)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInferRequest.InferInputTensor)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInferRequest_InferInputTensor::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInferRequest_InferInputTensor::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInferRequest_InferInputTensor::GetClassData() const { return &_class_data_; }
+
+void ModelInferRequest_InferInputTensor::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInferRequest_InferInputTensor *>(to)->MergeFrom(
+      static_cast<const ModelInferRequest_InferInputTensor &>(from));
 }
+
 
 void ModelInferRequest_InferInputTensor::MergeFrom(const ModelInferRequest_InferInputTensor& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInferRequest.InferInputTensor)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   shape_.MergeFrom(from.shape_);
   parameters_.MergeFrom(from.parameters_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.datatype().size() > 0) {
+  if (!from._internal_datatype().empty()) {
     _internal_set_datatype(from._internal_datatype());
   }
-  if (from.has_contents()) {
+  if (from._internal_has_contents()) {
     _internal_mutable_contents()->::hercules::proto::InferTensorContents::MergeFrom(from._internal_contents());
   }
-}
-
-void ModelInferRequest_InferInputTensor::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInferRequest.InferInputTensor)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInferRequest_InferInputTensor::CopyFrom(const ModelInferRequest_InferInputTensor& from) {
@@ -5829,18 +4905,27 @@ bool ModelInferRequest_InferInputTensor::IsInitialized() const {
 
 void ModelInferRequest_InferInputTensor::InternalSwap(ModelInferRequest_InferInputTensor* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   shape_.InternalSwap(&other->shape_);
-  parameters_.Swap(&other->parameters_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  datatype_.Swap(&other->datatype_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &datatype_, lhs_arena,
+      &other->datatype_, rhs_arena
+  );
   swap(contents_, other->contents_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferRequest_InferInputTensor::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[14]);
 }
-
 
 // ===================================================================
 
@@ -5851,103 +4936,103 @@ void ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::Merg
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[15]);
 }
-void ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelInferRequest_InferRequestedOutputTensor::InitAsDefaultInstance() {
-}
 class ModelInferRequest_InferRequestedOutputTensor::_Internal {
  public:
 };
 
-ModelInferRequest_InferRequestedOutputTensor::ModelInferRequest_InferRequestedOutputTensor(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInferRequest_InferRequestedOutputTensor::ModelInferRequest_InferRequestedOutputTensor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelInferRequest_InferRequestedOutputTensor::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
 }
 ModelInferRequest_InferRequestedOutputTensor::ModelInferRequest_InferRequestedOutputTensor(const ModelInferRequest_InferRequestedOutputTensor& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
 }
 
-void ModelInferRequest_InferRequestedOutputTensor::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferRequest_InferRequestedOutputTensor::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelInferRequest_InferRequestedOutputTensor::~ModelInferRequest_InferRequestedOutputTensor() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInferRequest_InferRequestedOutputTensor::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferRequest_InferRequestedOutputTensor::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  name_.Destroy();
 }
 
 void ModelInferRequest_InferRequestedOutputTensor::ArenaDtor(void* object) {
   ModelInferRequest_InferRequestedOutputTensor* _this = reinterpret_cast< ModelInferRequest_InferRequestedOutputTensor* >(object);
-  (void)_this;
-}
-void ModelInferRequest_InferRequestedOutputTensor::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelInferRequest_InferRequestedOutputTensor::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInferRequest_InferRequestedOutputTensor& ModelInferRequest_InferRequestedOutputTensor::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInferRequest_InferRequestedOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInferRequest_InferRequestedOutputTensor::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   parameters_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInferRequest_InferRequestedOutputTensor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInferRequest_InferRequestedOutputTensor::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferRequest.InferRequestedOutputTensor.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferRequest.InferRequestedOutputTensor.name"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.InferParameter> parameters = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -5955,38 +5040,40 @@ const char* ModelInferRequest_InferRequestedOutputTensor::_InternalParse(const c
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInferRequest_InferRequestedOutputTensor::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInferRequest_InferRequestedOutputTensor::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -5997,47 +5084,32 @@ failure:
 
   // map<string, .hercules.proto.InferParameter> parameters = 2;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelInferRequest.InferRequestedOutputTensor.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::InferParameter>;
+    using WireHelper = ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelInferRequest.InferRequestedOutputTensor.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::Funcs::InternalSerialize(2, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse::Funcs::InternalSerialize(2, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
@@ -6048,7 +5120,7 @@ size_t ModelInferRequest_InferRequestedOutputTensor::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6062,54 +5134,39 @@ size_t ModelInferRequest_InferRequestedOutputTensor::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInferRequest_InferRequestedOutputTensor::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInferRequest_InferRequestedOutputTensor* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInferRequest_InferRequestedOutputTensor>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInferRequest_InferRequestedOutputTensor::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInferRequest_InferRequestedOutputTensor::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInferRequest_InferRequestedOutputTensor::GetClassData() const { return &_class_data_; }
+
+void ModelInferRequest_InferRequestedOutputTensor::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInferRequest_InferRequestedOutputTensor *>(to)->MergeFrom(
+      static_cast<const ModelInferRequest_InferRequestedOutputTensor &>(from));
 }
+
 
 void ModelInferRequest_InferRequestedOutputTensor::MergeFrom(const ModelInferRequest_InferRequestedOutputTensor& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void ModelInferRequest_InferRequestedOutputTensor::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInferRequest.InferRequestedOutputTensor)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInferRequest_InferRequestedOutputTensor::CopyFrom(const ModelInferRequest_InferRequestedOutputTensor& from) {
@@ -6125,15 +5182,21 @@ bool ModelInferRequest_InferRequestedOutputTensor::IsInitialized() const {
 
 void ModelInferRequest_InferRequestedOutputTensor::InternalSwap(ModelInferRequest_InferRequestedOutputTensor* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferRequest_InferRequestedOutputTensor::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[16]);
 }
-
 
 // ===================================================================
 
@@ -6144,30 +5207,28 @@ void ModelInferRequest_ParametersEntry_DoNotUse::MergeFrom(const ModelInferReque
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferRequest_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[17]);
 }
-void ModelInferRequest_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelInferRequest::InitAsDefaultInstance() {
-}
 class ModelInferRequest::_Internal {
  public:
 };
 
-ModelInferRequest::ModelInferRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInferRequest::ModelInferRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena),
   inputs_(arena),
   outputs_(arena),
   raw_input_contents_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelInferRequest::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInferRequest)
 }
 ModelInferRequest::ModelInferRequest(const ModelInferRequest& from)
@@ -6177,62 +5238,77 @@ ModelInferRequest::ModelInferRequest(const ModelInferRequest& from)
       raw_input_contents_(from.raw_input_contents_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_name().empty()) {
-    model_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_name(),
-      GetArena());
+    model_name_.Set(from._internal_model_name(), 
+      GetArenaForAllocation());
   }
-  model_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_version().empty()) {
-    model_version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_version(),
-      GetArena());
+    model_version_.Set(from._internal_model_version(), 
+      GetArenaForAllocation());
   }
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_id().empty()) {
-    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
-      GetArena());
+    id_.Set(from._internal_id(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInferRequest)
 }
 
-void ModelInferRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInferRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferRequest::SharedCtor() {
+model_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+model_version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+id_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  id_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelInferRequest::~ModelInferRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInferRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInferRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  model_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  model_name_.Destroy();
+  model_version_.Destroy();
+  id_.Destroy();
 }
 
 void ModelInferRequest::ArenaDtor(void* object) {
   ModelInferRequest* _this = reinterpret_cast< ModelInferRequest* >(object);
-  (void)_this;
-}
-void ModelInferRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelInferRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInferRequest& ModelInferRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInferRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInferRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInferRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6240,50 +5316,51 @@ void ModelInferRequest::Clear() {
   inputs_.Clear();
   outputs_.Clear();
   raw_input_contents_.Clear();
-  model_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  model_name_.ClearToEmpty();
+  model_version_.ClearToEmpty();
+  id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInferRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInferRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string model_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_model_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferRequest.model_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferRequest.model_name"));
+        } else
+          goto handle_unusual;
         continue;
       // string model_version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_model_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferRequest.model_version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferRequest.model_version"));
+        } else
+          goto handle_unusual;
         continue;
       // string id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferRequest.id"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferRequest.id"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.InferParameter> parameters = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -6291,11 +5368,12 @@ const char* ModelInferRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelInferRequest.InferInputTensor inputs = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -6303,11 +5381,12 @@ const char* ModelInferRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelInferRequest.InferRequestedOutputTensor outputs = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -6315,51 +5394,54 @@ const char* ModelInferRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated bytes raw_input_contents = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_raw_input_contents();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInferRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInferRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInferRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string model_name = 1;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_name().data(), static_cast<int>(this->_internal_model_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -6369,7 +5451,7 @@ failure:
   }
 
   // string model_version = 2;
-  if (this->model_version().size() > 0) {
+  if (!this->_internal_model_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_version().data(), static_cast<int>(this->_internal_model_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -6379,7 +5461,7 @@ failure:
   }
 
   // string id = 3;
-  if (this->id().size() > 0) {
+  if (!this->_internal_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -6390,59 +5472,44 @@ failure:
 
   // map<string, .hercules.proto.InferParameter> parameters = 4;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelInferRequest.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::InferParameter>;
+    using WireHelper = ModelInferRequest_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelInferRequest.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelInferRequest_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelInferRequest_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // repeated .hercules.proto.ModelInferRequest.InferInputTensor inputs = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_inputs_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_inputs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_inputs(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_inputs(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.ModelInferRequest.InferRequestedOutputTensor outputs = 6;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_outputs_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_outputs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_outputs(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(6, this->_internal_outputs(i), target, stream);
+        InternalWriteMessage(6, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated bytes raw_input_contents = 7;
@@ -6452,7 +5519,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInferRequest)
@@ -6463,7 +5530,7 @@ size_t ModelInferRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInferRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -6499,77 +5566,62 @@ size_t ModelInferRequest::ByteSizeLong() const {
   }
 
   // string model_name = 1;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_name());
   }
 
   // string model_version = 2;
-  if (this->model_version().size() > 0) {
+  if (!this->_internal_model_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_version());
   }
 
   // string id = 3;
-  if (this->id().size() > 0) {
+  if (!this->_internal_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_id());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInferRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInferRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInferRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInferRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInferRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInferRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInferRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInferRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInferRequest::GetClassData() const { return &_class_data_; }
+
+void ModelInferRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInferRequest *>(to)->MergeFrom(
+      static_cast<const ModelInferRequest &>(from));
 }
+
 
 void ModelInferRequest::MergeFrom(const ModelInferRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInferRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
   inputs_.MergeFrom(from.inputs_);
   outputs_.MergeFrom(from.outputs_);
   raw_input_contents_.MergeFrom(from.raw_input_contents_);
-  if (from.model_name().size() > 0) {
+  if (!from._internal_model_name().empty()) {
     _internal_set_model_name(from._internal_model_name());
   }
-  if (from.model_version().size() > 0) {
+  if (!from._internal_model_version().empty()) {
     _internal_set_model_version(from._internal_model_version());
   }
-  if (from.id().size() > 0) {
+  if (!from._internal_id().empty()) {
     _internal_set_id(from._internal_id());
   }
-}
-
-void ModelInferRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInferRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInferRequest::CopyFrom(const ModelInferRequest& from) {
@@ -6585,20 +5637,32 @@ bool ModelInferRequest::IsInitialized() const {
 
 void ModelInferRequest::InternalSwap(ModelInferRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
   inputs_.InternalSwap(&other->inputs_);
   outputs_.InternalSwap(&other->outputs_);
   raw_input_contents_.InternalSwap(&other->raw_input_contents_);
-  model_name_.Swap(&other->model_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_version_.Swap(&other->model_version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_name_, lhs_arena,
+      &other->model_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_version_, lhs_arena,
+      &other->model_version_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &id_, lhs_arena,
+      &other->id_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[18]);
 }
-
 
 // ===================================================================
 
@@ -6609,20 +5673,13 @@ void ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::MergeFrom(co
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[19]);
 }
-void ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelInferResponse_InferOutputTensor::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelInferResponse_InferOutputTensor_default_instance_._instance.get_mutable()->contents_ = const_cast< ::hercules::proto::InferTensorContents*>(
-      ::hercules::proto::InferTensorContents::internal_default_instance());
-}
 class ModelInferResponse_InferOutputTensor::_Internal {
  public:
   static const ::hercules::proto::InferTensorContents& contents(const ModelInferResponse_InferOutputTensor* msg);
@@ -6632,12 +5689,15 @@ const ::hercules::proto::InferTensorContents&
 ModelInferResponse_InferOutputTensor::_Internal::contents(const ModelInferResponse_InferOutputTensor* msg) {
   return *msg->contents_;
 }
-ModelInferResponse_InferOutputTensor::ModelInferResponse_InferOutputTensor(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInferResponse_InferOutputTensor::ModelInferResponse_InferOutputTensor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   shape_(arena),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelInferResponse_InferOutputTensor::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInferResponse.InferOutputTensor)
 }
 ModelInferResponse_InferOutputTensor::ModelInferResponse_InferOutputTensor(const ModelInferResponse_InferOutputTensor& from)
@@ -6645,15 +5705,21 @@ ModelInferResponse_InferOutputTensor::ModelInferResponse_InferOutputTensor(const
       shape_(from.shape_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  datatype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  datatype_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    datatype_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_datatype().empty()) {
-    datatype_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_datatype(),
-      GetArena());
+    datatype_.Set(from._internal_datatype(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_contents()) {
     contents_ = new ::hercules::proto::InferTensorContents(*from.contents_);
@@ -6663,97 +5729,101 @@ ModelInferResponse_InferOutputTensor::ModelInferResponse_InferOutputTensor(const
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInferResponse.InferOutputTensor)
 }
 
-void ModelInferResponse_InferOutputTensor::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  datatype_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  contents_ = nullptr;
+inline void ModelInferResponse_InferOutputTensor::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+datatype_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  datatype_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+contents_ = nullptr;
 }
 
 ModelInferResponse_InferOutputTensor::~ModelInferResponse_InferOutputTensor() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInferResponse.InferOutputTensor)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInferResponse_InferOutputTensor::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  datatype_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferResponse_InferOutputTensor::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  name_.Destroy();
+  datatype_.Destroy();
   if (this != internal_default_instance()) delete contents_;
 }
 
 void ModelInferResponse_InferOutputTensor::ArenaDtor(void* object) {
   ModelInferResponse_InferOutputTensor* _this = reinterpret_cast< ModelInferResponse_InferOutputTensor* >(object);
-  (void)_this;
-}
-void ModelInferResponse_InferOutputTensor::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelInferResponse_InferOutputTensor::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInferResponse_InferOutputTensor& ModelInferResponse_InferOutputTensor::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInferResponse_InferOutputTensor_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInferResponse_InferOutputTensor::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInferResponse.InferOutputTensor)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   shape_.Clear();
   parameters_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  datatype_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && contents_ != nullptr) {
+  name_.ClearToEmpty();
+  datatype_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && contents_ != nullptr) {
     delete contents_;
   }
   contents_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInferResponse_InferOutputTensor::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInferResponse_InferOutputTensor::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferResponse.InferOutputTensor.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferResponse.InferOutputTensor.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string datatype = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_datatype();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferResponse.InferOutputTensor.datatype"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferResponse.InferOutputTensor.datatype"));
+        } else
+          goto handle_unusual;
         continue;
       // repeated int64 shape = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt64Parser(_internal_mutable_shape(), ptr, ctx);
           CHK_(ptr);
-        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24) {
+        } else if (static_cast<uint8_t>(tag) == 24) {
           _internal_add_shape(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.InferParameter> parameters = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -6761,45 +5831,48 @@ const char* ModelInferResponse_InferOutputTensor::_InternalParse(const char* ptr
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.InferTensorContents contents = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_contents(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInferResponse_InferOutputTensor::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInferResponse_InferOutputTensor::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInferResponse.InferOutputTensor)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -6809,7 +5882,7 @@ failure:
   }
 
   // string datatype = 2;
-  if (this->datatype().size() > 0) {
+  if (!this->_internal_datatype().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_datatype().data(), static_cast<int>(this->_internal_datatype().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -6829,55 +5902,39 @@ failure:
 
   // map<string, .hercules.proto.InferParameter> parameters = 4;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelInferResponse.InferOutputTensor.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::InferParameter>;
+    using WireHelper = ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelInferResponse.InferOutputTensor.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // .hercules.proto.InferTensorContents contents = 5;
-  if (this->has_contents()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_contents()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::contents(this), target, stream);
+      InternalWriteMessage(5, _Internal::contents(this),
+        _Internal::contents(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInferResponse.InferOutputTensor)
@@ -6888,20 +5945,19 @@ size_t ModelInferResponse_InferOutputTensor::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInferResponse.InferOutputTensor)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // repeated int64 shape = 3;
   {
-    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+    size_t data_size = ::_pbi::WireFormatLite::
       Int64Size(this->shape_);
     if (data_size > 0) {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
     }
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    int cached_size = ::_pbi::ToCachedSize(data_size);
     _shape_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
@@ -6917,75 +5973,60 @@ size_t ModelInferResponse_InferOutputTensor::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string datatype = 2;
-  if (this->datatype().size() > 0) {
+  if (!this->_internal_datatype().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_datatype());
   }
 
   // .hercules.proto.InferTensorContents contents = 5;
-  if (this->has_contents()) {
+  if (this->_internal_has_contents()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *contents_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInferResponse_InferOutputTensor::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInferResponse.InferOutputTensor)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInferResponse_InferOutputTensor* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInferResponse_InferOutputTensor>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInferResponse.InferOutputTensor)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInferResponse.InferOutputTensor)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInferResponse_InferOutputTensor::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInferResponse_InferOutputTensor::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInferResponse_InferOutputTensor::GetClassData() const { return &_class_data_; }
+
+void ModelInferResponse_InferOutputTensor::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInferResponse_InferOutputTensor *>(to)->MergeFrom(
+      static_cast<const ModelInferResponse_InferOutputTensor &>(from));
 }
+
 
 void ModelInferResponse_InferOutputTensor::MergeFrom(const ModelInferResponse_InferOutputTensor& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInferResponse.InferOutputTensor)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   shape_.MergeFrom(from.shape_);
   parameters_.MergeFrom(from.parameters_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.datatype().size() > 0) {
+  if (!from._internal_datatype().empty()) {
     _internal_set_datatype(from._internal_datatype());
   }
-  if (from.has_contents()) {
+  if (from._internal_has_contents()) {
     _internal_mutable_contents()->::hercules::proto::InferTensorContents::MergeFrom(from._internal_contents());
   }
-}
-
-void ModelInferResponse_InferOutputTensor::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInferResponse.InferOutputTensor)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInferResponse_InferOutputTensor::CopyFrom(const ModelInferResponse_InferOutputTensor& from) {
@@ -7001,18 +6042,27 @@ bool ModelInferResponse_InferOutputTensor::IsInitialized() const {
 
 void ModelInferResponse_InferOutputTensor::InternalSwap(ModelInferResponse_InferOutputTensor* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   shape_.InternalSwap(&other->shape_);
-  parameters_.Swap(&other->parameters_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  datatype_.Swap(&other->datatype_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &datatype_, lhs_arena,
+      &other->datatype_, rhs_arena
+  );
   swap(contents_, other->contents_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferResponse_InferOutputTensor::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[20]);
 }
-
 
 // ===================================================================
 
@@ -7023,29 +6073,27 @@ void ModelInferResponse_ParametersEntry_DoNotUse::MergeFrom(const ModelInferResp
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferResponse_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[21]);
 }
-void ModelInferResponse_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void ModelInferResponse::InitAsDefaultInstance() {
-}
 class ModelInferResponse::_Internal {
  public:
 };
 
-ModelInferResponse::ModelInferResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelInferResponse::ModelInferResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena),
   outputs_(arena),
   raw_output_contents_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ModelInferResponse::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelInferResponse)
 }
 ModelInferResponse::ModelInferResponse(const ModelInferResponse& from)
@@ -7054,112 +6102,128 @@ ModelInferResponse::ModelInferResponse(const ModelInferResponse& from)
       raw_output_contents_(from.raw_output_contents_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_name().empty()) {
-    model_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_name(),
-      GetArena());
+    model_name_.Set(from._internal_model_name(), 
+      GetArenaForAllocation());
   }
-  model_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_version().empty()) {
-    model_version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_version(),
-      GetArena());
+    model_version_.Set(from._internal_model_version(), 
+      GetArenaForAllocation());
   }
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    id_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_id().empty()) {
-    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
-      GetArena());
+    id_.Set(from._internal_id(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelInferResponse)
 }
 
-void ModelInferResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferResponse::SharedCtor() {
+model_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+model_version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+id_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  id_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelInferResponse::~ModelInferResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelInferResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelInferResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  model_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelInferResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  model_name_.Destroy();
+  model_version_.Destroy();
+  id_.Destroy();
 }
 
 void ModelInferResponse::ArenaDtor(void* object) {
   ModelInferResponse* _this = reinterpret_cast< ModelInferResponse* >(object);
-  (void)_this;
-}
-void ModelInferResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void ModelInferResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelInferResponse& ModelInferResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelInferResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelInferResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   parameters_.Clear();
   outputs_.Clear();
   raw_output_contents_.Clear();
-  model_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  model_name_.ClearToEmpty();
+  model_version_.ClearToEmpty();
+  id_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelInferResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelInferResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string model_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_model_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferResponse.model_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferResponse.model_name"));
+        } else
+          goto handle_unusual;
         continue;
       // string model_version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_model_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferResponse.model_version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferResponse.model_version"));
+        } else
+          goto handle_unusual;
         continue;
       // string id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelInferResponse.id"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelInferResponse.id"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.InferParameter> parameters = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -7167,11 +6231,12 @@ const char* ModelInferResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.ModelInferResponse.InferOutputTensor outputs = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -7179,51 +6244,54 @@ const char* ModelInferResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated bytes raw_output_contents = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_raw_output_contents();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelInferResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelInferResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelInferResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string model_name = 1;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_name().data(), static_cast<int>(this->_internal_model_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7233,7 +6301,7 @@ failure:
   }
 
   // string model_version = 2;
-  if (this->model_version().size() > 0) {
+  if (!this->_internal_model_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_version().data(), static_cast<int>(this->_internal_model_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7243,7 +6311,7 @@ failure:
   }
 
   // string id = 3;
-  if (this->id().size() > 0) {
+  if (!this->_internal_id().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7254,51 +6322,36 @@ failure:
 
   // map<string, .hercules.proto.InferParameter> parameters = 4;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.ModelInferResponse.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::InferParameter>;
+    using WireHelper = ModelInferResponse_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.ModelInferResponse.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = ModelInferResponse_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::InferParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = ModelInferResponse_ParametersEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // repeated .hercules.proto.ModelInferResponse.InferOutputTensor outputs = 5;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_outputs_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_outputs_size()); i < n; i++) {
+    const auto& repfield = this->_internal_outputs(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, this->_internal_outputs(i), target, stream);
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   // repeated bytes raw_output_contents = 6;
@@ -7308,7 +6361,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelInferResponse)
@@ -7319,7 +6372,7 @@ size_t ModelInferResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelInferResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -7348,76 +6401,61 @@ size_t ModelInferResponse::ByteSizeLong() const {
   }
 
   // string model_name = 1;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_name());
   }
 
   // string model_version = 2;
-  if (this->model_version().size() > 0) {
+  if (!this->_internal_model_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_version());
   }
 
   // string id = 3;
-  if (this->id().size() > 0) {
+  if (!this->_internal_id().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_id());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelInferResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelInferResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelInferResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelInferResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelInferResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelInferResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelInferResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelInferResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelInferResponse::GetClassData() const { return &_class_data_; }
+
+void ModelInferResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelInferResponse *>(to)->MergeFrom(
+      static_cast<const ModelInferResponse &>(from));
 }
+
 
 void ModelInferResponse::MergeFrom(const ModelInferResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelInferResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
   outputs_.MergeFrom(from.outputs_);
   raw_output_contents_.MergeFrom(from.raw_output_contents_);
-  if (from.model_name().size() > 0) {
+  if (!from._internal_model_name().empty()) {
     _internal_set_model_name(from._internal_model_name());
   }
-  if (from.model_version().size() > 0) {
+  if (!from._internal_model_version().empty()) {
     _internal_set_model_version(from._internal_model_version());
   }
-  if (from.id().size() > 0) {
+  if (!from._internal_id().empty()) {
     _internal_set_id(from._internal_id());
   }
-}
-
-void ModelInferResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelInferResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelInferResponse::CopyFrom(const ModelInferResponse& from) {
@@ -7433,26 +6471,34 @@ bool ModelInferResponse::IsInitialized() const {
 
 void ModelInferResponse::InternalSwap(ModelInferResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
   outputs_.InternalSwap(&other->outputs_);
   raw_output_contents_.InternalSwap(&other->raw_output_contents_);
-  model_name_.Swap(&other->model_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_version_.Swap(&other->model_version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_name_, lhs_arena,
+      &other->model_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_version_, lhs_arena,
+      &other->model_version_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &id_, lhs_arena,
+      &other->id_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelInferResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[22]);
 }
-
 
 // ===================================================================
 
-void ModelStreamInferResponse::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelStreamInferResponse_default_instance_._instance.get_mutable()->infer_response_ = const_cast< ::hercules::proto::ModelInferResponse*>(
-      ::hercules::proto::ModelInferResponse::internal_default_instance());
-}
 class ModelStreamInferResponse::_Internal {
  public:
   static const ::hercules::proto::ModelInferResponse& infer_response(const ModelStreamInferResponse* msg);
@@ -7462,19 +6508,22 @@ const ::hercules::proto::ModelInferResponse&
 ModelStreamInferResponse::_Internal::infer_response(const ModelStreamInferResponse* msg) {
   return *msg->infer_response_;
 }
-ModelStreamInferResponse::ModelStreamInferResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelStreamInferResponse::ModelStreamInferResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelStreamInferResponse)
 }
 ModelStreamInferResponse::ModelStreamInferResponse(const ModelStreamInferResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  error_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  error_message_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    error_message_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_error_message().empty()) {
-    error_message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_error_message(),
-      GetArena());
+    error_message_.Set(from._internal_error_message(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_infer_response()) {
     infer_response_ = new ::hercules::proto::ModelInferResponse(*from.infer_response_);
@@ -7484,107 +6533,102 @@ ModelStreamInferResponse::ModelStreamInferResponse(const ModelStreamInferRespons
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelStreamInferResponse)
 }
 
-void ModelStreamInferResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelStreamInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  error_message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  infer_response_ = nullptr;
+inline void ModelStreamInferResponse::SharedCtor() {
+error_message_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  error_message_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+infer_response_ = nullptr;
 }
 
 ModelStreamInferResponse::~ModelStreamInferResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelStreamInferResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelStreamInferResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  error_message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelStreamInferResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  error_message_.Destroy();
   if (this != internal_default_instance()) delete infer_response_;
 }
 
-void ModelStreamInferResponse::ArenaDtor(void* object) {
-  ModelStreamInferResponse* _this = reinterpret_cast< ModelStreamInferResponse* >(object);
-  (void)_this;
-}
-void ModelStreamInferResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelStreamInferResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelStreamInferResponse& ModelStreamInferResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelStreamInferResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelStreamInferResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelStreamInferResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  error_message_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && infer_response_ != nullptr) {
+  error_message_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && infer_response_ != nullptr) {
     delete infer_response_;
   }
   infer_response_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelStreamInferResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelStreamInferResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string error_message = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_error_message();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelStreamInferResponse.error_message"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelStreamInferResponse.error_message"));
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.ModelInferResponse infer_response = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_infer_response(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelStreamInferResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelStreamInferResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelStreamInferResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string error_message = 1;
-  if (this->error_message().size() > 0) {
+  if (!this->_internal_error_message().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_error_message().data(), static_cast<int>(this->_internal_error_message().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7594,15 +6638,14 @@ failure:
   }
 
   // .hercules.proto.ModelInferResponse infer_response = 2;
-  if (this->has_infer_response()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_infer_response()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::infer_response(this), target, stream);
+      InternalWriteMessage(2, _Internal::infer_response(this),
+        _Internal::infer_response(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelStreamInferResponse)
@@ -7613,68 +6656,53 @@ size_t ModelStreamInferResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelStreamInferResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string error_message = 1;
-  if (this->error_message().size() > 0) {
+  if (!this->_internal_error_message().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_error_message());
   }
 
   // .hercules.proto.ModelInferResponse infer_response = 2;
-  if (this->has_infer_response()) {
+  if (this->_internal_has_infer_response()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *infer_response_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelStreamInferResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelStreamInferResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelStreamInferResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelStreamInferResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelStreamInferResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelStreamInferResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelStreamInferResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelStreamInferResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelStreamInferResponse::GetClassData() const { return &_class_data_; }
+
+void ModelStreamInferResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelStreamInferResponse *>(to)->MergeFrom(
+      static_cast<const ModelStreamInferResponse &>(from));
 }
+
 
 void ModelStreamInferResponse::MergeFrom(const ModelStreamInferResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelStreamInferResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.error_message().size() > 0) {
+  if (!from._internal_error_message().empty()) {
     _internal_set_error_message(from._internal_error_message());
   }
-  if (from.has_infer_response()) {
+  if (from._internal_has_infer_response()) {
     _internal_mutable_infer_response()->::hercules::proto::ModelInferResponse::MergeFrom(from._internal_infer_response());
   }
-}
-
-void ModelStreamInferResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelStreamInferResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelStreamInferResponse::CopyFrom(const ModelStreamInferResponse& from) {
@@ -7690,146 +6718,154 @@ bool ModelStreamInferResponse::IsInitialized() const {
 
 void ModelStreamInferResponse::InternalSwap(ModelStreamInferResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  error_message_.Swap(&other->error_message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &error_message_, lhs_arena,
+      &other->error_message_, rhs_arena
+  );
   swap(infer_response_, other->infer_response_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelStreamInferResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[23]);
 }
-
 
 // ===================================================================
 
-void ModelConfigRequest::InitAsDefaultInstance() {
-}
 class ModelConfigRequest::_Internal {
  public:
 };
 
-ModelConfigRequest::ModelConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelConfigRequest::ModelConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelConfigRequest)
 }
 ModelConfigRequest::ModelConfigRequest(const ModelConfigRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelConfigRequest)
 }
 
-void ModelConfigRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelConfigRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelConfigRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelConfigRequest::~ModelConfigRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelConfigRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelConfigRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelConfigRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
 }
 
-void ModelConfigRequest::ArenaDtor(void* object) {
-  ModelConfigRequest* _this = reinterpret_cast< ModelConfigRequest* >(object);
-  (void)_this;
-}
-void ModelConfigRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelConfigRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelConfigRequest& ModelConfigRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelConfigRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelConfigRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelConfigRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelConfigRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelConfigRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelConfigRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelConfigRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelConfigRequest.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelConfigRequest.version"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelConfigRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelConfigRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelConfigRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7839,7 +6875,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -7849,7 +6885,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelConfigRequest)
@@ -7860,68 +6896,53 @@ size_t ModelConfigRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelConfigRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelConfigRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelConfigRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelConfigRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelConfigRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelConfigRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelConfigRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelConfigRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelConfigRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelConfigRequest::GetClassData() const { return &_class_data_; }
+
+void ModelConfigRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelConfigRequest *>(to)->MergeFrom(
+      static_cast<const ModelConfigRequest &>(from));
 }
+
 
 void ModelConfigRequest::MergeFrom(const ModelConfigRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelConfigRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-}
-
-void ModelConfigRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelConfigRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelConfigRequest::CopyFrom(const ModelConfigRequest& from) {
@@ -7937,22 +6958,27 @@ bool ModelConfigRequest::IsInitialized() const {
 
 void ModelConfigRequest::InternalSwap(ModelConfigRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelConfigRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[24]);
 }
-
 
 // ===================================================================
 
-void ModelConfigResponse::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelConfigResponse_default_instance_._instance.get_mutable()->config_ = const_cast< ::hercules::proto::ModelConfig*>(
-      ::hercules::proto::ModelConfig::internal_default_instance());
-}
 class ModelConfigResponse::_Internal {
  public:
   static const ::hercules::proto::ModelConfig& config(const ModelConfigResponse* msg);
@@ -7963,15 +6989,15 @@ ModelConfigResponse::_Internal::config(const ModelConfigResponse* msg) {
   return *msg->config_;
 }
 void ModelConfigResponse::clear_config() {
-  if (GetArena() == nullptr && config_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && config_ != nullptr) {
     delete config_;
   }
   config_ = nullptr;
 }
-ModelConfigResponse::ModelConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelConfigResponse::ModelConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelConfigResponse)
 }
 ModelConfigResponse::ModelConfigResponse(const ModelConfigResponse& from)
@@ -7985,103 +7011,93 @@ ModelConfigResponse::ModelConfigResponse(const ModelConfigResponse& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelConfigResponse)
 }
 
-void ModelConfigResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelConfigResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  config_ = nullptr;
+inline void ModelConfigResponse::SharedCtor() {
+config_ = nullptr;
 }
 
 ModelConfigResponse::~ModelConfigResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelConfigResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelConfigResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelConfigResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete config_;
 }
 
-void ModelConfigResponse::ArenaDtor(void* object) {
-  ModelConfigResponse* _this = reinterpret_cast< ModelConfigResponse* >(object);
-  (void)_this;
-}
-void ModelConfigResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelConfigResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelConfigResponse& ModelConfigResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelConfigResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelConfigResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelConfigResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && config_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && config_ != nullptr) {
     delete config_;
   }
   config_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelConfigResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelConfigResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.ModelConfig config = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_config(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelConfigResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelConfigResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelConfigResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.ModelConfig config = 1;
-  if (this->has_config()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_config()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::config(this), target, stream);
+      InternalWriteMessage(1, _Internal::config(this),
+        _Internal::config(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelConfigResponse)
@@ -8092,58 +7108,43 @@ size_t ModelConfigResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelConfigResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .hercules.proto.ModelConfig config = 1;
-  if (this->has_config()) {
+  if (this->_internal_has_config()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *config_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelConfigResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelConfigResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelConfigResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelConfigResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelConfigResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelConfigResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelConfigResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelConfigResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelConfigResponse::GetClassData() const { return &_class_data_; }
+
+void ModelConfigResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelConfigResponse *>(to)->MergeFrom(
+      static_cast<const ModelConfigResponse &>(from));
 }
+
 
 void ModelConfigResponse::MergeFrom(const ModelConfigResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelConfigResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_config()) {
+  if (from._internal_has_config()) {
     _internal_mutable_config()->::hercules::proto::ModelConfig::MergeFrom(from._internal_config());
   }
-}
-
-void ModelConfigResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelConfigResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelConfigResponse::CopyFrom(const ModelConfigResponse& from) {
@@ -8159,145 +7160,148 @@ bool ModelConfigResponse::IsInitialized() const {
 
 void ModelConfigResponse::InternalSwap(ModelConfigResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(config_, other->config_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelConfigResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[25]);
 }
-
 
 // ===================================================================
 
-void ModelStatisticsRequest::InitAsDefaultInstance() {
-}
 class ModelStatisticsRequest::_Internal {
  public:
 };
 
-ModelStatisticsRequest::ModelStatisticsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelStatisticsRequest::ModelStatisticsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelStatisticsRequest)
 }
 ModelStatisticsRequest::ModelStatisticsRequest(const ModelStatisticsRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelStatisticsRequest)
 }
 
-void ModelStatisticsRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelStatisticsRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelStatisticsRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ModelStatisticsRequest::~ModelStatisticsRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelStatisticsRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelStatisticsRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelStatisticsRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
 }
 
-void ModelStatisticsRequest::ArenaDtor(void* object) {
-  ModelStatisticsRequest* _this = reinterpret_cast< ModelStatisticsRequest* >(object);
-  (void)_this;
-}
-void ModelStatisticsRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelStatisticsRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelStatisticsRequest& ModelStatisticsRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelStatisticsRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelStatisticsRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelStatisticsRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelStatisticsRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelStatisticsRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelStatisticsRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelStatisticsRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelStatisticsRequest.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelStatisticsRequest.version"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelStatisticsRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelStatisticsRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelStatisticsRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -8307,7 +7311,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -8317,7 +7321,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelStatisticsRequest)
@@ -8328,68 +7332,53 @@ size_t ModelStatisticsRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelStatisticsRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelStatisticsRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelStatisticsRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelStatisticsRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelStatisticsRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelStatisticsRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelStatisticsRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelStatisticsRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelStatisticsRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelStatisticsRequest::GetClassData() const { return &_class_data_; }
+
+void ModelStatisticsRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelStatisticsRequest *>(to)->MergeFrom(
+      static_cast<const ModelStatisticsRequest &>(from));
 }
+
 
 void ModelStatisticsRequest::MergeFrom(const ModelStatisticsRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelStatisticsRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-}
-
-void ModelStatisticsRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelStatisticsRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelStatisticsRequest::CopyFrom(const ModelStatisticsRequest& from) {
@@ -8405,28 +7394,35 @@ bool ModelStatisticsRequest::IsInitialized() const {
 
 void ModelStatisticsRequest::InternalSwap(ModelStatisticsRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelStatisticsRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[26]);
 }
-
 
 // ===================================================================
 
-void StatisticDuration::InitAsDefaultInstance() {
-}
 class StatisticDuration::_Internal {
  public:
 };
 
-StatisticDuration::StatisticDuration(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+StatisticDuration::StatisticDuration(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.StatisticDuration)
 }
 StatisticDuration::StatisticDuration(const StatisticDuration& from)
@@ -8438,40 +7434,33 @@ StatisticDuration::StatisticDuration(const StatisticDuration& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.StatisticDuration)
 }
 
-void StatisticDuration::SharedCtor() {
-  ::memset(&count_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&ns_) -
-      reinterpret_cast<char*>(&count_)) + sizeof(ns_));
+inline void StatisticDuration::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&count_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&ns_) -
+    reinterpret_cast<char*>(&count_)) + sizeof(ns_));
 }
 
 StatisticDuration::~StatisticDuration() {
   // @@protoc_insertion_point(destructor:hercules.proto.StatisticDuration)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void StatisticDuration::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void StatisticDuration::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void StatisticDuration::ArenaDtor(void* object) {
-  StatisticDuration* _this = reinterpret_cast< StatisticDuration* >(object);
-  (void)_this;
-}
-void StatisticDuration::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void StatisticDuration::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const StatisticDuration& StatisticDuration::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StatisticDuration_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void StatisticDuration::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.StatisticDuration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -8481,70 +7470,71 @@ void StatisticDuration::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* StatisticDuration::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* StatisticDuration::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 count = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 ns = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           ns_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* StatisticDuration::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* StatisticDuration::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.StatisticDuration)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 count = 1;
-  if (this->count() != 0) {
+  if (this->_internal_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_count(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_count(), target);
   }
 
   // uint64 ns = 2;
-  if (this->ns() != 0) {
+  if (this->_internal_ns() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_ns(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_ns(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.StatisticDuration)
@@ -8555,68 +7545,49 @@ size_t StatisticDuration::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.StatisticDuration)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // uint64 count = 1;
-  if (this->count() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_count());
+  if (this->_internal_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_count());
   }
 
   // uint64 ns = 2;
-  if (this->ns() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_ns());
+  if (this->_internal_ns() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_ns());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void StatisticDuration::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.StatisticDuration)
-  GOOGLE_DCHECK_NE(&from, this);
-  const StatisticDuration* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StatisticDuration>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.StatisticDuration)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.StatisticDuration)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StatisticDuration::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    StatisticDuration::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StatisticDuration::GetClassData() const { return &_class_data_; }
+
+void StatisticDuration::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<StatisticDuration *>(to)->MergeFrom(
+      static_cast<const StatisticDuration &>(from));
 }
+
 
 void StatisticDuration::MergeFrom(const StatisticDuration& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.StatisticDuration)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.count() != 0) {
+  if (from._internal_count() != 0) {
     _internal_set_count(from._internal_count());
   }
-  if (from.ns() != 0) {
+  if (from._internal_ns() != 0) {
     _internal_set_ns(from._internal_ns());
   }
-}
-
-void StatisticDuration::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.StatisticDuration)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void StatisticDuration::CopyFrom(const StatisticDuration& from) {
@@ -8632,7 +7603,7 @@ bool StatisticDuration::IsInitialized() const {
 
 void StatisticDuration::InternalSwap(StatisticDuration* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(StatisticDuration, ns_)
       + sizeof(StatisticDuration::ns_)
@@ -8642,30 +7613,13 @@ void StatisticDuration::InternalSwap(StatisticDuration* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StatisticDuration::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[27]);
 }
-
 
 // ===================================================================
 
-void InferStatistics::InitAsDefaultInstance() {
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->success_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->fail_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->queue_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->compute_input_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->compute_infer_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->compute_output_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->cache_hit_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferStatistics_default_instance_._instance.get_mutable()->cache_miss_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-}
 class InferStatistics::_Internal {
  public:
   static const ::hercules::proto::StatisticDuration& success(const InferStatistics* msg);
@@ -8710,10 +7664,10 @@ const ::hercules::proto::StatisticDuration&
 InferStatistics::_Internal::cache_miss(const InferStatistics* msg) {
   return *msg->cache_miss_;
 }
-InferStatistics::InferStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+InferStatistics::InferStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.InferStatistics)
 }
 InferStatistics::InferStatistics(const InferStatistics& from)
@@ -8762,21 +7716,24 @@ InferStatistics::InferStatistics(const InferStatistics& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.InferStatistics)
 }
 
-void InferStatistics::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  ::memset(&success_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&cache_miss_) -
-      reinterpret_cast<char*>(&success_)) + sizeof(cache_miss_));
+inline void InferStatistics::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&success_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&cache_miss_) -
+    reinterpret_cast<char*>(&success_)) + sizeof(cache_miss_));
 }
 
 InferStatistics::~InferStatistics() {
   // @@protoc_insertion_point(destructor:hercules.proto.InferStatistics)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void InferStatistics::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void InferStatistics::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete success_;
   if (this != internal_default_instance()) delete fail_;
   if (this != internal_default_instance()) delete queue_;
@@ -8787,220 +7744,208 @@ void InferStatistics::SharedDtor() {
   if (this != internal_default_instance()) delete cache_miss_;
 }
 
-void InferStatistics::ArenaDtor(void* object) {
-  InferStatistics* _this = reinterpret_cast< InferStatistics* >(object);
-  (void)_this;
-}
-void InferStatistics::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void InferStatistics::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const InferStatistics& InferStatistics::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InferStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void InferStatistics::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.InferStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && success_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && success_ != nullptr) {
     delete success_;
   }
   success_ = nullptr;
-  if (GetArena() == nullptr && fail_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && fail_ != nullptr) {
     delete fail_;
   }
   fail_ = nullptr;
-  if (GetArena() == nullptr && queue_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && queue_ != nullptr) {
     delete queue_;
   }
   queue_ = nullptr;
-  if (GetArena() == nullptr && compute_input_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && compute_input_ != nullptr) {
     delete compute_input_;
   }
   compute_input_ = nullptr;
-  if (GetArena() == nullptr && compute_infer_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && compute_infer_ != nullptr) {
     delete compute_infer_;
   }
   compute_infer_ = nullptr;
-  if (GetArena() == nullptr && compute_output_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && compute_output_ != nullptr) {
     delete compute_output_;
   }
   compute_output_ = nullptr;
-  if (GetArena() == nullptr && cache_hit_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && cache_hit_ != nullptr) {
     delete cache_hit_;
   }
   cache_hit_ = nullptr;
-  if (GetArena() == nullptr && cache_miss_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && cache_miss_ != nullptr) {
     delete cache_miss_;
   }
   cache_miss_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* InferStatistics::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* InferStatistics::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .hercules.proto.StatisticDuration success = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_success(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration fail = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_fail(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration queue = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_queue(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration compute_input = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_compute_input(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration compute_infer = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_compute_infer(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration compute_output = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_compute_output(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration cache_hit = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_cache_hit(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration cache_miss = 8;
       case 8:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           ptr = ctx->ParseMessage(_internal_mutable_cache_miss(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* InferStatistics::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* InferStatistics::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.InferStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .hercules.proto.StatisticDuration success = 1;
-  if (this->has_success()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_success()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::success(this), target, stream);
+      InternalWriteMessage(1, _Internal::success(this),
+        _Internal::success(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration fail = 2;
-  if (this->has_fail()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_fail()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::fail(this), target, stream);
+      InternalWriteMessage(2, _Internal::fail(this),
+        _Internal::fail(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration queue = 3;
-  if (this->has_queue()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_queue()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::queue(this), target, stream);
+      InternalWriteMessage(3, _Internal::queue(this),
+        _Internal::queue(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration compute_input = 4;
-  if (this->has_compute_input()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_compute_input()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::compute_input(this), target, stream);
+      InternalWriteMessage(4, _Internal::compute_input(this),
+        _Internal::compute_input(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration compute_infer = 5;
-  if (this->has_compute_infer()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_compute_infer()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        5, _Internal::compute_infer(this), target, stream);
+      InternalWriteMessage(5, _Internal::compute_infer(this),
+        _Internal::compute_infer(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration compute_output = 6;
-  if (this->has_compute_output()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_compute_output()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::compute_output(this), target, stream);
+      InternalWriteMessage(6, _Internal::compute_output(this),
+        _Internal::compute_output(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration cache_hit = 7;
-  if (this->has_cache_hit()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_cache_hit()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        7, _Internal::cache_hit(this), target, stream);
+      InternalWriteMessage(7, _Internal::cache_hit(this),
+        _Internal::cache_hit(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration cache_miss = 8;
-  if (this->has_cache_miss()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_cache_miss()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        8, _Internal::cache_miss(this), target, stream);
+      InternalWriteMessage(8, _Internal::cache_miss(this),
+        _Internal::cache_miss(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.InferStatistics)
@@ -9011,128 +7956,113 @@ size_t InferStatistics::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.InferStatistics)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .hercules.proto.StatisticDuration success = 1;
-  if (this->has_success()) {
+  if (this->_internal_has_success()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *success_);
   }
 
   // .hercules.proto.StatisticDuration fail = 2;
-  if (this->has_fail()) {
+  if (this->_internal_has_fail()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *fail_);
   }
 
   // .hercules.proto.StatisticDuration queue = 3;
-  if (this->has_queue()) {
+  if (this->_internal_has_queue()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *queue_);
   }
 
   // .hercules.proto.StatisticDuration compute_input = 4;
-  if (this->has_compute_input()) {
+  if (this->_internal_has_compute_input()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *compute_input_);
   }
 
   // .hercules.proto.StatisticDuration compute_infer = 5;
-  if (this->has_compute_infer()) {
+  if (this->_internal_has_compute_infer()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *compute_infer_);
   }
 
   // .hercules.proto.StatisticDuration compute_output = 6;
-  if (this->has_compute_output()) {
+  if (this->_internal_has_compute_output()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *compute_output_);
   }
 
   // .hercules.proto.StatisticDuration cache_hit = 7;
-  if (this->has_cache_hit()) {
+  if (this->_internal_has_cache_hit()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *cache_hit_);
   }
 
   // .hercules.proto.StatisticDuration cache_miss = 8;
-  if (this->has_cache_miss()) {
+  if (this->_internal_has_cache_miss()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *cache_miss_);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void InferStatistics::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.InferStatistics)
-  GOOGLE_DCHECK_NE(&from, this);
-  const InferStatistics* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InferStatistics>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.InferStatistics)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.InferStatistics)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData InferStatistics::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    InferStatistics::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*InferStatistics::GetClassData() const { return &_class_data_; }
+
+void InferStatistics::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<InferStatistics *>(to)->MergeFrom(
+      static_cast<const InferStatistics &>(from));
 }
+
 
 void InferStatistics::MergeFrom(const InferStatistics& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.InferStatistics)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_success()) {
+  if (from._internal_has_success()) {
     _internal_mutable_success()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_success());
   }
-  if (from.has_fail()) {
+  if (from._internal_has_fail()) {
     _internal_mutable_fail()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_fail());
   }
-  if (from.has_queue()) {
+  if (from._internal_has_queue()) {
     _internal_mutable_queue()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_queue());
   }
-  if (from.has_compute_input()) {
+  if (from._internal_has_compute_input()) {
     _internal_mutable_compute_input()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_compute_input());
   }
-  if (from.has_compute_infer()) {
+  if (from._internal_has_compute_infer()) {
     _internal_mutable_compute_infer()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_compute_infer());
   }
-  if (from.has_compute_output()) {
+  if (from._internal_has_compute_output()) {
     _internal_mutable_compute_output()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_compute_output());
   }
-  if (from.has_cache_hit()) {
+  if (from._internal_has_cache_hit()) {
     _internal_mutable_cache_hit()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_cache_hit());
   }
-  if (from.has_cache_miss()) {
+  if (from._internal_has_cache_miss()) {
     _internal_mutable_cache_miss()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_cache_miss());
   }
-}
-
-void InferStatistics::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.InferStatistics)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void InferStatistics::CopyFrom(const InferStatistics& from) {
@@ -9148,7 +8078,7 @@ bool InferStatistics::IsInitialized() const {
 
 void InferStatistics::InternalSwap(InferStatistics* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(InferStatistics, cache_miss_)
       + sizeof(InferStatistics::cache_miss_)
@@ -9158,20 +8088,13 @@ void InferStatistics::InternalSwap(InferStatistics* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InferStatistics::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[28]);
 }
-
 
 // ===================================================================
 
-void InferBatchStatistics::InitAsDefaultInstance() {
-  ::hercules::proto::_InferBatchStatistics_default_instance_._instance.get_mutable()->compute_input_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferBatchStatistics_default_instance_._instance.get_mutable()->compute_infer_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-  ::hercules::proto::_InferBatchStatistics_default_instance_._instance.get_mutable()->compute_output_ = const_cast< ::hercules::proto::StatisticDuration*>(
-      ::hercules::proto::StatisticDuration::internal_default_instance());
-}
 class InferBatchStatistics::_Internal {
  public:
   static const ::hercules::proto::StatisticDuration& compute_input(const InferBatchStatistics* msg);
@@ -9191,10 +8114,10 @@ const ::hercules::proto::StatisticDuration&
 InferBatchStatistics::_Internal::compute_output(const InferBatchStatistics* msg) {
   return *msg->compute_output_;
 }
-InferBatchStatistics::InferBatchStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+InferBatchStatistics::InferBatchStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.InferBatchStatistics)
 }
 InferBatchStatistics::InferBatchStatistics(const InferBatchStatistics& from)
@@ -9219,159 +8142,151 @@ InferBatchStatistics::InferBatchStatistics(const InferBatchStatistics& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.InferBatchStatistics)
 }
 
-void InferBatchStatistics::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  ::memset(&compute_input_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&batch_size_) -
-      reinterpret_cast<char*>(&compute_input_)) + sizeof(batch_size_));
+inline void InferBatchStatistics::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&compute_input_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&batch_size_) -
+    reinterpret_cast<char*>(&compute_input_)) + sizeof(batch_size_));
 }
 
 InferBatchStatistics::~InferBatchStatistics() {
   // @@protoc_insertion_point(destructor:hercules.proto.InferBatchStatistics)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void InferBatchStatistics::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void InferBatchStatistics::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete compute_input_;
   if (this != internal_default_instance()) delete compute_infer_;
   if (this != internal_default_instance()) delete compute_output_;
 }
 
-void InferBatchStatistics::ArenaDtor(void* object) {
-  InferBatchStatistics* _this = reinterpret_cast< InferBatchStatistics* >(object);
-  (void)_this;
-}
-void InferBatchStatistics::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void InferBatchStatistics::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const InferBatchStatistics& InferBatchStatistics::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InferBatchStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void InferBatchStatistics::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.InferBatchStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && compute_input_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && compute_input_ != nullptr) {
     delete compute_input_;
   }
   compute_input_ = nullptr;
-  if (GetArena() == nullptr && compute_infer_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && compute_infer_ != nullptr) {
     delete compute_infer_;
   }
   compute_infer_ = nullptr;
-  if (GetArena() == nullptr && compute_output_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && compute_output_ != nullptr) {
     delete compute_output_;
   }
   compute_output_ = nullptr;
-  batch_size_ = PROTOBUF_ULONGLONG(0);
+  batch_size_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* InferBatchStatistics::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* InferBatchStatistics::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint64 batch_size = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           batch_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration compute_input = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_compute_input(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration compute_infer = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_compute_infer(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.StatisticDuration compute_output = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_compute_output(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* InferBatchStatistics::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* InferBatchStatistics::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.InferBatchStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint64 batch_size = 1;
-  if (this->batch_size() != 0) {
+  if (this->_internal_batch_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_batch_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_batch_size(), target);
   }
 
   // .hercules.proto.StatisticDuration compute_input = 2;
-  if (this->has_compute_input()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_compute_input()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::compute_input(this), target, stream);
+      InternalWriteMessage(2, _Internal::compute_input(this),
+        _Internal::compute_input(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration compute_infer = 3;
-  if (this->has_compute_infer()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_compute_infer()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::compute_infer(this), target, stream);
+      InternalWriteMessage(3, _Internal::compute_infer(this),
+        _Internal::compute_infer(this).GetCachedSize(), target, stream);
   }
 
   // .hercules.proto.StatisticDuration compute_output = 4;
-  if (this->has_compute_output()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_compute_output()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        4, _Internal::compute_output(this), target, stream);
+      InternalWriteMessage(4, _Internal::compute_output(this),
+        _Internal::compute_output(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.InferBatchStatistics)
@@ -9382,88 +8297,71 @@ size_t InferBatchStatistics::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.InferBatchStatistics)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // .hercules.proto.StatisticDuration compute_input = 2;
-  if (this->has_compute_input()) {
+  if (this->_internal_has_compute_input()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *compute_input_);
   }
 
   // .hercules.proto.StatisticDuration compute_infer = 3;
-  if (this->has_compute_infer()) {
+  if (this->_internal_has_compute_infer()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *compute_infer_);
   }
 
   // .hercules.proto.StatisticDuration compute_output = 4;
-  if (this->has_compute_output()) {
+  if (this->_internal_has_compute_output()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *compute_output_);
   }
 
   // uint64 batch_size = 1;
-  if (this->batch_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_batch_size());
+  if (this->_internal_batch_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_batch_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void InferBatchStatistics::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.InferBatchStatistics)
-  GOOGLE_DCHECK_NE(&from, this);
-  const InferBatchStatistics* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InferBatchStatistics>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.InferBatchStatistics)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.InferBatchStatistics)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData InferBatchStatistics::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    InferBatchStatistics::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*InferBatchStatistics::GetClassData() const { return &_class_data_; }
+
+void InferBatchStatistics::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<InferBatchStatistics *>(to)->MergeFrom(
+      static_cast<const InferBatchStatistics &>(from));
 }
+
 
 void InferBatchStatistics::MergeFrom(const InferBatchStatistics& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.InferBatchStatistics)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_compute_input()) {
+  if (from._internal_has_compute_input()) {
     _internal_mutable_compute_input()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_compute_input());
   }
-  if (from.has_compute_infer()) {
+  if (from._internal_has_compute_infer()) {
     _internal_mutable_compute_infer()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_compute_infer());
   }
-  if (from.has_compute_output()) {
+  if (from._internal_has_compute_output()) {
     _internal_mutable_compute_output()->::hercules::proto::StatisticDuration::MergeFrom(from._internal_compute_output());
   }
-  if (from.batch_size() != 0) {
+  if (from._internal_batch_size() != 0) {
     _internal_set_batch_size(from._internal_batch_size());
   }
-}
-
-void InferBatchStatistics::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.InferBatchStatistics)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void InferBatchStatistics::CopyFrom(const InferBatchStatistics& from) {
@@ -9479,7 +8377,7 @@ bool InferBatchStatistics::IsInitialized() const {
 
 void InferBatchStatistics::InternalSwap(InferBatchStatistics* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(InferBatchStatistics, batch_size_)
       + sizeof(InferBatchStatistics::batch_size_)
@@ -9489,16 +8387,13 @@ void InferBatchStatistics::InternalSwap(InferBatchStatistics* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InferBatchStatistics::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[29]);
 }
-
 
 // ===================================================================
 
-void ModelStatistics::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelStatistics_default_instance_._instance.get_mutable()->inference_stats_ = const_cast< ::hercules::proto::InferStatistics*>(
-      ::hercules::proto::InferStatistics::internal_default_instance());
-}
 class ModelStatistics::_Internal {
  public:
   static const ::hercules::proto::InferStatistics& inference_stats(const ModelStatistics* msg);
@@ -9508,26 +8403,32 @@ const ::hercules::proto::InferStatistics&
 ModelStatistics::_Internal::inference_stats(const ModelStatistics* msg) {
   return *msg->inference_stats_;
 }
-ModelStatistics::ModelStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelStatistics::ModelStatistics(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   batch_stats_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelStatistics)
 }
 ModelStatistics::ModelStatistics(const ModelStatistics& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       batch_stats_(from.batch_stats_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_inference_stats()) {
     inference_stats_ = new ::hercules::proto::InferStatistics(*from.inference_stats_);
@@ -9540,53 +8441,51 @@ ModelStatistics::ModelStatistics(const ModelStatistics& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelStatistics)
 }
 
-void ModelStatistics::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&inference_stats_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&execution_count_) -
-      reinterpret_cast<char*>(&inference_stats_)) + sizeof(execution_count_));
+inline void ModelStatistics::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&inference_stats_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&execution_count_) -
+    reinterpret_cast<char*>(&inference_stats_)) + sizeof(execution_count_));
 }
 
 ModelStatistics::~ModelStatistics() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelStatistics)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelStatistics::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void ModelStatistics::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
   if (this != internal_default_instance()) delete inference_stats_;
 }
 
-void ModelStatistics::ArenaDtor(void* object) {
-  ModelStatistics* _this = reinterpret_cast< ModelStatistics* >(object);
-  (void)_this;
-}
-void ModelStatistics::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelStatistics::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelStatistics& ModelStatistics::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelStatistics_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelStatistics::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   batch_stats_.Clear();
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  if (GetArena() == nullptr && inference_stats_ != nullptr) {
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && inference_stats_ != nullptr) {
     delete inference_stats_;
   }
   inference_stats_ = nullptr;
@@ -9596,63 +8495,67 @@ void ModelStatistics::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelStatistics::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelStatistics::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelStatistics.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelStatistics.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelStatistics.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelStatistics.version"));
+        } else
+          goto handle_unusual;
         continue;
       // uint64 last_inference = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           last_inference_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 inference_count = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           inference_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 execution_count = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           execution_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .hercules.proto.InferStatistics inference_stats = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_inference_stats(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .hercules.proto.InferBatchStatistics batch_stats = 7;
       case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -9660,38 +8563,40 @@ const char* ModelStatistics::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelStatistics::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelStatistics::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelStatistics)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -9701,7 +8606,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -9711,41 +8616,40 @@ failure:
   }
 
   // uint64 last_inference = 3;
-  if (this->last_inference() != 0) {
+  if (this->_internal_last_inference() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_last_inference(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_last_inference(), target);
   }
 
   // uint64 inference_count = 4;
-  if (this->inference_count() != 0) {
+  if (this->_internal_inference_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_inference_count(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_inference_count(), target);
   }
 
   // uint64 execution_count = 5;
-  if (this->execution_count() != 0) {
+  if (this->_internal_execution_count() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_execution_count(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_execution_count(), target);
   }
 
   // .hercules.proto.InferStatistics inference_stats = 6;
-  if (this->has_inference_stats()) {
-    target = stream->EnsureSpace(target);
+  if (this->_internal_has_inference_stats()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        6, _Internal::inference_stats(this), target, stream);
+      InternalWriteMessage(6, _Internal::inference_stats(this),
+        _Internal::inference_stats(this).GetCachedSize(), target, stream);
   }
 
   // repeated .hercules.proto.InferBatchStatistics batch_stats = 7;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_batch_stats_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_batch_stats_size()); i < n; i++) {
+    const auto& repfield = this->_internal_batch_stats(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, this->_internal_batch_stats(i), target, stream);
+        InternalWriteMessage(7, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelStatistics)
@@ -9756,7 +8660,7 @@ size_t ModelStatistics::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelStatistics)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -9768,104 +8672,83 @@ size_t ModelStatistics::ByteSizeLong() const {
   }
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
   // .hercules.proto.InferStatistics inference_stats = 6;
-  if (this->has_inference_stats()) {
+  if (this->_internal_has_inference_stats()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *inference_stats_);
   }
 
   // uint64 last_inference = 3;
-  if (this->last_inference() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_last_inference());
+  if (this->_internal_last_inference() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_last_inference());
   }
 
   // uint64 inference_count = 4;
-  if (this->inference_count() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_inference_count());
+  if (this->_internal_inference_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_inference_count());
   }
 
   // uint64 execution_count = 5;
-  if (this->execution_count() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_execution_count());
+  if (this->_internal_execution_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_execution_count());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelStatistics::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelStatistics)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelStatistics* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelStatistics>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelStatistics)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelStatistics)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelStatistics::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelStatistics::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelStatistics::GetClassData() const { return &_class_data_; }
+
+void ModelStatistics::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelStatistics *>(to)->MergeFrom(
+      static_cast<const ModelStatistics &>(from));
 }
+
 
 void ModelStatistics::MergeFrom(const ModelStatistics& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelStatistics)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   batch_stats_.MergeFrom(from.batch_stats_);
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-  if (from.has_inference_stats()) {
+  if (from._internal_has_inference_stats()) {
     _internal_mutable_inference_stats()->::hercules::proto::InferStatistics::MergeFrom(from._internal_inference_stats());
   }
-  if (from.last_inference() != 0) {
+  if (from._internal_last_inference() != 0) {
     _internal_set_last_inference(from._internal_last_inference());
   }
-  if (from.inference_count() != 0) {
+  if (from._internal_inference_count() != 0) {
     _internal_set_inference_count(from._internal_inference_count());
   }
-  if (from.execution_count() != 0) {
+  if (from._internal_execution_count() != 0) {
     _internal_set_execution_count(from._internal_execution_count());
   }
-}
-
-void ModelStatistics::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelStatistics)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelStatistics::CopyFrom(const ModelStatistics& from) {
@@ -9881,10 +8764,18 @@ bool ModelStatistics::IsInitialized() const {
 
 void ModelStatistics::InternalSwap(ModelStatistics* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   batch_stats_.InternalSwap(&other->batch_stats_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ModelStatistics, execution_count_)
       + sizeof(ModelStatistics::execution_count_)
@@ -9894,23 +8785,22 @@ void ModelStatistics::InternalSwap(ModelStatistics* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelStatistics::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[30]);
 }
-
 
 // ===================================================================
 
-void ModelStatisticsResponse::InitAsDefaultInstance() {
-}
 class ModelStatisticsResponse::_Internal {
  public:
 };
 
-ModelStatisticsResponse::ModelStatisticsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+ModelStatisticsResponse::ModelStatisticsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   model_stats_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelStatisticsResponse)
 }
 ModelStatisticsResponse::ModelStatisticsResponse(const ModelStatisticsResponse& from)
@@ -9920,38 +8810,29 @@ ModelStatisticsResponse::ModelStatisticsResponse(const ModelStatisticsResponse& 
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelStatisticsResponse)
 }
 
-void ModelStatisticsResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelStatisticsResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void ModelStatisticsResponse::SharedCtor() {
 }
 
 ModelStatisticsResponse::~ModelStatisticsResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelStatisticsResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelStatisticsResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelStatisticsResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ModelStatisticsResponse::ArenaDtor(void* object) {
-  ModelStatisticsResponse* _this = reinterpret_cast< ModelStatisticsResponse* >(object);
-  (void)_this;
-}
-void ModelStatisticsResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelStatisticsResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelStatisticsResponse& ModelStatisticsResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelStatisticsResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelStatisticsResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelStatisticsResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -9959,17 +8840,15 @@ void ModelStatisticsResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelStatisticsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelStatisticsResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .hercules.proto.ModelStatistics model_stats = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -9977,46 +8856,48 @@ const char* ModelStatisticsResponse::_InternalParse(const char* ptr, ::PROTOBUF_
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelStatisticsResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelStatisticsResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelStatisticsResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .hercules.proto.ModelStatistics model_stats = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_model_stats_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_model_stats_size()); i < n; i++) {
+    const auto& repfield = this->_internal_model_stats(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_model_stats(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelStatisticsResponse)
@@ -10027,7 +8908,7 @@ size_t ModelStatisticsResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelStatisticsResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -10038,45 +8919,30 @@ size_t ModelStatisticsResponse::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelStatisticsResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelStatisticsResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelStatisticsResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelStatisticsResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelStatisticsResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelStatisticsResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelStatisticsResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelStatisticsResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelStatisticsResponse::GetClassData() const { return &_class_data_; }
+
+void ModelStatisticsResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelStatisticsResponse *>(to)->MergeFrom(
+      static_cast<const ModelStatisticsResponse &>(from));
 }
+
 
 void ModelStatisticsResponse::MergeFrom(const ModelStatisticsResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelStatisticsResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   model_stats_.MergeFrom(from.model_stats_);
-}
-
-void ModelStatisticsResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelStatisticsResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelStatisticsResponse::CopyFrom(const ModelStatisticsResponse& from) {
@@ -10092,33 +8958,26 @@ bool ModelStatisticsResponse::IsInitialized() const {
 
 void ModelStatisticsResponse::InternalSwap(ModelStatisticsResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   model_stats_.InternalSwap(&other->model_stats_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelStatisticsResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[31]);
 }
-
 
 // ===================================================================
 
-void ModelRepositoryParameter::InitAsDefaultInstance() {
-  ::hercules::proto::_ModelRepositoryParameter_default_instance_.bool_param_ = false;
-  ::hercules::proto::_ModelRepositoryParameter_default_instance_.int64_param_ = PROTOBUF_LONGLONG(0);
-  ::hercules::proto::_ModelRepositoryParameter_default_instance_.string_param_.UnsafeSetDefault(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::hercules::proto::_ModelRepositoryParameter_default_instance_.bytes_param_.UnsafeSetDefault(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
 class ModelRepositoryParameter::_Internal {
  public:
 };
 
-ModelRepositoryParameter::ModelRepositoryParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ModelRepositoryParameter::ModelRepositoryParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.ModelRepositoryParameter)
 }
 ModelRepositoryParameter::ModelRepositoryParameter(const ModelRepositoryParameter& from)
@@ -10149,38 +9008,29 @@ ModelRepositoryParameter::ModelRepositoryParameter(const ModelRepositoryParamete
   // @@protoc_insertion_point(copy_constructor:hercules.proto.ModelRepositoryParameter)
 }
 
-void ModelRepositoryParameter::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  clear_has_parameter_choice();
+inline void ModelRepositoryParameter::SharedCtor() {
+clear_has_parameter_choice();
 }
 
 ModelRepositoryParameter::~ModelRepositoryParameter() {
   // @@protoc_insertion_point(destructor:hercules.proto.ModelRepositoryParameter)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ModelRepositoryParameter::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void ModelRepositoryParameter::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (has_parameter_choice()) {
     clear_parameter_choice();
   }
 }
 
-void ModelRepositoryParameter::ArenaDtor(void* object) {
-  ModelRepositoryParameter* _this = reinterpret_cast< ModelRepositoryParameter* >(object);
-  (void)_this;
-}
-void ModelRepositoryParameter::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ModelRepositoryParameter::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ModelRepositoryParameter& ModelRepositoryParameter::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ModelRepositoryParameter_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void ModelRepositoryParameter::clear_parameter_choice() {
 // @@protoc_insertion_point(one_of_clear_start:hercules.proto.ModelRepositoryParameter)
@@ -10194,11 +9044,11 @@ void ModelRepositoryParameter::clear_parameter_choice() {
       break;
     }
     case kStringParam: {
-      parameter_choice_.string_param_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+      parameter_choice_.string_param_.Destroy();
       break;
     }
     case kBytesParam: {
-      parameter_choice_.bytes_param_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+      parameter_choice_.bytes_param_.Destroy();
       break;
     }
     case PARAMETER_CHOICE_NOT_SET: {
@@ -10211,7 +9061,7 @@ void ModelRepositoryParameter::clear_parameter_choice() {
 
 void ModelRepositoryParameter::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.ModelRepositoryParameter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -10219,83 +9069,86 @@ void ModelRepositoryParameter::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ModelRepositoryParameter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ModelRepositoryParameter::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // bool bool_param = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _internal_set_bool_param(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int64 int64_param = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _internal_set_int64_param(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string string_param = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_string_param();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.ModelRepositoryParameter.string_param"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.ModelRepositoryParameter.string_param"));
+        } else
+          goto handle_unusual;
         continue;
       // bytes bytes_param = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_bytes_param();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ModelRepositoryParameter::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* ModelRepositoryParameter::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.ModelRepositoryParameter)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // bool bool_param = 1;
   if (_internal_has_bool_param()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_bool_param(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_bool_param(), target);
   }
 
   // int64 int64_param = 2;
   if (_internal_has_int64_param()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_int64_param(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_int64_param(), target);
   }
 
   // string string_param = 3;
@@ -10315,7 +9168,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.ModelRepositoryParameter)
@@ -10326,7 +9179,7 @@ size_t ModelRepositoryParameter::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.ModelRepositoryParameter)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -10338,9 +9191,7 @@ size_t ModelRepositoryParameter::ByteSizeLong() const {
     }
     // int64 int64_param = 2;
     case kInt64Param: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-          this->_internal_int64_param());
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_int64_param());
       break;
     }
     // string string_param = 3;
@@ -10361,35 +9212,26 @@ size_t ModelRepositoryParameter::ByteSizeLong() const {
       break;
     }
   }
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void ModelRepositoryParameter::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.ModelRepositoryParameter)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ModelRepositoryParameter* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ModelRepositoryParameter>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.ModelRepositoryParameter)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.ModelRepositoryParameter)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ModelRepositoryParameter::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ModelRepositoryParameter::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ModelRepositoryParameter::GetClassData() const { return &_class_data_; }
+
+void ModelRepositoryParameter::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ModelRepositoryParameter *>(to)->MergeFrom(
+      static_cast<const ModelRepositoryParameter &>(from));
 }
+
 
 void ModelRepositoryParameter::MergeFrom(const ModelRepositoryParameter& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.ModelRepositoryParameter)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.parameter_choice_case()) {
@@ -10413,13 +9255,7 @@ void ModelRepositoryParameter::MergeFrom(const ModelRepositoryParameter& from) {
       break;
     }
   }
-}
-
-void ModelRepositoryParameter::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.ModelRepositoryParameter)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ModelRepositoryParameter::CopyFrom(const ModelRepositoryParameter& from) {
@@ -10435,139 +9271,136 @@ bool ModelRepositoryParameter::IsInitialized() const {
 
 void ModelRepositoryParameter::InternalSwap(ModelRepositoryParameter* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(parameter_choice_, other->parameter_choice_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ModelRepositoryParameter::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[32]);
 }
-
 
 // ===================================================================
 
-void RepositoryIndexRequest::InitAsDefaultInstance() {
-}
 class RepositoryIndexRequest::_Internal {
  public:
 };
 
-RepositoryIndexRequest::RepositoryIndexRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+RepositoryIndexRequest::RepositoryIndexRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryIndexRequest)
 }
 RepositoryIndexRequest::RepositoryIndexRequest(const RepositoryIndexRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  repository_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  repository_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    repository_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_repository_name().empty()) {
-    repository_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_repository_name(),
-      GetArena());
+    repository_name_.Set(from._internal_repository_name(), 
+      GetArenaForAllocation());
   }
   ready_ = from.ready_;
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryIndexRequest)
 }
 
-void RepositoryIndexRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RepositoryIndexRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  repository_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ready_ = false;
+inline void RepositoryIndexRequest::SharedCtor() {
+repository_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  repository_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+ready_ = false;
 }
 
 RepositoryIndexRequest::~RepositoryIndexRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.RepositoryIndexRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RepositoryIndexRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  repository_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryIndexRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  repository_name_.Destroy();
 }
 
-void RepositoryIndexRequest::ArenaDtor(void* object) {
-  RepositoryIndexRequest* _this = reinterpret_cast< RepositoryIndexRequest* >(object);
-  (void)_this;
-}
-void RepositoryIndexRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RepositoryIndexRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RepositoryIndexRequest& RepositoryIndexRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryIndexRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RepositoryIndexRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryIndexRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  repository_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  repository_name_.ClearToEmpty();
   ready_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RepositoryIndexRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RepositoryIndexRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string repository_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_repository_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryIndexRequest.repository_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryIndexRequest.repository_name"));
+        } else
+          goto handle_unusual;
         continue;
       // bool ready = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           ready_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryIndexRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* RepositoryIndexRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryIndexRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string repository_name = 1;
-  if (this->repository_name().size() > 0) {
+  if (!this->_internal_repository_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_repository_name().data(), static_cast<int>(this->_internal_repository_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10577,13 +9410,13 @@ failure:
   }
 
   // bool ready = 2;
-  if (this->ready() != 0) {
+  if (this->_internal_ready() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_ready(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_ready(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryIndexRequest)
@@ -10594,66 +9427,51 @@ size_t RepositoryIndexRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryIndexRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string repository_name = 1;
-  if (this->repository_name().size() > 0) {
+  if (!this->_internal_repository_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_repository_name());
   }
 
   // bool ready = 2;
-  if (this->ready() != 0) {
+  if (this->_internal_ready() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RepositoryIndexRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryIndexRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryIndexRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryIndexRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryIndexRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryIndexRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryIndexRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RepositoryIndexRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryIndexRequest::GetClassData() const { return &_class_data_; }
+
+void RepositoryIndexRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RepositoryIndexRequest *>(to)->MergeFrom(
+      static_cast<const RepositoryIndexRequest &>(from));
 }
+
 
 void RepositoryIndexRequest::MergeFrom(const RepositoryIndexRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryIndexRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.repository_name().size() > 0) {
+  if (!from._internal_repository_name().empty()) {
     _internal_set_repository_name(from._internal_repository_name());
   }
-  if (from.ready() != 0) {
+  if (from._internal_ready() != 0) {
     _internal_set_ready(from._internal_ready());
   }
-}
-
-void RepositoryIndexRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryIndexRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RepositoryIndexRequest::CopyFrom(const RepositoryIndexRequest& from) {
@@ -10669,180 +9487,202 @@ bool RepositoryIndexRequest::IsInitialized() const {
 
 void RepositoryIndexRequest::InternalSwap(RepositoryIndexRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  repository_name_.Swap(&other->repository_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &repository_name_, lhs_arena,
+      &other->repository_name_, rhs_arena
+  );
   swap(ready_, other->ready_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryIndexRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[33]);
 }
-
 
 // ===================================================================
 
-void RepositoryIndexResponse_ModelIndex::InitAsDefaultInstance() {
-}
 class RepositoryIndexResponse_ModelIndex::_Internal {
  public:
 };
 
-RepositoryIndexResponse_ModelIndex::RepositoryIndexResponse_ModelIndex(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+RepositoryIndexResponse_ModelIndex::RepositoryIndexResponse_ModelIndex(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryIndexResponse.ModelIndex)
 }
 RepositoryIndexResponse_ModelIndex::RepositoryIndexResponse_ModelIndex(const RepositoryIndexResponse_ModelIndex& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  version_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    version_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_version().empty()) {
-    version_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_version(),
-      GetArena());
+    version_.Set(from._internal_version(), 
+      GetArenaForAllocation());
   }
-  state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  state_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    state_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_state().empty()) {
-    state_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_state(),
-      GetArena());
+    state_.Set(from._internal_state(), 
+      GetArenaForAllocation());
   }
-  reason_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  reason_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    reason_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_reason().empty()) {
-    reason_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_reason(),
-      GetArena());
+    reason_.Set(from._internal_reason(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryIndexResponse.ModelIndex)
 }
 
-void RepositoryIndexResponse_ModelIndex::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  state_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  reason_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryIndexResponse_ModelIndex::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+version_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  version_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+state_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  state_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+reason_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  reason_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RepositoryIndexResponse_ModelIndex::~RepositoryIndexResponse_ModelIndex() {
   // @@protoc_insertion_point(destructor:hercules.proto.RepositoryIndexResponse.ModelIndex)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RepositoryIndexResponse_ModelIndex::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  version_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  state_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  reason_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryIndexResponse_ModelIndex::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  version_.Destroy();
+  state_.Destroy();
+  reason_.Destroy();
 }
 
-void RepositoryIndexResponse_ModelIndex::ArenaDtor(void* object) {
-  RepositoryIndexResponse_ModelIndex* _this = reinterpret_cast< RepositoryIndexResponse_ModelIndex* >(object);
-  (void)_this;
-}
-void RepositoryIndexResponse_ModelIndex::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RepositoryIndexResponse_ModelIndex::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RepositoryIndexResponse_ModelIndex& RepositoryIndexResponse_ModelIndex::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryIndexResponse_ModelIndex_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RepositoryIndexResponse_ModelIndex::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryIndexResponse.ModelIndex)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  state_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  reason_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  version_.ClearToEmpty();
+  state_.ClearToEmpty();
+  reason_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RepositoryIndexResponse_ModelIndex::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RepositoryIndexResponse_ModelIndex::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string version = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.version"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.version"));
+        } else
+          goto handle_unusual;
         continue;
       // string state = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_state();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.state"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.state"));
+        } else
+          goto handle_unusual;
         continue;
       // string reason = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_reason();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.reason"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryIndexResponse.ModelIndex.reason"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryIndexResponse_ModelIndex::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* RepositoryIndexResponse_ModelIndex::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryIndexResponse.ModelIndex)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10852,7 +9692,7 @@ failure:
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10862,7 +9702,7 @@ failure:
   }
 
   // string state = 3;
-  if (this->state().size() > 0) {
+  if (!this->_internal_state().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_state().data(), static_cast<int>(this->_internal_state().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10872,7 +9712,7 @@ failure:
   }
 
   // string reason = 4;
-  if (this->reason().size() > 0) {
+  if (!this->_internal_reason().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_reason().data(), static_cast<int>(this->_internal_reason().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -10882,7 +9722,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryIndexResponse.ModelIndex)
@@ -10893,88 +9733,73 @@ size_t RepositoryIndexResponse_ModelIndex::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryIndexResponse.ModelIndex)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string version = 2;
-  if (this->version().size() > 0) {
+  if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
   // string state = 3;
-  if (this->state().size() > 0) {
+  if (!this->_internal_state().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_state());
   }
 
   // string reason = 4;
-  if (this->reason().size() > 0) {
+  if (!this->_internal_reason().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_reason());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RepositoryIndexResponse_ModelIndex::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryIndexResponse.ModelIndex)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryIndexResponse_ModelIndex* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryIndexResponse_ModelIndex>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryIndexResponse.ModelIndex)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryIndexResponse.ModelIndex)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryIndexResponse_ModelIndex::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RepositoryIndexResponse_ModelIndex::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryIndexResponse_ModelIndex::GetClassData() const { return &_class_data_; }
+
+void RepositoryIndexResponse_ModelIndex::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RepositoryIndexResponse_ModelIndex *>(to)->MergeFrom(
+      static_cast<const RepositoryIndexResponse_ModelIndex &>(from));
 }
+
 
 void RepositoryIndexResponse_ModelIndex::MergeFrom(const RepositoryIndexResponse_ModelIndex& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryIndexResponse.ModelIndex)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.version().size() > 0) {
+  if (!from._internal_version().empty()) {
     _internal_set_version(from._internal_version());
   }
-  if (from.state().size() > 0) {
+  if (!from._internal_state().empty()) {
     _internal_set_state(from._internal_state());
   }
-  if (from.reason().size() > 0) {
+  if (!from._internal_reason().empty()) {
     _internal_set_reason(from._internal_reason());
   }
-}
-
-void RepositoryIndexResponse_ModelIndex::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryIndexResponse.ModelIndex)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RepositoryIndexResponse_ModelIndex::CopyFrom(const RepositoryIndexResponse_ModelIndex& from) {
@@ -10990,31 +9815,44 @@ bool RepositoryIndexResponse_ModelIndex::IsInitialized() const {
 
 void RepositoryIndexResponse_ModelIndex::InternalSwap(RepositoryIndexResponse_ModelIndex* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  version_.Swap(&other->version_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  state_.Swap(&other->state_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  reason_.Swap(&other->reason_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &version_, lhs_arena,
+      &other->version_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &state_, lhs_arena,
+      &other->state_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &reason_, lhs_arena,
+      &other->reason_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryIndexResponse_ModelIndex::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[34]);
 }
-
 
 // ===================================================================
 
-void RepositoryIndexResponse::InitAsDefaultInstance() {
-}
 class RepositoryIndexResponse::_Internal {
  public:
 };
 
-RepositoryIndexResponse::RepositoryIndexResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+RepositoryIndexResponse::RepositoryIndexResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   models_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryIndexResponse)
 }
 RepositoryIndexResponse::RepositoryIndexResponse(const RepositoryIndexResponse& from)
@@ -11024,38 +9862,29 @@ RepositoryIndexResponse::RepositoryIndexResponse(const RepositoryIndexResponse& 
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryIndexResponse)
 }
 
-void RepositoryIndexResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RepositoryIndexResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void RepositoryIndexResponse::SharedCtor() {
 }
 
 RepositoryIndexResponse::~RepositoryIndexResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.RepositoryIndexResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RepositoryIndexResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void RepositoryIndexResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void RepositoryIndexResponse::ArenaDtor(void* object) {
-  RepositoryIndexResponse* _this = reinterpret_cast< RepositoryIndexResponse* >(object);
-  (void)_this;
-}
-void RepositoryIndexResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RepositoryIndexResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RepositoryIndexResponse& RepositoryIndexResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryIndexResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RepositoryIndexResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryIndexResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11063,17 +9892,15 @@ void RepositoryIndexResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RepositoryIndexResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RepositoryIndexResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .hercules.proto.RepositoryIndexResponse.ModelIndex models = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11081,46 +9908,48 @@ const char* RepositoryIndexResponse::_InternalParse(const char* ptr, ::PROTOBUF_
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryIndexResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* RepositoryIndexResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryIndexResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated .hercules.proto.RepositoryIndexResponse.ModelIndex models = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_models_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_models_size()); i < n; i++) {
+    const auto& repfield = this->_internal_models(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_models(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryIndexResponse)
@@ -11131,7 +9960,7 @@ size_t RepositoryIndexResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryIndexResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11142,45 +9971,30 @@ size_t RepositoryIndexResponse::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RepositoryIndexResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryIndexResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryIndexResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryIndexResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryIndexResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryIndexResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryIndexResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RepositoryIndexResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryIndexResponse::GetClassData() const { return &_class_data_; }
+
+void RepositoryIndexResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RepositoryIndexResponse *>(to)->MergeFrom(
+      static_cast<const RepositoryIndexResponse &>(from));
 }
+
 
 void RepositoryIndexResponse::MergeFrom(const RepositoryIndexResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryIndexResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   models_.MergeFrom(from.models_);
-}
-
-void RepositoryIndexResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryIndexResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RepositoryIndexResponse::CopyFrom(const RepositoryIndexResponse& from) {
@@ -11196,14 +10010,15 @@ bool RepositoryIndexResponse::IsInitialized() const {
 
 void RepositoryIndexResponse::InternalSwap(RepositoryIndexResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   models_.InternalSwap(&other->models_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryIndexResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[35]);
 }
-
 
 // ===================================================================
 
@@ -11214,120 +10029,127 @@ void RepositoryModelLoadRequest_ParametersEntry_DoNotUse::MergeFrom(const Reposi
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryModelLoadRequest_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[36]);
 }
-void RepositoryModelLoadRequest_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void RepositoryModelLoadRequest::InitAsDefaultInstance() {
-}
 class RepositoryModelLoadRequest::_Internal {
  public:
 };
 
-RepositoryModelLoadRequest::RepositoryModelLoadRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+RepositoryModelLoadRequest::RepositoryModelLoadRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &RepositoryModelLoadRequest::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryModelLoadRequest)
 }
 RepositoryModelLoadRequest::RepositoryModelLoadRequest(const RepositoryModelLoadRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  repository_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  repository_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    repository_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_repository_name().empty()) {
-    repository_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_repository_name(),
-      GetArena());
+    repository_name_.Set(from._internal_repository_name(), 
+      GetArenaForAllocation());
   }
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_name().empty()) {
-    model_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_name(),
-      GetArena());
+    model_name_.Set(from._internal_model_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryModelLoadRequest)
 }
 
-void RepositoryModelLoadRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RepositoryModelLoadRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  repository_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryModelLoadRequest::SharedCtor() {
+repository_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  repository_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+model_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RepositoryModelLoadRequest::~RepositoryModelLoadRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.RepositoryModelLoadRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RepositoryModelLoadRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  repository_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryModelLoadRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  repository_name_.Destroy();
+  model_name_.Destroy();
 }
 
 void RepositoryModelLoadRequest::ArenaDtor(void* object) {
   RepositoryModelLoadRequest* _this = reinterpret_cast< RepositoryModelLoadRequest* >(object);
-  (void)_this;
-}
-void RepositoryModelLoadRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void RepositoryModelLoadRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RepositoryModelLoadRequest& RepositoryModelLoadRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryModelLoadRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RepositoryModelLoadRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryModelLoadRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   parameters_.Clear();
-  repository_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  repository_name_.ClearToEmpty();
+  model_name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RepositoryModelLoadRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RepositoryModelLoadRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string repository_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_repository_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryModelLoadRequest.repository_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryModelLoadRequest.repository_name"));
+        } else
+          goto handle_unusual;
         continue;
       // string model_name = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_model_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryModelLoadRequest.model_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryModelLoadRequest.model_name"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.ModelRepositoryParameter> parameters = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11335,38 +10157,40 @@ const char* RepositoryModelLoadRequest::_InternalParse(const char* ptr, ::PROTOB
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryModelLoadRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* RepositoryModelLoadRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryModelLoadRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string repository_name = 1;
-  if (this->repository_name().size() > 0) {
+  if (!this->_internal_repository_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_repository_name().data(), static_cast<int>(this->_internal_repository_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -11376,7 +10200,7 @@ failure:
   }
 
   // string model_name = 2;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_name().data(), static_cast<int>(this->_internal_model_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -11387,47 +10211,32 @@ failure:
 
   // map<string, .hercules.proto.ModelRepositoryParameter> parameters = 3;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.RepositoryModelLoadRequest.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::ModelRepositoryParameter>;
+    using WireHelper = RepositoryModelLoadRequest_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.RepositoryModelLoadRequest.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = RepositoryModelLoadRequest_ParametersEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = RepositoryModelLoadRequest_ParametersEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryModelLoadRequest)
@@ -11438,7 +10247,7 @@ size_t RepositoryModelLoadRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryModelLoadRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11452,64 +10261,49 @@ size_t RepositoryModelLoadRequest::ByteSizeLong() const {
   }
 
   // string repository_name = 1;
-  if (this->repository_name().size() > 0) {
+  if (!this->_internal_repository_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_repository_name());
   }
 
   // string model_name = 2;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RepositoryModelLoadRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryModelLoadRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryModelLoadRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryModelLoadRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryModelLoadRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryModelLoadRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryModelLoadRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RepositoryModelLoadRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryModelLoadRequest::GetClassData() const { return &_class_data_; }
+
+void RepositoryModelLoadRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RepositoryModelLoadRequest *>(to)->MergeFrom(
+      static_cast<const RepositoryModelLoadRequest &>(from));
 }
+
 
 void RepositoryModelLoadRequest::MergeFrom(const RepositoryModelLoadRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryModelLoadRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
-  if (from.repository_name().size() > 0) {
+  if (!from._internal_repository_name().empty()) {
     _internal_set_repository_name(from._internal_repository_name());
   }
-  if (from.model_name().size() > 0) {
+  if (!from._internal_model_name().empty()) {
     _internal_set_model_name(from._internal_model_name());
   }
-}
-
-void RepositoryModelLoadRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryModelLoadRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RepositoryModelLoadRequest::CopyFrom(const RepositoryModelLoadRequest& from) {
@@ -11525,181 +10319,64 @@ bool RepositoryModelLoadRequest::IsInitialized() const {
 
 void RepositoryModelLoadRequest::InternalSwap(RepositoryModelLoadRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
-  repository_name_.Swap(&other->repository_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_name_.Swap(&other->model_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &repository_name_, lhs_arena,
+      &other->repository_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_name_, lhs_arena,
+      &other->model_name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryModelLoadRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[37]);
 }
-
 
 // ===================================================================
 
-void RepositoryModelLoadResponse::InitAsDefaultInstance() {
-}
 class RepositoryModelLoadResponse::_Internal {
  public:
 };
 
-RepositoryModelLoadResponse::RepositoryModelLoadResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+RepositoryModelLoadResponse::RepositoryModelLoadResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryModelLoadResponse)
 }
 RepositoryModelLoadResponse::RepositoryModelLoadResponse(const RepositoryModelLoadResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryModelLoadResponse)
 }
 
-void RepositoryModelLoadResponse::SharedCtor() {
-}
-
-RepositoryModelLoadResponse::~RepositoryModelLoadResponse() {
-  // @@protoc_insertion_point(destructor:hercules.proto.RepositoryModelLoadResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void RepositoryModelLoadResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void RepositoryModelLoadResponse::ArenaDtor(void* object) {
-  RepositoryModelLoadResponse* _this = reinterpret_cast< RepositoryModelLoadResponse* >(object);
-  (void)_this;
-}
-void RepositoryModelLoadResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void RepositoryModelLoadResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const RepositoryModelLoadResponse& RepositoryModelLoadResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryModelLoadResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void RepositoryModelLoadResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryModelLoadResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* RepositoryModelLoadResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryModelLoadResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryModelLoadResponse::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryModelLoadResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryModelLoadResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryModelLoadResponse)
-  return target;
-}
 
-size_t RepositoryModelLoadResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryModelLoadResponse)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void RepositoryModelLoadResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryModelLoadResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryModelLoadResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryModelLoadResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryModelLoadResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryModelLoadResponse)
-    MergeFrom(*source);
-  }
-}
-
-void RepositoryModelLoadResponse::MergeFrom(const RepositoryModelLoadResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryModelLoadResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void RepositoryModelLoadResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryModelLoadResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void RepositoryModelLoadResponse::CopyFrom(const RepositoryModelLoadResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.RepositoryModelLoadResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool RepositoryModelLoadResponse::IsInitialized() const {
-  return true;
-}
-
-void RepositoryModelLoadResponse::InternalSwap(RepositoryModelLoadResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryModelLoadResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[38]);
 }
-
 
 // ===================================================================
 
@@ -11710,120 +10387,127 @@ void RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::MergeFrom(const Repo
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[39]);
 }
-void RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void RepositoryModelUnloadRequest::InitAsDefaultInstance() {
-}
 class RepositoryModelUnloadRequest::_Internal {
  public:
 };
 
-RepositoryModelUnloadRequest::RepositoryModelUnloadRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+RepositoryModelUnloadRequest::RepositoryModelUnloadRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   parameters_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &RepositoryModelUnloadRequest::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryModelUnloadRequest)
 }
 RepositoryModelUnloadRequest::RepositoryModelUnloadRequest(const RepositoryModelUnloadRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   parameters_.MergeFrom(from.parameters_);
-  repository_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  repository_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    repository_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_repository_name().empty()) {
-    repository_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_repository_name(),
-      GetArena());
+    repository_name_.Set(from._internal_repository_name(), 
+      GetArenaForAllocation());
   }
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_name().empty()) {
-    model_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_name(),
-      GetArena());
+    model_name_.Set(from._internal_model_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryModelUnloadRequest)
 }
 
-void RepositoryModelUnloadRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_RepositoryModelUnloadRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  repository_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryModelUnloadRequest::SharedCtor() {
+repository_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  repository_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+model_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RepositoryModelUnloadRequest::~RepositoryModelUnloadRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.RepositoryModelUnloadRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RepositoryModelUnloadRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  repository_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void RepositoryModelUnloadRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  parameters_.Destruct();
+  repository_name_.Destroy();
+  model_name_.Destroy();
 }
 
 void RepositoryModelUnloadRequest::ArenaDtor(void* object) {
   RepositoryModelUnloadRequest* _this = reinterpret_cast< RepositoryModelUnloadRequest* >(object);
-  (void)_this;
-}
-void RepositoryModelUnloadRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->parameters_.Destruct();
 }
 void RepositoryModelUnloadRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RepositoryModelUnloadRequest& RepositoryModelUnloadRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryModelUnloadRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RepositoryModelUnloadRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryModelUnloadRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   parameters_.Clear();
-  repository_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  repository_name_.ClearToEmpty();
+  model_name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RepositoryModelUnloadRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RepositoryModelUnloadRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string repository_name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_repository_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryModelUnloadRequest.repository_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryModelUnloadRequest.repository_name"));
+        } else
+          goto handle_unusual;
         continue;
       // string model_name = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_model_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.RepositoryModelUnloadRequest.model_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.RepositoryModelUnloadRequest.model_name"));
+        } else
+          goto handle_unusual;
         continue;
       // map<string, .hercules.proto.ModelRepositoryParameter> parameters = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -11831,38 +10515,40 @@ const char* RepositoryModelUnloadRequest::_InternalParse(const char* ptr, ::PROT
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryModelUnloadRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* RepositoryModelUnloadRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryModelUnloadRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string repository_name = 1;
-  if (this->repository_name().size() > 0) {
+  if (!this->_internal_repository_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_repository_name().data(), static_cast<int>(this->_internal_repository_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -11872,7 +10558,7 @@ failure:
   }
 
   // string model_name = 2;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_name().data(), static_cast<int>(this->_internal_model_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -11883,47 +10569,32 @@ failure:
 
   // map<string, .hercules.proto.ModelRepositoryParameter> parameters = 3;
   if (!this->_internal_parameters().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.RepositoryModelUnloadRequest.ParametersEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::ModelRepositoryParameter>;
+    using WireHelper = RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_parameters();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.RepositoryModelUnloadRequest.ParametersEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_parameters().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_parameters().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::Funcs::InternalSerialize(3, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::ModelRepositoryParameter >::const_iterator
-          it = this->_internal_parameters().begin();
-          it != this->_internal_parameters().end(); ++it) {
-        target = RepositoryModelUnloadRequest_ParametersEntry_DoNotUse::Funcs::InternalSerialize(3, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryModelUnloadRequest)
@@ -11934,7 +10605,7 @@ size_t RepositoryModelUnloadRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryModelUnloadRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -11948,64 +10619,49 @@ size_t RepositoryModelUnloadRequest::ByteSizeLong() const {
   }
 
   // string repository_name = 1;
-  if (this->repository_name().size() > 0) {
+  if (!this->_internal_repository_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_repository_name());
   }
 
   // string model_name = 2;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RepositoryModelUnloadRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryModelUnloadRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryModelUnloadRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryModelUnloadRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryModelUnloadRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryModelUnloadRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryModelUnloadRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RepositoryModelUnloadRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryModelUnloadRequest::GetClassData() const { return &_class_data_; }
+
+void RepositoryModelUnloadRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RepositoryModelUnloadRequest *>(to)->MergeFrom(
+      static_cast<const RepositoryModelUnloadRequest &>(from));
 }
+
 
 void RepositoryModelUnloadRequest::MergeFrom(const RepositoryModelUnloadRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryModelUnloadRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   parameters_.MergeFrom(from.parameters_);
-  if (from.repository_name().size() > 0) {
+  if (!from._internal_repository_name().empty()) {
     _internal_set_repository_name(from._internal_repository_name());
   }
-  if (from.model_name().size() > 0) {
+  if (!from._internal_model_name().empty()) {
     _internal_set_model_name(from._internal_model_name());
   }
-}
-
-void RepositoryModelUnloadRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryModelUnloadRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RepositoryModelUnloadRequest::CopyFrom(const RepositoryModelUnloadRequest& from) {
@@ -12021,295 +10677,173 @@ bool RepositoryModelUnloadRequest::IsInitialized() const {
 
 void RepositoryModelUnloadRequest::InternalSwap(RepositoryModelUnloadRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  parameters_.Swap(&other->parameters_);
-  repository_name_.Swap(&other->repository_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  model_name_.Swap(&other->model_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  parameters_.InternalSwap(&other->parameters_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &repository_name_, lhs_arena,
+      &other->repository_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_name_, lhs_arena,
+      &other->model_name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryModelUnloadRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[40]);
 }
-
 
 // ===================================================================
 
-void RepositoryModelUnloadResponse::InitAsDefaultInstance() {
-}
 class RepositoryModelUnloadResponse::_Internal {
  public:
 };
 
-RepositoryModelUnloadResponse::RepositoryModelUnloadResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+RepositoryModelUnloadResponse::RepositoryModelUnloadResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.RepositoryModelUnloadResponse)
 }
 RepositoryModelUnloadResponse::RepositoryModelUnloadResponse(const RepositoryModelUnloadResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.RepositoryModelUnloadResponse)
 }
 
-void RepositoryModelUnloadResponse::SharedCtor() {
-}
-
-RepositoryModelUnloadResponse::~RepositoryModelUnloadResponse() {
-  // @@protoc_insertion_point(destructor:hercules.proto.RepositoryModelUnloadResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void RepositoryModelUnloadResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void RepositoryModelUnloadResponse::ArenaDtor(void* object) {
-  RepositoryModelUnloadResponse* _this = reinterpret_cast< RepositoryModelUnloadResponse* >(object);
-  (void)_this;
-}
-void RepositoryModelUnloadResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void RepositoryModelUnloadResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const RepositoryModelUnloadResponse& RepositoryModelUnloadResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RepositoryModelUnloadResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void RepositoryModelUnloadResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.RepositoryModelUnloadResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* RepositoryModelUnloadResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RepositoryModelUnloadResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RepositoryModelUnloadResponse::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RepositoryModelUnloadResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.RepositoryModelUnloadResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.RepositoryModelUnloadResponse)
-  return target;
-}
 
-size_t RepositoryModelUnloadResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.RepositoryModelUnloadResponse)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void RepositoryModelUnloadResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.RepositoryModelUnloadResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RepositoryModelUnloadResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RepositoryModelUnloadResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.RepositoryModelUnloadResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.RepositoryModelUnloadResponse)
-    MergeFrom(*source);
-  }
-}
-
-void RepositoryModelUnloadResponse::MergeFrom(const RepositoryModelUnloadResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.RepositoryModelUnloadResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void RepositoryModelUnloadResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.RepositoryModelUnloadResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void RepositoryModelUnloadResponse::CopyFrom(const RepositoryModelUnloadResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.RepositoryModelUnloadResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool RepositoryModelUnloadResponse::IsInitialized() const {
-  return true;
-}
-
-void RepositoryModelUnloadResponse::InternalSwap(RepositoryModelUnloadResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RepositoryModelUnloadResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[41]);
 }
-
 
 // ===================================================================
 
-void SystemSharedMemoryStatusRequest::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryStatusRequest::_Internal {
  public:
 };
 
-SystemSharedMemoryStatusRequest::SystemSharedMemoryStatusRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+SystemSharedMemoryStatusRequest::SystemSharedMemoryStatusRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryStatusRequest)
 }
 SystemSharedMemoryStatusRequest::SystemSharedMemoryStatusRequest(const SystemSharedMemoryStatusRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryStatusRequest)
 }
 
-void SystemSharedMemoryStatusRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SystemSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SystemSharedMemoryStatusRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 SystemSharedMemoryStatusRequest::~SystemSharedMemoryStatusRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryStatusRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void SystemSharedMemoryStatusRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SystemSharedMemoryStatusRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void SystemSharedMemoryStatusRequest::ArenaDtor(void* object) {
-  SystemSharedMemoryStatusRequest* _this = reinterpret_cast< SystemSharedMemoryStatusRequest* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryStatusRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void SystemSharedMemoryStatusRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const SystemSharedMemoryStatusRequest& SystemSharedMemoryStatusRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void SystemSharedMemoryStatusRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryStatusRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SystemSharedMemoryStatusRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SystemSharedMemoryStatusRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryStatusRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryStatusRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryStatusRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SystemSharedMemoryStatusRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryStatusRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -12319,7 +10853,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryStatusRequest)
@@ -12330,58 +10864,43 @@ size_t SystemSharedMemoryStatusRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryStatusRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void SystemSharedMemoryStatusRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryStatusRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryStatusRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryStatusRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryStatusRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryStatusRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryStatusRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SystemSharedMemoryStatusRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryStatusRequest::GetClassData() const { return &_class_data_; }
+
+void SystemSharedMemoryStatusRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SystemSharedMemoryStatusRequest *>(to)->MergeFrom(
+      static_cast<const SystemSharedMemoryStatusRequest &>(from));
 }
+
 
 void SystemSharedMemoryStatusRequest::MergeFrom(const SystemSharedMemoryStatusRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryStatusRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void SystemSharedMemoryStatusRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryStatusRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SystemSharedMemoryStatusRequest::CopyFrom(const SystemSharedMemoryStatusRequest& from) {
@@ -12397,41 +10916,51 @@ bool SystemSharedMemoryStatusRequest::IsInitialized() const {
 
 void SystemSharedMemoryStatusRequest::InternalSwap(SystemSharedMemoryStatusRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryStatusRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[42]);
 }
-
 
 // ===================================================================
 
-void SystemSharedMemoryStatusResponse_RegionStatus::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryStatusResponse_RegionStatus::_Internal {
  public:
 };
 
-SystemSharedMemoryStatusResponse_RegionStatus::SystemSharedMemoryStatusResponse_RegionStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+SystemSharedMemoryStatusResponse_RegionStatus::SystemSharedMemoryStatusResponse_RegionStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
 }
 SystemSharedMemoryStatusResponse_RegionStatus::SystemSharedMemoryStatusResponse_RegionStatus(const SystemSharedMemoryStatusResponse_RegionStatus& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  key_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    key_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_key().empty()) {
-    key_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_key(),
-      GetArena());
+    key_.Set(from._internal_key(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&offset_, &from.offset_,
     static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
@@ -12439,126 +10968,127 @@ SystemSharedMemoryStatusResponse_RegionStatus::SystemSharedMemoryStatusResponse_
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
 }
 
-void SystemSharedMemoryStatusResponse_RegionStatus::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&offset_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&byte_size_) -
-      reinterpret_cast<char*>(&offset_)) + sizeof(byte_size_));
+inline void SystemSharedMemoryStatusResponse_RegionStatus::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+key_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  key_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&offset_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
+    reinterpret_cast<char*>(&offset_)) + sizeof(byte_size_));
 }
 
 SystemSharedMemoryStatusResponse_RegionStatus::~SystemSharedMemoryStatusResponse_RegionStatus() {
   // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void SystemSharedMemoryStatusResponse_RegionStatus::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  key_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SystemSharedMemoryStatusResponse_RegionStatus::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  key_.Destroy();
 }
 
-void SystemSharedMemoryStatusResponse_RegionStatus::ArenaDtor(void* object) {
-  SystemSharedMemoryStatusResponse_RegionStatus* _this = reinterpret_cast< SystemSharedMemoryStatusResponse_RegionStatus* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryStatusResponse_RegionStatus::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void SystemSharedMemoryStatusResponse_RegionStatus::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const SystemSharedMemoryStatusResponse_RegionStatus& SystemSharedMemoryStatusResponse_RegionStatus::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void SystemSharedMemoryStatusResponse_RegionStatus::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  key_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  key_.ClearToEmpty();
   ::memset(&offset_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&byte_size_) -
       reinterpret_cast<char*>(&offset_)) + sizeof(byte_size_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SystemSharedMemoryStatusResponse_RegionStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SystemSharedMemoryStatusResponse_RegionStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string key = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_key();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus.key"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus.key"));
+        } else
+          goto handle_unusual;
         continue;
       // uint64 offset = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 byte_size = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           byte_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryStatusResponse_RegionStatus::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SystemSharedMemoryStatusResponse_RegionStatus::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -12568,7 +11098,7 @@ failure:
   }
 
   // string key = 2;
-  if (this->key().size() > 0) {
+  if (!this->_internal_key().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -12578,19 +11108,19 @@ failure:
   }
 
   // uint64 offset = 3;
-  if (this->offset() != 0) {
+  if (this->_internal_offset() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_offset(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_offset(), target);
   }
 
   // uint64 byte_size = 4;
-  if (this->byte_size() != 0) {
+  if (this->_internal_byte_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_byte_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_byte_size(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
@@ -12601,88 +11131,69 @@ size_t SystemSharedMemoryStatusResponse_RegionStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string key = 2;
-  if (this->key().size() > 0) {
+  if (!this->_internal_key().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_key());
   }
 
   // uint64 offset = 3;
-  if (this->offset() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_offset());
+  if (this->_internal_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_offset());
   }
 
   // uint64 byte_size = 4;
-  if (this->byte_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_byte_size());
+  if (this->_internal_byte_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_byte_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void SystemSharedMemoryStatusResponse_RegionStatus::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryStatusResponse_RegionStatus* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryStatusResponse_RegionStatus>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryStatusResponse_RegionStatus::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SystemSharedMemoryStatusResponse_RegionStatus::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryStatusResponse_RegionStatus::GetClassData() const { return &_class_data_; }
+
+void SystemSharedMemoryStatusResponse_RegionStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SystemSharedMemoryStatusResponse_RegionStatus *>(to)->MergeFrom(
+      static_cast<const SystemSharedMemoryStatusResponse_RegionStatus &>(from));
 }
+
 
 void SystemSharedMemoryStatusResponse_RegionStatus::MergeFrom(const SystemSharedMemoryStatusResponse_RegionStatus& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.key().size() > 0) {
+  if (!from._internal_key().empty()) {
     _internal_set_key(from._internal_key());
   }
-  if (from.offset() != 0) {
+  if (from._internal_offset() != 0) {
     _internal_set_offset(from._internal_offset());
   }
-  if (from.byte_size() != 0) {
+  if (from._internal_byte_size() != 0) {
     _internal_set_byte_size(from._internal_byte_size());
   }
-}
-
-void SystemSharedMemoryStatusResponse_RegionStatus::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SystemSharedMemoryStatusResponse_RegionStatus::CopyFrom(const SystemSharedMemoryStatusResponse_RegionStatus& from) {
@@ -12698,9 +11209,17 @@ bool SystemSharedMemoryStatusResponse_RegionStatus::IsInitialized() const {
 
 void SystemSharedMemoryStatusResponse_RegionStatus::InternalSwap(SystemSharedMemoryStatusResponse_RegionStatus* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  key_.Swap(&other->key_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &key_, lhs_arena,
+      &other->key_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SystemSharedMemoryStatusResponse_RegionStatus, byte_size_)
       + sizeof(SystemSharedMemoryStatusResponse_RegionStatus::byte_size_)
@@ -12710,9 +11229,10 @@ void SystemSharedMemoryStatusResponse_RegionStatus::InternalSwap(SystemSharedMem
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryStatusResponse_RegionStatus::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[43]);
 }
-
 
 // ===================================================================
 
@@ -12723,27 +11243,25 @@ void SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::MergeFrom(const Sys
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[44]);
 }
-void SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void SystemSharedMemoryStatusResponse::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryStatusResponse::_Internal {
  public:
 };
 
-SystemSharedMemoryStatusResponse::SystemSharedMemoryStatusResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+SystemSharedMemoryStatusResponse::SystemSharedMemoryStatusResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   regions_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &SystemSharedMemoryStatusResponse::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryStatusResponse)
 }
 SystemSharedMemoryStatusResponse::SystemSharedMemoryStatusResponse(const SystemSharedMemoryStatusResponse& from)
@@ -12753,38 +11271,35 @@ SystemSharedMemoryStatusResponse::SystemSharedMemoryStatusResponse(const SystemS
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryStatusResponse)
 }
 
-void SystemSharedMemoryStatusResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SystemSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void SystemSharedMemoryStatusResponse::SharedCtor() {
 }
 
 SystemSharedMemoryStatusResponse::~SystemSharedMemoryStatusResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryStatusResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void SystemSharedMemoryStatusResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void SystemSharedMemoryStatusResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  regions_.Destruct();
 }
 
 void SystemSharedMemoryStatusResponse::ArenaDtor(void* object) {
   SystemSharedMemoryStatusResponse* _this = reinterpret_cast< SystemSharedMemoryStatusResponse* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryStatusResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->regions_.Destruct();
 }
 void SystemSharedMemoryStatusResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const SystemSharedMemoryStatusResponse& SystemSharedMemoryStatusResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void SystemSharedMemoryStatusResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryStatusResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -12792,17 +11307,15 @@ void SystemSharedMemoryStatusResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SystemSharedMemoryStatusResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SystemSharedMemoryStatusResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // map<string, .hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus> regions = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -12810,79 +11323,66 @@ const char* SystemSharedMemoryStatusResponse::_InternalParse(const char* ptr, ::
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryStatusResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SystemSharedMemoryStatusResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryStatusResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // map<string, .hercules.proto.SystemSharedMemoryStatusResponse.RegionStatus> regions = 1;
   if (!this->_internal_regions().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.SystemSharedMemoryStatusResponse.RegionsEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus>;
+    using WireHelper = SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_regions();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.SystemSharedMemoryStatusResponse.RegionsEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_regions().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_regions().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >::const_iterator
-          it = this->_internal_regions().begin();
-          it != this->_internal_regions().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >::const_iterator
-          it = this->_internal_regions().begin();
-          it != this->_internal_regions().end(); ++it) {
-        target = SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryStatusResponse)
@@ -12893,7 +11393,7 @@ size_t SystemSharedMemoryStatusResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryStatusResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -12906,45 +11406,30 @@ size_t SystemSharedMemoryStatusResponse::ByteSizeLong() const {
     total_size += SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void SystemSharedMemoryStatusResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryStatusResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryStatusResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryStatusResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryStatusResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryStatusResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryStatusResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SystemSharedMemoryStatusResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryStatusResponse::GetClassData() const { return &_class_data_; }
+
+void SystemSharedMemoryStatusResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SystemSharedMemoryStatusResponse *>(to)->MergeFrom(
+      static_cast<const SystemSharedMemoryStatusResponse &>(from));
 }
+
 
 void SystemSharedMemoryStatusResponse::MergeFrom(const SystemSharedMemoryStatusResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryStatusResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   regions_.MergeFrom(from.regions_);
-}
-
-void SystemSharedMemoryStatusResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryStatusResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SystemSharedMemoryStatusResponse::CopyFrom(const SystemSharedMemoryStatusResponse& from) {
@@ -12960,41 +11445,46 @@ bool SystemSharedMemoryStatusResponse::IsInitialized() const {
 
 void SystemSharedMemoryStatusResponse::InternalSwap(SystemSharedMemoryStatusResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  regions_.Swap(&other->regions_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  regions_.InternalSwap(&other->regions_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryStatusResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[45]);
 }
-
 
 // ===================================================================
 
-void SystemSharedMemoryRegisterRequest::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryRegisterRequest::_Internal {
  public:
 };
 
-SystemSharedMemoryRegisterRequest::SystemSharedMemoryRegisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+SystemSharedMemoryRegisterRequest::SystemSharedMemoryRegisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryRegisterRequest)
 }
 SystemSharedMemoryRegisterRequest::SystemSharedMemoryRegisterRequest(const SystemSharedMemoryRegisterRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  key_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    key_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_key().empty()) {
-    key_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_key(),
-      GetArena());
+    key_.Set(from._internal_key(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&offset_, &from.offset_,
     static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
@@ -13002,126 +11492,127 @@ SystemSharedMemoryRegisterRequest::SystemSharedMemoryRegisterRequest(const Syste
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryRegisterRequest)
 }
 
-void SystemSharedMemoryRegisterRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SystemSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  key_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&offset_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&byte_size_) -
-      reinterpret_cast<char*>(&offset_)) + sizeof(byte_size_));
+inline void SystemSharedMemoryRegisterRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+key_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  key_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&offset_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
+    reinterpret_cast<char*>(&offset_)) + sizeof(byte_size_));
 }
 
 SystemSharedMemoryRegisterRequest::~SystemSharedMemoryRegisterRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryRegisterRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void SystemSharedMemoryRegisterRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  key_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SystemSharedMemoryRegisterRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  key_.Destroy();
 }
 
-void SystemSharedMemoryRegisterRequest::ArenaDtor(void* object) {
-  SystemSharedMemoryRegisterRequest* _this = reinterpret_cast< SystemSharedMemoryRegisterRequest* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryRegisterRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void SystemSharedMemoryRegisterRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const SystemSharedMemoryRegisterRequest& SystemSharedMemoryRegisterRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void SystemSharedMemoryRegisterRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryRegisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  key_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  key_.ClearToEmpty();
   ::memset(&offset_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&byte_size_) -
       reinterpret_cast<char*>(&offset_)) + sizeof(byte_size_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SystemSharedMemoryRegisterRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SystemSharedMemoryRegisterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryRegisterRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryRegisterRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
       // string key = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_key();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryRegisterRequest.key"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryRegisterRequest.key"));
+        } else
+          goto handle_unusual;
         continue;
       // uint64 offset = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 byte_size = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           byte_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryRegisterRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SystemSharedMemoryRegisterRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryRegisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -13131,7 +11622,7 @@ failure:
   }
 
   // string key = 2;
-  if (this->key().size() > 0) {
+  if (!this->_internal_key().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -13141,19 +11632,19 @@ failure:
   }
 
   // uint64 offset = 3;
-  if (this->offset() != 0) {
+  if (this->_internal_offset() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_offset(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_offset(), target);
   }
 
   // uint64 byte_size = 4;
-  if (this->byte_size() != 0) {
+  if (this->_internal_byte_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_byte_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_byte_size(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryRegisterRequest)
@@ -13164,88 +11655,69 @@ size_t SystemSharedMemoryRegisterRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryRegisterRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // string key = 2;
-  if (this->key().size() > 0) {
+  if (!this->_internal_key().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_key());
   }
 
   // uint64 offset = 3;
-  if (this->offset() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_offset());
+  if (this->_internal_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_offset());
   }
 
   // uint64 byte_size = 4;
-  if (this->byte_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_byte_size());
+  if (this->_internal_byte_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_byte_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void SystemSharedMemoryRegisterRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryRegisterRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryRegisterRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryRegisterRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryRegisterRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryRegisterRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryRegisterRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SystemSharedMemoryRegisterRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryRegisterRequest::GetClassData() const { return &_class_data_; }
+
+void SystemSharedMemoryRegisterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SystemSharedMemoryRegisterRequest *>(to)->MergeFrom(
+      static_cast<const SystemSharedMemoryRegisterRequest &>(from));
 }
+
 
 void SystemSharedMemoryRegisterRequest::MergeFrom(const SystemSharedMemoryRegisterRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryRegisterRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.key().size() > 0) {
+  if (!from._internal_key().empty()) {
     _internal_set_key(from._internal_key());
   }
-  if (from.offset() != 0) {
+  if (from._internal_offset() != 0) {
     _internal_set_offset(from._internal_offset());
   }
-  if (from.byte_size() != 0) {
+  if (from._internal_byte_size() != 0) {
     _internal_set_byte_size(from._internal_byte_size());
   }
-}
-
-void SystemSharedMemoryRegisterRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryRegisterRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SystemSharedMemoryRegisterRequest::CopyFrom(const SystemSharedMemoryRegisterRequest& from) {
@@ -13261,9 +11733,17 @@ bool SystemSharedMemoryRegisterRequest::IsInitialized() const {
 
 void SystemSharedMemoryRegisterRequest::InternalSwap(SystemSharedMemoryRegisterRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  key_.Swap(&other->key_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &key_, lhs_arena,
+      &other->key_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(SystemSharedMemoryRegisterRequest, byte_size_)
       + sizeof(SystemSharedMemoryRegisterRequest::byte_size_)
@@ -13273,288 +11753,158 @@ void SystemSharedMemoryRegisterRequest::InternalSwap(SystemSharedMemoryRegisterR
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryRegisterRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[46]);
 }
-
 
 // ===================================================================
 
-void SystemSharedMemoryRegisterResponse::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryRegisterResponse::_Internal {
  public:
 };
 
-SystemSharedMemoryRegisterResponse::SystemSharedMemoryRegisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+SystemSharedMemoryRegisterResponse::SystemSharedMemoryRegisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryRegisterResponse)
 }
 SystemSharedMemoryRegisterResponse::SystemSharedMemoryRegisterResponse(const SystemSharedMemoryRegisterResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryRegisterResponse)
 }
 
-void SystemSharedMemoryRegisterResponse::SharedCtor() {
-}
-
-SystemSharedMemoryRegisterResponse::~SystemSharedMemoryRegisterResponse() {
-  // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryRegisterResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void SystemSharedMemoryRegisterResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void SystemSharedMemoryRegisterResponse::ArenaDtor(void* object) {
-  SystemSharedMemoryRegisterResponse* _this = reinterpret_cast< SystemSharedMemoryRegisterResponse* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryRegisterResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SystemSharedMemoryRegisterResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const SystemSharedMemoryRegisterResponse& SystemSharedMemoryRegisterResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void SystemSharedMemoryRegisterResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* SystemSharedMemoryRegisterResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryRegisterResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryRegisterResponse::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryRegisterResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryRegisterResponse)
-  return target;
-}
 
-size_t SystemSharedMemoryRegisterResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void SystemSharedMemoryRegisterResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryRegisterResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryRegisterResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryRegisterResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryRegisterResponse)
-    MergeFrom(*source);
-  }
-}
-
-void SystemSharedMemoryRegisterResponse::MergeFrom(const SystemSharedMemoryRegisterResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void SystemSharedMemoryRegisterResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void SystemSharedMemoryRegisterResponse::CopyFrom(const SystemSharedMemoryRegisterResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.SystemSharedMemoryRegisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SystemSharedMemoryRegisterResponse::IsInitialized() const {
-  return true;
-}
-
-void SystemSharedMemoryRegisterResponse::InternalSwap(SystemSharedMemoryRegisterResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryRegisterResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[47]);
 }
-
 
 // ===================================================================
 
-void SystemSharedMemoryUnregisterRequest::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryUnregisterRequest::_Internal {
  public:
 };
 
-SystemSharedMemoryUnregisterRequest::SystemSharedMemoryUnregisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+SystemSharedMemoryUnregisterRequest::SystemSharedMemoryUnregisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryUnregisterRequest)
 }
 SystemSharedMemoryUnregisterRequest::SystemSharedMemoryUnregisterRequest(const SystemSharedMemoryUnregisterRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryUnregisterRequest)
 }
 
-void SystemSharedMemoryUnregisterRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SystemSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SystemSharedMemoryUnregisterRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 SystemSharedMemoryUnregisterRequest::~SystemSharedMemoryUnregisterRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryUnregisterRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void SystemSharedMemoryUnregisterRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void SystemSharedMemoryUnregisterRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void SystemSharedMemoryUnregisterRequest::ArenaDtor(void* object) {
-  SystemSharedMemoryUnregisterRequest* _this = reinterpret_cast< SystemSharedMemoryUnregisterRequest* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryUnregisterRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void SystemSharedMemoryUnregisterRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const SystemSharedMemoryUnregisterRequest& SystemSharedMemoryUnregisterRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void SystemSharedMemoryUnregisterRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryUnregisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SystemSharedMemoryUnregisterRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SystemSharedMemoryUnregisterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryUnregisterRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.SystemSharedMemoryUnregisterRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryUnregisterRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* SystemSharedMemoryUnregisterRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryUnregisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -13564,7 +11914,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryUnregisterRequest)
@@ -13575,58 +11925,43 @@ size_t SystemSharedMemoryUnregisterRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryUnregisterRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void SystemSharedMemoryUnregisterRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryUnregisterRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryUnregisterRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryUnregisterRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryUnregisterRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryUnregisterRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryUnregisterRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    SystemSharedMemoryUnregisterRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryUnregisterRequest::GetClassData() const { return &_class_data_; }
+
+void SystemSharedMemoryUnregisterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<SystemSharedMemoryUnregisterRequest *>(to)->MergeFrom(
+      static_cast<const SystemSharedMemoryUnregisterRequest &>(from));
 }
+
 
 void SystemSharedMemoryUnregisterRequest::MergeFrom(const SystemSharedMemoryUnregisterRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryUnregisterRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void SystemSharedMemoryUnregisterRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryUnregisterRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void SystemSharedMemoryUnregisterRequest::CopyFrom(const SystemSharedMemoryUnregisterRequest& from) {
@@ -13642,293 +11977,168 @@ bool SystemSharedMemoryUnregisterRequest::IsInitialized() const {
 
 void SystemSharedMemoryUnregisterRequest::InternalSwap(SystemSharedMemoryUnregisterRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryUnregisterRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[48]);
 }
-
 
 // ===================================================================
 
-void SystemSharedMemoryUnregisterResponse::InitAsDefaultInstance() {
-}
 class SystemSharedMemoryUnregisterResponse::_Internal {
  public:
 };
 
-SystemSharedMemoryUnregisterResponse::SystemSharedMemoryUnregisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+SystemSharedMemoryUnregisterResponse::SystemSharedMemoryUnregisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.SystemSharedMemoryUnregisterResponse)
 }
 SystemSharedMemoryUnregisterResponse::SystemSharedMemoryUnregisterResponse(const SystemSharedMemoryUnregisterResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.SystemSharedMemoryUnregisterResponse)
 }
 
-void SystemSharedMemoryUnregisterResponse::SharedCtor() {
-}
-
-SystemSharedMemoryUnregisterResponse::~SystemSharedMemoryUnregisterResponse() {
-  // @@protoc_insertion_point(destructor:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void SystemSharedMemoryUnregisterResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void SystemSharedMemoryUnregisterResponse::ArenaDtor(void* object) {
-  SystemSharedMemoryUnregisterResponse* _this = reinterpret_cast< SystemSharedMemoryUnregisterResponse* >(object);
-  (void)_this;
-}
-void SystemSharedMemoryUnregisterResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void SystemSharedMemoryUnregisterResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const SystemSharedMemoryUnregisterResponse& SystemSharedMemoryUnregisterResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SystemSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void SystemSharedMemoryUnregisterResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* SystemSharedMemoryUnregisterResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SystemSharedMemoryUnregisterResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SystemSharedMemoryUnregisterResponse::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* SystemSharedMemoryUnregisterResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  return target;
-}
 
-size_t SystemSharedMemoryUnregisterResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void SystemSharedMemoryUnregisterResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SystemSharedMemoryUnregisterResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SystemSharedMemoryUnregisterResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.SystemSharedMemoryUnregisterResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.SystemSharedMemoryUnregisterResponse)
-    MergeFrom(*source);
-  }
-}
-
-void SystemSharedMemoryUnregisterResponse::MergeFrom(const SystemSharedMemoryUnregisterResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void SystemSharedMemoryUnregisterResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void SystemSharedMemoryUnregisterResponse::CopyFrom(const SystemSharedMemoryUnregisterResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.SystemSharedMemoryUnregisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SystemSharedMemoryUnregisterResponse::IsInitialized() const {
-  return true;
-}
-
-void SystemSharedMemoryUnregisterResponse::InternalSwap(SystemSharedMemoryUnregisterResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemSharedMemoryUnregisterResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[49]);
 }
-
 
 // ===================================================================
 
-void CudaSharedMemoryStatusRequest::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryStatusRequest::_Internal {
  public:
 };
 
-CudaSharedMemoryStatusRequest::CudaSharedMemoryStatusRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+CudaSharedMemoryStatusRequest::CudaSharedMemoryStatusRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryStatusRequest)
 }
 CudaSharedMemoryStatusRequest::CudaSharedMemoryStatusRequest(const CudaSharedMemoryStatusRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryStatusRequest)
 }
 
-void CudaSharedMemoryStatusRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CudaSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CudaSharedMemoryStatusRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CudaSharedMemoryStatusRequest::~CudaSharedMemoryStatusRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryStatusRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CudaSharedMemoryStatusRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CudaSharedMemoryStatusRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void CudaSharedMemoryStatusRequest::ArenaDtor(void* object) {
-  CudaSharedMemoryStatusRequest* _this = reinterpret_cast< CudaSharedMemoryStatusRequest* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryStatusRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CudaSharedMemoryStatusRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const CudaSharedMemoryStatusRequest& CudaSharedMemoryStatusRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryStatusRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void CudaSharedMemoryStatusRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryStatusRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CudaSharedMemoryStatusRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CudaSharedMemoryStatusRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryStatusRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryStatusRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryStatusRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CudaSharedMemoryStatusRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryStatusRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -13938,7 +12148,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryStatusRequest)
@@ -13949,58 +12159,43 @@ size_t CudaSharedMemoryStatusRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryStatusRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void CudaSharedMemoryStatusRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryStatusRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryStatusRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryStatusRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryStatusRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryStatusRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryStatusRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CudaSharedMemoryStatusRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryStatusRequest::GetClassData() const { return &_class_data_; }
+
+void CudaSharedMemoryStatusRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CudaSharedMemoryStatusRequest *>(to)->MergeFrom(
+      static_cast<const CudaSharedMemoryStatusRequest &>(from));
 }
+
 
 void CudaSharedMemoryStatusRequest::MergeFrom(const CudaSharedMemoryStatusRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryStatusRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void CudaSharedMemoryStatusRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryStatusRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CudaSharedMemoryStatusRequest::CopyFrom(const CudaSharedMemoryStatusRequest& from) {
@@ -14016,36 +12211,43 @@ bool CudaSharedMemoryStatusRequest::IsInitialized() const {
 
 void CudaSharedMemoryStatusRequest::InternalSwap(CudaSharedMemoryStatusRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryStatusRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[50]);
 }
-
 
 // ===================================================================
 
-void CudaSharedMemoryStatusResponse_RegionStatus::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryStatusResponse_RegionStatus::_Internal {
  public:
 };
 
-CudaSharedMemoryStatusResponse_RegionStatus::CudaSharedMemoryStatusResponse_RegionStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+CudaSharedMemoryStatusResponse_RegionStatus::CudaSharedMemoryStatusResponse_RegionStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
 }
 CudaSharedMemoryStatusResponse_RegionStatus::CudaSharedMemoryStatusResponse_RegionStatus(const CudaSharedMemoryStatusResponse_RegionStatus& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&device_id_, &from.device_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
@@ -14053,114 +12255,111 @@ CudaSharedMemoryStatusResponse_RegionStatus::CudaSharedMemoryStatusResponse_Regi
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
 }
 
-void CudaSharedMemoryStatusResponse_RegionStatus::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&device_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&byte_size_) -
-      reinterpret_cast<char*>(&device_id_)) + sizeof(byte_size_));
+inline void CudaSharedMemoryStatusResponse_RegionStatus::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&device_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
+    reinterpret_cast<char*>(&device_id_)) + sizeof(byte_size_));
 }
 
 CudaSharedMemoryStatusResponse_RegionStatus::~CudaSharedMemoryStatusResponse_RegionStatus() {
   // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CudaSharedMemoryStatusResponse_RegionStatus::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CudaSharedMemoryStatusResponse_RegionStatus::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void CudaSharedMemoryStatusResponse_RegionStatus::ArenaDtor(void* object) {
-  CudaSharedMemoryStatusResponse_RegionStatus* _this = reinterpret_cast< CudaSharedMemoryStatusResponse_RegionStatus* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryStatusResponse_RegionStatus::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CudaSharedMemoryStatusResponse_RegionStatus::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const CudaSharedMemoryStatusResponse_RegionStatus& CudaSharedMemoryStatusResponse_RegionStatus::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryStatusResponse_RegionStatus_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void CudaSharedMemoryStatusResponse_RegionStatus::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   ::memset(&device_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&byte_size_) -
       reinterpret_cast<char*>(&device_id_)) + sizeof(byte_size_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CudaSharedMemoryStatusResponse_RegionStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CudaSharedMemoryStatusResponse_RegionStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus.name"));
+        } else
+          goto handle_unusual;
         continue;
       // uint64 device_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           device_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 byte_size = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           byte_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryStatusResponse_RegionStatus::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CudaSharedMemoryStatusResponse_RegionStatus::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -14170,19 +12369,19 @@ failure:
   }
 
   // uint64 device_id = 2;
-  if (this->device_id() != 0) {
+  if (this->_internal_device_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_device_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_device_id(), target);
   }
 
   // uint64 byte_size = 3;
-  if (this->byte_size() != 0) {
+  if (this->_internal_byte_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_byte_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_byte_size(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
@@ -14193,78 +12392,59 @@ size_t CudaSharedMemoryStatusResponse_RegionStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // uint64 device_id = 2;
-  if (this->device_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_device_id());
+  if (this->_internal_device_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_device_id());
   }
 
   // uint64 byte_size = 3;
-  if (this->byte_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_byte_size());
+  if (this->_internal_byte_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_byte_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void CudaSharedMemoryStatusResponse_RegionStatus::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryStatusResponse_RegionStatus* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryStatusResponse_RegionStatus>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryStatusResponse_RegionStatus::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CudaSharedMemoryStatusResponse_RegionStatus::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryStatusResponse_RegionStatus::GetClassData() const { return &_class_data_; }
+
+void CudaSharedMemoryStatusResponse_RegionStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CudaSharedMemoryStatusResponse_RegionStatus *>(to)->MergeFrom(
+      static_cast<const CudaSharedMemoryStatusResponse_RegionStatus &>(from));
 }
+
 
 void CudaSharedMemoryStatusResponse_RegionStatus::MergeFrom(const CudaSharedMemoryStatusResponse_RegionStatus& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.device_id() != 0) {
+  if (from._internal_device_id() != 0) {
     _internal_set_device_id(from._internal_device_id());
   }
-  if (from.byte_size() != 0) {
+  if (from._internal_byte_size() != 0) {
     _internal_set_byte_size(from._internal_byte_size());
   }
-}
-
-void CudaSharedMemoryStatusResponse_RegionStatus::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CudaSharedMemoryStatusResponse_RegionStatus::CopyFrom(const CudaSharedMemoryStatusResponse_RegionStatus& from) {
@@ -14280,8 +12460,13 @@ bool CudaSharedMemoryStatusResponse_RegionStatus::IsInitialized() const {
 
 void CudaSharedMemoryStatusResponse_RegionStatus::InternalSwap(CudaSharedMemoryStatusResponse_RegionStatus* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CudaSharedMemoryStatusResponse_RegionStatus, byte_size_)
       + sizeof(CudaSharedMemoryStatusResponse_RegionStatus::byte_size_)
@@ -14291,9 +12476,10 @@ void CudaSharedMemoryStatusResponse_RegionStatus::InternalSwap(CudaSharedMemoryS
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryStatusResponse_RegionStatus::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[51]);
 }
-
 
 // ===================================================================
 
@@ -14304,27 +12490,25 @@ void CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::MergeFrom(const CudaS
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[52]);
 }
-void CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void CudaSharedMemoryStatusResponse::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryStatusResponse::_Internal {
  public:
 };
 
-CudaSharedMemoryStatusResponse::CudaSharedMemoryStatusResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+CudaSharedMemoryStatusResponse::CudaSharedMemoryStatusResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   regions_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &CudaSharedMemoryStatusResponse::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryStatusResponse)
 }
 CudaSharedMemoryStatusResponse::CudaSharedMemoryStatusResponse(const CudaSharedMemoryStatusResponse& from)
@@ -14334,38 +12518,35 @@ CudaSharedMemoryStatusResponse::CudaSharedMemoryStatusResponse(const CudaSharedM
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryStatusResponse)
 }
 
-void CudaSharedMemoryStatusResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CudaSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void CudaSharedMemoryStatusResponse::SharedCtor() {
 }
 
 CudaSharedMemoryStatusResponse::~CudaSharedMemoryStatusResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryStatusResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CudaSharedMemoryStatusResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void CudaSharedMemoryStatusResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  regions_.Destruct();
 }
 
 void CudaSharedMemoryStatusResponse::ArenaDtor(void* object) {
   CudaSharedMemoryStatusResponse* _this = reinterpret_cast< CudaSharedMemoryStatusResponse* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryStatusResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->regions_.Destruct();
 }
 void CudaSharedMemoryStatusResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const CudaSharedMemoryStatusResponse& CudaSharedMemoryStatusResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryStatusResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void CudaSharedMemoryStatusResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryStatusResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -14373,17 +12554,15 @@ void CudaSharedMemoryStatusResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CudaSharedMemoryStatusResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CudaSharedMemoryStatusResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // map<string, .hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus> regions = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -14391,79 +12570,66 @@ const char* CudaSharedMemoryStatusResponse::_InternalParse(const char* ptr, ::PR
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryStatusResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CudaSharedMemoryStatusResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryStatusResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // map<string, .hercules.proto.CudaSharedMemoryStatusResponse.RegionStatus> regions = 1;
   if (!this->_internal_regions().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.CudaSharedMemoryStatusResponse.RegionsEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus>;
+    using WireHelper = CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_regions();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.CudaSharedMemoryStatusResponse.RegionsEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_regions().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_regions().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >::const_iterator
-          it = this->_internal_regions().begin();
-          it != this->_internal_regions().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >::const_iterator
-          it = this->_internal_regions().begin();
-          it != this->_internal_regions().end(); ++it) {
-        target = CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryStatusResponse)
@@ -14474,7 +12640,7 @@ size_t CudaSharedMemoryStatusResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryStatusResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -14487,45 +12653,30 @@ size_t CudaSharedMemoryStatusResponse::ByteSizeLong() const {
     total_size += CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void CudaSharedMemoryStatusResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryStatusResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryStatusResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryStatusResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryStatusResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryStatusResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryStatusResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CudaSharedMemoryStatusResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryStatusResponse::GetClassData() const { return &_class_data_; }
+
+void CudaSharedMemoryStatusResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CudaSharedMemoryStatusResponse *>(to)->MergeFrom(
+      static_cast<const CudaSharedMemoryStatusResponse &>(from));
 }
+
 
 void CudaSharedMemoryStatusResponse::MergeFrom(const CudaSharedMemoryStatusResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryStatusResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   regions_.MergeFrom(from.regions_);
-}
-
-void CudaSharedMemoryStatusResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryStatusResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CudaSharedMemoryStatusResponse::CopyFrom(const CudaSharedMemoryStatusResponse& from) {
@@ -14541,41 +12692,46 @@ bool CudaSharedMemoryStatusResponse::IsInitialized() const {
 
 void CudaSharedMemoryStatusResponse::InternalSwap(CudaSharedMemoryStatusResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  regions_.Swap(&other->regions_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  regions_.InternalSwap(&other->regions_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryStatusResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[53]);
 }
-
 
 // ===================================================================
 
-void CudaSharedMemoryRegisterRequest::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryRegisterRequest::_Internal {
  public:
 };
 
-CudaSharedMemoryRegisterRequest::CudaSharedMemoryRegisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+CudaSharedMemoryRegisterRequest::CudaSharedMemoryRegisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryRegisterRequest)
 }
 CudaSharedMemoryRegisterRequest::CudaSharedMemoryRegisterRequest(const CudaSharedMemoryRegisterRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
-  raw_handle_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  raw_handle_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    raw_handle_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_raw_handle().empty()) {
-    raw_handle_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_raw_handle(),
-      GetArena());
+    raw_handle_.Set(from._internal_raw_handle(), 
+      GetArenaForAllocation());
   }
   ::memcpy(&device_id_, &from.device_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
@@ -14583,125 +12739,126 @@ CudaSharedMemoryRegisterRequest::CudaSharedMemoryRegisterRequest(const CudaShare
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryRegisterRequest)
 }
 
-void CudaSharedMemoryRegisterRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CudaSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  raw_handle_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&device_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&byte_size_) -
-      reinterpret_cast<char*>(&device_id_)) + sizeof(byte_size_));
+inline void CudaSharedMemoryRegisterRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+raw_handle_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  raw_handle_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&device_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&byte_size_) -
+    reinterpret_cast<char*>(&device_id_)) + sizeof(byte_size_));
 }
 
 CudaSharedMemoryRegisterRequest::~CudaSharedMemoryRegisterRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryRegisterRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CudaSharedMemoryRegisterRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  raw_handle_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CudaSharedMemoryRegisterRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
+  raw_handle_.Destroy();
 }
 
-void CudaSharedMemoryRegisterRequest::ArenaDtor(void* object) {
-  CudaSharedMemoryRegisterRequest* _this = reinterpret_cast< CudaSharedMemoryRegisterRequest* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryRegisterRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CudaSharedMemoryRegisterRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const CudaSharedMemoryRegisterRequest& CudaSharedMemoryRegisterRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryRegisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void CudaSharedMemoryRegisterRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryRegisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  raw_handle_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
+  raw_handle_.ClearToEmpty();
   ::memset(&device_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&byte_size_) -
       reinterpret_cast<char*>(&device_id_)) + sizeof(byte_size_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CudaSharedMemoryRegisterRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CudaSharedMemoryRegisterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryRegisterRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryRegisterRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
       // bytes raw_handle = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_raw_handle();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // int64 device_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           device_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint64 byte_size = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           byte_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryRegisterRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CudaSharedMemoryRegisterRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryRegisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -14711,25 +12868,25 @@ failure:
   }
 
   // bytes raw_handle = 2;
-  if (this->raw_handle().size() > 0) {
+  if (!this->_internal_raw_handle().empty()) {
     target = stream->WriteBytesMaybeAliased(
         2, this->_internal_raw_handle(), target);
   }
 
   // int64 device_id = 3;
-  if (this->device_id() != 0) {
+  if (this->_internal_device_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_device_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_device_id(), target);
   }
 
   // uint64 byte_size = 4;
-  if (this->byte_size() != 0) {
+  if (this->_internal_byte_size() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_byte_size(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_byte_size(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryRegisterRequest)
@@ -14740,88 +12897,69 @@ size_t CudaSharedMemoryRegisterRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryRegisterRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
   // bytes raw_handle = 2;
-  if (this->raw_handle().size() > 0) {
+  if (!this->_internal_raw_handle().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_raw_handle());
   }
 
   // int64 device_id = 3;
-  if (this->device_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
-        this->_internal_device_id());
+  if (this->_internal_device_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_device_id());
   }
 
   // uint64 byte_size = 4;
-  if (this->byte_size() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_byte_size());
+  if (this->_internal_byte_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_byte_size());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void CudaSharedMemoryRegisterRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryRegisterRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryRegisterRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryRegisterRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryRegisterRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryRegisterRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryRegisterRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CudaSharedMemoryRegisterRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryRegisterRequest::GetClassData() const { return &_class_data_; }
+
+void CudaSharedMemoryRegisterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CudaSharedMemoryRegisterRequest *>(to)->MergeFrom(
+      static_cast<const CudaSharedMemoryRegisterRequest &>(from));
 }
+
 
 void CudaSharedMemoryRegisterRequest::MergeFrom(const CudaSharedMemoryRegisterRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryRegisterRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-  if (from.raw_handle().size() > 0) {
+  if (!from._internal_raw_handle().empty()) {
     _internal_set_raw_handle(from._internal_raw_handle());
   }
-  if (from.device_id() != 0) {
+  if (from._internal_device_id() != 0) {
     _internal_set_device_id(from._internal_device_id());
   }
-  if (from.byte_size() != 0) {
+  if (from._internal_byte_size() != 0) {
     _internal_set_byte_size(from._internal_byte_size());
   }
-}
-
-void CudaSharedMemoryRegisterRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryRegisterRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CudaSharedMemoryRegisterRequest::CopyFrom(const CudaSharedMemoryRegisterRequest& from) {
@@ -14837,9 +12975,17 @@ bool CudaSharedMemoryRegisterRequest::IsInitialized() const {
 
 void CudaSharedMemoryRegisterRequest::InternalSwap(CudaSharedMemoryRegisterRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  raw_handle_.Swap(&other->raw_handle_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &raw_handle_, lhs_arena,
+      &other->raw_handle_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CudaSharedMemoryRegisterRequest, byte_size_)
       + sizeof(CudaSharedMemoryRegisterRequest::byte_size_)
@@ -14849,288 +12995,158 @@ void CudaSharedMemoryRegisterRequest::InternalSwap(CudaSharedMemoryRegisterReque
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryRegisterRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[54]);
 }
-
 
 // ===================================================================
 
-void CudaSharedMemoryRegisterResponse::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryRegisterResponse::_Internal {
  public:
 };
 
-CudaSharedMemoryRegisterResponse::CudaSharedMemoryRegisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+CudaSharedMemoryRegisterResponse::CudaSharedMemoryRegisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryRegisterResponse)
 }
 CudaSharedMemoryRegisterResponse::CudaSharedMemoryRegisterResponse(const CudaSharedMemoryRegisterResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryRegisterResponse)
 }
 
-void CudaSharedMemoryRegisterResponse::SharedCtor() {
-}
-
-CudaSharedMemoryRegisterResponse::~CudaSharedMemoryRegisterResponse() {
-  // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryRegisterResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CudaSharedMemoryRegisterResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CudaSharedMemoryRegisterResponse::ArenaDtor(void* object) {
-  CudaSharedMemoryRegisterResponse* _this = reinterpret_cast< CudaSharedMemoryRegisterResponse* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryRegisterResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CudaSharedMemoryRegisterResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const CudaSharedMemoryRegisterResponse& CudaSharedMemoryRegisterResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryRegisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void CudaSharedMemoryRegisterResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* CudaSharedMemoryRegisterResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryRegisterResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryRegisterResponse::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryRegisterResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryRegisterResponse)
-  return target;
-}
 
-size_t CudaSharedMemoryRegisterResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void CudaSharedMemoryRegisterResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryRegisterResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryRegisterResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryRegisterResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryRegisterResponse)
-    MergeFrom(*source);
-  }
-}
-
-void CudaSharedMemoryRegisterResponse::MergeFrom(const CudaSharedMemoryRegisterResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void CudaSharedMemoryRegisterResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CudaSharedMemoryRegisterResponse::CopyFrom(const CudaSharedMemoryRegisterResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.CudaSharedMemoryRegisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CudaSharedMemoryRegisterResponse::IsInitialized() const {
-  return true;
-}
-
-void CudaSharedMemoryRegisterResponse::InternalSwap(CudaSharedMemoryRegisterResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryRegisterResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[55]);
 }
-
 
 // ===================================================================
 
-void CudaSharedMemoryUnregisterRequest::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryUnregisterRequest::_Internal {
  public:
 };
 
-CudaSharedMemoryUnregisterRequest::CudaSharedMemoryUnregisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+CudaSharedMemoryUnregisterRequest::CudaSharedMemoryUnregisterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryUnregisterRequest)
 }
 CudaSharedMemoryUnregisterRequest::CudaSharedMemoryUnregisterRequest(const CudaSharedMemoryUnregisterRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_name(),
-      GetArena());
+    name_.Set(from._internal_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryUnregisterRequest)
 }
 
-void CudaSharedMemoryUnregisterRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_CudaSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CudaSharedMemoryUnregisterRequest::SharedCtor() {
+name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 CudaSharedMemoryUnregisterRequest::~CudaSharedMemoryUnregisterRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryUnregisterRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CudaSharedMemoryUnregisterRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void CudaSharedMemoryUnregisterRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  name_.Destroy();
 }
 
-void CudaSharedMemoryUnregisterRequest::ArenaDtor(void* object) {
-  CudaSharedMemoryUnregisterRequest* _this = reinterpret_cast< CudaSharedMemoryUnregisterRequest* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryUnregisterRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void CudaSharedMemoryUnregisterRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const CudaSharedMemoryUnregisterRequest& CudaSharedMemoryUnregisterRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryUnregisterRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void CudaSharedMemoryUnregisterRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryUnregisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CudaSharedMemoryUnregisterRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CudaSharedMemoryUnregisterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryUnregisterRequest.name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.CudaSharedMemoryUnregisterRequest.name"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryUnregisterRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* CudaSharedMemoryUnregisterRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryUnregisterRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -15140,7 +13156,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryUnregisterRequest)
@@ -15151,58 +13167,43 @@ size_t CudaSharedMemoryUnregisterRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryUnregisterRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string name = 1;
-  if (this->name().size() > 0) {
+  if (!this->_internal_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void CudaSharedMemoryUnregisterRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryUnregisterRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryUnregisterRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryUnregisterRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryUnregisterRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryUnregisterRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryUnregisterRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    CudaSharedMemoryUnregisterRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryUnregisterRequest::GetClassData() const { return &_class_data_; }
+
+void CudaSharedMemoryUnregisterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<CudaSharedMemoryUnregisterRequest *>(to)->MergeFrom(
+      static_cast<const CudaSharedMemoryUnregisterRequest &>(from));
 }
+
 
 void CudaSharedMemoryUnregisterRequest::MergeFrom(const CudaSharedMemoryUnregisterRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryUnregisterRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
+  if (!from._internal_name().empty()) {
     _internal_set_name(from._internal_name());
   }
-}
-
-void CudaSharedMemoryUnregisterRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryUnregisterRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void CudaSharedMemoryUnregisterRequest::CopyFrom(const CudaSharedMemoryUnregisterRequest& from) {
@@ -15218,193 +13219,71 @@ bool CudaSharedMemoryUnregisterRequest::IsInitialized() const {
 
 void CudaSharedMemoryUnregisterRequest::InternalSwap(CudaSharedMemoryUnregisterRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryUnregisterRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[56]);
 }
-
 
 // ===================================================================
 
-void CudaSharedMemoryUnregisterResponse::InitAsDefaultInstance() {
-}
 class CudaSharedMemoryUnregisterResponse::_Internal {
  public:
 };
 
-CudaSharedMemoryUnregisterResponse::CudaSharedMemoryUnregisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+CudaSharedMemoryUnregisterResponse::CudaSharedMemoryUnregisterResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:hercules.proto.CudaSharedMemoryUnregisterResponse)
 }
 CudaSharedMemoryUnregisterResponse::CudaSharedMemoryUnregisterResponse(const CudaSharedMemoryUnregisterResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:hercules.proto.CudaSharedMemoryUnregisterResponse)
 }
 
-void CudaSharedMemoryUnregisterResponse::SharedCtor() {
-}
-
-CudaSharedMemoryUnregisterResponse::~CudaSharedMemoryUnregisterResponse() {
-  // @@protoc_insertion_point(destructor:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void CudaSharedMemoryUnregisterResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void CudaSharedMemoryUnregisterResponse::ArenaDtor(void* object) {
-  CudaSharedMemoryUnregisterResponse* _this = reinterpret_cast< CudaSharedMemoryUnregisterResponse* >(object);
-  (void)_this;
-}
-void CudaSharedMemoryUnregisterResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void CudaSharedMemoryUnregisterResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const CudaSharedMemoryUnregisterResponse& CudaSharedMemoryUnregisterResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_CudaSharedMemoryUnregisterResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void CudaSharedMemoryUnregisterResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* CudaSharedMemoryUnregisterResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CudaSharedMemoryUnregisterResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CudaSharedMemoryUnregisterResponse::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CudaSharedMemoryUnregisterResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  return target;
-}
 
-size_t CudaSharedMemoryUnregisterResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void CudaSharedMemoryUnregisterResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const CudaSharedMemoryUnregisterResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CudaSharedMemoryUnregisterResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.CudaSharedMemoryUnregisterResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.CudaSharedMemoryUnregisterResponse)
-    MergeFrom(*source);
-  }
-}
-
-void CudaSharedMemoryUnregisterResponse::MergeFrom(const CudaSharedMemoryUnregisterResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void CudaSharedMemoryUnregisterResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void CudaSharedMemoryUnregisterResponse::CopyFrom(const CudaSharedMemoryUnregisterResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hercules.proto.CudaSharedMemoryUnregisterResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CudaSharedMemoryUnregisterResponse::IsInitialized() const {
-  return true;
-}
-
-void CudaSharedMemoryUnregisterResponse::InternalSwap(CudaSharedMemoryUnregisterResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CudaSharedMemoryUnregisterResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[57]);
 }
-
 
 // ===================================================================
 
-void TraceSettingRequest_SettingValue::InitAsDefaultInstance() {
-}
 class TraceSettingRequest_SettingValue::_Internal {
  public:
 };
 
-TraceSettingRequest_SettingValue::TraceSettingRequest_SettingValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+TraceSettingRequest_SettingValue::TraceSettingRequest_SettingValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   value_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.TraceSettingRequest.SettingValue)
 }
 TraceSettingRequest_SettingValue::TraceSettingRequest_SettingValue(const TraceSettingRequest_SettingValue& from)
@@ -15414,38 +13293,29 @@ TraceSettingRequest_SettingValue::TraceSettingRequest_SettingValue(const TraceSe
   // @@protoc_insertion_point(copy_constructor:hercules.proto.TraceSettingRequest.SettingValue)
 }
 
-void TraceSettingRequest_SettingValue::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void TraceSettingRequest_SettingValue::SharedCtor() {
 }
 
 TraceSettingRequest_SettingValue::~TraceSettingRequest_SettingValue() {
   // @@protoc_insertion_point(destructor:hercules.proto.TraceSettingRequest.SettingValue)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void TraceSettingRequest_SettingValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void TraceSettingRequest_SettingValue::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void TraceSettingRequest_SettingValue::ArenaDtor(void* object) {
-  TraceSettingRequest_SettingValue* _this = reinterpret_cast< TraceSettingRequest_SettingValue* >(object);
-  (void)_this;
-}
-void TraceSettingRequest_SettingValue::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void TraceSettingRequest_SettingValue::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const TraceSettingRequest_SettingValue& TraceSettingRequest_SettingValue::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TraceSettingRequest_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void TraceSettingRequest_SettingValue::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.TraceSettingRequest.SettingValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -15453,54 +13323,54 @@ void TraceSettingRequest_SettingValue::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* TraceSettingRequest_SettingValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* TraceSettingRequest_SettingValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated string value = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_value();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.TraceSettingRequest.SettingValue.value"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.TraceSettingRequest.SettingValue.value"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* TraceSettingRequest_SettingValue::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* TraceSettingRequest_SettingValue::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.TraceSettingRequest.SettingValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated string value = 1;
@@ -15514,7 +13384,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.TraceSettingRequest.SettingValue)
@@ -15525,7 +13395,7 @@ size_t TraceSettingRequest_SettingValue::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.TraceSettingRequest.SettingValue)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -15537,45 +13407,30 @@ size_t TraceSettingRequest_SettingValue::ByteSizeLong() const {
       value_.Get(i));
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void TraceSettingRequest_SettingValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.TraceSettingRequest.SettingValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  const TraceSettingRequest_SettingValue* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TraceSettingRequest_SettingValue>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.TraceSettingRequest.SettingValue)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.TraceSettingRequest.SettingValue)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TraceSettingRequest_SettingValue::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    TraceSettingRequest_SettingValue::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TraceSettingRequest_SettingValue::GetClassData() const { return &_class_data_; }
+
+void TraceSettingRequest_SettingValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<TraceSettingRequest_SettingValue *>(to)->MergeFrom(
+      static_cast<const TraceSettingRequest_SettingValue &>(from));
 }
+
 
 void TraceSettingRequest_SettingValue::MergeFrom(const TraceSettingRequest_SettingValue& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.TraceSettingRequest.SettingValue)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   value_.MergeFrom(from.value_);
-}
-
-void TraceSettingRequest_SettingValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.TraceSettingRequest.SettingValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void TraceSettingRequest_SettingValue::CopyFrom(const TraceSettingRequest_SettingValue& from) {
@@ -15591,14 +13446,15 @@ bool TraceSettingRequest_SettingValue::IsInitialized() const {
 
 void TraceSettingRequest_SettingValue::InternalSwap(TraceSettingRequest_SettingValue* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   value_.InternalSwap(&other->value_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TraceSettingRequest_SettingValue::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[58]);
 }
-
 
 // ===================================================================
 
@@ -15609,94 +13465,93 @@ void TraceSettingRequest_SettingsEntry_DoNotUse::MergeFrom(const TraceSettingReq
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata TraceSettingRequest_SettingsEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[59]);
 }
-void TraceSettingRequest_SettingsEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void TraceSettingRequest::InitAsDefaultInstance() {
-}
 class TraceSettingRequest::_Internal {
  public:
 };
 
-TraceSettingRequest::TraceSettingRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+TraceSettingRequest::TraceSettingRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   settings_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &TraceSettingRequest::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.TraceSettingRequest)
 }
 TraceSettingRequest::TraceSettingRequest(const TraceSettingRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   settings_.MergeFrom(from.settings_);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  model_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    model_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_model_name().empty()) {
-    model_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_model_name(),
-      GetArena());
+    model_name_.Set(from._internal_model_name(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:hercules.proto.TraceSettingRequest)
 }
 
-void TraceSettingRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TraceSettingRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  model_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void TraceSettingRequest::SharedCtor() {
+model_name_.InitDefault();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  model_name_.Set("", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 TraceSettingRequest::~TraceSettingRequest() {
   // @@protoc_insertion_point(destructor:hercules.proto.TraceSettingRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void TraceSettingRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  model_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void TraceSettingRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  settings_.Destruct();
+  model_name_.Destroy();
 }
 
 void TraceSettingRequest::ArenaDtor(void* object) {
   TraceSettingRequest* _this = reinterpret_cast< TraceSettingRequest* >(object);
-  (void)_this;
-}
-void TraceSettingRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->settings_.Destruct();
 }
 void TraceSettingRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const TraceSettingRequest& TraceSettingRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TraceSettingRequest_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void TraceSettingRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.TraceSettingRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   settings_.Clear();
-  model_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  model_name_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* TraceSettingRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* TraceSettingRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // map<string, .hercules.proto.TraceSettingRequest.SettingValue> settings = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -15704,88 +13559,76 @@ const char* TraceSettingRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAME
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // string model_name = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_model_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.TraceSettingRequest.model_name"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.TraceSettingRequest.model_name"));
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* TraceSettingRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* TraceSettingRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.TraceSettingRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // map<string, .hercules.proto.TraceSettingRequest.SettingValue> settings = 1;
   if (!this->_internal_settings().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingRequest_SettingValue >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.TraceSettingRequest.SettingsEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::TraceSettingRequest_SettingValue>;
+    using WireHelper = TraceSettingRequest_SettingsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_settings();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.TraceSettingRequest.SettingsEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_settings().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_settings().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingRequest_SettingValue >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingRequest_SettingValue >::const_iterator
-          it = this->_internal_settings().begin();
-          it != this->_internal_settings().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = TraceSettingRequest_SettingsEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingRequest_SettingValue >::const_iterator
-          it = this->_internal_settings().begin();
-          it != this->_internal_settings().end(); ++it) {
-        target = TraceSettingRequest_SettingsEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   // string model_name = 2;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_model_name().data(), static_cast<int>(this->_internal_model_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -15795,7 +13638,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.TraceSettingRequest)
@@ -15806,7 +13649,7 @@ size_t TraceSettingRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.TraceSettingRequest)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -15820,54 +13663,39 @@ size_t TraceSettingRequest::ByteSizeLong() const {
   }
 
   // string model_name = 2;
-  if (this->model_name().size() > 0) {
+  if (!this->_internal_model_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_model_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void TraceSettingRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.TraceSettingRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const TraceSettingRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TraceSettingRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.TraceSettingRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.TraceSettingRequest)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TraceSettingRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    TraceSettingRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TraceSettingRequest::GetClassData() const { return &_class_data_; }
+
+void TraceSettingRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<TraceSettingRequest *>(to)->MergeFrom(
+      static_cast<const TraceSettingRequest &>(from));
 }
+
 
 void TraceSettingRequest::MergeFrom(const TraceSettingRequest& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.TraceSettingRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   settings_.MergeFrom(from.settings_);
-  if (from.model_name().size() > 0) {
+  if (!from._internal_model_name().empty()) {
     _internal_set_model_name(from._internal_model_name());
   }
-}
-
-void TraceSettingRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.TraceSettingRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void TraceSettingRequest::CopyFrom(const TraceSettingRequest& from) {
@@ -15883,29 +13711,33 @@ bool TraceSettingRequest::IsInitialized() const {
 
 void TraceSettingRequest::InternalSwap(TraceSettingRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  settings_.Swap(&other->settings_);
-  model_name_.Swap(&other->model_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  settings_.InternalSwap(&other->settings_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &model_name_, lhs_arena,
+      &other->model_name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TraceSettingRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[60]);
 }
-
 
 // ===================================================================
 
-void TraceSettingResponse_SettingValue::InitAsDefaultInstance() {
-}
 class TraceSettingResponse_SettingValue::_Internal {
  public:
 };
 
-TraceSettingResponse_SettingValue::TraceSettingResponse_SettingValue(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+TraceSettingResponse_SettingValue::TraceSettingResponse_SettingValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   value_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:hercules.proto.TraceSettingResponse.SettingValue)
 }
 TraceSettingResponse_SettingValue::TraceSettingResponse_SettingValue(const TraceSettingResponse_SettingValue& from)
@@ -15915,38 +13747,29 @@ TraceSettingResponse_SettingValue::TraceSettingResponse_SettingValue(const Trace
   // @@protoc_insertion_point(copy_constructor:hercules.proto.TraceSettingResponse.SettingValue)
 }
 
-void TraceSettingResponse_SettingValue::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void TraceSettingResponse_SettingValue::SharedCtor() {
 }
 
 TraceSettingResponse_SettingValue::~TraceSettingResponse_SettingValue() {
   // @@protoc_insertion_point(destructor:hercules.proto.TraceSettingResponse.SettingValue)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void TraceSettingResponse_SettingValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void TraceSettingResponse_SettingValue::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void TraceSettingResponse_SettingValue::ArenaDtor(void* object) {
-  TraceSettingResponse_SettingValue* _this = reinterpret_cast< TraceSettingResponse_SettingValue* >(object);
-  (void)_this;
-}
-void TraceSettingResponse_SettingValue::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void TraceSettingResponse_SettingValue::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const TraceSettingResponse_SettingValue& TraceSettingResponse_SettingValue::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TraceSettingResponse_SettingValue_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void TraceSettingResponse_SettingValue::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.TraceSettingResponse.SettingValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -15954,54 +13777,54 @@ void TraceSettingResponse_SettingValue::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* TraceSettingResponse_SettingValue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* TraceSettingResponse_SettingValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated string value = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
             auto str = _internal_add_value();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hercules.proto.TraceSettingResponse.SettingValue.value"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "hercules.proto.TraceSettingResponse.SettingValue.value"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* TraceSettingResponse_SettingValue::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* TraceSettingResponse_SettingValue::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.TraceSettingResponse.SettingValue)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // repeated string value = 1;
@@ -16015,7 +13838,7 @@ failure:
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.TraceSettingResponse.SettingValue)
@@ -16026,7 +13849,7 @@ size_t TraceSettingResponse_SettingValue::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.TraceSettingResponse.SettingValue)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -16038,45 +13861,30 @@ size_t TraceSettingResponse_SettingValue::ByteSizeLong() const {
       value_.Get(i));
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void TraceSettingResponse_SettingValue::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.TraceSettingResponse.SettingValue)
-  GOOGLE_DCHECK_NE(&from, this);
-  const TraceSettingResponse_SettingValue* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TraceSettingResponse_SettingValue>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.TraceSettingResponse.SettingValue)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.TraceSettingResponse.SettingValue)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TraceSettingResponse_SettingValue::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    TraceSettingResponse_SettingValue::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TraceSettingResponse_SettingValue::GetClassData() const { return &_class_data_; }
+
+void TraceSettingResponse_SettingValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<TraceSettingResponse_SettingValue *>(to)->MergeFrom(
+      static_cast<const TraceSettingResponse_SettingValue &>(from));
 }
+
 
 void TraceSettingResponse_SettingValue::MergeFrom(const TraceSettingResponse_SettingValue& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.TraceSettingResponse.SettingValue)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   value_.MergeFrom(from.value_);
-}
-
-void TraceSettingResponse_SettingValue::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.TraceSettingResponse.SettingValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void TraceSettingResponse_SettingValue::CopyFrom(const TraceSettingResponse_SettingValue& from) {
@@ -16092,14 +13900,15 @@ bool TraceSettingResponse_SettingValue::IsInitialized() const {
 
 void TraceSettingResponse_SettingValue::InternalSwap(TraceSettingResponse_SettingValue* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   value_.InternalSwap(&other->value_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TraceSettingResponse_SettingValue::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[61]);
 }
-
 
 // ===================================================================
 
@@ -16110,27 +13919,25 @@ void TraceSettingResponse_SettingsEntry_DoNotUse::MergeFrom(const TraceSettingRe
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata TraceSettingResponse_SettingsEntry_DoNotUse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[62]);
 }
-void TraceSettingResponse_SettingsEntry_DoNotUse::MergeFrom(
-    const ::PROTOBUF_NAMESPACE_ID::Message& other) {
-  ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom(other);
-}
-
 
 // ===================================================================
 
-void TraceSettingResponse::InitAsDefaultInstance() {
-}
 class TraceSettingResponse::_Internal {
  public:
 };
 
-TraceSettingResponse::TraceSettingResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+TraceSettingResponse::TraceSettingResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   settings_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &TraceSettingResponse::ArenaDtor);
+  }
   // @@protoc_insertion_point(arena_constructor:hercules.proto.TraceSettingResponse)
 }
 TraceSettingResponse::TraceSettingResponse(const TraceSettingResponse& from)
@@ -16140,38 +13947,35 @@ TraceSettingResponse::TraceSettingResponse(const TraceSettingResponse& from)
   // @@protoc_insertion_point(copy_constructor:hercules.proto.TraceSettingResponse)
 }
 
-void TraceSettingResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_TraceSettingResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
+inline void TraceSettingResponse::SharedCtor() {
 }
 
 TraceSettingResponse::~TraceSettingResponse() {
   // @@protoc_insertion_point(destructor:hercules.proto.TraceSettingResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void TraceSettingResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void TraceSettingResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  settings_.Destruct();
 }
 
 void TraceSettingResponse::ArenaDtor(void* object) {
   TraceSettingResponse* _this = reinterpret_cast< TraceSettingResponse* >(object);
-  (void)_this;
-}
-void TraceSettingResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+  _this->settings_.Destruct();
 }
 void TraceSettingResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const TraceSettingResponse& TraceSettingResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_TraceSettingResponse_hercules_2fproto_2fhercules_5fservice_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void TraceSettingResponse::Clear() {
 // @@protoc_insertion_point(message_clear_start:hercules.proto.TraceSettingResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -16179,17 +13983,15 @@ void TraceSettingResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* TraceSettingResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* TraceSettingResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // map<string, .hercules.proto.TraceSettingResponse.SettingValue> settings = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
@@ -16197,79 +13999,66 @@ const char* TraceSettingResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAM
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* TraceSettingResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+uint8_t* TraceSettingResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:hercules.proto.TraceSettingResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // map<string, .hercules.proto.TraceSettingResponse.SettingValue> settings = 1;
   if (!this->_internal_settings().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingResponse_SettingValue >::const_pointer
-        ConstPtr;
-    typedef ConstPtr SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
-    struct Utf8Check {
-      static void Check(ConstPtr p) {
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-          p->first.data(), static_cast<int>(p->first.length()),
-          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-          "hercules.proto.TraceSettingResponse.SettingsEntry.key");
-      }
+    using MapType = ::_pb::Map<std::string, ::hercules::proto::TraceSettingResponse_SettingValue>;
+    using WireHelper = TraceSettingResponse_SettingsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_settings();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "hercules.proto.TraceSettingResponse.SettingsEntry.key");
     };
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_settings().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_settings().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingResponse_SettingValue >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingResponse_SettingValue >::const_iterator
-          it = this->_internal_settings().begin();
-          it != this->_internal_settings().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = TraceSettingResponse_SettingsEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
-        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, ::hercules::proto::TraceSettingResponse_SettingValue >::const_iterator
-          it = this->_internal_settings().begin();
-          it != this->_internal_settings().end(); ++it) {
-        target = TraceSettingResponse_SettingsEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
-        Utf8Check::Check(&(*it));
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
+        check_utf8(entry);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:hercules.proto.TraceSettingResponse)
@@ -16280,7 +14069,7 @@ size_t TraceSettingResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:hercules.proto.TraceSettingResponse)
   size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
@@ -16293,45 +14082,30 @@ size_t TraceSettingResponse::ByteSizeLong() const {
     total_size += TraceSettingResponse_SettingsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void TraceSettingResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:hercules.proto.TraceSettingResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const TraceSettingResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<TraceSettingResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:hercules.proto.TraceSettingResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:hercules.proto.TraceSettingResponse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TraceSettingResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    TraceSettingResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TraceSettingResponse::GetClassData() const { return &_class_data_; }
+
+void TraceSettingResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<TraceSettingResponse *>(to)->MergeFrom(
+      static_cast<const TraceSettingResponse &>(from));
 }
+
 
 void TraceSettingResponse::MergeFrom(const TraceSettingResponse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:hercules.proto.TraceSettingResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   settings_.MergeFrom(from.settings_);
-}
-
-void TraceSettingResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:hercules.proto.TraceSettingResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void TraceSettingResponse::CopyFrom(const TraceSettingResponse& from) {
@@ -16347,209 +14121,274 @@ bool TraceSettingResponse::IsInitialized() const {
 
 void TraceSettingResponse::InternalSwap(TraceSettingResponse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  settings_.Swap(&other->settings_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  settings_.InternalSwap(&other->settings_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TraceSettingResponse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_getter, &descriptor_table_hercules_2fproto_2fhercules_5fservice_2eproto_once,
+      file_level_metadata_hercules_2fproto_2fhercules_5fservice_2eproto[63]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace proto
 }  // namespace hercules
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::hercules::proto::ServerLiveRequest* Arena::CreateMaybeMessage< ::hercules::proto::ServerLiveRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ServerLiveRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ServerLiveRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ServerLiveRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ServerLiveResponse* Arena::CreateMaybeMessage< ::hercules::proto::ServerLiveResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ServerLiveResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ServerLiveResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ServerLiveResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ServerReadyRequest* Arena::CreateMaybeMessage< ::hercules::proto::ServerReadyRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ServerReadyRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ServerReadyRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ServerReadyRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ServerReadyResponse* Arena::CreateMaybeMessage< ::hercules::proto::ServerReadyResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ServerReadyResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ServerReadyResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ServerReadyResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelReadyRequest* Arena::CreateMaybeMessage< ::hercules::proto::ModelReadyRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelReadyRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelReadyRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelReadyRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelReadyResponse* Arena::CreateMaybeMessage< ::hercules::proto::ModelReadyResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelReadyResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelReadyResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelReadyResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ServerMetadataRequest* Arena::CreateMaybeMessage< ::hercules::proto::ServerMetadataRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ServerMetadataRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ServerMetadataRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ServerMetadataRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ServerMetadataResponse* Arena::CreateMaybeMessage< ::hercules::proto::ServerMetadataResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ServerMetadataResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ServerMetadataResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ServerMetadataResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelMetadataRequest* Arena::CreateMaybeMessage< ::hercules::proto::ModelMetadataRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelMetadataRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelMetadataRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelMetadataRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelMetadataResponse_TensorMetadata* Arena::CreateMaybeMessage< ::hercules::proto::ModelMetadataResponse_TensorMetadata >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelMetadataResponse_TensorMetadata*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelMetadataResponse_TensorMetadata >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelMetadataResponse_TensorMetadata >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelMetadataResponse* Arena::CreateMaybeMessage< ::hercules::proto::ModelMetadataResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelMetadataResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelMetadataResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelMetadataResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::InferParameter* Arena::CreateMaybeMessage< ::hercules::proto::InferParameter >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::InferParameter*
+Arena::CreateMaybeMessage< ::hercules::proto::InferParameter >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::InferParameter >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::InferTensorContents* Arena::CreateMaybeMessage< ::hercules::proto::InferTensorContents >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::InferTensorContents*
+Arena::CreateMaybeMessage< ::hercules::proto::InferTensorContents >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::InferTensorContents >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferRequest_InferInputTensor_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferInputTensor* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferInputTensor >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferInputTensor*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferInputTensor >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferRequest_InferInputTensor >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferRequest_InferRequestedOutputTensor >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferRequest_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferResponse_InferOutputTensor_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse_InferOutputTensor* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse_InferOutputTensor >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse_InferOutputTensor*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse_InferOutputTensor >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferResponse_InferOutputTensor >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferResponse_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse* Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelInferResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelInferResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelInferResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStreamInferResponse* Arena::CreateMaybeMessage< ::hercules::proto::ModelStreamInferResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStreamInferResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelStreamInferResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelStreamInferResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfigRequest* Arena::CreateMaybeMessage< ::hercules::proto::ModelConfigRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfigRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelConfigRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelConfigRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfigResponse* Arena::CreateMaybeMessage< ::hercules::proto::ModelConfigResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelConfigResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelConfigResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelConfigResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStatisticsRequest* Arena::CreateMaybeMessage< ::hercules::proto::ModelStatisticsRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStatisticsRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelStatisticsRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelStatisticsRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::StatisticDuration* Arena::CreateMaybeMessage< ::hercules::proto::StatisticDuration >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::StatisticDuration*
+Arena::CreateMaybeMessage< ::hercules::proto::StatisticDuration >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::StatisticDuration >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::InferStatistics* Arena::CreateMaybeMessage< ::hercules::proto::InferStatistics >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::InferStatistics*
+Arena::CreateMaybeMessage< ::hercules::proto::InferStatistics >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::InferStatistics >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::InferBatchStatistics* Arena::CreateMaybeMessage< ::hercules::proto::InferBatchStatistics >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::InferBatchStatistics*
+Arena::CreateMaybeMessage< ::hercules::proto::InferBatchStatistics >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::InferBatchStatistics >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStatistics* Arena::CreateMaybeMessage< ::hercules::proto::ModelStatistics >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStatistics*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelStatistics >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelStatistics >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStatisticsResponse* Arena::CreateMaybeMessage< ::hercules::proto::ModelStatisticsResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelStatisticsResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelStatisticsResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelStatisticsResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryParameter* Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryParameter >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::ModelRepositoryParameter*
+Arena::CreateMaybeMessage< ::hercules::proto::ModelRepositoryParameter >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::ModelRepositoryParameter >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryIndexRequest* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryIndexRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryIndexRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryIndexRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryIndexRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryIndexResponse_ModelIndex* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryIndexResponse_ModelIndex >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryIndexResponse_ModelIndex*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryIndexResponse_ModelIndex >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryIndexResponse_ModelIndex >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryIndexResponse* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryIndexResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryIndexResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryIndexResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryIndexResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryModelLoadRequest_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelLoadRequest* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelLoadRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelLoadRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelLoadRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryModelLoadRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelLoadResponse* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelLoadResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelLoadResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelLoadResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryModelLoadResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryModelUnloadRequest_ParametersEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelUnloadRequest* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelUnloadRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelUnloadRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelUnloadRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryModelUnloadRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelUnloadResponse* Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelUnloadResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::RepositoryModelUnloadResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::RepositoryModelUnloadResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::RepositoryModelUnloadResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusRequest* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryStatusRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryStatusResponse_RegionStatus >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryStatusResponse_RegionsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusResponse* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryStatusResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryStatusResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryStatusResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryRegisterRequest* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryRegisterRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryRegisterRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryRegisterRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryRegisterRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryRegisterResponse* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryRegisterResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryRegisterResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryRegisterResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryRegisterResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryUnregisterRequest* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryUnregisterRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryUnregisterRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryUnregisterRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryUnregisterRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryUnregisterResponse* Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryUnregisterResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::SystemSharedMemoryUnregisterResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::SystemSharedMemoryUnregisterResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::SystemSharedMemoryUnregisterResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusRequest* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryStatusRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryStatusResponse_RegionStatus >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryStatusResponse_RegionsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusResponse* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryStatusResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryStatusResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryStatusResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryRegisterRequest* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryRegisterRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryRegisterRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryRegisterRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryRegisterRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryRegisterResponse* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryRegisterResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryRegisterResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryRegisterResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryRegisterResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryUnregisterRequest* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryUnregisterRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryUnregisterRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryUnregisterRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryUnregisterRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryUnregisterResponse* Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryUnregisterResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::CudaSharedMemoryUnregisterResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::CudaSharedMemoryUnregisterResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::CudaSharedMemoryUnregisterResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingRequest_SettingValue* Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingRequest_SettingValue >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingRequest_SettingValue*
+Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingRequest_SettingValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::TraceSettingRequest_SettingValue >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::TraceSettingRequest_SettingsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingRequest* Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingRequest*
+Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::TraceSettingRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingResponse_SettingValue* Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingResponse_SettingValue >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingResponse_SettingValue*
+Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingResponse_SettingValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::TraceSettingResponse_SettingValue >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse* Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::TraceSettingResponse_SettingsEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingResponse* Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::hercules::proto::TraceSettingResponse*
+Arena::CreateMaybeMessage< ::hercules::proto::TraceSettingResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::hercules::proto::TraceSettingResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

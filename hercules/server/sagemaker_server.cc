@@ -27,11 +27,11 @@ EVBufferAddErrorJson(evbuffer* buffer, TRITONSERVER_Error* err)
 {
   const char* message = TRITONSERVER_ErrorMessage(err);
 
-  hercules::common::TritonJson::Value response(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value response(
+      hercules::common::json_parser::ValueType::OBJECT);
   response.AddStringRef("error", message, strlen(message));
 
-  hercules::common::TritonJson::WriteBuffer buffer_json;
+  hercules::common::json_parser::WriteBuffer buffer_json;
   response.Write(&buffer_json);
 
   evbuffer_add(buffer, buffer_json.Base(), buffer_json.Size());
@@ -39,7 +39,7 @@ EVBufferAddErrorJson(evbuffer* buffer, TRITONSERVER_Error* err)
 
 TRITONSERVER_Error*
 EVBufferToJson(
-    hercules::common::TritonJson::Value* document, evbuffer_iovec* v, int* v_idx,
+    hercules::common::json_parser::Value* document, evbuffer_iovec* v, int* v_idx,
     const size_t length, int n)
 {
   size_t offset = 0, remaining_length = length;
@@ -169,7 +169,7 @@ SagemakerAPIServer::SagemakeInferRequestClass::SetResponseHeader(
 void
 SagemakerAPIServer::Handle(evhtp_request_t* req)
 {
-  LOG_VERBOSE(1) << "SageMaker request: " << req->method << " "
+  FLARE_LOG(DEBUG) << "SageMaker request: " << req->method << " "
                  << req->uri->path->full;
 
   if (RE2::FullMatch(std::string(req->uri->path->full), ping_regex_)) {
@@ -189,31 +189,31 @@ SagemakerAPIServer::Handle(evhtp_request_t* req)
     switch (req->method) {
       case htp_method_GET:
         if (multi_model_name.empty()) {
-          LOG_VERBOSE(1) << "SageMaker request: LIST ALL MODELS";
+          FLARE_LOG(DEBUG) << "SageMaker request: LIST ALL MODELS";
 
           SageMakerMMEListModel(req);
           return;
         } else {
-          LOG_VERBOSE(1) << "SageMaker request: GET MODEL";
+          FLARE_LOG(DEBUG) << "SageMaker request: GET MODEL";
 
           SageMakerMMEGetModel(req, multi_model_name.c_str());
           return;
         }
       case htp_method_POST:
         if (action == "/invoke") {
-          LOG_VERBOSE(1) << "SageMaker request: INVOKE MODEL";
+          FLARE_LOG(DEBUG) << "SageMaker request: INVOKE MODEL";
 
           if (sagemaker_models_list_.find(multi_model_name.c_str()) ==
               sagemaker_models_list_.end()) {
             evhtp_send_reply(req, EVHTP_RES_NOTFOUND); /* 404*/
             return;
           }
-          LOG_VERBOSE(1) << "SM MME Custom Invoke Model" << std::endl;
+          FLARE_LOG(DEBUG) << "SM MME Custom Invoke Model" << std::endl;
           SageMakerMMEHandleInfer(req, multi_model_name, model_version_str_);
           return;
         }
         if (action.empty()) {
-          LOG_VERBOSE(1) << "SageMaker request: LOAD MODEL";
+          FLARE_LOG(DEBUG) << "SageMaker request: LOAD MODEL";
 
           std::unordered_map<std::string, std::string> parse_load_map;
           ParseSageMakerRequest(req, &parse_load_map, "load");
@@ -223,7 +223,7 @@ SagemakerAPIServer::Handle(evhtp_request_t* req)
         break;
       case htp_method_DELETE: {
         // UNLOAD MODEL
-        LOG_VERBOSE(1) << "SageMaker request: UNLOAD MODEL";
+        FLARE_LOG(DEBUG) << "SageMaker request: UNLOAD MODEL";
         req->method = htp_method_POST;
 
         SageMakerMMEUnloadModel(req, multi_model_name.c_str());
@@ -231,7 +231,7 @@ SagemakerAPIServer::Handle(evhtp_request_t* req)
         return;
       }
       default:
-        LOG_VERBOSE(1) << "SageMaker error: " << req->method << " "
+        FLARE_LOG(DEBUG) << "SageMaker error: " << req->method << " "
                        << req->uri->path->full << " - "
                        << static_cast<int>(EVHTP_RES_BADREQ);
         evhtp_send_reply(req, EVHTP_RES_BADREQ);
@@ -239,7 +239,7 @@ SagemakerAPIServer::Handle(evhtp_request_t* req)
     }
   }
 
-  LOG_VERBOSE(1) << "SageMaker error: " << req->method << " "
+  FLARE_LOG(DEBUG) << "SageMaker error: " << req->method << " "
                  << req->uri->path->full << " - "
                  << static_cast<int>(EVHTP_RES_BADREQ);
 
@@ -259,7 +259,7 @@ SagemakerAPIServer::Create(
       server, trace_manager, shm_manager, port, address, thread_cnt));
 
   const std::string addr = address + ":" + std::to_string(port);
-  LOG_INFO << "Started Sagemaker HTTPService at " << addr;
+  FLARE_LOG(INFO) << "Started Sagemaker HTTPService at " << addr;
 
   return nullptr;
 }
@@ -290,21 +290,21 @@ SagemakerAPIServer::ParseSageMakerRequest(
 
   size_t buffer_len = evbuffer_get_length(req->buffer_in);
   if (buffer_len > 0) {
-    hercules::common::TritonJson::Value request;
+    hercules::common::json_parser::Value request;
     HTTP_RESPOND_IF_ERR(
         req, EVBufferToJson(&request, v, &v_idx, buffer_len, n));
 
-    hercules::common::TritonJson::Value url;
-    hercules::common::TritonJson::Value model_name;
+    hercules::common::json_parser::Value url;
+    hercules::common::json_parser::Value model_name;
 
     if (request.Find("model_name", &model_name)) {
       HTTP_RESPOND_IF_ERR(req, model_name.AsString(&model_name_string));
-      LOG_VERBOSE(1) << "Received model_name: " << model_name_string.c_str();
+      FLARE_LOG(DEBUG) << "Received model_name: " << model_name_string.c_str();
     }
 
     if ((action == "load") && (request.Find("url", &url))) {
       HTTP_RESPOND_IF_ERR(req, url.AsString(&url_string));
-      LOG_VERBOSE(1) << "Received url: " << url_string.c_str();
+      FLARE_LOG(DEBUG) << "Received url: " << url_string.c_str();
     }
   }
 
@@ -336,7 +336,7 @@ SagemakerAPIServer::SagemakeInferRequestClass::InferResponseComplete(
 
   // Defer to the callback with the final response
   if ((flags & TRITONSERVER_RESPONSE_COMPLETE_FINAL) == 0) {
-    LOG_ERROR << "[INTERNAL] received a response without FINAL flag";
+    FLARE_LOG(ERROR) << "[INTERNAL] received a response without FINAL flag";
     return;
   }
 
@@ -549,7 +549,7 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
                 InferResponseComplete,
             reinterpret_cast<void*>(infer_request.get()));
 
-        LOG_VERBOSE(1) << std::endl;
+        FLARE_LOG(DEBUG) << std::endl;
       }
       if (err == nullptr) {
         err = TRITONSERVER_ServerInferAsync(
@@ -567,7 +567,7 @@ SagemakerAPIServer::SageMakerMMEHandleInfer(
   }
 
   if (err != nullptr) {
-    LOG_VERBOSE(1) << "Infer failed: " << TRITONSERVER_ErrorMessage(err);
+    FLARE_LOG(DEBUG) << "Infer failed: " << TRITONSERVER_ErrorMessage(err);
     evhtp_headers_add_header(
         req->headers_out,
         evhtp_header_new(kContentTypeHeader, "application/json", 1, 1));
@@ -598,7 +598,7 @@ SagemakerAPIServer::SageMakerMMEUnloadModel(
   std::lock_guard<std::mutex> lock(mutex_);
 
   if (sagemaker_models_list_.find(model_name) == sagemaker_models_list_.end()) {
-    LOG_VERBOSE(1) << "Model " << model_name << "is not loaded." << std::endl;
+    FLARE_LOG(DEBUG) << "Model " << model_name << "is not loaded." << std::endl;
     evhtp_send_reply(req, EVHTP_RES_NOTFOUND); /* 404*/
     return;
   }
@@ -633,8 +633,8 @@ SagemakerAPIServer::SageMakerMMEGetModel(
     return;
   }
 
-  hercules::common::TritonJson::Value sagemaker_get_json(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value sagemaker_get_json(
+      hercules::common::json_parser::ValueType::OBJECT);
 
   sagemaker_get_json.AddString("modelName", model_name);
   sagemaker_get_json.AddString(
@@ -643,7 +643,7 @@ SagemakerAPIServer::SageMakerMMEGetModel(
   const char* buffer;
   size_t byte_size;
 
-  hercules::common::TritonJson::WriteBuffer json_buffer_;
+  hercules::common::json_parser::WriteBuffer json_buffer_;
   json_buffer_.Clear();
   sagemaker_get_json.Write(&json_buffer_);
 
@@ -657,16 +657,16 @@ SagemakerAPIServer::SageMakerMMEGetModel(
 void
 SagemakerAPIServer::SageMakerMMEListModel(evhtp_request_t* req)
 {
-  hercules::common::TritonJson::Value sagemaker_list_json(
-      hercules::common::TritonJson::ValueType::OBJECT);
+  hercules::common::json_parser::Value sagemaker_list_json(
+      hercules::common::json_parser::ValueType::OBJECT);
 
-  hercules::common::TritonJson::Value models_array(
-      sagemaker_list_json, hercules::common::TritonJson::ValueType::ARRAY);
+  hercules::common::json_parser::Value models_array(
+      sagemaker_list_json, hercules::common::json_parser::ValueType::ARRAY);
 
   for (auto it = sagemaker_models_list_.begin();
        it != sagemaker_models_list_.end(); it++) {
-    hercules::common::TritonJson::Value model_url_pair(
-        models_array, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value model_url_pair(
+        models_array, hercules::common::json_parser::ValueType::OBJECT);
 
     bool ready = false;
     TRITONSERVER_ServerModelIsReady(
@@ -686,7 +686,7 @@ SagemakerAPIServer::SageMakerMMEListModel(evhtp_request_t* req)
   const char* buffer;
   size_t byte_size;
 
-  hercules::common::TritonJson::WriteBuffer json_buffer_;
+  hercules::common::json_parser::WriteBuffer json_buffer_;
   json_buffer_.Clear();
   sagemaker_list_json.Write(&json_buffer_);
 
@@ -716,7 +716,7 @@ SagemakerAPIServer::SageMakerMMECheckOOMError(TRITONSERVER_Error* err)
 
   for (long unsigned int i = 0; i < error_messages.size(); i++) {
     if (error_string.find(error_messages[i]) != std::string::npos) {
-      LOG_VERBOSE(1) << "OOM strings detected in logs.";
+      FLARE_LOG(DEBUG) << "OOM strings detected in logs.";
       return true;
     }
   }
@@ -733,7 +733,7 @@ SagemakerAPIServer::SageMakerMMEHandleOOMError(
   if (SageMakerMMECheckOOMError(err) == true) {
     /* Return a 507*/
     evhtp_send_reply(req, 507);
-    LOG_VERBOSE(1)
+    FLARE_LOG(DEBUG)
         << "Received an OOM error during LOAD MODEL. Returning a 507.";
     return;
   }
@@ -867,7 +867,7 @@ SagemakerAPIServer::SageMakerMMELoadModel(
   if (err != nullptr) {
     err = TRITONSERVER_ServerUnregisterModelRepository(
         server_.get(), repo_parent_path.c_str());
-    LOG_VERBOSE(1)
+    FLARE_LOG(DEBUG)
         << "Unregistered model repository due to load failure for model: "
         << model_name << std::endl;
   }

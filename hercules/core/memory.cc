@@ -162,7 +162,7 @@ AllocatedMemory::AllocatedMemory(
         if (!status.IsOk()) {
           static bool warning_logged = false;
           if (!warning_logged) {
-            LOG_WARNING << status.Message()
+            FLARE_LOG(WARNING) << status.Message()
                         << ", falling back to pinned system memory";
             warning_logged = true;
           }
@@ -179,7 +179,7 @@ AllocatedMemory::AllocatedMemory(
             (void**)&buffer_, total_byte_size_, &memory_type, true);
         buffer_attributes_.SetMemoryType(memory_type);
         if (!status.IsOk()) {
-          LOG_ERROR << status.Message();
+          FLARE_LOG(ERROR) << status.Message();
           buffer_ = nullptr;
         }
         break;
@@ -198,7 +198,7 @@ AllocatedMemory::~AllocatedMemory()
         auto status =
             cuda_memory_manager::Free(buffer_, buffer_attributes_.MemoryTypeId());
         if (!status.IsOk()) {
-          LOG_ERROR << status.Message();
+          FLARE_LOG(ERROR) << status.Message();
         }
 #endif  // HERCULES_ENABLE_GPU
         break;
@@ -207,7 +207,7 @@ AllocatedMemory::~AllocatedMemory()
       default: {
         auto status = PinnedMemoryManager::Free(buffer_);
         if (!status.IsOk()) {
-          LOG_ERROR << status.Message();
+          FLARE_LOG(ERROR) << status.Message();
           buffer_ = nullptr;
         }
         break;

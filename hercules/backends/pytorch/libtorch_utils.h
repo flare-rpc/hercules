@@ -26,8 +26,8 @@
 
 #pragma once
 
-#include "triton/backend/backend_common.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/core/tritonserver.h"
 
 // Suppress warnings in torch headers
 #pragma GCC diagnostic push
@@ -55,7 +55,7 @@ std::pair<bool, torch::ScalarType> ModelConfigDataTypeToTorchType(
 // associated with that key. If 'mkey' is not present in 'params' then no update
 // is made to 'value'.
 TRITONSERVER_Error* ParseParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     bool* value);
 
 }}}  // namespace hercules::backend::pytorch

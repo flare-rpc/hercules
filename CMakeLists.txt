@@ -79,8 +79,7 @@ endif ()
 include(require_flare)
 include(require_openssl)
 include(require_gflags)
-
-
+find_package(TensorFlow)
 include(FindProtobuf)
 
 set(DYNAMIC_LIB

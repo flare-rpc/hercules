@@ -139,7 +139,7 @@ SequenceStates::Initialize(
             state_config.input_name(), state.second.data_type(), dims)));
 
     if (!input_pair.second) {
-      LOG_WARNING
+      FLARE_LOG(WARNING)
           << "Detected duplicate 'input_name' in the state configuration: '"
           << state_config.input_name()
           << ".' This state configuration will be ignored.";
@@ -159,7 +159,7 @@ SequenceStates::Initialize(
     if (!output_pair.second) {
       // Remove the corresponding state from the input_states_map
       input_states_.erase(state_config.input_name());
-      LOG_WARNING << "Detected duplicate 'output_name' in the state "
+      FLARE_LOG(WARNING) << "Detected duplicate 'output_name' in the state "
                      "configuration: '"
                   << state_config.output_name()
                   << "'. This state configuration will be ignored.";

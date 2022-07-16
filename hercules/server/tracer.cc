@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <unordered_map>
 #include "common.h"
-#include "triton/common/logging.h"
+#include "hercules/common/logging.h"
 #ifdef HERCULES_ENABLE_GPU
 #include <cuda_runtime_api.h>
 #endif  // HERCULES_ENABLE_GPU
@@ -376,7 +376,7 @@ TraceManager::TraceTensorActivity(
   if ((activity != TRITONSERVER_TRACE_TENSOR_QUEUE_INPUT) &&
       (activity != TRITONSERVER_TRACE_TENSOR_BACKEND_INPUT) &&
       (activity != TRITONSERVER_TRACE_TENSOR_BACKEND_OUTPUT)) {
-    LOG_ERROR << "Unsupported activity: "
+    FLARE_LOG(ERROR) << "Unsupported activity: "
               << TRITONSERVER_InferenceTraceActivityString(activity);
     return;
   }
@@ -386,14 +386,14 @@ TraceManager::TraceTensorActivity(
 #ifdef HERCULES_ENABLE_GPU
     buffer_base = malloc(byte_size);
     if (buffer_base == nullptr) {
-      LOG_ERROR << "Failed to malloc CPU buffer";
+      FLARE_LOG(ERROR) << "Failed to malloc CPU buffer";
       return;
     }
     FAIL_IF_CUDA_ERR(
         cudaMemcpy(buffer_base, base, byte_size, cudaMemcpyDeviceToHost),
         "copying buffer into CPU memory");
 #else
-    LOG_ERROR << "GPU buffer is unsupported";
+    FLARE_LOG(ERROR) << "GPU buffer is unsupported";
     return;
 #endif  // HERCULES_ENABLE_GPU
   }
@@ -621,10 +621,10 @@ TraceManager::TraceFile::SaveTraces(
     }
   }
   catch (const std::ofstream::failure& e) {
-    LOG_ERROR << "failed creating trace file: " << e.what();
+    FLARE_LOG(ERROR) << "failed creating trace file: " << e.what();
   }
   catch (...) {
-    LOG_ERROR << "failed creating trace file: reason unknown";
+    FLARE_LOG(ERROR) << "failed creating trace file: reason unknown";
   }
 }
 

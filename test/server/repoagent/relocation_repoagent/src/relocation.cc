@@ -6,8 +6,8 @@
  *****************************************************************/
 
 
-#include "triton/core/tritonrepoagent.h"
-#include "triton/core/tritonserver.h"
+#include "hercules/core/tritonrepoagent.h"
+#include "hercules/core/tritonserver.h"
 
 #include <cctype>
 #include <cstring>

@@ -46,7 +46,7 @@ cuda_memory_manager::~cuda_memory_manager()
   if (has_allocation_) {
     auto status = cnmemFinalize();
     if (status != CNMEM_STATUS_SUCCESS) {
-      LOG_ERROR << "Failed to finalize CUDA memory manager: [" << status << "] "
+      FLARE_LOG(ERROR) << "Failed to finalize CUDA memory manager: [" << status << "] "
                 << cnmemGetErrorString(status);
     }
   }
@@ -65,7 +65,7 @@ cuda_memory_manager::Create(const cuda_memory_manager::Options& options)
   // Ensure thread-safe creation of CUDA memory pool
   std::lock_guard<std::mutex> lock(instance_mu_);
   if (instance_ != nullptr) {
-    LOG_WARNING << "New CUDA memory pools could not be created since they "
+    FLARE_LOG(WARNING) << "New CUDA memory pools could not be created since they "
                    "already exists";
     return Status::Success;
   }
@@ -84,7 +84,7 @@ cuda_memory_manager::Create(const cuda_memory_manager::Options& options)
         device.device = gpu;
         device.size = it->second;
 
-        LOG_INFO << "CUDA memory pool is created on device " << device.device
+        FLARE_LOG(INFO) << "CUDA memory pool is created on device " << device.device
                  << " with size " << device.size;
       }
     }
@@ -94,7 +94,7 @@ cuda_memory_manager::Create(const cuda_memory_manager::Options& options)
           cnmemInit(devices.size(), devices.data(), CNMEM_FLAGS_CANNOT_GROW),
           std::string("Failed to finalize CUDA memory manager"));
     } else {
-      LOG_INFO << "CUDA memory pool disabled";
+      FLARE_LOG(INFO) << "CUDA memory pool disabled";
     }
 
     // Use to finalize CNMeM properly when out of scope

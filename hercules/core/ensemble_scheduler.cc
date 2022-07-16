@@ -519,7 +519,7 @@ EnsembleContext::ResponseAlloc(
             reinterpret_cast<uintptr_t>(*buffer), std::move(allocated_buffer));
       }
     }
-    LOG_VERBOSE(1) << "Internal response allocation: " << tensor_name
+    FLARE_LOG(DEBUG) << "Internal response allocation: " << tensor_name
                    << ", size " << byte_size << ", addr " << *buffer
                    << ", memory type " << *allocated_memory_type << ", type id "
                    << *allocated_memory_type_id;
@@ -534,7 +534,7 @@ EnsembleContext::ResponseRelease(
     size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
-  LOG_VERBOSE(1) << "Internal response release: "
+  FLARE_LOG(DEBUG) << "Internal response release: "
                  << "size " << byte_size << ", addr " << buffer;
 
   // Don't do anything when releasing a buffer since ResponseAlloc
@@ -696,7 +696,7 @@ EnsembleContext::ResponseComplete(
                         step_ptr->flags_));
               }
             } else {
-              LOG_VERBOSE(1)
+              FLARE_LOG(DEBUG)
                   << "in ensemble, an internal response header specified "
                      "output '"
                   << name << "' that does not map to any ensemble tensors";
@@ -892,7 +892,7 @@ EnsembleContext::InitStep(
     if (tensor.parameter_override_) {
       if (parameter_set && ((correlation_id != tensor.correlation_id_) ||
                             (flags != tensor.flags_))) {
-        LOG_ERROR << irequest->LogRequest()
+        FLARE_LOG(ERROR) << irequest->LogRequest()
                   << "Different set of response parameters are set for '"
                   << istep.model_name_ << "'. Parameter correlation ID "
                   << correlation_id << ", flags " << flags << " is used.";
@@ -1290,7 +1290,7 @@ EnsembleScheduler::EnsembleScheduler(
   auto cuerr = cudaStreamCreate(&stream_);
   if (cuerr != cudaSuccess) {
     stream_ = nullptr;
-    LOG_ERROR << "unable to create stream for " << config.name() << ": "
+    FLARE_LOG(ERROR) << "unable to create stream for " << config.name() << ": "
               << cudaGetErrorString(cuerr);
   }
 #endif  // HERCULES_ENABLE_GPU
@@ -1361,7 +1361,7 @@ EnsembleScheduler::~EnsembleScheduler()
   if (stream_ != nullptr) {
     cudaError_t err = cudaStreamDestroy(stream_);
     if (err != cudaSuccess) {
-      LOG_ERROR << "Failed to destroy cuda stream: " << cudaGetErrorString(err);
+      FLARE_LOG(ERROR) << "Failed to destroy cuda stream: " << cudaGetErrorString(err);
     }
   }
 #endif  // HERCULES_ENABLE_GPU

@@ -170,25 +170,25 @@ TRITONSERVER_MessageSerializeToJson(
 namespace hercules::core {
 
 Status
-SharedLibrary::Acquire(std::unique_ptr<SharedLibrary>* slib)
+shared_library::acquire(std::unique_ptr<shared_library>* slib)
 {
-  slib->reset(new SharedLibrary());
+  slib->reset(new shared_library());
   return Status::Success;
 }
 
-SharedLibrary::~SharedLibrary() {}
+shared_library::~shared_library() {}
 Status
-SharedLibrary::SetLibraryDirectory(const std::string& path)
+shared_library::set_library_directory(const std::string& path)
 {
   return Status::Success;
 }
 Status
-SharedLibrary::ResetLibraryDirectory()
+shared_library::reset_library_directory()
 {
   return Status::Success;
 }
 Status
-SharedLibrary::OpenLibraryHandle(const std::string& path, void** handle)
+shared_library::open_library_handle(const std::string& path, void** handle)
 {
   auto it = global_mock_agents.find(path);
   if (it != global_mock_agents.end()) {
@@ -203,7 +203,7 @@ SharedLibrary::OpenLibraryHandle(const std::string& path, void** handle)
 }
 
 Status
-SharedLibrary::CloseLibraryHandle(void* handle)
+shared_library::close_library_handle(void* handle)
 {
   for (auto& global_mock_agent : global_mock_agents) {
     if (reinterpret_cast<void*>(&global_mock_agent.second) == handle) {
@@ -217,7 +217,7 @@ SharedLibrary::CloseLibraryHandle(void* handle)
 }
 
 Status
-SharedLibrary::GetEntrypoint(
+shared_library::get_entrypoint(
     void* handle, const std::string& name, const bool optional, void** fn)
 {
   auto mock_agent = reinterpret_cast<MockSharedLibraryHandle*>(handle);
@@ -985,7 +985,7 @@ TEST_F(TritonRepoAgentModelTest, AcquireLocalLocationTwice)
   ASSERT_TRUE(status.IsOk())
       << "Expect successful location acquisition: " << status.AsString();
 
-  // Acquire the same type again
+  // acquire the same type again
   const char* second_acquired_location;
   status = model->AcquireMutableLocation(
       TRITONREPOAGENT_ARTIFACT_FILESYSTEM, &second_acquired_location);
@@ -1594,7 +1594,7 @@ TEST_F(TritonRepoAgentAPITest, TRITONREPOAGENT_ModelRepositoryLocationAcquire)
 {
   model_init_fn_ = [](TRITONREPOAGENT_Agent* agent,
                       TRITONREPOAGENT_AgentModel* model) {
-    // Acquire, acquire (same), release
+    // acquire, acquire (same), release
     TRITONREPOAGENT_ArtifactType artifact_type =
         TRITONREPOAGENT_ARTIFACT_FILESYSTEM;
     const char* location = nullptr;

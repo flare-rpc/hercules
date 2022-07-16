@@ -11,70 +11,70 @@
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/local">
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/strip">
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install">
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="list_install_components">
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="proto">
@@ -86,7 +86,7 @@
 				<Compiler>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules"/>
-					<Add directory="/Users/liyinbin/miniconda3/envs/hercules-dev/include"/>
+					<Add directory="/Users/liyinbin/miniconda3/envs/hercules_d/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include"/>
@@ -94,10 +94,10 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 proto"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 proto"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="proto/fast">
@@ -109,7 +109,7 @@
 				<Compiler>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules"/>
-					<Add directory="/Users/liyinbin/miniconda3/envs/hercules-dev/include"/>
+					<Add directory="/Users/liyinbin/miniconda3/envs/hercules_d/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include"/>
@@ -117,10 +117,10 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 proto/fast"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 proto/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="core">
@@ -133,7 +133,7 @@
 					<Add option="-DTRITON_ENABLE_ENSEMBLE"/>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules"/>
-					<Add directory="/Users/liyinbin/miniconda3/envs/hercules-dev/include"/>
+					<Add directory="/Users/liyinbin/miniconda3/envs/hercules_d/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include"/>
@@ -141,10 +141,10 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 core"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 core"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="core/fast">
@@ -157,7 +157,7 @@
 					<Add option="-DTRITON_ENABLE_ENSEMBLE"/>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug"/>
 					<Add directory="/Users/liyinbin/github/flare-rpc/hercules"/>
-					<Add directory="/Users/liyinbin/miniconda3/envs/hercules-dev/include"/>
+					<Add directory="/Users/liyinbin/miniconda3/envs/hercules_d/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include"/>
@@ -165,10 +165,10 @@
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 core/fast"/>
-					<CompileFile command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/Users/liyinbin/miniconda3/envs/flare-dev/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 core/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug/hercules/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -218,6 +218,21 @@
 			<Option target="core"/>
 		</Unit>
 		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/backend/backend_output_responder.h">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow.cc">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_backend_tf.cc">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_backend_tf.h">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_utils.cc">
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/backends/tf/tensorflow_utils.h">
 			<Option target="core"/>
 		</Unit>
 		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/hercules/common/async_work_queue.cc">
@@ -565,7 +580,7 @@
 		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/cmake/package/pkg_dump_template.pc.in">
 			<Option virtualFolder="CMake Files\cmake\package\"/>
 		</Unit>
-		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes/FindProtobuf.cmake">
+		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes/FindTensorFlow.cmake">
 			<Option virtualFolder="CMake Files\cmake\recipes\"/>
 		</Unit>
 		<Unit filename="/Users/liyinbin/github/flare-rpc/hercules/cmake/recipes/require_flare.cmake">

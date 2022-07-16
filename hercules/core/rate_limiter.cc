@@ -109,7 +109,7 @@ namespace hercules::core {
             const TritonModel *model, std::shared_ptr<Payload> payload) {
         auto pinstance = payload->GetInstance();
         if (payload_queues_.find(model) == payload_queues_.end()) {
-            LOG_INFO << "Should not print this ";
+            FLARE_LOG(INFO) << "Should not print this ";
         }
         PayloadQueue *payload_queue = payload_queues_[model].get();
         {
@@ -151,7 +151,7 @@ namespace hercules::core {
             std::shared_ptr<Payload> *payload) {
         payload->reset();
         if (payload_queues_.find(instances[0]->Model()) == payload_queues_.end()) {
-            LOG_INFO << "Should not print this ";
+            FLARE_LOG(INFO) << "Should not print this ";
         }
         PayloadQueue *payload_queue = payload_queues_[instances[0]->Model()].get();
         std::vector<std::shared_ptr<Payload>> merged_payloads;
@@ -708,7 +708,7 @@ namespace hercules::core {
         }
         RETURN_IF_ERROR(ValidateMaxResources());
 
-        if (LOG_VERBOSE_IS_ON(1)) {
+        if (FLARE_VLOG_IS_ON(1)) {
             std::string resource_map_str{"\nMax Resource Map===>\n"};
             for (const auto &ditr : max_resources_) {
                 if (!ditr.second.empty()) {
@@ -722,7 +722,7 @@ namespace hercules::core {
                     }
                 }
             }
-            LOG_VERBOSE(1) << resource_map_str;
+            FLARE_LOG(DEBUG) << resource_map_str;
         }
 
         return Status::Success;

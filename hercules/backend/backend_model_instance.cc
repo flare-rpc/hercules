@@ -52,7 +52,7 @@ BackendModelInstance::BackendModelInstance(
   THROW_IF_BACKEND_INSTANCE_ERROR(
       TRITONBACKEND_ModelInstanceDeviceId(triton_model_instance, &device_id_));
 
-  common::TritonJson::Value& model_config = backend_model->ModelConfig();
+  common::json_parser::Value& model_config = backend_model->ModelConfig();
 
   // If the model configuration specifies a 'default_model_filename'
   // and/or specifies 'cc_model_filenames' then determine the
@@ -95,8 +95,8 @@ BackendModelInstance::BackendModelInstance(
 
       const std::string cc =
           std::to_string(cuprops.major) + "." + std::to_string(cuprops.minor);
-      common::TritonJson::Value cc_names;
-      common::TritonJson::Value cc_name;
+      common::json_parser::Value cc_names;
+      common::json_parser::Value cc_name;
       if ((model_config.Find("cc_model_filenames", &cc_names)) &&
           (cc_names.Find(cc.c_str(), &cc_name))) {
         cc_name.AsString(&artifact_filename_);
@@ -137,7 +137,7 @@ BackendModelInstance::BackendModelInstance(
   THROW_IF_BACKEND_MODEL_ERROR(
       TRITONSERVER_MessageSerializeToJson(message, &buffer, &byte_size));
 
-  common::TritonJson::Value host_policy;
+  common::json_parser::Value host_policy;
   TRITONSERVER_Error* err = host_policy.Parse(buffer, byte_size);
   THROW_IF_BACKEND_MODEL_ERROR(err);
   std::vector<std::string> host_policy_name;

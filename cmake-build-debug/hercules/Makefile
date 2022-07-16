@@ -352,6 +352,87 @@ backend/backend_output_responder.cc.s:
 	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backend/backend_output_responder.cc.s
 .PHONY : backend/backend_output_responder.cc.s
 
+backends/tf/tensorflow.o: backends/tf/tensorflow.cc.o
+
+.PHONY : backends/tf/tensorflow.o
+
+# target to build an object file
+backends/tf/tensorflow.cc.o:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.o
+.PHONY : backends/tf/tensorflow.cc.o
+
+backends/tf/tensorflow.i: backends/tf/tensorflow.cc.i
+
+.PHONY : backends/tf/tensorflow.i
+
+# target to preprocess a source file
+backends/tf/tensorflow.cc.i:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.i
+.PHONY : backends/tf/tensorflow.cc.i
+
+backends/tf/tensorflow.s: backends/tf/tensorflow.cc.s
+
+.PHONY : backends/tf/tensorflow.s
+
+# target to generate assembly for a file
+backends/tf/tensorflow.cc.s:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow.cc.s
+.PHONY : backends/tf/tensorflow.cc.s
+
+backends/tf/tensorflow_backend_tf.o: backends/tf/tensorflow_backend_tf.cc.o
+
+.PHONY : backends/tf/tensorflow_backend_tf.o
+
+# target to build an object file
+backends/tf/tensorflow_backend_tf.cc.o:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.o
+.PHONY : backends/tf/tensorflow_backend_tf.cc.o
+
+backends/tf/tensorflow_backend_tf.i: backends/tf/tensorflow_backend_tf.cc.i
+
+.PHONY : backends/tf/tensorflow_backend_tf.i
+
+# target to preprocess a source file
+backends/tf/tensorflow_backend_tf.cc.i:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.i
+.PHONY : backends/tf/tensorflow_backend_tf.cc.i
+
+backends/tf/tensorflow_backend_tf.s: backends/tf/tensorflow_backend_tf.cc.s
+
+.PHONY : backends/tf/tensorflow_backend_tf.s
+
+# target to generate assembly for a file
+backends/tf/tensorflow_backend_tf.cc.s:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow_backend_tf.cc.s
+.PHONY : backends/tf/tensorflow_backend_tf.cc.s
+
+backends/tf/tensorflow_utils.o: backends/tf/tensorflow_utils.cc.o
+
+.PHONY : backends/tf/tensorflow_utils.o
+
+# target to build an object file
+backends/tf/tensorflow_utils.cc.o:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.o
+.PHONY : backends/tf/tensorflow_utils.cc.o
+
+backends/tf/tensorflow_utils.i: backends/tf/tensorflow_utils.cc.i
+
+.PHONY : backends/tf/tensorflow_utils.i
+
+# target to preprocess a source file
+backends/tf/tensorflow_utils.cc.i:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.i
+.PHONY : backends/tf/tensorflow_utils.cc.i
+
+backends/tf/tensorflow_utils.s: backends/tf/tensorflow_utils.cc.s
+
+.PHONY : backends/tf/tensorflow_utils.s
+
+# target to generate assembly for a file
+backends/tf/tensorflow_utils.cc.s:
+	cd /Users/liyinbin/github/flare-rpc/hercules/cmake-build-debug && $(MAKE) $(MAKESILENT) -f hercules/CMakeFiles/core.dir/build.make hercules/CMakeFiles/core.dir/backends/tf/tensorflow_utils.cc.s
+.PHONY : backends/tf/tensorflow_utils.cc.s
+
 common/async_work_queue.o: common/async_work_queue.cc.o
 
 .PHONY : common/async_work_queue.o
@@ -1652,6 +1733,15 @@ help:
 	@echo "... backend/backend_output_responder.o"
 	@echo "... backend/backend_output_responder.i"
 	@echo "... backend/backend_output_responder.s"
+	@echo "... backends/tf/tensorflow.o"
+	@echo "... backends/tf/tensorflow.i"
+	@echo "... backends/tf/tensorflow.s"
+	@echo "... backends/tf/tensorflow_backend_tf.o"
+	@echo "... backends/tf/tensorflow_backend_tf.i"
+	@echo "... backends/tf/tensorflow_backend_tf.s"
+	@echo "... backends/tf/tensorflow_utils.o"
+	@echo "... backends/tf/tensorflow_utils.i"
+	@echo "... backends/tf/tensorflow_utils.s"
 	@echo "... common/async_work_queue.o"
 	@echo "... common/async_work_queue.i"
 	@echo "... common/async_work_queue.s"

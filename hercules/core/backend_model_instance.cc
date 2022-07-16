@@ -249,10 +249,10 @@ namespace hercules::core {
             device_to_thread_map,
             const std::vector<SecondaryDevice> &secondary_devices) {
         // Create the JSON representation of the backend configuration.
-        hercules::common::TritonJson::Value host_policy_json(
-                hercules::common::TritonJson::ValueType::OBJECT);
-        hercules::common::TritonJson::Value policy_setting_json(
-                host_policy_json, hercules::common::TritonJson::ValueType::OBJECT);
+        hercules::common::json_parser::Value host_policy_json(
+                hercules::common::json_parser::ValueType::OBJECT);
+        hercules::common::json_parser::Value policy_setting_json(
+                host_policy_json, hercules::common::json_parser::ValueType::OBJECT);
         for (const auto &pr : host_policy) {
             RETURN_IF_ERROR(policy_setting_json.AddString(pr.first.c_str(), pr.second));
         }
@@ -272,14 +272,14 @@ namespace hercules::core {
         // library path to point to the backend directory in case the
         // backend library attempts to load additional shared libaries.
         if (model->Backend()->ModelInstanceInitFn() != nullptr) {
-            std::unique_ptr<SharedLibrary> slib;
-            RETURN_IF_ERROR(SharedLibrary::Acquire(&slib));
-            RETURN_IF_ERROR(slib->SetLibraryDirectory(model->Backend()->Directory()));
+            std::unique_ptr<shared_library> slib;
+            RETURN_IF_ERROR(shared_library::acquire(&slib));
+            RETURN_IF_ERROR(slib->set_library_directory(model->Backend()->Directory()));
 
             TRITONSERVER_Error *err =
                     model->Backend()->ModelInstanceInitFn()(triton_instance);
 
-            RETURN_IF_ERROR(slib->ResetLibraryDirectory());
+            RETURN_IF_ERROR(slib->reset_library_directory());
             RETURN_IF_TRITONSERVER_ERROR(err);
         }
 
@@ -305,7 +305,7 @@ namespace hercules::core {
         if (device_blocking && (kind == TRITONSERVER_INSTANCEGROUPKIND_GPU)) {
             auto thread_it = device_to_thread_map->find(device_id);
             if (thread_it != device_to_thread_map->end()) {
-                LOG_VERBOSE(1) << "Using already started backend thread for " << Name()
+                FLARE_LOG(DEBUG) << "Using already started backend thread for " << Name()
                                << " on device " << device_id;
                 triton_backend_thread_ = thread_it->second;
             }
@@ -329,11 +329,11 @@ namespace hercules::core {
         warmup_samples_.clear();
         for (const auto &warmup_setting : model_->Config().model_warmup()) {
             if (warmup_setting.batch_size() == 0) {
-                LOG_VERBOSE(1) << "Skipping batch 0 warmup sample '"
+                FLARE_LOG(DEBUG) << "Skipping batch 0 warmup sample '"
                                << warmup_setting.name() << "'";
                 continue;
             }
-            LOG_VERBOSE(1) << "Generating warmup sample data for '"
+            FLARE_LOG(DEBUG) << "Generating warmup sample data for '"
                            << warmup_setting.name() << "'";
 
             // Two passes. First pass to get max byte size for synthetic
@@ -543,7 +543,7 @@ namespace hercules::core {
 
         for (auto &sample : lwarmup_samples) {
             for (size_t iteration = 1; iteration <= sample.count_; ++iteration) {
-                LOG_VERBOSE(1) << "model '" << sample.requests_.back()->ModelName()
+                FLARE_LOG(DEBUG) << "model '" << sample.requests_.back()->ModelName()
                                << "' instance " << Name() << " is running warmup sample '"
                                << sample.sample_name_ << "' for iteration " << iteration;
 
@@ -587,7 +587,7 @@ namespace hercules::core {
                         err_str += (error + "; ");
                     }
                     // End warmup as soon as there is failing sample
-                    LOG_VERBOSE(1) << "model '" << sample.requests_.back()->ModelName()
+                    FLARE_LOG(DEBUG) << "model '" << sample.requests_.back()->ModelName()
                                    << "' instance " << Name()
                                    << " failed to run warmup sample '"
                                    << sample.sample_name_ << "'";
@@ -696,15 +696,15 @@ namespace hercules::core {
             const int nice, const int32_t device_id) {
 #ifndef _WIN32
         if (setpriority(PRIO_PROCESS, syscall(SYS_gettid), nice) == 0) {
-            LOG_VERBOSE(1) << "Starting backend thread for " << name_ << " at nice "
+            FLARE_LOG(DEBUG) << "Starting backend thread for " << name_ << " at nice "
                            << nice << " on device " << device_id << "...";
         } else {
-            LOG_VERBOSE(1) << "Starting backend thread for " << name_
+            FLARE_LOG(DEBUG) << "Starting backend thread for " << name_
                            << " at default nice (requested nice " << nice << " failed)"
                            << " on device " << device_id << "...";
         }
 #else
-        LOG_VERBOSE(1) << "Starting backend thread for " << name_
+        FLARE_LOG(DEBUG) << "Starting backend thread for " << name_
                        << " at default nice on device " << device_id << "...";
 #endif
 
@@ -719,7 +719,7 @@ namespace hercules::core {
             // Release the payload to the RateLimiter
             model_->Server()->GetRateLimiter()->PayloadRelease(payload);
         }
-        LOG_VERBOSE(1) << "Stopping backend thread for " << name_ << "...";
+        FLARE_LOG(DEBUG) << "Stopping backend thread for " << name_ << "...";
     }
 
     extern "C" {

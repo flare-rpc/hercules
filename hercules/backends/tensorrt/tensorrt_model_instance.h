@@ -8,7 +8,7 @@
 #pragma once
 
 #include "tensorrt_model.h"
-#include "triton/backend/backend_model_instance.h"
+#include "hercules/backend/backend_model_instance.h"
 
 #include <set>
 

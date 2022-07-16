@@ -8,9 +8,9 @@
 
 #include <algorithm>
 #include <vector>
-#include "triton/backend/backend_common.h"
-#include "triton/backend/backend_model.h"
-#include "triton/backend/backend_model_instance.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/backend/backend_model.h"
+#include "hercules/backend/backend_model_instance.h"
 
 namespace hercules::backend { namespace implicit {
 
@@ -97,7 +97,7 @@ TRITONSERVER_Error*
 ModelState::ValidateModelConfig()
 {
   // We have the json DOM for the model configuration...
-  common::TritonJson::WriteBuffer buffer;
+  common::json_parser::WriteBuffer buffer;
   RETURN_IF_ERROR(model_config_.PrettyWrite(&buffer));
   LOG_MESSAGE(
       TRITONSERVER_LOG_INFO,
@@ -106,10 +106,10 @@ ModelState::ValidateModelConfig()
   // The model configuration must specify the sequence batcher and
   // must use the START, END, READ and CORRID input to indicate
   // control values.
-  hercules::common::TritonJson::Value sequence_batching;
+  hercules::common::json_parser::Value sequence_batching;
   RETURN_IF_ERROR(
       model_config_.MemberAsObject("sequence_batching", &sequence_batching));
-  common::TritonJson::Value control_inputs;
+  common::json_parser::Value control_inputs;
   RETURN_IF_ERROR(
       sequence_batching.MemberAsArray("control_input", &control_inputs));
   RETURN_ERROR_IF_FALSE(
@@ -119,7 +119,7 @@ ModelState::ValidateModelConfig()
 
   std::vector<std::string> control_input_names;
   for (size_t io_index = 0; io_index < control_inputs.ArraySize(); io_index++) {
-    common::TritonJson::Value control_input;
+    common::json_parser::Value control_input;
     RETURN_IF_ERROR(control_inputs.IndexAsObject(io_index, &control_input));
     const char* input_name = nullptr;
     size_t input_name_len;

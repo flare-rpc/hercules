@@ -61,7 +61,7 @@ SharedMemoryManager::GetMemoryInfo(
 TRITONSERVER_Error*
 SharedMemoryManager::GetStatus(
     const std::string& name, TRITONSERVER_MemoryType memory_type,
-    hercules::common::TritonJson::Value* shm_status)
+    hercules::common::json_parser::Value* shm_status)
 {
   return TRITONSERVER_ErrorNew(
       TRITONSERVER_ERROR_UNSUPPORTED,
@@ -104,7 +104,7 @@ SharedMemoryManager::UnregisterHelper(
 #include <sys/mman.h>
 #include <unistd.h>
 #include "common.h"
-#include "triton/common/logging.h"
+#include "hercules/common/logging.h"
 
 namespace triton { namespace server {
 
@@ -116,7 +116,7 @@ OpenSharedMemoryRegion(const std::string& shm_key, int* shm_fd)
   // get shared memory region descriptor
   *shm_fd = shm_open(shm_key.c_str(), O_RDWR, S_IRUSR | S_IWUSR);
   if (*shm_fd == -1) {
-    LOG_VERBOSE(1) << "shm_open failed, errno: " << errno;
+    FLARE_LOG(DEBUG) << "shm_open failed, errno: " << errno;
     return TRITONSERVER_ErrorNew(
         TRITONSERVER_ERROR_INTERNAL,
         std::string("Unable to open shared memory region: '" + shm_key + "'")
@@ -365,15 +365,15 @@ SharedMemoryManager::GetCUDAHandle(
 TRITONSERVER_Error*
 SharedMemoryManager::GetStatus(
     const std::string& name, TRITONSERVER_MemoryType memory_type,
-    hercules::common::TritonJson::Value* shm_status)
+    hercules::common::json_parser::Value* shm_status)
 {
   std::lock_guard<std::mutex> lock(mu_);
 
   if (name.empty()) {
     for (const auto& shm_info : shared_memory_map_) {
       if (shm_info.second->kind_ == memory_type) {
-        hercules::common::TritonJson::Value shm_region(
-            *shm_status, hercules::common::TritonJson::ValueType::OBJECT);
+        hercules::common::json_parser::Value shm_region(
+            *shm_status, hercules::common::json_parser::ValueType::OBJECT);
         RETURN_IF_ERR(shm_region.AddString(
             "name", shm_info.first.c_str(), shm_info.first.size()));
         if (memory_type == TRITONSERVER_MEMORY_CPU) {
@@ -420,8 +420,8 @@ SharedMemoryManager::GetStatus(
       }
     }
 
-    hercules::common::TritonJson::Value shm_region(
-        *shm_status, hercules::common::TritonJson::ValueType::OBJECT);
+    hercules::common::json_parser::Value shm_region(
+        *shm_status, hercules::common::json_parser::ValueType::OBJECT);
     RETURN_IF_ERR(shm_region.AddString(
         "name", it->second->name_.c_str(), it->second->name_.size()));
     if (memory_type == TRITONSERVER_MEMORY_CPU) {
@@ -486,7 +486,7 @@ SharedMemoryManager::UnregisterAll(TRITONSERVER_MemoryType memory_type)
     for (auto unreg_fail : unregister_fails) {
       error_message += unreg_fail + " ,";
     }
-    LOG_ERROR << error_message;
+    FLARE_LOG(ERROR) << error_message;
     return TRITONSERVER_ErrorNew(
         TRITONSERVER_ERROR_INTERNAL, error_message.c_str());
   }

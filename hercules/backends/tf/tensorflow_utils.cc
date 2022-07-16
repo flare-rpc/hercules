@@ -24,11 +24,10 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#include "tensorflow_utils.h"
+#include "hercules/backends/tf/tensorflow_utils.h"
+#include "hercules/backend/backend_common.h"
 
-#include "triton/backend/backend_common.h"
-
-namespace hercules::backend { namespace tensorflow {
+namespace hercules::backend::tensorflow {
 
 bool
 ModelSupportsBatch(std::vector<const TRITONTF_IOList*> model_ios)
@@ -329,7 +328,7 @@ ConvertDataType(TRITONSERVER_DataType dtype)
 
 TRITONSERVER_Error*
 ParseParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     bool* value)
 {
   std::string value_str;
@@ -341,7 +340,7 @@ ParseParameter(
 
 TRITONSERVER_Error*
 ParseParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     int* value)
 {
   std::string value_str;
@@ -353,11 +352,11 @@ ParseParameter(
 
 TRITONSERVER_Error*
 ParseParameter(
-    hercules::common::TritonJson::Value& params, const std::string& mkey,
+    hercules::common::json_parser::Value& params, const std::string& mkey,
     std::string* value)
 {
   RETURN_IF_ERROR(GetParameterValue(params, mkey, value));
   return nullptr;
 }
 
-}}}  // namespace hercules::backend::tensorflow
+}  // namespace hercules::backend::tensorflow

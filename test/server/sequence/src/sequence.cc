@@ -8,9 +8,9 @@
 
 #include <memory>
 #include <thread>
-#include "triton/backend/backend_common.h"
-#include "triton/backend/backend_model.h"
-#include "triton/backend/backend_model_instance.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/backend/backend_model.h"
+#include "hercules/backend/backend_model_instance.h"
 
 namespace hercules::backend { namespace sequence {
 
@@ -109,15 +109,15 @@ TRITONSERVER_Error*
 ModelState::ValidateModelConfig()
 {
   // We have the json DOM for the model configuration...
-  common::TritonJson::WriteBuffer buffer;
+  common::json_parser::WriteBuffer buffer;
   RETURN_IF_ERROR(model_config_.PrettyWrite(&buffer));
   LOG_MESSAGE(
       TRITONSERVER_LOG_INFO,
       (std::string("model configuration:\n") + buffer.Contents()).c_str());
 
-  hercules::common::TritonJson::Value params;
+  hercules::common::json_parser::Value params;
   if (model_config_.Find("parameters", &params)) {
-    common::TritonJson::Value exec_delay;
+    common::json_parser::Value exec_delay;
     if (params.Find("execute_delay_ms", &exec_delay)) {
       std::string exec_delay_str;
       RETURN_IF_ERROR(
@@ -132,10 +132,10 @@ ModelState::ValidateModelConfig()
 
   // The model configuration must specify the sequence batcher and must use the
   // START and READY input to indicate control values.
-  hercules::common::TritonJson::Value sequence_batching;
+  hercules::common::json_parser::Value sequence_batching;
   RETURN_IF_ERROR(
       model_config_.MemberAsObject("sequence_batching", &sequence_batching));
-  common::TritonJson::Value control_inputs;
+  common::json_parser::Value control_inputs;
   RETURN_IF_ERROR(
       sequence_batching.MemberAsArray("control_input", &control_inputs));
   RETURN_ERROR_IF_FALSE(
@@ -145,7 +145,7 @@ ModelState::ValidateModelConfig()
 
   std::vector<std::string> control_input_names;
   for (size_t io_index = 0; io_index < control_inputs.ArraySize(); io_index++) {
-    common::TritonJson::Value control_input;
+    common::json_parser::Value control_input;
     RETURN_IF_ERROR(control_inputs.IndexAsObject(io_index, &control_input));
     const char* input_name;
     size_t input_name_len;
@@ -163,7 +163,7 @@ ModelState::ValidateModelConfig()
       std::string(
           "'START' and 'READY' must be configured as the control inputs"));
 
-  common::TritonJson::Value inputs, outputs;
+  common::json_parser::Value inputs, outputs;
   RETURN_IF_ERROR(model_config_.MemberAsArray("input", &inputs));
   RETURN_IF_ERROR(model_config_.MemberAsArray("output", &outputs));
 
@@ -174,7 +174,7 @@ ModelState::ValidateModelConfig()
       std::string(
           "model must have input 'INPUT' with vector shape, any length"));
 
-  common::TritonJson::Value input;
+  common::json_parser::Value input;
   RETURN_IF_ERROR(inputs.IndexAsObject(0 /* index */, &input));
 
   std::vector<int64_t> input_shape;
@@ -207,7 +207,7 @@ ModelState::ValidateModelConfig()
       std::string(
           "model must have one output 'OUTPUT' with vector shape, any length"));
 
-  common::TritonJson::Value output;
+  common::json_parser::Value output;
   RETURN_IF_ERROR(outputs.IndexAsObject(0 /* index */, &output));
 
   std::vector<int64_t> output_shape;

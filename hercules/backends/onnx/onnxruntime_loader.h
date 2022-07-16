@@ -10,8 +10,8 @@
 #include <onnxruntime_c_api.h>
 #include <memory>
 #include <mutex>
-#include "triton/backend/backend_common.h"
-#include "triton/core/tritonbackend.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/core/tritonbackend.h"
 
 namespace hercules::backend { namespace onnxruntime {
 
@@ -22,7 +22,7 @@ class OnnxLoader {
   ~OnnxLoader();
 
   /// Initialize loader with default environment settings
-  static TRITONSERVER_Error* Init(common::TritonJson::Value& backend_config);
+  static TRITONSERVER_Error* Init(common::json_parser::Value& backend_config);
 
   /// Stop loader, and once all Onnx sessions are unloaded via UnloadSession()
   /// the resource it allocated will be released

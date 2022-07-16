@@ -8,7 +8,7 @@
 
 #include "tensorrt_utils.h"
 
-#include "triton/backend/backend_common.h"
+#include "hercules/backend/backend_common.h"
 
 namespace hercules::backend { namespace tensorrt {
 
@@ -142,7 +142,7 @@ CompareDims(const nvinfer1::Dims& ldims, const nvinfer1::Dims& rdims)
 TRITONSERVER_Error*
 CompareDimsSupported(
     const std::string& model_name, const std::string& tensor_name,
-    const nvinfer1::Dims& model_dims, common::TritonJson::Value& dims,
+    const nvinfer1::Dims& model_dims, common::json_parser::Value& dims,
     const bool supports_batching, const bool contains_explicit_batch,
     const bool compare_exact)
 {
@@ -238,7 +238,7 @@ CompareDimsSupported(
 TRITONSERVER_Error*
 CompareShapeDimsSupported(
     const std::string& model_name, const std::string& tensor_name,
-    const nvinfer1::Dims& model_dims, common::TritonJson::Value& dims,
+    const nvinfer1::Dims& model_dims, common::json_parser::Value& dims,
     const bool supports_batching)
 {
   std::vector<int64_t> dims_vec;
@@ -424,7 +424,7 @@ DimsToDimVec(const nvinfer1::Dims& model_dims, std::vector<int64_t>* dims)
 
 TRITONSERVER_Error*
 DimsJsonToDimVec(
-    common::TritonJson::Value& dims_json, std::vector<int64_t>* dims)
+    common::json_parser::Value& dims_json, std::vector<int64_t>* dims)
 {
   dims->clear();
   for (size_t i = 0; i < dims_json.ArraySize(); i++) {
@@ -490,7 +490,7 @@ DimsDebugString(const nvinfer1::Dims& dims)
 }
 
 const std::string
-DimsJsonToString(common::TritonJson::Value& dims)
+DimsJsonToString(common::json_parser::Value& dims)
 {
   std::vector<int64_t> dims_vec;
   auto err = DimsJsonToDimVec(dims, &dims_vec);

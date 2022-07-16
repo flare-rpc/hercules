@@ -105,7 +105,7 @@ namespace hercules::core {
         if ((!status.IsOk()) && allow_nonpinned_fallback) {
             static bool warning_logged = false;
             if (!warning_logged) {
-                LOG_WARNING << status.Message()
+                FLARE_LOG(WARNING) << status.Message()
                             << ", falling back to non-pinned system memory";
                 warning_logged = true;
             }
@@ -133,7 +133,7 @@ namespace hercules::core {
                                                     PointerToString(*ptr) +
                                                     "' has been managed");
                 }
-                LOG_VERBOSE(1) << (is_pinned ? "" : "non-")
+                FLARE_LOG(DEBUG) << (is_pinned ? "" : "non-")
                                << "pinned memory allocation: "
                                << "size " << size << ", addr " << *ptr;
             }
@@ -161,7 +161,7 @@ namespace hercules::core {
             if (it != memory_info_.end()) {
                 is_pinned = it->second.first;
                 pinned_memory_buffer = it->second.second;
-                LOG_VERBOSE(1) << (is_pinned ? "" : "non-")
+                FLARE_LOG(DEBUG) << (is_pinned ? "" : "non-")
                                << "pinned memory deallocation: "
                                << "addr " << ptr;
                 memory_info_.erase(it);
@@ -190,7 +190,7 @@ namespace hercules::core {
     Status
     PinnedMemoryManager::Create(const Options &options) {
         if (instance_ != nullptr) {
-            LOG_WARNING << "New pinned memory pool of size "
+            FLARE_LOG(WARNING) << "New pinned memory pool of size "
                         << options.pinned_memory_pool_byte_size_
                         << " could not be created since one already exists"
                         << " of size " << pinned_memory_byte_size_;
@@ -205,15 +205,15 @@ namespace hercules::core {
                 &buffer, options.pinned_memory_pool_byte_size_, cudaHostAllocPortable);
             if (err != cudaSuccess) {
               buffer = nullptr;
-              LOG_WARNING << "Unable to allocate pinned system memory, pinned memory "
+              FLARE_LOG(WARNING) << "Unable to allocate pinned system memory, pinned memory "
                              "pool will not be available: "
                           << std::string(cudaGetErrorString(err));
             } else if (options.pinned_memory_pool_byte_size_ != 0) {
-              LOG_INFO << "Pinned memory pool is created at '"
+              FLARE_LOG(INFO) << "Pinned memory pool is created at '"
                        << PointerToString(buffer) << "' with size "
                        << options.pinned_memory_pool_byte_size_;
             } else {
-              LOG_INFO << "Pinned memory pool disabled";
+              FLARE_LOG(INFO) << "Pinned memory pool disabled";
             }
 #endif  // HERCULES_ENABLE_GPU
             instance_->AddPinnedMemoryBuffer(
@@ -238,14 +238,14 @@ namespace hercules::core {
                 auto status =
                         SetNumaMemoryPolicy(options.host_policy_map_.at(node_policy.second));
                 if (!status.IsOk()) {
-                    LOG_WARNING << "Unable to allocate pinned system memory for NUMA node "
+                    FLARE_LOG(WARNING) << "Unable to allocate pinned system memory for NUMA node "
                                 << node_policy.first << ": " << status.AsString();
                     continue;
                 }
                 unsigned long node_mask;
                 status = GetNumaMemoryPolicyNodeMask(&node_mask);
                 if (!status.IsOk()) {
-                    LOG_WARNING << "Unable to get NUMA node set for current thread: "
+                    FLARE_LOG(WARNING) << "Unable to get NUMA node set for current thread: "
                                 << status.AsString();
                     continue;
                 }
@@ -256,15 +256,15 @@ namespace hercules::core {
                     cudaHostAllocPortable);
                 if (err != cudaSuccess) {
                   buffer = nullptr;
-                  LOG_WARNING << "Unable to allocate pinned system memory, pinned memory "
+                  FLARE_LOG(WARNING) << "Unable to allocate pinned system memory, pinned memory "
                                  "pool will not be available: "
                               << std::string(cudaGetErrorString(err));
                 } else if (options.pinned_memory_pool_byte_size_ != 0) {
-                  LOG_INFO << "Pinned memory pool is created at '"
+                  FLARE_LOG(INFO) << "Pinned memory pool is created at '"
                            << PointerToString(buffer) << "' with size "
                            << options.pinned_memory_pool_byte_size_;
                 } else {
-                  LOG_INFO << "Pinned memory pool disabled";
+                  FLARE_LOG(INFO) << "Pinned memory pool disabled";
                 }
 #endif  // HERCULES_ENABLE_GPU
                 ResetNumaMemoryPolicy();

@@ -25,9 +25,9 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <vector>
-#include "triton/backend/backend_common.h"
-#include "triton/backend/backend_model.h"
-#include "triton/backend/backend_model_instance.h"
+#include "hercules/backend/backend_common.h"
+#include "hercules/backend/backend_model.h"
+#include "hercules/backend/backend_model_instance.h"
 
 namespace hercules::backend { namespace query {
 
