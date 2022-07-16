@@ -7,7 +7,7 @@
 
 #pragma once
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 #include <mutex>
 #include <unordered_map>
@@ -70,4 +70,4 @@ class Metric {
 
 }  // namespace hercules::core
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS

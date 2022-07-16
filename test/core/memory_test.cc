@@ -218,9 +218,9 @@ TEST_F(AllocatedMemoryTest, AllocGPU)
   size_t expect_size = 512, actual_size;
   TRITONSERVER_MemoryType expect_type = TRITONSERVER_MEMORY_GPU, actual_type;
   int64_t expect_id = 0, actual_id;
-  tc::AllocatedMemory memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory memory(expect_size, expect_type, expect_id);
 
-  auto ptr = memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  auto ptr = memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(expect_type, actual_type)
@@ -238,9 +238,9 @@ TEST_F(AllocatedMemoryTest, AllocPinned)
   TRITONSERVER_MemoryType expect_type = TRITONSERVER_MEMORY_CPU_PINNED,
                           actual_type;
   int64_t expect_id = 0, actual_id;
-  tc::AllocatedMemory memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory memory(expect_size, expect_type, expect_id);
 
-  auto ptr = memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  auto ptr = memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(expect_type, actual_type)
@@ -260,9 +260,9 @@ TEST_F(AllocatedMemoryTest, AllocFallback)
   int64_t expect_id = 0, actual_id;
 
   // First allocation
-  tc::AllocatedMemory cuda_memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory cuda_memory(expect_size, expect_type, expect_id);
 
-  auto ptr = cuda_memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  auto ptr = cuda_memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(expect_type, actual_type)
@@ -274,9 +274,9 @@ TEST_F(AllocatedMemoryTest, AllocFallback)
   CHECK_POINTER_ATTRIBUTES(ptr, cudaMemoryTypeDevice, expect_id);
 
   // Second allocation, should trigger fallback from CUDA -> pinned memory
-  tc::AllocatedMemory pinned_memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory pinned_memory(expect_size, expect_type, expect_id);
 
-  ptr = pinned_memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  ptr = pinned_memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(TRITONSERVER_MEMORY_CPU_PINNED, actual_type)
@@ -287,9 +287,9 @@ TEST_F(AllocatedMemoryTest, AllocFallback)
   CHECK_POINTER_ATTRIBUTES(ptr, cudaMemoryTypeHost, expect_id);
 
   // Third allocation, CUDA -> pinned -> non-pinned
-  tc::AllocatedMemory system_memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory system_memory(expect_size, expect_type, expect_id);
 
-  ptr = system_memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  ptr = system_memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(TRITONSERVER_MEMORY_CPU, actual_type)
@@ -310,9 +310,9 @@ TEST_F(AllocatedMemoryTest, AllocFallbackNoCuda)
   int64_t expect_id = 0, actual_id;
 
   // CUDA memory allocation should trigger fallback to allocate pinned memory
-  tc::AllocatedMemory pinned_memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory pinned_memory(expect_size, expect_type, expect_id);
 
-  auto ptr = pinned_memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  auto ptr = pinned_memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(TRITONSERVER_MEMORY_CPU_PINNED, actual_type)
@@ -334,9 +334,9 @@ TEST_F(AllocatedMemoryTest, Release)
 
   {
     // First allocation
-    tc::AllocatedMemory cuda_memory(expect_size, expect_type, expect_id);
+    tc::allocated_memory cuda_memory(expect_size, expect_type, expect_id);
 
-    auto ptr = cuda_memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+    auto ptr = cuda_memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
     EXPECT_EQ(expect_size, actual_size)
         << "Expect size: " << expect_size << ", got: " << actual_size;
     EXPECT_EQ(expect_type, actual_type)
@@ -348,9 +348,9 @@ TEST_F(AllocatedMemoryTest, Release)
     CHECK_POINTER_ATTRIBUTES(ptr, cudaMemoryTypeDevice, expect_id);
 
     // Second allocation, should trigger fallback from CUDA -> pinned memory
-    tc::AllocatedMemory pinned_memory(expect_size, expect_type, expect_id);
+    tc::allocated_memory pinned_memory(expect_size, expect_type, expect_id);
 
-    ptr = pinned_memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+    ptr = pinned_memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
     EXPECT_EQ(expect_size, actual_size)
         << "Expect size: " << expect_size << ", got: " << actual_size;
     EXPECT_EQ(TRITONSERVER_MEMORY_CPU_PINNED, actual_type)
@@ -362,9 +362,9 @@ TEST_F(AllocatedMemoryTest, Release)
   }
 
   // Third allocation, should not trigger fallback
-  tc::AllocatedMemory memory(expect_size, expect_type, expect_id);
+  tc::allocated_memory memory(expect_size, expect_type, expect_id);
 
-  auto ptr = memory.BufferAt(0, &actual_size, &actual_type, &actual_id);
+  auto ptr = memory.buffer_at(0, &actual_size, &actual_type, &actual_id);
   EXPECT_EQ(expect_size, actual_size)
       << "Expect size: " << expect_size << ", got: " << actual_size;
   EXPECT_EQ(expect_type, actual_type)

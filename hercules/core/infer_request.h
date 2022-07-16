@@ -99,27 +99,27 @@ class inference_request {
     Status SetIsShapeTensor(const bool is_shape_tensor);
 
     // The data for this input.
-    const std::shared_ptr<Memory>& Data() const { return data_; }
+    const std::shared_ptr<memory_base>& Data() const { return data_; }
 
     // The data for this input for a specific device
-    const std::shared_ptr<Memory>& Data(
+    const std::shared_ptr<memory_base>& Data(
         const std::string& host_policy_name) const;
 
     // Return all host policy data set for this input
-    const std::map<std::string, std::shared_ptr<Memory>>& HostPolicyData() const
+    const std::map<std::string, std::shared_ptr<memory_base>>& HostPolicyData() const
     {
       return host_policy_data_map_;
     }
 
     // Set the data for this input. Error if input already has some
     // data.
-    Status SetData(const std::shared_ptr<Memory>& data);
+    Status SetData(const std::shared_ptr<memory_base>& data);
 
     // Set the data associated with the host policy for this input.
     // Return error if input already has some data.
     Status SetData(
         const std::string& host_policy_name,
-        const std::shared_ptr<Memory>& data);
+        const std::shared_ptr<memory_base>& data);
 
     // Append a new buffer of data to this input.
     Status AppendData(
@@ -131,7 +131,7 @@ class inference_request {
         int64_t memory_type_id, const char* host_policy_name);
 
     Status AppendDataWithBufferAttributes(
-        const void* base, BufferAttributes* attr);
+        const void* base, buffer_attributes* attr);
 
     // Prepend a new buffer of data to this input.
     Status PrependData(
@@ -142,7 +142,7 @@ class inference_request {
     Status RemoveAllData();
 
     // Get the number of buffers containing the input tensor data.
-    size_t DataBufferCount() const { return data_->BufferCount(); }
+    size_t DataBufferCount() const { return data_->buffer_count(); }
 
     // Get the number of buffers containing the input tensor data with
     // host policy. If there are no buffers corresponding to the specific
@@ -170,7 +170,7 @@ class inference_request {
     // Get the buffer attributes associated with 'idx' buffer.
     Status DataBufferAttributes(
         const size_t idx, const void** base,
-        BufferAttributes** attr) const;
+        buffer_attributes** attr) const;
 
     // Get the 'idx' buffer containing a contiguous chunk of bytes for
     // the input. Return error is 'idx' refers to a buffer that does
@@ -200,11 +200,11 @@ class inference_request {
     std::vector<int64_t> shape_;
     std::vector<int64_t> shape_with_batch_dim_;
     bool is_shape_tensor_;
-    std::shared_ptr<Memory> data_;
+    std::shared_ptr<memory_base> data_;
 
     bool has_host_policy_specific_data_;
     // A map of host policy to input data memory
-    std::map<std::string, std::shared_ptr<Memory>> host_policy_data_map_;
+    std::map<std::string, std::shared_ptr<memory_base>> host_policy_data_map_;
   };
 
   // Sequence ID can be either a 64 bit integer or a string.

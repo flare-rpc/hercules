@@ -144,7 +144,7 @@ class InferenceResponse {
     // The shape of the output tensor.
     const std::vector<int64_t>& Shape() const { return shape_; }
 
-    BufferAttributes* GetBufferAttributes() { return &buffer_attributes_; }
+    buffer_attributes* GetBufferAttributes() { return &buffer_attributes_; }
 
     // Reshape the output tensor. This function must only be called
     // for outputs that have respace specified in the model
@@ -197,7 +197,7 @@ class InferenceResponse {
     // AllocateDataBuffer(). This information is needed by
     // DataBuffer() and ReleaseDataBuffer().
     void* allocated_buffer_;
-    BufferAttributes buffer_attributes_;
+    buffer_attributes buffer_attributes_;
     void* allocated_userp_;
   };
 

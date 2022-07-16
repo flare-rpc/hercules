@@ -8,7 +8,7 @@
 
 #include "metric_model_reporter.h"
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 #include "constants.h"
 #include "metrics.h"
@@ -147,4 +147,4 @@ metric_model_reporter::CreateCounterMetric(
 
 }  // namespace hercules::core
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS

@@ -128,25 +128,25 @@ namespace hercules::core {
     //
     // Manage communication with Triton backends and their lifecycle.
     //
-    class TritonBackendManager {
+    class hercules_backend_manager {
     public:
-        static Status Create(std::shared_ptr<TritonBackendManager> *manager);
+        static Status create(std::shared_ptr<hercules_backend_manager> *manager);
 
-        Status CreateBackend(
+        Status create_backend(
                 const std::string &name, const std::string &dir,
                 const std::string &libpath,
                 const hercules::common::BackendCmdlineConfig &backend_cmdline_config,
                 std::shared_ptr<hercules_backend> *backend);
 
-        Status BackendState(
+        Status backend_state(
                 std::unique_ptr<
                         std::unordered_map<std::string, std::vector<std::string>>> *
                 backend_state);
 
     private:
-        FLARE_DISALLOW_COPY_AND_ASSIGN(TritonBackendManager);
+        FLARE_DISALLOW_COPY_AND_ASSIGN(hercules_backend_manager);
 
-        TritonBackendManager() = default;
+        hercules_backend_manager() = default;
 
         std::unordered_map<std::string, std::shared_ptr<hercules_backend>> backend_map_;
     };

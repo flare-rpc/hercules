@@ -7,7 +7,7 @@
 
 //
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 #include "metrics.h"
 
@@ -471,7 +471,7 @@ Metrics::PollDcgmMetrics()
         gpu_utilization_[didx]->Set((double)util * 0.01);
       }
 
-      // Memory Usage
+      // memory_base Usage
       if (dcgm_metadata_.mem_fail_cnt_[didx] < dcgm_metadata_.fail_threshold_) {
         int64_t memory_used = field_values[4].value.i64;
         int64_t memory_total = field_values[5].value.i64;
@@ -487,9 +487,9 @@ Metrics::PollDcgmMetrics()
           dcgmReturn_t usageStatus = dcgmReturn_t(field_values[4].status);
           dcgmReturn_t memoryTotaltatus = dcgmReturn_t(field_values[5].status);
           FLARE_LOG(WARNING) << "Unable to get memory usage for GPU " << cuda_id
-                      << ". Memory usage status:" << errorString(usageStatus)
+                      << ". memory_base usage status:" << errorString(usageStatus)
                       << ", value:" << dcgmValueToErrorMessage(memory_used)
-                      << ". Memory total status:"
+                      << ". memory_base total status:"
                       << errorString(memoryTotaltatus)
                       << ", value:" << dcgmValueToErrorMessage(memory_total);
         }
@@ -800,4 +800,4 @@ Metrics::GetSingleton()
 
 }  // namespace hercules::core
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS

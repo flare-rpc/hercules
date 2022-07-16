@@ -1042,7 +1042,7 @@ ModelInstanceState::ProcessRequests(
   if (!all_response_failed) {
     collector.reset(new BackendInputCollector(
         requests, request_count, &responses,
-        model_state_->TritonMemoryManager(), model_state_->EnablePinnedInput(),
+        model_state_->hercules_memory_manager(), model_state_->EnablePinnedInput(),
         CudaStream(), nullptr, nullptr, 0, HostPolicyName().c_str()));
     RESPOND_ALL_AND_SET_TRUE_IF_ERROR(
         responses, request_count, all_response_failed,
@@ -1748,7 +1748,7 @@ ModelInstanceState::ReadOutputTensors(
   NVTX_RANGE(nvtx_, "ReadOutputTensors " + Name());
 
   BackendOutputResponder responder(
-      requests, request_count, responses, model_state_->TritonMemoryManager(),
+      requests, request_count, responses, model_state_->hercules_memory_manager(),
       model_state_->MaxBatchSize() > 0, model_state_->EnablePinnedInput(),
       CudaStream());
 

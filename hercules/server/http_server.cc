@@ -109,7 +109,7 @@ HTTPServer::Dispatch(evhtp_request_t* req, void* arg)
   (static_cast<HTTPServer*>(arg))->Handle(req);
 }
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 void
 HTTPMetricsServer::Handle(evhtp_request_t* req)
@@ -162,7 +162,7 @@ HTTPMetricsServer::Create(
   return nullptr;
 }
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 
 namespace {

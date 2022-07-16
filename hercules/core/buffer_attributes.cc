@@ -13,25 +13,25 @@
 
 namespace hercules::core {
 void
-BufferAttributes::SetByteSize(const size_t& byte_size)
+buffer_attributes::SetByteSize(const size_t& byte_size)
 {
   byte_size_ = byte_size;
 }
 
 void
-BufferAttributes::SetMemoryType(const TRITONSERVER_MemoryType& memory_type)
+buffer_attributes::SetMemoryType(const TRITONSERVER_MemoryType& memory_type)
 {
   memory_type_ = memory_type;
 }
 
 void
-BufferAttributes::SetMemoryTypeId(const int64_t& memory_type_id)
+buffer_attributes::SetMemoryTypeId(const int64_t& memory_type_id)
 {
   memory_type_id_ = memory_type_id;
 }
 
 void
-BufferAttributes::SetCudaIpcHandle(void* cuda_ipc_handle)
+buffer_attributes::SetCudaIpcHandle(void* cuda_ipc_handle)
 {
   char* lcuda_ipc_handle = reinterpret_cast<char*>(cuda_ipc_handle);
   cuda_ipc_handle_.clear();
@@ -41,7 +41,7 @@ BufferAttributes::SetCudaIpcHandle(void* cuda_ipc_handle)
 }
 
 void*
-BufferAttributes::CudaIpcHandle()
+buffer_attributes::CudaIpcHandle()
 {
   if (cuda_ipc_handle_.empty()) {
     return nullptr;
@@ -51,24 +51,24 @@ BufferAttributes::CudaIpcHandle()
 }
 
 size_t
-BufferAttributes::ByteSize() const
+buffer_attributes::ByteSize() const
 {
   return byte_size_;
 }
 
 TRITONSERVER_MemoryType
-BufferAttributes::MemoryType() const
+buffer_attributes::MemoryType() const
 {
   return memory_type_;
 }
 
 int64_t
-BufferAttributes::MemoryTypeId() const
+buffer_attributes::MemoryTypeId() const
 {
   return memory_type_id_;
 }
 
-BufferAttributes::BufferAttributes(
+buffer_attributes::buffer_attributes(
     size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id, char* cuda_ipc_handle)
     : byte_size_(byte_size), memory_type_(memory_type),

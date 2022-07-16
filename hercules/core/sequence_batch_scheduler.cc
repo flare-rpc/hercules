@@ -238,13 +238,13 @@ SequenceBatchScheduler::GenerateInitialStateData(
   switch (initial_state.state_data_case()) {
     case hercules::proto::ModelSequenceBatching_InitialState::StateDataCase::
         kZeroData: {
-      initial_state_data.data_ = std::make_shared<AllocatedMemory>(
+      initial_state_data.data_ = std::make_shared<allocated_memory>(
           total_byte_size, TRITONSERVER_MEMORY_CPU /* memory_type */,
           0 /* memory_type_id */);
 
       TRITONSERVER_MemoryType memory_type;
       int64_t memory_type_id;
-      char* data_ptr = initial_state_data.data_->MutableBuffer(
+      char* data_ptr = initial_state_data.data_->mutable_buffer(
           &memory_type, &memory_type_id);
       memset(data_ptr, 0, total_byte_size);
       break;
@@ -271,10 +271,10 @@ SequenceBatchScheduler::GenerateInitialStateData(
       TRITONSERVER_MemoryType memory_type;
       int64_t memory_type_id;
 
-      initial_state_data.data_ = std::make_shared<AllocatedMemory>(
+      initial_state_data.data_ = std::make_shared<allocated_memory>(
           total_byte_size, TRITONSERVER_MEMORY_CPU /* memory_type */,
           0 /* memory_type_id */);
-      char* data_ptr = initial_state_data.data_->MutableBuffer(
+      char* data_ptr = initial_state_data.data_->mutable_buffer(
           &memory_type, &memory_type_id);
       memcpy(data_ptr, file_input.data(), total_byte_size);
 
@@ -333,8 +333,8 @@ GetBooleanOverrideInputs(
   const size_t size_p = hercules::common::GetDataTypeByteSize(tensor_datatype);
 
   auto true_p =
-      std::make_shared<AllocatedMemory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
-  char* true_p_ptr = true_p->MutableBuffer(&memory_type, &memory_type_id);
+      std::make_shared<allocated_memory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
+  char* true_p_ptr = true_p->mutable_buffer(&memory_type, &memory_type_id);
   if ((true_p_ptr == nullptr) ||
       ((memory_type != TRITONSERVER_MEMORY_CPU) &&
        (memory_type != TRITONSERVER_MEMORY_CPU_PINNED)) ||
@@ -345,8 +345,8 @@ GetBooleanOverrideInputs(
   }
 
   auto false_p =
-      std::make_shared<AllocatedMemory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
-  char* false_p_ptr = false_p->MutableBuffer(&memory_type, &memory_type_id);
+      std::make_shared<allocated_memory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
+  char* false_p_ptr = false_p->mutable_buffer(&memory_type, &memory_type_id);
   if ((false_p_ptr == nullptr) ||
       ((memory_type != TRITONSERVER_MEMORY_CPU) &&
        (memory_type != TRITONSERVER_MEMORY_CPU_PINNED)) ||
@@ -986,8 +986,8 @@ SequenceBatch::SetControlTensors(
     TRITONSERVER_MemoryType memory_type;
     int64_t memory_type_id;
     auto corrid_p =
-        std::make_shared<AllocatedMemory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
-    char* corrid_p_ptr = corrid_p->MutableBuffer(&memory_type, &memory_type_id);
+        std::make_shared<allocated_memory>(size_p, TRITONSERVER_MEMORY_CPU, 0);
+    char* corrid_p_ptr = corrid_p->mutable_buffer(&memory_type, &memory_type_id);
     if ((corrid_p_ptr == nullptr) ||
         ((memory_type != TRITONSERVER_MEMORY_CPU) &&
          (memory_type != TRITONSERVER_MEMORY_CPU_PINNED)) ||

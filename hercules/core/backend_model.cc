@@ -124,7 +124,7 @@ TritonModel::Create(
   RETURN_IF_ERROR(SetBackendConfigDefaults(config));
 
   std::shared_ptr<hercules_backend> backend;
-  RETURN_IF_ERROR(server->BackendManager()->CreateBackend(
+  RETURN_IF_ERROR(server->BackendManager()->create_backend(
       model_config.backend(), backend_libdir, backend_libpath, config,
       &backend));
 
@@ -838,14 +838,14 @@ TRITONBACKEND_StateBuffer(
 
   // If the buffer size exactly matches the buffer available, reuse the
   // currently allocated buffer.
-  if (to->Data()->TotalByteSize() == buffer_byte_size) {
-    const std::shared_ptr<AllocatedMemory>& memory =
-        reinterpret_cast<const std::shared_ptr<AllocatedMemory>&>(to->Data());
+  if (to->Data()->total_byte_size() == buffer_byte_size) {
+    const std::shared_ptr<allocated_memory>& memory =
+        reinterpret_cast<const std::shared_ptr<allocated_memory>&>(to->Data());
 
     TRITONSERVER_MemoryType current_memory_type;
     int64_t current_memory_type_id;
     void* lbuffer =
-        memory->MutableBuffer(&current_memory_type, &current_memory_type_id);
+        memory->mutable_buffer(&current_memory_type, &current_memory_type_id);
 
     // If the requested memory type doesn't match the current buffer, allocate a
     // new buffer with the requested memory type and memory type id.
@@ -853,17 +853,17 @@ TRITONBACKEND_StateBuffer(
         current_memory_type_id == *memory_type_id) {
       *buffer = lbuffer;
     } else {
-      std::shared_ptr<AllocatedMemory> memory =
-          std::make_shared<AllocatedMemory>(
+      std::shared_ptr<allocated_memory> memory =
+          std::make_shared<allocated_memory>(
               buffer_byte_size, *memory_type, *memory_type_id);
-      *buffer = memory->MutableBuffer(memory_type, memory_type_id);
+      *buffer = memory->mutable_buffer(memory_type, memory_type_id);
       to->RemoveAllData();
       status = to->SetData(memory);
     }
   } else {
-    std::shared_ptr<AllocatedMemory> memory = std::make_shared<AllocatedMemory>(
+    std::shared_ptr<allocated_memory> memory = std::make_shared<allocated_memory>(
         buffer_byte_size, *memory_type, *memory_type_id);
-    *buffer = memory->MutableBuffer(memory_type, memory_type_id);
+    *buffer = memory->mutable_buffer(memory_type, memory_type_id);
     to->RemoveAllData();
     status = to->SetData(memory);
   }
@@ -882,8 +882,8 @@ TRITONBACKEND_StateBufferAttributes(
     TRITONSERVER_BufferAttributes** attr)
 {
   SequenceState* to = reinterpret_cast<SequenceState*>(state);
-  to->Data()->BufferAt(
-      0, reinterpret_cast<BufferAttributes**>(attr));
+  to->Data()->buffer_at(
+      0, reinterpret_cast<buffer_attributes**>(attr));
 
   return nullptr;  // success
 }
@@ -1085,7 +1085,7 @@ TRITONBACKEND_InputProperties(
     *dims_count = ti->ShapeWithBatchDim().size();
   }
   if (byte_size != nullptr) {
-    *byte_size = ti->Data()->TotalByteSize();
+    *byte_size = ti->Data()->total_byte_size();
   }
   if (buffer_count != nullptr) {
     *buffer_count = ti->DataBufferCount();
@@ -1115,14 +1115,14 @@ TRITONBACKEND_InputPropertiesForHostPolicy(
   }
   if (host_policy_name != nullptr) {
     if (byte_size != nullptr) {
-      *byte_size = ti->Data(host_policy_name)->TotalByteSize();
+      *byte_size = ti->Data(host_policy_name)->total_byte_size();
     }
     if (buffer_count != nullptr) {
       *buffer_count = ti->DataBufferCountForHostPolicy(host_policy_name);
     }
   } else {
     if (byte_size != nullptr) {
-      *byte_size = ti->Data()->TotalByteSize();
+      *byte_size = ti->Data()->total_byte_size();
     }
     if (buffer_count != nullptr) {
       *buffer_count = ti->DataBufferCount();
@@ -1159,7 +1159,7 @@ TRITONBACKEND_InputBufferAttributes(
   inference_request::Input* ti =
       reinterpret_cast<inference_request::Input*>(input);
   Status status = ti->DataBufferAttributes(
-      index, buffer, reinterpret_cast<BufferAttributes**>(attr));
+      index, buffer, reinterpret_cast<buffer_attributes**>(attr));
   if (!status.IsOk()) {
     *buffer = nullptr;
     *attr = nullptr;

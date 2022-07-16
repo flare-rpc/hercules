@@ -1975,7 +1975,7 @@ namespace hercules::backend::tensorflow {
 
             BackendInputCollector collector(
                     requests, request_count, &responses,
-                    StateForModel()->TritonMemoryManager(),
+                    StateForModel()->hercules_memory_manager(),
                     StateForModel()->EnablePinnedInput(), CudaStream(), nullptr, nullptr, 0,
                     HostPolicyName().c_str());
             {
@@ -2297,7 +2297,7 @@ namespace hercules::backend::tensorflow {
             std::vector<std::unique_ptr<std::string>> string_buffer;
             BackendOutputResponder responder(
                     requests, request_count, &responses,
-                    StateForModel()->TritonMemoryManager(), max_batch_size > 0,
+                    StateForModel()->hercules_memory_manager(), max_batch_size > 0,
                     StateForModel()->EnablePinnedOutput(), CudaStream());
             {
                 TRITONTF_TensorList *output_tensor_itr = output_tensors.get();

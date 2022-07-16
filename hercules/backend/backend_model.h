@@ -33,7 +33,7 @@ namespace hercules::backend {
         TRITONSERVER_Server *TritonServer() { return triton_server_; }
 
         // Get the handle to the memory manager for this model.
-        TRITONBACKEND_MemoryManager *TritonMemoryManager() {
+        TRITONBACKEND_MemoryManager *hercules_memory_manager() {
             return triton_memory_manager_;
         }
 

@@ -19,12 +19,12 @@
 namespace hercules::core {
 
 //
-// MemoryReference
+// memory_reference
 //
-MemoryReference::MemoryReference() : Memory() {}
+memory_reference::memory_reference() : memory_base() {}
 
 const char*
-MemoryReference::BufferAt(
+memory_reference::buffer_at(
     size_t idx, size_t* byte_size, TRITONSERVER_MemoryType* memory_type,
     int64_t* memory_type_id) const
 {
@@ -41,7 +41,7 @@ MemoryReference::BufferAt(
 }
 
 const char*
-MemoryReference::BufferAt(size_t idx, BufferAttributes** attr)
+memory_reference::buffer_at(size_t idx, buffer_attributes** attr)
 {
   if (idx >= buffer_.size()) {
     *attr = nullptr;
@@ -53,7 +53,7 @@ MemoryReference::BufferAt(size_t idx, BufferAttributes** attr)
 }
 
 size_t
-MemoryReference::AddBuffer(
+memory_reference::add_buffer(
     const char* buffer, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
@@ -64,8 +64,8 @@ MemoryReference::AddBuffer(
 }
 
 size_t
-MemoryReference::AddBuffer(
-    const char* buffer, BufferAttributes* attr)
+memory_reference::add_buffer(
+    const char* buffer, buffer_attributes* attr)
 {
   total_byte_size_ += attr->ByteSize();
   buffer_count_++;
@@ -74,7 +74,7 @@ MemoryReference::AddBuffer(
 }
 
 size_t
-MemoryReference::AddBufferFront(
+memory_reference::add_buffer_front(
     const char* buffer, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
 {
@@ -86,21 +86,21 @@ MemoryReference::AddBufferFront(
 }
 
 //
-// MutableMemory
+// mutable_memory
 //
-MutableMemory::MutableMemory(
+mutable_memory::mutable_memory(
     char* buffer, size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
-    : Memory(), buffer_(buffer),
+    : memory_base(), buffer_(buffer),
       buffer_attributes_(
-          BufferAttributes(byte_size, memory_type, memory_type_id, nullptr))
+          buffer_attributes(byte_size, memory_type, memory_type_id, nullptr))
 {
   total_byte_size_ = byte_size;
   buffer_count_ = (byte_size == 0) ? 0 : 1;
 }
 
 const char*
-MutableMemory::BufferAt(
+mutable_memory::buffer_at(
     size_t idx, size_t* byte_size, TRITONSERVER_MemoryType* memory_type,
     int64_t* memory_type_id) const
 {
@@ -117,7 +117,7 @@ MutableMemory::BufferAt(
 }
 
 const char*
-MutableMemory::BufferAt(size_t idx, BufferAttributes** attr)
+mutable_memory::buffer_at(size_t idx, buffer_attributes** attr)
 {
   if (idx != 0) {
     *attr = nullptr;
@@ -129,7 +129,7 @@ MutableMemory::BufferAt(size_t idx, BufferAttributes** attr)
 }
 
 char*
-MutableMemory::MutableBuffer(
+mutable_memory::mutable_buffer(
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id)
 {
   if (memory_type != nullptr) {
@@ -143,12 +143,12 @@ MutableMemory::MutableBuffer(
 }
 
 //
-// AllocatedMemory
+// allocated_memory
 //
-AllocatedMemory::AllocatedMemory(
+allocated_memory::allocated_memory(
     size_t byte_size, TRITONSERVER_MemoryType memory_type,
     int64_t memory_type_id)
-    : MutableMemory(nullptr, byte_size, memory_type, memory_type_id)
+    : mutable_memory(nullptr, byte_size, memory_type, memory_type_id)
 {
   if (total_byte_size_ != 0) {
     // Allocate memory with the following fallback policy:
@@ -189,7 +189,7 @@ AllocatedMemory::AllocatedMemory(
   total_byte_size_ = (buffer_ == nullptr) ? 0 : total_byte_size_;
 }
 
-AllocatedMemory::~AllocatedMemory()
+allocated_memory::~allocated_memory()
 {
   if (buffer_ != nullptr) {
     switch (buffer_attributes_.MemoryType()) {

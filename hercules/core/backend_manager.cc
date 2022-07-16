@@ -223,7 +223,7 @@ namespace hercules::core {
     TRITONAPI_DECLSPEC TRITONSERVER_Error *
     TRITONBACKEND_BackendMemoryManager(
             TRITONBACKEND_Backend *backend, TRITONBACKEND_MemoryManager **manager) {
-        static TritonMemoryManager gMemoryManager;
+        static hercules_memory_manager gMemoryManager;
         *manager = reinterpret_cast<TRITONBACKEND_MemoryManager *>(&gMemoryManager);
         return nullptr;  // success
     }
@@ -245,14 +245,14 @@ namespace hercules::core {
     }  // extern C
 
 //
-// TritonBackendManager
+// hercules_backend_manager
 //
 
-    static std::weak_ptr<TritonBackendManager> backend_manager_;
+    static std::weak_ptr<hercules_backend_manager> backend_manager_;
     static std::mutex mu_;
 
     Status
-    TritonBackendManager::Create(std::shared_ptr<TritonBackendManager> *manager) {
+    hercules_backend_manager::create(std::shared_ptr<hercules_backend_manager> *manager) {
         std::lock_guard<std::mutex> lock(mu_);
 
         // If there is already a manager then we just use it...
@@ -261,14 +261,14 @@ namespace hercules::core {
             return Status::Success;
         }
 
-        manager->reset(new TritonBackendManager());
+        manager->reset(new hercules_backend_manager());
         backend_manager_ = *manager;
 
         return Status::Success;
     }
 
     Status
-    TritonBackendManager::CreateBackend(
+    hercules_backend_manager::create_backend(
             const std::string &name, const std::string &dir, const std::string &libpath,
             const hercules::common::BackendCmdlineConfig &backend_cmdline_config,
             std::shared_ptr<hercules_backend> *backend) {
@@ -288,7 +288,7 @@ namespace hercules::core {
     }
 
     Status
-    TritonBackendManager::BackendState(
+    hercules_backend_manager::backend_state(
             std::unique_ptr<std::unordered_map<std::string, std::vector<std::string>>> *
             backend_state) {
         std::lock_guard<std::mutex> lock(mu_);

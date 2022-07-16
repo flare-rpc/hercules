@@ -6,7 +6,7 @@
  *****************************************************************/
 
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 #include "metric_family.h"
 #include "metrics.h"
@@ -238,4 +238,4 @@ Metric::Set(double value)
 
 }  // namespace hercules::core
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS

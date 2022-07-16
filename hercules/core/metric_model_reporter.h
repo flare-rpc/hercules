@@ -10,9 +10,9 @@
 #include "status.h"
 #include "hercules/common/model_config.h"
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 #include "prometheus/registry.h"
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 namespace hercules::core {
 
@@ -21,7 +21,7 @@ namespace hercules::core {
 //
 class metric_model_reporter {
  public:
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   static Status Create(
       const std::string& model_name, const int64_t model_version,
       const int device, const hercules::common::MetricTagsMap& model_tags,
@@ -114,7 +114,7 @@ class metric_model_reporter {
   prometheus::Counter* metric_cache_miss_count_;
   prometheus::Counter* metric_cache_miss_lookup_duration_us_;
   prometheus::Counter* metric_cache_miss_insertion_duration_us_;
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 };
 
 }  // namespace hercules::core

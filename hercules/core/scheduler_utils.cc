@@ -73,16 +73,16 @@ CompareWithRequiredEqualInputs(
           // For now being conservative and assuming that content
           // comparison is for shape tensors which are likely to always
           // be in a single buffer.
-          if ((d1->BufferCount() != 1) || (d2->BufferCount() != 1)) {
+          if ((d1->buffer_count() != 1) || (d2->buffer_count() != 1)) {
             return false;
           }
 
           size_t d1_byte_size, d2_byte_size;
           TRITONSERVER_MemoryType d1_memory_type, d2_memory_type;
           int64_t d1_memory_id, d2_memory_id;
-          const char* d1_buffer = d1->BufferAt(
+          const char* d1_buffer = d1->buffer_at(
               0 /* idx */, &d1_byte_size, &d1_memory_type, &d1_memory_id);
-          const char* d2_buffer = d2->BufferAt(
+          const char* d2_buffer = d2->buffer_at(
               0 /* idx */, &d2_byte_size, &d2_memory_type, &d2_memory_id);
 
           // Tensor must be same size and in in CPU memory so that it

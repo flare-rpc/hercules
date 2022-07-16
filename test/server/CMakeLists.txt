@@ -54,7 +54,7 @@ endif() # TRITON_ENABLE_TENSORRT
 #
 # Unit test for DataCompressor
 #
-if(${TRITON_ENABLE_HTTP} OR ${TRITON_ENABLE_METRICS} OR
+if(${TRITON_ENABLE_HTTP} OR ${HERCULES_ENABLE_METRICS} OR
     ${TRITON_ENABLE_SAGEMAKER} OR ${TRITON_ENABLE_VERTEX_AI})
   add_executable(
     data_compressor_test

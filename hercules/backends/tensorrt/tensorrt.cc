@@ -1917,7 +1917,7 @@ ModelInstanceState::Run(
   std::vector<int64_t> input_dims{(int64_t)payload_->total_batch_size_};
   payload_->collector_.reset(new BackendInputCollector(
       payload_->requests_, payload_->request_count_, &payload_->responses_,
-      model_state_->TritonMemoryManager(), model_state_->EnablePinnedInput(),
+      model_state_->hercules_memory_manager(), model_state_->EnablePinnedInput(),
       input_copy_stream_, events_[next_set_].input_ready_,
       prev_input_ready_event, model_state_->GatherKernelBufferThreshold(),
       HostPolicyName().c_str(), zero_copy_support_, coalesce_request_input_));
@@ -2393,7 +2393,7 @@ ModelInstanceState::Run(
   // actual model output and then copy that output from the GPU
   payload_->responder_.reset(new BackendOutputResponder(
       payload_->requests_, payload_->request_count_, &payload_->responses_,
-      model_state_->TritonMemoryManager(), model_state_->MaxBatchSize() > 0,
+      model_state_->hercules_memory_manager(), model_state_->MaxBatchSize() > 0,
       model_state_->EnablePinnedOutput(), output_stream,
       events_[next_set_].output_ready_, zero_copy_support_));
   for (int io_index = 0; io_index < num_expected_bindings_; ++io_index) {
@@ -3792,13 +3792,13 @@ ModelInstanceState::InitializeBatchInputBindings(
       if (io_binding_info.memory_type_ != TRITONSERVER_MEMORY_GPU) {
         // zero-copy is used so the input buffer is direct-writable
         BackendMemory::Create(
-            model_state_->TritonMemoryManager(),
+            model_state_->hercules_memory_manager(),
             BackendMemory::AllocationType::CPU_PINNED_POOL,
             0 /* memory_type_id */, io_binding_info.buffer_,
             io_binding_info.byte_size_, &bm);
       } else {
         BackendMemory::Create(
-            model_state_->TritonMemoryManager(),
+            model_state_->hercules_memory_manager(),
             {BackendMemory::AllocationType::CPU_PINNED_POOL},
             0 /* memory_type_id */, io_binding_info.byte_size_, &bm);
       }

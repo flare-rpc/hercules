@@ -8,7 +8,7 @@
 //
 #pragma once
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 #include <atomic>
 #include <mutex>
@@ -262,4 +262,4 @@ class Metrics {
 
 }  // namespace hercules::core
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS

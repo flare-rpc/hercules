@@ -40,7 +40,7 @@ inference_request::Input::Input(
     const int64_t* shape, const uint64_t dim_count)
     : name_(name), datatype_(datatype),
       original_shape_(shape, shape + dim_count), is_shape_tensor_(false),
-      data_(new MemoryReference), has_host_policy_specific_data_(false)
+      data_(new memory_reference), has_host_policy_specific_data_(false)
 {
 }
 
@@ -92,7 +92,7 @@ inference_request::Input::DataBuffer(
     const size_t idx, const void** base, size_t* byte_size,
     TRITONSERVER_MemoryType* memory_type, int64_t* memory_type_id) const
 {
-  *base = data_->BufferAt(idx, byte_size, memory_type, memory_type_id);
+  *base = data_->buffer_at(idx, byte_size, memory_type, memory_type_id);
 
   return Status::Success;
 }
@@ -139,7 +139,7 @@ inference_request::Input::AppendData(
     int64_t memory_type_id)
 {
   if (byte_size > 0) {
-    std::static_pointer_cast<MemoryReference>(data_)->AddBuffer(
+    std::static_pointer_cast<memory_reference>(data_)->add_buffer(
         static_cast<const char*>(base), byte_size, memory_type, memory_type_id);
   }
 

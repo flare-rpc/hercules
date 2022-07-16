@@ -59,7 +59,7 @@ class HTTPServer {
   event* break_ev_;
 };
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 // Handle HTTP requests to obtain prometheus metrics
 class HTTPMetricsServer : public HTTPServer {
  public:
@@ -83,7 +83,7 @@ class HTTPMetricsServer : public HTTPServer {
   std::shared_ptr<TRITONSERVER_Server> server_;
   re2::RE2 api_regex_;
 };
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 // HTTP API server that implements KFServing community standard inference
 // protocols and extensions used by Triton.

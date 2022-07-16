@@ -145,8 +145,8 @@ class TritonModelInstance {
     std::vector<std::unique_ptr<inference_request>> requests_;
 
     // Placeholder for input data
-    std::unique_ptr<AllocatedMemory> zero_data_;
-    std::unique_ptr<AllocatedMemory> random_data_;
+    std::unique_ptr<allocated_memory> zero_data_;
+    std::unique_ptr<allocated_memory> random_data_;
     std::vector<std::unique_ptr<std::string>> provided_data_;
   };
   std::vector<WarmupData> warmup_samples_;

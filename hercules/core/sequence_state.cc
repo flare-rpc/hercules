@@ -13,13 +13,13 @@
 
 namespace hercules::core {
 
-SequenceState::SequenceState() : data_(new MemoryReference) {}
+SequenceState::SequenceState() : data_(new memory_reference) {}
 
 SequenceState::SequenceState(
     const std::string& name, const hercules::proto::DataType datatype,
     const int64_t* shape, const uint64_t dim_count)
     : name_(name), datatype_(datatype), shape_(shape, shape + dim_count),
-      data_(new MemoryReference)
+      data_(new memory_reference)
 {
 }
 
@@ -27,14 +27,14 @@ SequenceState::SequenceState(
     const std::string& name, const hercules::proto::DataType datatype,
     const std::vector<int64_t>& shape)
     : name_(name), datatype_(datatype), shape_(shape),
-      data_(new MemoryReference)
+      data_(new memory_reference)
 {
 }
 
 Status
-SequenceState::SetData(const std::shared_ptr<Memory>& data)
+SequenceState::SetData(const std::shared_ptr<memory_base>& data)
 {
-  if (data_->TotalByteSize() != 0) {
+  if (data_->total_byte_size() != 0) {
     return Status(
         Status::Code::INVALID_ARG,
         "state '" + name_ + "' already has data, can't overwrite");
@@ -47,14 +47,14 @@ SequenceState::SetData(const std::shared_ptr<Memory>& data)
 Status
 SequenceState::RemoveAllData()
 {
-  data_ = std::make_shared<MemoryReference>();
+  data_ = std::make_shared<memory_reference>();
   return Status::Success;
 }
 
 Status
 SequenceState::SetStringDataToZero()
 {
-  if (Data()->TotalByteSize() % 4 != 0) {
+  if (Data()->total_byte_size() % 4 != 0) {
     return Status(
         Status::Code::INVALID_ARG,
         "The total byte size must be a multiple of 4 when setting the "
@@ -64,10 +64,10 @@ SequenceState::SetStringDataToZero()
   TRITONSERVER_MemoryType memory_type;
   int64_t memory_type_id;
 
-  const std::shared_ptr<MutableMemory>& memory =
-      reinterpret_cast<const std::shared_ptr<MutableMemory>&>(Data());
-  char* buffer = memory->MutableBuffer(&memory_type, &memory_type_id);
-  memset(buffer, 0, Data()->TotalByteSize());
+  const std::shared_ptr<mutable_memory>& memory =
+      reinterpret_cast<const std::shared_ptr<mutable_memory>&>(Data());
+  char* buffer = memory->mutable_buffer(&memory_type, &memory_type_id);
+  memset(buffer, 0, Data()->total_byte_size());
 
   return Status::Success;
 }
@@ -100,23 +100,23 @@ SequenceStates::Initialize(
       }
     }
 
-    std::shared_ptr<AllocatedMemory> data;
+    std::shared_ptr<allocated_memory> data;
     auto initial_state_it = initial_state.find(state_config.input_name());
     if (initial_state_it != initial_state.end()) {
-      data = std::make_shared<AllocatedMemory>(
-          initial_state_it->second.data_->TotalByteSize(),
+      data = std::make_shared<allocated_memory>(
+          initial_state_it->second.data_->total_byte_size(),
           TRITONSERVER_MEMORY_CPU, 0);
 
       TRITONSERVER_MemoryType memory_type;
       int64_t memory_type_id;
-      char* dst_buffer = data->MutableBuffer(&memory_type, &memory_type_id);
+      char* dst_buffer = data->mutable_buffer(&memory_type, &memory_type_id);
       char* initial_state_buffer =
-          initial_state_it->second.data_->MutableBuffer(
+          initial_state_it->second.data_->mutable_buffer(
               &memory_type, &memory_type_id);
 
       memcpy(
           dst_buffer, initial_state_buffer,
-          initial_state_it->second.data_->TotalByteSize());
+          initial_state_it->second.data_->total_byte_size());
     } else {
       size_t state_size;
       if (state.second.data_type() == hercules::proto::DataType::TYPE_STRING) {
@@ -128,7 +128,7 @@ SequenceStates::Initialize(
         state_size =
             hercules::common::GetByteSize(state.second.data_type(), dims);
       }
-      data = std::make_shared<AllocatedMemory>(
+      data = std::make_shared<allocated_memory>(
           state_size, TRITONSERVER_MEMORY_CPU, 0);
     }
 
@@ -217,9 +217,9 @@ SequenceStates::OutputState(
     // Swap the internal memory if the size of the input and output state is
     // equal
 
-    if (output_state_r->Data()->TotalByteSize() ==
-        input_state_r->Data()->TotalByteSize()) {
-      std::shared_ptr<Memory> temp_memory = input_state_r->Data();
+    if (output_state_r->Data()->total_byte_size() ==
+        input_state_r->Data()->total_byte_size()) {
+      std::shared_ptr<memory_base> temp_memory = input_state_r->Data();
       RETURN_IF_ERROR(input_state_r->RemoveAllData());
       RETURN_IF_ERROR(input_state_r->SetData(output_state_r->Data()));
       RETURN_IF_ERROR(output_state_r->RemoveAllData());
@@ -230,14 +230,14 @@ SequenceStates::OutputState(
       TRITONSERVER_MemoryType memory_type;
       int64_t memory_type_id;
 
-      const std::shared_ptr<MutableMemory>& input_memory =
-          reinterpret_cast<const std::shared_ptr<MutableMemory>&>(
+      const std::shared_ptr<mutable_memory>& input_memory =
+          reinterpret_cast<const std::shared_ptr<mutable_memory>&>(
               input_state_r->Data());
 
-      input_memory->MutableBuffer(&memory_type, &memory_type_id);
-      std::shared_ptr<AllocatedMemory> memory =
-          std::make_shared<AllocatedMemory>(
-              output_state_r->Data()->TotalByteSize(), memory_type,
+      input_memory->mutable_buffer(&memory_type, &memory_type_id);
+      std::shared_ptr<allocated_memory> memory =
+          std::make_shared<allocated_memory>(
+              output_state_r->Data()->total_byte_size(), memory_type,
               memory_type_id);
       RETURN_IF_ERROR(input_state_r->RemoveAllData());
       RETURN_IF_ERROR(input_state_r->SetData(output_state_r->Data()));
@@ -285,18 +285,18 @@ SequenceStates::CopyAsNull(const std::shared_ptr<SequenceStates>& from)
               from_input_state_tensor->Shape())));
 
       auto& input_tensor = input_pair.first->second;
-      std::shared_ptr<AllocatedMemory> data;
+      std::shared_ptr<allocated_memory> data;
       if (from_input_state_tensor->DType() ==
           hercules::proto::DataType::TYPE_STRING) {
         // Use all-zero input states for null requests.
         auto element_count =
             hercules::common::GetElementCount(from_input_state_tensor->Shape());
         auto state_size = 4 * element_count;
-        data = std::make_shared<AllocatedMemory>(
+        data = std::make_shared<allocated_memory>(
             state_size, TRITONSERVER_MEMORY_CPU, 0);
       } else {
-        data = std::make_shared<AllocatedMemory>(
-            from_input_state_tensor->Data()->TotalByteSize(),
+        data = std::make_shared<allocated_memory>(
+            from_input_state_tensor->Data()->total_byte_size(),
             TRITONSERVER_MEMORY_CPU, 0);
       }
 

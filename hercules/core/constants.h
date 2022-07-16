@@ -66,7 +66,7 @@ constexpr uint64_t SEQUENCE_IDLE_DEFAULT_MICROSECONDS = 1000 * 1000;
 constexpr size_t STRING_CORRELATION_ID_MAX_LENGTH_BYTES = 128;
 constexpr size_t CUDA_IPC_STRUCT_SIZE = 64;
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 // metric_model_reporter expects a device ID for GPUs, but we reuse this device
 // ID for other metrics as well such as for CPU and Response Cache metrics
 constexpr int METRIC_REPORTER_ID_CPU = -1;

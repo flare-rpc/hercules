@@ -251,7 +251,7 @@ class inference_server {
   }
 
   // Get the Backend Manager
-  const std::shared_ptr<TritonBackendManager>& BackendManager()
+  const std::shared_ptr<hercules_backend_manager>& BackendManager()
   {
     return backend_manager_;
   }
@@ -301,7 +301,7 @@ class inference_server {
 
   std::shared_ptr<RateLimiter> rate_limiter_;
   std::unique_ptr<ModelRepositoryManager> model_repository_manager_;
-  std::shared_ptr<TritonBackendManager> backend_manager_;
+  std::shared_ptr<hercules_backend_manager> backend_manager_;
   std::shared_ptr<RequestResponseCache> response_cache_;
 };
 

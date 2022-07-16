@@ -1563,7 +1563,7 @@ ModelInstanceState::ProcessRequests(
   std::vector<const char*> input_names;
   bool cuda_copy = false;
   BackendInputCollector collector(
-      requests, request_count, &responses, model_state_->TritonMemoryManager(),
+      requests, request_count, &responses, model_state_->hercules_memory_manager(),
       model_state_->EnablePinnedInput(), CudaStream(), nullptr, nullptr, 0,
       HostPolicyName().c_str());
   RESPOND_ALL_AND_SET_TRUE_IF_ERROR(
@@ -1942,7 +1942,7 @@ ModelInstanceState::SetStringInputTensor(
   // element of String data can become valid C string.
   BackendMemory* input_memory;
   RETURN_IF_ERROR(BackendMemory::Create(
-      model_state_->TritonMemoryManager(),
+      model_state_->hercules_memory_manager(),
       {BackendMemory::AllocationType::CPU_PINNED_POOL,
        BackendMemory::AllocationType::CPU},
       0 /* memory_type_id */, total_byte_size + 1, &input_memory));
@@ -2155,7 +2155,7 @@ ModelInstanceState::ReadOutputTensors(
     std::vector<TRITONBACKEND_Response*>* responses)
 {
   BackendOutputResponder responder(
-      requests, request_count, responses, model_state_->TritonMemoryManager(),
+      requests, request_count, responses, model_state_->hercules_memory_manager(),
       model_state_->MaxBatchSize() > 0, model_state_->EnablePinnedInput(),
       CudaStream());
 

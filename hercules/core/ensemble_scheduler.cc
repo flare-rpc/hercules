@@ -116,10 +116,10 @@ struct Step {
 
   std::mutex output_mtx_;
   // Different output map to avoid address conflict from different memory types
-  std::unordered_map<uintptr_t, std::shared_ptr<AllocatedMemory>>
+  std::unordered_map<uintptr_t, std::shared_ptr<allocated_memory>>
       cpu_output_map_;
   std::unordered_map<
-      int64_t, std::unordered_map<uintptr_t, std::shared_ptr<AllocatedMemory>>>
+      int64_t, std::unordered_map<uintptr_t, std::shared_ptr<allocated_memory>>>
       gpu_output_map_;
   std::set<std::pair<std::string, IterationCount>> updated_tensors_;
   uint32_t response_flags_;
@@ -501,10 +501,10 @@ EnsembleContext::ResponseAlloc(
   *buffer = nullptr;
   *buffer_userp = nullptr;
 
-  auto allocated_buffer = std::make_shared<AllocatedMemory>(
+  auto allocated_buffer = std::make_shared<allocated_memory>(
       byte_size, preferred_memory_type, preferred_memory_type_id);
 
-  auto mutable_buffer = allocated_buffer->MutableBuffer(
+  auto mutable_buffer = allocated_buffer->mutable_buffer(
       allocated_memory_type, allocated_memory_type_id);
   if ((mutable_buffer != nullptr) || (byte_size == 0)) {
     if (byte_size != 0) {
@@ -1115,7 +1115,7 @@ EnsembleContext::CheckAndSetEnsembleOutput(
     TRITONSERVER_MemoryType dst_memory_type;
     int64_t dst_memory_type_id;
     size_t content_size;
-    tensor.data_->Data()->BufferAt(
+    tensor.data_->Data()->buffer_at(
         0, &content_size, &dst_memory_type, &dst_memory_type_id);
 
     void* buffer;
@@ -1136,7 +1136,7 @@ EnsembleContext::CheckAndSetEnsembleOutput(
     TRITONSERVER_MemoryType src_memory_type;
     int64_t src_memory_type_id;
 
-    const char* content = tensor.data_->Data()->BufferAt(
+    const char* content = tensor.data_->Data()->buffer_at(
         content_idx, &content_size, &src_memory_type, &src_memory_type_id);
     bool cuda_used = false;
     while (content != nullptr) {
@@ -1148,7 +1148,7 @@ EnsembleContext::CheckAndSetEnsembleOutput(
 
       content_offset += content_size;
       content_idx++;
-      content = tensor.data_->Data()->BufferAt(
+      content = tensor.data_->Data()->buffer_at(
           content_idx, &content_size, &src_memory_type, &src_memory_type_id);
     }
 
@@ -1295,13 +1295,13 @@ EnsembleScheduler::EnsembleScheduler(
   }
 #endif  // HERCULES_ENABLE_GPU
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (Metrics::Enabled()) {
     metric_model_reporter::Create(
         config.name(), 1, METRIC_REPORTER_ID_CPU, config.metric_tags(),
         &metric_reporter_);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
   // Set 'info_' based on 'config'
   info_.reset(new EnsembleInfo());

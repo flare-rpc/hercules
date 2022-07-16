@@ -121,7 +121,7 @@ inference_server::Init()
     return status;
   }
 
-  status = TritonBackendManager::Create(&backend_manager_);
+  status = hercules_backend_manager::create(&backend_manager_);
   if (!status.IsOk()) {
     ready_state_ = ServerReadyState::SERVER_FAILED_TO_INITIALIZE;
     return status;
@@ -550,7 +550,7 @@ inference_server::PrintBackendAndModelSummary()
 
   std::unique_ptr<std::unordered_map<std::string, std::vector<std::string>>>
       backend_state;
-  RETURN_IF_ERROR(backend_manager_->BackendState(&backend_state));
+  RETURN_IF_ERROR(backend_manager_->backend_state(&backend_state));
 
   for (const auto& backend_pair : *backend_state) {
     std::vector<std::string> backend_record;

@@ -54,14 +54,14 @@ dynamic_batch_scheduler::dynamic_batch_scheduler(
   // caching enabled for model to utilize response cache.
   response_cache_enabled_ =
       (model_->Server()->ResponseCacheEnabled() && response_cache_enable);
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   // Initialize metric reporter for cache statistics if cache enabled
   if (response_cache_enabled_) {
     metric_model_reporter::Create(
         model_->Name(), model_->Version(), METRIC_REPORTER_ID_RESPONSE_CACHE,
         model_->Config().metric_tags(), &reporter_);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
   max_preferred_batch_size_ = 0;
   for (const auto size : preferred_batch_sizes_) {
     max_preferred_batch_size_ =

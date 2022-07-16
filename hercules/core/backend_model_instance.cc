@@ -126,7 +126,7 @@ namespace hercules::core {
               device_id_(device_id), host_policy_(host_policy),
               host_policy_message_(host_policy_message), profile_names_(profile_names),
               passive_(passive), secondary_devices_(secondary_devices), state_(nullptr) {
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
         if (Metrics::Enabled()) {
           // Use an ID in the metric only for GPU instances. Otherwise use
           // METRIC_REPORTER_ID_CPU to indicate no device should be reported in the
@@ -138,7 +138,7 @@ namespace hercules::core {
               model_->Name(), model_->Version(), id, model_->Config().metric_tags(),
               &reporter_);
         }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
     }
 
     TritonModelInstance::~TritonModelInstance() {
@@ -386,17 +386,17 @@ namespace hercules::core {
             // Create buffers for synthetic data
             TRITONSERVER_MemoryType type;
             int64_t type_id;
-            warmup_data.zero_data_.reset(new AllocatedMemory(
+            warmup_data.zero_data_.reset(new allocated_memory(
                     max_zero_byte_size, TRITONSERVER_MEMORY_CPU_PINNED /* memory_type */,
                     0 /* memory_type_id */));
-            char *zero_buffer = warmup_data.zero_data_->MutableBuffer(&type, &type_id);
+            char *zero_buffer = warmup_data.zero_data_->mutable_buffer(&type, &type_id);
             memset(zero_buffer, 0, max_zero_byte_size);
 
-            warmup_data.random_data_.reset(new AllocatedMemory(
+            warmup_data.random_data_.reset(new allocated_memory(
                     max_random_byte_size, TRITONSERVER_MEMORY_CPU_PINNED /* memory_type */,
                     0 /* memory_type_id */));
             char *random_buffer =
-                    warmup_data.random_data_->MutableBuffer(&type, &type_id);
+                    warmup_data.random_data_->mutable_buffer(&type, &type_id);
             for (int64_t offset = 0; offset < max_random_byte_size; offset++) {
                 random_buffer[offset] = rand();
             }

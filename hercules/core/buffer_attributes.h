@@ -16,13 +16,13 @@ namespace hercules::core {
     //
     // A class to hold information about the buffer allocation.
     //
-    class BufferAttributes {
+    class buffer_attributes {
     public:
-        BufferAttributes(
+        buffer_attributes(
                 size_t byte_size, TRITONSERVER_MemoryType memory_type,
                 int64_t memory_type_id, char cuda_ipc_handle[64]);
 
-        BufferAttributes() {
+        buffer_attributes() {
             memory_type_ = TRITONSERVER_MEMORY_CPU;
             memory_type_id_ = 0;
             cuda_ipc_handle_.reserve(64);

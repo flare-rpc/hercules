@@ -41,9 +41,9 @@
 #include "hercules/common/logging.h"
 #include "hercules/core/tritonserver.h"
 
-#if defined(TRITON_ENABLE_HTTP) || defined(TRITON_ENABLE_METRICS)
+#if defined(TRITON_ENABLE_HTTP) || defined(HERCULES_ENABLE_METRICS)
 #include "http_server.h"
-#endif  // TRITON_ENABLE_HTTP|| TRITON_ENABLE_METRICS
+#endif  // TRITON_ENABLE_HTTP|| HERCULES_ENABLE_METRICS
 #ifdef TRITON_ENABLE_SAGEMAKER
 #include "sagemaker_server.h"
 #endif  // TRITON_ENABLE_SAGEMAKER
@@ -111,7 +111,7 @@ grpc_compression_level grpc_response_compression_level_ =
 triton::server::KeepAliveOptions grpc_keepalive_options_;
 #endif  // TRITON_ENABLE_GRPC
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 std::unique_ptr<triton::server::HTTPServer> metrics_service_;
 bool allow_metrics_ = true;
 int32_t metrics_port_ = 8002;
@@ -121,7 +121,7 @@ float metrics_interval_ms_ = 2000;
 // Need to set http address for metrics when http service is disable.
 std::string http_address_ = "0.0.0.0";
 #endif  // NOT TRITON_ENABLE_HTTP
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 #ifdef HERCULES_ENABLE_TRACING
 std::string trace_filepath_;
@@ -261,12 +261,12 @@ enum OptionId {
   OPTION_VERTEX_AI_THREAD_COUNT,
   OPTION_VERTEX_AI_DEFAULT_MODEL,
 #endif  // TRITON_ENABLE_VERTEX_AI
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   OPTION_ALLOW_METRICS,
   OPTION_ALLOW_GPU_METRICS,
   OPTION_METRICS_PORT,
   OPTION_METRICS_INTERVAL_MS,
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 #ifdef HERCULES_ENABLE_TRACING
   OPTION_TRACE_FILEPATH,
   OPTION_TRACE_LEVEL,
@@ -465,7 +465,7 @@ std::vector<Option> options_
        Option::ArgStr,
        "The name of the model to use for single-model inference requests."},
 #endif  // TRITON_ENABLE_VERTEX_AI
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
       {OPTION_ALLOW_METRICS, "allow-metrics", Option::ArgBool,
        "Allow the server to provide prometheus metrics."},
       {OPTION_ALLOW_GPU_METRICS, "allow-gpu-metrics", Option::ArgBool,
@@ -476,7 +476,7 @@ std::vector<Option> options_
       {OPTION_METRICS_INTERVAL_MS, "metrics-interval-ms", Option::ArgFloat,
        "Metrics will be collected once every <metrics-interval-ms> "
        "milliseconds. Default is 2000 milliseconds."},
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 #ifdef HERCULES_ENABLE_TRACING
       {OPTION_TRACE_FILEPATH, "trace-file", Option::ArgStr,
        "Set the file where trace output will be saved. If --trace-log-frequency"
@@ -627,11 +627,11 @@ CheckPortCollision()
     ports.emplace_back("GRPC", grpc_address_, grpc_port_, false, -1, -1);
   }
 #endif  // TRITON_ENABLE_GRPC
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (allow_metrics_) {
     ports.emplace_back("metrics", http_address_, metrics_port_, false, -1, -1);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 #ifdef TRITON_ENABLE_SAGEMAKER
   if (allow_sagemaker_) {
     ports.emplace_back(
@@ -731,7 +731,7 @@ StartHttpService(
 }
 #endif  // TRITON_ENABLE_HTTP
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 TRITONSERVER_Error*
 StartMetricsService(
     std::unique_ptr<triton::server::HTTPServer>* service,
@@ -748,7 +748,7 @@ StartMetricsService(
 
   return err;
 }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 #ifdef TRITON_ENABLE_SAGEMAKER
 TRITONSERVER_Error*
@@ -861,7 +861,7 @@ StartEndpoints(
   }
 #endif  // TRITON_ENABLE_VERTEX_AI
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   // Enable metrics endpoint if requested...
   if (allow_metrics_) {
     TRITONSERVER_Error* err = StartMetricsService(&metrics_service_, server);
@@ -870,7 +870,7 @@ StartEndpoints(
       return false;
     }
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
   return true;
 }
@@ -904,7 +904,7 @@ StopEndpoints()
   }
 #endif  // TRITON_ENABLE_GRPC
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (metrics_service_) {
     TRITONSERVER_Error* err = metrics_service_->Stop();
     if (err != nullptr) {
@@ -914,7 +914,7 @@ StopEndpoints()
 
     metrics_service_.reset();
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 #ifdef TRITON_ENABLE_SAGEMAKER
   if (sagemaker_service_) {
@@ -1342,11 +1342,11 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   std::string vertex_ai_default_model = vertex_ai_default_model_;
 #endif  // TRITON_ENABLE_VERTEX_AI
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   int32_t metrics_port = metrics_port_;
   bool allow_gpu_metrics = true;
   float metrics_interval_ms = metrics_interval_ms_;
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 #ifdef HERCULES_ENABLE_TRACING
   std::string trace_filepath = trace_filepath_;
@@ -1555,7 +1555,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
         break;
 #endif  // TRITON_ENABLE_GRPC
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
       case OPTION_ALLOW_METRICS:
         allow_metrics_ = ParseBoolOption(optarg);
         break;
@@ -1568,7 +1568,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
       case OPTION_METRICS_INTERVAL_MS:
         metrics_interval_ms = ParseIntOption(optarg);
         break;
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 #ifdef HERCULES_ENABLE_TRACING
       case OPTION_TRACE_FILEPATH:
@@ -1741,11 +1741,11 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   grpc_response_compression_level_ = grpc_response_compression_level;
 #endif  // TRITON_ENABLE_GRPC
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   metrics_port_ = metrics_port;
   allow_gpu_metrics = allow_metrics_ ? allow_gpu_metrics : false;
   metrics_interval_ms_ = metrics_interval_ms;
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
 #ifdef HERCULES_ENABLE_TRACING
   trace_filepath_ = trace_filepath;
@@ -1863,7 +1863,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
   }
 #endif  // TRITON_ENABLE_LOGGING
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   FAIL_IF_ERR(
       TRITONSERVER_ServerOptionsSetMetrics(loptions, allow_metrics_),
       "setting metrics enable");
@@ -1874,7 +1874,7 @@ Parse(TRITONSERVER_ServerOptions** server_options, int argc, char** argv)
       TRITONSERVER_ServerOptionsSetMetricsInterval(
           loptions, metrics_interval_ms_),
       "setting metrics interval");
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 
   FAIL_IF_ERR(
       TRITONSERVER_ServerOptionsSetBackendDirectory(

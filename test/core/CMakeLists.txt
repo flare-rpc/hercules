@@ -68,7 +68,7 @@ set(
 )
 
 #
-# Memory
+# memory_base
 #
 set(
   MEMORY_SRCS
@@ -198,7 +198,7 @@ install(
 )
 
 #
-# Unit test for Memory
+# Unit test for memory_base
 #
 if(${HERCULES_ENABLE_GPU})
   add_executable(
@@ -427,7 +427,7 @@ install(
 )
 
 
-if(${TRITON_ENABLE_METRICS})
+if(${HERCULES_ENABLE_METRICS})
   #
   # Unit test for Generic Metrics API
   #
@@ -457,7 +457,7 @@ if(${TRITON_ENABLE_METRICS})
     metrics_api_test 
     PRIVATE
       TRITON_ENABLE_LOGGING=1
-      TRITON_ENABLE_METRICS=1
+      HERCULES_ENABLE_METRICS=1
   )
 
   target_link_libraries(
@@ -476,7 +476,7 @@ if(${TRITON_ENABLE_METRICS})
     TARGETS metrics_api_test
     RUNTIME DESTINATION bin
   )
-endif() # TRITON_ENABLE_METRICS
+endif() # HERCULES_ENABLE_METRICS
 
 #
 # Unit test for Model Repository Register API

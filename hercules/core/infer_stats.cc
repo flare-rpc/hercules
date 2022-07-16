@@ -27,11 +27,11 @@ inference_stats_aggregator::UpdateFailure(
   infer_stats_.failure_count_++;
   infer_stats_.failure_duration_ns_ += (request_end_ns - request_start_ns);
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (metric_reporter != nullptr) {
     metric_reporter->MetricInferenceFailure().Increment(1);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 }
 
 void
@@ -77,7 +77,7 @@ inference_stats_aggregator::UpdateSuccessWithDuration(
   infer_stats_.compute_infer_duration_ns_ += compute_infer_duration_ns;
   infer_stats_.compute_output_duration_ns_ += compute_output_duration_ns;
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (metric_reporter != nullptr) {
     metric_reporter->MetricInferenceSuccess().Increment(1);
     metric_reporter->MetricInferenceCount().Increment(batch_size);
@@ -92,7 +92,7 @@ inference_stats_aggregator::UpdateSuccessWithDuration(
     metric_reporter->MetricInferenceComputeOutputDuration().Increment(
         compute_output_duration_ns / 1000);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 }
 
 // Currently cache hits will not go to the inference backend where metrics
@@ -116,7 +116,7 @@ inference_stats_aggregator::UpdateSuccessCacheHit(
   infer_stats_.cache_hit_count_++;
   infer_stats_.cache_hit_lookup_duration_ns_ += cache_hit_lookup_duration_ns;
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (metric_reporter != nullptr) {
     metric_reporter->MetricInferenceSuccess().Increment(1);
     metric_reporter->MetricInferenceRequestDuration().Increment(
@@ -127,7 +127,7 @@ inference_stats_aggregator::UpdateSuccessCacheHit(
     metric_reporter->MetricCacheHitLookupDuration().Increment(
         cache_hit_lookup_duration_ns / 1000);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 }
 
 // Cache misses will go to the inference backend where metrics are typically
@@ -150,7 +150,7 @@ inference_stats_aggregator::UpdateSuccessCacheMiss(
   infer_stats_.cache_miss_insertion_duration_ns_ +=
       cache_miss_insertion_duration_ns;
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (metric_reporter != nullptr) {
     // Add cache insertion time to request duration since insertion
     // happens after inference backend sets the request duration, and
@@ -164,7 +164,7 @@ inference_stats_aggregator::UpdateSuccessCacheMiss(
     metric_reporter->MetricCacheMissInsertionDuration().Increment(
         cache_miss_insertion_duration_ns / 1000);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 }
 
 void
@@ -211,11 +211,11 @@ inference_stats_aggregator::UpdateInferBatchStatsWithDuration(
   it->second.compute_infer_duration_ns_ += compute_infer_duration_ns;
   it->second.compute_output_duration_ns_ += compute_output_duration_ns;
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
   if (metric_reporter != nullptr) {
     metric_reporter->MetricInferenceExecutionCount().Increment(1);
   }
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS
 }
 
 #endif  // HERCULES_ENABLE_STATS

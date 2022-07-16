@@ -77,7 +77,7 @@ endif()
 
 # libevent
 #
-if(${TRITON_ENABLE_HTTP} OR ${TRITON_ENABLE_METRICS} OR
+if(${TRITON_ENABLE_HTTP} OR ${HERCULES_ENABLE_METRICS} OR
     ${TRITON_ENABLE_SAGEMAKER} OR ${TRITON_ENABLE_VERTEX_AI})
   find_package(Libevent CONFIG REQUIRED)
   message(STATUS "Using libevent ${Libevent_VERSION}")
@@ -176,7 +176,7 @@ if(${HERCULES_ENABLE_GPU})
   )
 endif() # HERCULES_ENABLE_GPU
 
-if(${TRITON_ENABLE_HTTP} OR ${TRITON_ENABLE_METRICS} OR
+if(${TRITON_ENABLE_HTTP} OR ${HERCULES_ENABLE_METRICS} OR
     ${TRITON_ENABLE_SAGEMAKER} OR ${TRITON_ENABLE_VERTEX_AI})
   target_include_directories(
     main
@@ -226,12 +226,12 @@ if(${TRITON_ENABLE_LOGGING})
   )
 endif() # TRITON_ENABLE_LOGGING
 
-if(${TRITON_ENABLE_METRICS})
+if(${HERCULES_ENABLE_METRICS})
   target_compile_definitions(
     main
-    PRIVATE TRITON_ENABLE_METRICS=1
+    PRIVATE HERCULES_ENABLE_METRICS=1
   )
-endif() # TRITON_ENABLE_METRICS
+endif() # HERCULES_ENABLE_METRICS
 
 if(${HERCULES_ENABLE_STATS})
   target_compile_definitions(
@@ -347,12 +347,12 @@ if(${TRITON_ENABLE_GRPC})
     )
   endif() # HERCULES_ENABLE_GPU
 
-  if(${TRITON_ENABLE_METRICS})
+  if(${HERCULES_ENABLE_METRICS})
     target_compile_definitions(
       grpc-endpoint-library
-      PRIVATE TRITON_ENABLE_METRICS=1
+      PRIVATE HERCULES_ENABLE_METRICS=1
     )
-  endif() # TRITON_ENABLE_METRICS
+  endif() # HERCULES_ENABLE_METRICS
 
   if(${TRITON_ENABLE_LOGGING})
     target_compile_definitions(
@@ -392,7 +392,7 @@ endif() # TRITON_ENABLE_GRPC
 # http endpoint
 #
 if(${TRITON_ENABLE_HTTP}
-      OR ${TRITON_ENABLE_METRICS}
+      OR ${HERCULES_ENABLE_METRICS}
       OR ${TRITON_ENABLE_SAGEMAKER}
       OR ${TRITON_ENABLE_VERTEX_AI})
   find_package(libevhtp CONFIG REQUIRED)
@@ -508,12 +508,12 @@ if(${TRITON_ENABLE_HTTP}
     )
   endif() # TRITON_ENABLE_VERTEX_AI
 
-  if(${TRITON_ENABLE_METRICS})
+  if(${HERCULES_ENABLE_METRICS})
     target_compile_definitions(
       http-endpoint-library
-      PRIVATE TRITON_ENABLE_METRICS=1
+      PRIVATE HERCULES_ENABLE_METRICS=1
     )
-  endif() # TRITON_ENABLE_METRICS
+  endif() # HERCULES_ENABLE_METRICS
 
   if(${TRITON_ENABLE_LOGGING})
     target_compile_definitions(
@@ -566,7 +566,7 @@ if(${TRITON_ENABLE_HTTP}
     PRIVATE
       http-endpoint-library
   )
-endif() # TRITON_ENABLE_HTTP || TRITON_ENABLE_METRICS ||
+endif() # TRITON_ENABLE_HTTP || HERCULES_ENABLE_METRICS ||
         # TRITON_ENABLE_SAGEMAKER || TRITON_ENABLE_VERTEX_AI
 
 # tracing
@@ -606,12 +606,12 @@ if(${HERCULES_ENABLE_TRACING})
     )
   endif() # HERCULES_ENABLE_GPU
 
-  if(${TRITON_ENABLE_METRICS})
+  if(${HERCULES_ENABLE_METRICS})
     target_compile_definitions(
       tracing-library
-      PRIVATE TRITON_ENABLE_METRICS=1
+      PRIVATE HERCULES_ENABLE_METRICS=1
     )
-  endif() # TRITON_ENABLE_METRICS
+  endif() # HERCULES_ENABLE_METRICS
 
   if(${TRITON_ENABLE_LOGGING})
     target_compile_definitions(

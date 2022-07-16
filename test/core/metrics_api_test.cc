@@ -6,7 +6,7 @@
  *****************************************************************/
 
 
-#ifdef TRITON_ENABLE_METRICS
+#ifdef HERCULES_ENABLE_METRICS
 
 #include <iostream>
 #include <thread>
@@ -257,4 +257,4 @@ main(int argc, char** argv)
   return RUN_ALL_TESTS();
 }
 
-#endif  // TRITON_ENABLE_METRICS
+#endif  // HERCULES_ENABLE_METRICS

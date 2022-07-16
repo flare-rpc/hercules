@@ -1431,7 +1431,7 @@ TRITONSERVER_DECLSPEC TRITONSERVER_Error* TRITONSERVER_BufferAttributesDelete(
 /// Set the memory type id field of the buffer attributes.
 ///
 /// \param attr The buffer attributes object.
-/// \param memory_type_id Memory type id to assign to the buffer attributes
+/// \param memory_type_id memory_base type id to assign to the buffer attributes
 /// object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
@@ -1441,7 +1441,7 @@ TRITONSERVER_BufferAttributesSetMemoryTypeId(
 /// Set the memory type field of the buffer attributes.
 ///
 /// \param attr The buffer attributes object.
-/// \param memory_type Memory type to assign to the buffer attributes object.
+/// \param memory_type memory_base type to assign to the buffer attributes object.
 /// \return a TRITONSERVER_Error indicating success or failure.
 TRITONSERVER_DECLSPEC TRITONSERVER_Error*
 TRITONSERVER_BufferAttributesSetMemoryType(

@@ -44,11 +44,11 @@ class SequenceState {
   std::vector<int64_t>* MutableShape() { return &shape_; }
 
   // The data for this shape.
-  std::shared_ptr<Memory>& Data() { return data_; }
+  std::shared_ptr<memory_base>& Data() { return data_; }
 
   // Set the data for this shape. Error if state already has some
   // data.
-  Status SetData(const std::shared_ptr<Memory>& data);
+  Status SetData(const std::shared_ptr<memory_base>& data);
 
   // Sets state tensors that have type string to zero
   Status SetStringDataToZero();
@@ -72,7 +72,7 @@ class SequenceState {
   hercules::proto::DataType datatype_;
   std::vector<int64_t> shape_;
   std::vector<int64_t> batch_dim_;
-  std::shared_ptr<Memory> data_;
+  std::shared_ptr<memory_base> data_;
   std::function<Status()> state_update_cb_ = []() {
     // By default calling the TRITONBACKEND_StateUpdate will return an error.
     return Status(
@@ -91,7 +91,7 @@ class SequenceStates {
     }
 
     std::string state_init_name_;
-    std::shared_ptr<MutableMemory> data_;
+    std::shared_ptr<mutable_memory> data_;
   };
 
   // Initialize the state tensors according to the state model configuration.
